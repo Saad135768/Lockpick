@@ -13,7 +13,7 @@ const HomeRegister = () => {
     <div className={classes.HomeRegisterHolder}>
        <Container>
        <div className={classes.HomeRegisterBg}>
-       <Parallax x={[-20, 20]}>
+       <Parallax x={[-10,9]}>
      <div className={classes.HomeRegisterImage}>
      <img src="../../static/images/homepage/register.png"/>
 </div>
