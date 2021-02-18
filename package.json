@@ -2,7 +2,7 @@
   "name": "lock-pick",
   "version": "0.1.0",
   "description": "",
-  "main": "./tsc_output/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
