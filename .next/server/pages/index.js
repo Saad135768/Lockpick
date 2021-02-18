@@ -88,17 +88,10 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "/WcL":
-/***/ (function(module, exports) {
-
-module.exports = require("react-icons/ai");
-
-/***/ }),
 
 /***/ "/jkW":
 /***/ (function(module, exports, __webpack_require__) {
@@ -114,14 +107,6 @@ const TEST_ROUTE = /\/\[[^/]+?\](?=\/|$)/;
 function isDynamicRoute(route) {
   return TEST_ROUTE.test(route);
 }
-
-/***/ }),
-
-/***/ 0:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("1TCz");
-
 
 /***/ }),
 
@@ -184,910 +169,11 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "1TCz":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+module.exports = __webpack_require__("RNiq");
 
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__("F5FC");
-
-// EXTERNAL MODULE: ./styles/globals.css
-var globals = __webpack_require__("zPlV");
-
-// EXTERNAL MODULE: external "little-state-machine"
-var external_little_state_machine_ = __webpack_require__("ItoS");
-
-// EXTERNAL MODULE: external "next/head"
-var head_ = __webpack_require__("xnum");
-var head_default = /*#__PURE__*/__webpack_require__.n(head_);
-
-// EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__("cDcd");
-var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
-
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__("YFqc");
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-
-// EXTERNAL MODULE: external "react-burger-menu"
-var external_react_burger_menu_ = __webpack_require__("rqBl");
-
-// EXTERNAL MODULE: external "next/router"
-var router_ = __webpack_require__("4Q3z");
-
-// EXTERNAL MODULE: external "@material-ui/core"
-var core_ = __webpack_require__("KKbo");
-
-// EXTERNAL MODULE: ./common/Button/index.js + 1 modules
-var Button = __webpack_require__("J3jm");
-
-// EXTERNAL MODULE: external "@material-ui/core/styles"
-var styles_ = __webpack_require__("9Pu4");
-
-// CONCATENATED MODULE: ./modules/MobileMenu/style.js
-
-const useStyles = Object(styles_["makeStyles"])(() => ({
-  MobileMenuContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginLeft: 15,
-    ' & button': {
-      '@media (max-width:768px)': {
-        padding: '10px 15px',
-        marginLeft: 15
-      },
-      '@media (max-width:414px)': {
-        padding: '10px 10px',
-        marginLeft: 15
-      },
-      '@media (max-width:375px)': {
-        padding: '10px 6px',
-        marginLeft: 15
-      }
-    }
-  },
-  LoginText: {
-    '@media (max-width:414px)': {
-      padding: '0 20px'
-    }
-  },
-  Logo: {
-    marginLeft: '0',
-    ' & img': {
-      width: '100%',
-      '@media (max-width:768px)': {
-        width: '80%',
-        padding: '0px 60px',
-        paddingLeft: 0,
-        margin: '14px 0'
-      }
-    }
-  },
-  MobileMenuHolder: {
-    position: 'relative',
-    boxShadow: '0px 3px 6px #00000014',
-    width: '100%',
-    background: 'transparent',
-    zIndex: '99',
-    top: '0px',
-    direction: 'ltr',
-    ' & .bm-burger-button': {
-      position: 'absolute',
-      width: '28px',
-      height: '26px',
-      right: '17px',
-      top: '23px'
-    },
-    ' & span.bm-burger-bars': {
-      height: '8% !important'
-    },
-    ' & .bm-burger-bars': {
-      background: '#FFA62F'
-    },
-    ' & .bm-burger-bars-hover': {
-      background: '#3680d6'
-    },
-    ' & .bm-cross-button': {
-      height: '24px',
-      width: '24px',
-      top: '20px !important',
-      right: '40px !important',
-      ' & button#react-burger-cross-btn:focus': {
-        outline: 0,
-        background: 'transparent'
-      }
-    },
-    ' & .bm-cross': {},
-    ' & .bm-menu-wrap': {
-      position: 'fixed',
-      height: '100%',
-      top: '0px'
-    },
-    ' & .bm-menu ': {
-      background: '#2b323c',
-      padding: '60px 10px',
-      fontSize: '1.15em',
-      '& a': {
-        color: '#fff',
-        display: ' block',
-        textAlign: 'left',
-        marginBottom: 17
-      },
-      fontSize: '1.15em',
-      '& ul': {
-        padding: '0px'
-      }
-    },
-    ' & .bm-morph-shape': {
-      fill: '#2b323c'
-    },
-    ' & .bm-item-list': {
-      color: '#b8b7ad',
-      padding: '0.8em',
-      marginTop: '21px'
-    },
-    ' & .bm-item': {
-      display: 'inline-block',
-      padding: '0',
-      outline: '0'
-    },
-    ' & .bm-overlay': {
-      background: 'rgba(0, 0, 0, 0.3)',
-      top: '0'
-    },
-    ' & li': {
-      listStyle: 'none',
-      ' & a': {
-        color: '#fff'
-      }
-    },
-    bmItem: {
-      display: 'inline-block'
-    },
-    bmOverlay: {
-      background: 'rgba(0, 0, 0, 0.3)'
-    },
-    '@media (min-width:769px)': {
-      display: 'none'
-    },
-    '& img': {}
-  },
-  MenuIcon: {
-    margin: '10px 0',
-    marginRight: '40px',
-    display: 'flex',
-    fontSize: '24px'
-  },
-  LoginIcon: {
-    '& img': {
-      color: '#212331',
-      width: '30px',
-      marginTop: 6
-    }
-  },
-  CartIcon: {
-    marginTop: '20px',
-    fontSize: '27px',
-    marginLeft: '10px',
-    '& :hover': {
-      color: '#f16e21',
-      transition: '0.3s',
-      cursor: 'pointer'
-    }
-  },
-  activeItemMenu: {
-    color: '#fff',
-    borderBottom: '1px solid #fff',
-    paddingBottom: '10px',
-    display: ' block'
-  },
-  searchIcon: {
-    width: '100%',
-    height: '50px',
-    lineHeight: '60px',
-    background: '#f16e21',
-    borderRadius: '4px',
-    color: '#fff',
-    textAlign: 'center',
-    marginTop: '30px'
-  },
-  inputRoot: {
-    fontSize: '14px',
-    paddingLeft: '10px',
-    borderRadius: '4px',
-    marginTop: '30px',
-    marginLeft: '4px',
-    height: '50px',
-    marginBottom: '30px',
-    width: '100%',
-    border: '1px solid #eff2f7',
-    '& ::placeholder': {
-      fontSize: '14px'
-    },
-    '& ::-webkit-input-placeholder': {
-      fontSize: '15px'
-    },
-    '& ::-ms-input-placeholder': {
-      fontSize: '15px'
-    },
-    '& :placeholder': {
-      fontSize: '15px'
-    }
-  },
-  inputInput: {
-    padding: '10px',
-    paddingLeft: '10px',
-    textAlign: 'right',
-    width: '100%'
-  }
-}));
-/* harmony default export */ var style = (useStyles);
-// CONCATENATED MODULE: ./modules/MobileMenu/index.js
-
-
-
-/* eslint-disable no-unused-vars */
-
-
-
-
-
-
-
-
-const MobileMenu = () => {
-  const router = Object(router_["useRouter"])();
-  const [isOpen, setIsOpen] = external_react_default.a.useState(false);
-  Object(external_react_["useEffect"])(() => {
-    setIsOpen(false);
-  }, [router.query]);
-  const classes = style();
-  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-    className: classes.MobileMenuHolder,
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(core_["Container"], {
-      maxWidth: "lg",
-      children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-        className: classes.MobileMenuContent,
-        children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-          className: classes.Logo,
-          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-            as: '/',
-            href: "/",
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-              href: "/",
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-                src: "../../static/images/logo.png",
-                alt: "est"
-              })
-            })
-          })
-        }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-          className: classes.MenuIcon,
-          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {})
-        })]
-      })
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_react_burger_menu_["stack"], {
-      customCrossIcon: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-        src: "../../static/images/cancel.svg"
-      }),
-      isOpen: isOpen,
-      onStateChange: e => {
-        setIsOpen(e.isOpen);
-      },
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(core_["Grid"], {
-        item: true,
-        lg: 9,
-        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("ul", {
-          className: classes.centermenu,
-          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              as: '#',
-              href: "#",
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                href: "#",
-                children: "Home"
-              })
-            })
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              as: '#',
-              href: "#",
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                href: "#",
-                children: "Registrations"
-              })
-            })
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              as: '#',
-              href: "#",
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                href: "#",
-                children: "News"
-              })
-            })
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              as: '#',
-              href: "#",
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                href: "#",
-                children: "Contact Us"
-              })
-            })
-          })]
-        })
-      })
-    })]
-  });
-};
-
-/* harmony default export */ var modules_MobileMenu = (MobileMenu);
-// EXTERNAL MODULE: external "@material-ui/core/Grid"
-var Grid_ = __webpack_require__("JQ2V");
-var Grid_default = /*#__PURE__*/__webpack_require__.n(Grid_);
-
-// EXTERNAL MODULE: external "@material-ui/core/Container"
-var Container_ = __webpack_require__("Uynj");
-var Container_default = /*#__PURE__*/__webpack_require__.n(Container_);
-
-// CONCATENATED MODULE: ./modules/Navbar/style.js
-
-const style_useStyles = Object(styles_["makeStyles"])(() => ({
-  BasicButton: {
-    color: '#fff',
-    '& a': {
-      color: '#fff'
-    }
-  },
-  navbarContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'left',
-    height: '100%'
-  },
-  NavbaTopImage: {
-    '& img': {
-      height: 45,
-      width: '100%',
-      objectFit: 'cover',
-      marginBottom: 10
-    }
-  },
-  centermenu: {
-    color: 'white',
-    marginTop: '35px',
-    textTransform: 'uppercase',
-    fontFamily: 'Poppins-Light',
-    padding: '0',
-    width: '100%',
-    marginLeft: 80,
-    textAlign: 'left',
-    '& li': {
-      color: '#ffa62f',
-      display: 'inline-block',
-      padding: '0'
-    },
-    '& a': {
-      fontSize: '20px',
-      color: '#ffa62f',
-      marginRight: '55px',
-      '& img': {
-        position: 'relative',
-        top: 10
-      }
-    },
-    '& a.active': {
-      paddingBottom: '2px',
-      fontFamily: 'Poppins-Bold',
-      borderBottom: '3px solid #3680d6'
-    }
-  },
-  NavbarHolder: {
-    background: 'transparent',
-    padding: 0,
-    width: '100%',
-    '@media (max-width: 768px)': {
-      display: 'none'
-    }
-  },
-  carticon: {
-    position: 'relative',
-    '& svg': {
-      color: '#212331'
-    },
-    '& :hover': {
-      color: '#f16e21',
-      transition: '0.3s',
-      cursor: 'pointer'
-    }
-  },
-  Logo: {
-    '& img': {
-      marginBottom: '3px',
-      padding: '0',
-      marginTop: '6px'
-    }
-  },
-  NavbarTop: {
-    background: '#282828',
-    '& ul': {
-      textAlign: 'left'
-    },
-    '& li': {
-      display: 'inline-block',
-      '& a': {
-        color: '#fff',
-        marginRight: '20px'
-      }
-    }
-  },
-  searchIcon: {
-    position: 'relative',
-    borderRadius: '4px',
-    color: '#8492a6',
-    textAlign: 'center',
-    '& svg': {
-      position: 'absolute',
-      left: '10px',
-      bottom: '10px'
-    }
-  },
-  inputRoot: {
-    padding: '3px 20px',
-    fontSize: '14px',
-    paddingLeft: '10px',
-    color: '#000',
-    opacity: '1',
-    marginLeft: '4px',
-    height: '40px',
-    borderRadius: '50px',
-    background: '#eff2f7',
-    marginTop: '9px',
-    width: '100%',
-    border: '1px solid #eff2f7',
-    '&::placeholder': {
-      fontSize: '14px',
-      opacity: '1',
-      color: 'red'
-    },
-    '&::-webkit-input-placeholder': {
-      fontSize: '15px',
-      color: '#000',
-      opacity: '1'
-    },
-    '&::-ms-input-placeholder': {
-      fontSize: '15px',
-      color: '#000',
-      opacity: '1'
-    }
-  },
-  inputInput: {
-    padding: '10px 0',
-    paddingLeft: '10px 0',
-    width: '100%'
-  },
-  PopoverHolder: {
-    width: '100%',
-    position: 'relative',
-    background: '#fff',
-    color: '#fff',
-    padding: '20px 20px',
-    textAlign: 'center',
-    '& :hover': {
-      background: '#fff'
-    }
-  },
-  MenuItem: {
-    borderBottom: '1px solid #ebf0f4',
-    padding: '10px 0',
-    textAlign: 'right',
-    marginTop: '10px',
-    marginRight: '0 !important',
-    marginLeft: '0 !important',
-    width: '100%',
-    display: 'block',
-    '& a': {
-      fontSize: '18px'
-    }
-  }
-}));
-/* harmony default export */ var Navbar_style = (style_useStyles);
-// CONCATENATED MODULE: ./modules/Navbar/index.js
-
-
-
-
-
-
-
-
-
-const Navbar = () => {
-  const classes = Navbar_style();
-  const router = Object(router_["useRouter"])();
-  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-    className: classes.NavbarHolder,
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-      className: classes.NavbaTopImage,
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-        src: "../../static/images/homepage/topimage.png",
-        alt: "top-image"
-      })
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Container_default.a, {
-      maxWidth: "lg",
-      children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])(Grid_default.a, {
-        container: true,
-        children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
-          item: true,
-          lg: 3,
-          md: 3,
-          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: classes.Logo,
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              as: '/',
-              href: "/",
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                href: "/",
-                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-                  src: "../../static/images/logo.png",
-                  alt: "logo-pick-lock"
-                })
-              })
-            })
-          })
-        }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
-          item: true,
-          lg: 9,
-          md: 9,
-          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-            className: classes.navbarContent,
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("ul", {
-              className: classes.centermenu,
-              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-                href: "/",
-                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                  className: router.pathname === '/' ? 'active' : '',
-                  children: "Home"
-                })
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-                  as: '#',
-                  href: "#",
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                    href: "",
-                    children: "Products"
-                  })
-                })
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-                  as: '#',
-                  href: "#",
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                    href: "#",
-                    children: "Download"
-                  })
-                })
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-                  as: '#',
-                  href: "#",
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                    href: "#",
-                    children: "About Us"
-                  })
-                })
-              })]
-            })
-          })
-        })]
-      })
-    })]
-  });
-};
-
-/* harmony default export */ var modules_Navbar = (Navbar);
-// EXTERNAL MODULE: external "react-icons/fa"
-var fa_ = __webpack_require__("5mtF");
-
-// EXTERNAL MODULE: external "react-icons/ai"
-var ai_ = __webpack_require__("/WcL");
-
-// CONCATENATED MODULE: ./modules/Footer/style.js
-
-const Footer_style_useStyles = Object(styles_["makeStyles"])(() => ({
-  FooterHolder: {
-    zIndex: 3,
-    paddingBottom: '34px',
-    color: '#a6a6a6',
-    '& li': {
-      listStyle: 'none',
-      display: 'inline-block'
-    },
-    '& ul': {
-      padding: '0'
-    }
-  },
-  FooterSeperator: {
-    marginTop: '30px',
-    '& img': {
-      width: '100%',
-      height: 50,
-      objectFit: 'cover'
-    }
-  },
-  CenterLogo: {
-    '& img': {
-      width: '90%',
-      marginTop: 40
-    }
-  },
-  Copyright: {
-    textAlign: 'center',
-    '@media (max-width: 414px)': {
-      marginTop: 20
-    },
-    '& p  ': {
-      display: 'inline-block',
-      fontSize: 15,
-      color: '#fff',
-      '@media (max-width: 414px)': {
-        textAlign: 'center',
-        lineHeight: '27px',
-        fontSize: 16
-      }
-    }
-  },
-  FooterLogo: {
-    '& img': {
-      width: '100%',
-      marginTop: 55
-    }
-  },
-  FooterRight: {
-    marginTop: 80,
-    '& h4': {
-      color: '#fba62f',
-      fontFamily: 'Poppins-SemiBold',
-      fontSize: 27,
-      marginBottom: 10
-    }
-  },
-  FooterSocial: {
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    '& svg': {
-      width: 40,
-      background: '#3680d6',
-      height: 40,
-      marginRight: 20,
-      color: '#fff',
-      borderRadius: 50,
-      padding: 8,
-      lineHeight: 42
-    }
-  },
-  centermenu: {
-    marginTop: '20px',
-    padding: '0',
-    '& li': {
-      display: 'inline-block',
-      padding: '0',
-      '@media (max-width: 768px)': {
-        margin: '5px'
-      }
-    },
-    '& a': {
-      fontSize: '17px',
-      color: '#fff',
-      marginRight: '25px',
-      '@media (max-width: 768px)': {
-        marginRight: '0'
-      }
-    },
-    '@media (max-width: 767px)': {
-      marginTop: '20px'
-    }
-  }
-}));
-/* harmony default export */ var Footer_style = (Footer_style_useStyles);
-// CONCATENATED MODULE: ./modules/Footer/index.js
-
-
-
-
-
-
-
-
-
-const Footer = () => {
-  const classes = Footer_style();
-  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-    children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-      className: classes.FooterHolder,
-      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: classes.FooterSeperator,
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          alt: "seperator",
-          src: "../../static/images/homepage/footerline.png"
-        })
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Container_default.a, {
-        maxWidth: "lg",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])(Grid_default.a, {
-          container: true,
-          spacing: 2,
-          children: [/*#__PURE__*/Object(jsx_runtime_["jsxs"])(Grid_default.a, {
-            item: true,
-            lg: 3,
-            sm: 3,
-            xs: 12,
-            children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-              as: "/",
-              href: "/",
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                className: classes.FooterLogo,
-                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                  href: "/",
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-                    alt: "logo-footer",
-                    src: "../../static/images/footer-logo.png"
-                  })
-                })
-              })
-            }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-              children: " \xA9 2021 LOCKPICK All Rights Reserved. "
-            })]
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
-            item: true,
-            lg: 5,
-            xs: 12,
-            sm: 5,
-            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-              className: classes.CenterLogo,
-              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-                alt: "m2k-logo",
-                src: "../../static/images/homepage/m2klogo.png"
-              })
-            })
-          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
-            item: true,
-            lg: 4,
-            xs: 12,
-            sm: 4,
-            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
-              className: classes.FooterRight,
-              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h4", {
-                children: " Follow Us "
-              }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("ul", {
-                className: classes.FooterSocial,
-                children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                    href: "#",
-                    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(fa_["FaFacebookF"], {})
-                  })
-                }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                    href: "#",
-                    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(ai_["AiOutlineInstagram"], {})
-                  })
-                }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                    href: "#",
-                    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(fa_["FaTwitter"], {})
-                  })
-                }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                    href: "#",
-                    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(ai_["AiOutlineGoogle"], {})
-                  })
-                })]
-              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-                as: "/",
-                href: "/",
-                children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("ul", {
-                  className: classes.centermenu,
-                  children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-                      as: "#",
-                      href: "#",
-                      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                        href: "#",
-                        children: "Terms of use "
-                      })
-                    })
-                  }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", {
-                    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-                      as: "#",
-                      href: "#",
-                      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-                        href: "#",
-                        children: "Privacy Policy"
-                      })
-                    })
-                  })]
-                })
-              })]
-            })
-          })]
-        })
-      })]
-    })
-  });
-};
-
-/* harmony default export */ var modules_Footer = (Footer);
-// CONCATENATED MODULE: ./pages/_app.js
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-Object(external_little_state_machine_["createStore"])({});
-
-function MyApp({
-  Component,
-  pageProps
-}) {
-  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])(external_little_state_machine_["StateMachineProvider"], {
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(modules_MobileMenu, {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])(modules_Navbar, {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-      style: {
-        minHeight: 400
-      },
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Component, _objectSpread({}, pageProps))
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(modules_Footer, {}), /*#__PURE__*/Object(jsx_runtime_["jsxs"])(head_default.a, {
-      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("meta", {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("link", {
-        rel: "stylesheet",
-        type: "text/css",
-        charset: "UTF-8",
-        href: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("link", {
-        rel: "stylesheet",
-        type: "text/css",
-        href: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("style", {
-        children: `
-            @font-face {
-              font-family:'Poppins-Regular';
-              src: url('../static/fonts/Poppins-Regular.ttf');
-            }
-            @font-face {
-              font-family:'Poppins-Bold';
-              src: url('../static/fonts/Poppins-Bold.ttf');
-            }
-            @font-face {
-              font-family:'Poppins-SemiBold';
-              src: url('../static/fonts/Poppins-SemiBold.ttf');
-            }
-            @font-face {
-              font-family:'Poppins-Light';
-              src: url('../static/fonts/Poppins-Light.ttf');
-            }
-       
-        `
-      })]
-    })]
-  });
-}
-
-/* harmony default export */ var _app = __webpack_exports__["default"] = (MyApp);
 
 /***/ }),
 
@@ -1239,20 +325,6 @@ function normalizeLocalePath(pathname, locales) {
 
 /***/ }),
 
-/***/ "4Q3z":
-/***/ (function(module, exports) {
-
-module.exports = require("next/router");
-
-/***/ }),
-
-/***/ "5mtF":
-/***/ (function(module, exports) {
-
-module.exports = require("react-icons/fa");
-
-/***/ }),
-
 /***/ "6D7l":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1391,6 +463,13 @@ module.exports = require("@material-ui/core/styles");
 
 /***/ }),
 
+/***/ "C9pf":
+/***/ (function(module, exports) {
+
+module.exports = require("react-icons/fi");
+
+/***/ }),
+
 /***/ "F5FC":
 /***/ (function(module, exports) {
 
@@ -1408,13 +487,6 @@ exports.__esModule = true;
 exports.default = resolveRewrites;
 
 function resolveRewrites() {}
-
-/***/ }),
-
-/***/ "ItoS":
-/***/ (function(module, exports) {
-
-module.exports = require("little-state-machine");
 
 /***/ }),
 
@@ -1509,13 +581,6 @@ const Button = /*#__PURE__*/Object(external_react_["forwardRef"])((_ref, ref) =>
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/Grid");
-
-/***/ }),
-
-/***/ "KKbo":
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core");
 
 /***/ }),
 
@@ -1779,10 +844,839 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "O/hg":
+/***/ (function(module, exports) {
+
+module.exports = require("react-slick");
+
+/***/ }),
+
 /***/ "Osoz":
 /***/ (function(module, exports) {
 
 module.exports = require("next/dist/next-server/lib/router-context.js");
+
+/***/ }),
+
+/***/ "RNiq":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ Home; });
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__("F5FC");
+
+// EXTERNAL MODULE: external "next/head"
+var head_ = __webpack_require__("xnum");
+var head_default = /*#__PURE__*/__webpack_require__.n(head_);
+
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__("YFqc");
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+
+// EXTERNAL MODULE: external "@material-ui/core/Grid"
+var Grid_ = __webpack_require__("JQ2V");
+var Grid_default = /*#__PURE__*/__webpack_require__.n(Grid_);
+
+// EXTERNAL MODULE: external "@material-ui/core/Container"
+var Container_ = __webpack_require__("Uynj");
+var Container_default = /*#__PURE__*/__webpack_require__.n(Container_);
+
+// EXTERNAL MODULE: external "react-slick"
+var external_react_slick_ = __webpack_require__("O/hg");
+var external_react_slick_default = /*#__PURE__*/__webpack_require__.n(external_react_slick_);
+
+// EXTERNAL MODULE: external "@material-ui/core/styles"
+var styles_ = __webpack_require__("9Pu4");
+
+// CONCATENATED MODULE: ./modules/Header/style.js
+
+const useStyles = Object(styles_["makeStyles"])(() => ({
+  HeaderHolder: {
+    position: 'relative',
+    backgroundSize: '90%',
+    backgroundRepeat: 'no-repeat',
+    background: "url('../../static/images/homepage/watermark.png')",
+    padding: '84px 0',
+    paddingBottom: '60px',
+    '@media (max-width:768px)': {
+      padding: '44px 0',
+      paddingBottom: '30px'
+    },
+    height: '100%',
+    '& img': {
+      width: '100%'
+    },
+    '& h1': {
+      marginTop: '10px',
+      color: '#3680d6',
+      textTransform: 'uppercase',
+      fontSize: 60,
+      textAlign: 'left',
+      marginLeft: '130px',
+      marginBottom: 0,
+      fontFamily: 'Poppins-SemiBold',
+      '@media (max-width:768px)': {
+        fontSize: 40,
+        marginLeft: 0,
+        textAlign: 'center'
+      },
+      '@media (max-width:767px)': {
+        fontSize: 43
+      }
+    },
+    '& .slick-dots li': {
+      margin: '0 15px'
+    },
+    '& .slick-dots li button::before': {
+      color: '#fff',
+      fontSize: 14,
+      top: 10
+    }
+  },
+  HeaderMainImage: {
+    position: 'relative',
+    height: '100%',
+    '& img': {
+      position: 'relative',
+      width: '80%',
+      margin: '0 auto',
+      display: 'block',
+      textAlign: 'center',
+      right: '0',
+      bottom: '52px'
+    }
+  },
+  HeaderContent: {
+    width: '100%'
+  },
+  HeaderGlow: {
+    width: '100%'
+  },
+  HeaderCircles: {
+    '& h2': {
+      fontFamily: 'Poppins-Bold',
+      fontSize: 80,
+      textAlign: 'center',
+      color: '#FFA62F',
+      marginTop: 0,
+      marginBottom: 50,
+      textTransform: 'uppercase',
+      '@media (max-width:768px)': {
+        fontSize: 50
+      },
+      '@media (max-width:767px)': {
+        fontSize: 30,
+        marginBottom: 30
+      }
+    },
+    '& img': {
+      marginBottom: 30,
+      margin: '0 auto',
+      display: 'block',
+      width: 'inherit'
+    }
+  },
+  HeaderCirclesItem: {
+    textAlign: 'center',
+    '& img': {
+      marginBottom: 30
+    },
+    '& h3': {
+      marginTop: 0,
+      color: '#fff',
+      fontSize: 22
+    }
+  },
+  HeaderMainImge: {
+    maxHeight: 380
+  }
+}));
+/* harmony default export */ var style = (useStyles);
+// CONCATENATED MODULE: ./modules/Header/index.js
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var settings = {
+  dots: false,
+  infinite: false,
+  arrows: false,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  responsive: [{
+    breakpoint: 1024,
+    settings: {
+      slidesToShow: 3,
+      slidesToScroll: 1
+    }
+  }, {
+    breakpoint: 600,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      initialSlide: 2,
+      dots: true,
+      autoplaySpeed: 1500
+    }
+  }, {
+    breakpoint: 480,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 1500
+    }
+  }]
+};
+
+const Header = () => {
+  const classes = style();
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+    className: classes.HeaderHolder,
+    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Container_default.a, {
+      maxWidth: "lg",
+      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+        className: classes.HeaderImage,
+        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
+          container: true,
+          justify: "center",
+          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
+            item: true,
+            lg: 9,
+            xs: 12,
+            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+              className: classes.HeaderContent,
+              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h1", {
+                children: " unlock your bmw"
+              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                className: classes.HeaderMainImge,
+                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+                  src: "../../static/images/homepage/header2.png",
+                  alt: "lockpick-header-image"
+                })
+              }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+                className: classes.HeaderCircles,
+                children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h2", {
+                  children: " unlimited potential"
+                }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])(external_react_slick_default.a, _objectSpread(_objectSpread({}, settings), {}, {
+                  children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                    children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+                      className: classes.HeaderCirclesItem,
+                      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+                        src: "../../static/images/homepage/key.png",
+                        alt: "lockpick-key-image"
+                      }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("h3", {
+                        children: ["Program New ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("br", {}), " & Used Keys"]
+                      })]
+                    })
+                  }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                    children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+                      className: classes.HeaderCirclesItem,
+                      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+                        src: "../../static/images/homepage/rest.png",
+                        alt: "lockpick-rest-image"
+                      }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("h3", {
+                        children: ["Reset transmission ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("br", {}), "modules ISN"]
+                      })]
+                    })
+                  }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                    children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+                      className: classes.HeaderCirclesItem,
+                      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+                        src: "../../static/images/homepage/clone.png",
+                        alt: "lockpick-clone-image"
+                      }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("h3", {
+                        children: ["Clone BMW ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("br", {}), " & Mini modules"]
+                      })]
+                    })
+                  })]
+                }))]
+              })]
+            })
+          })
+        })
+      })
+    })
+  });
+};
+
+/* harmony default export */ var modules_Header = (Header);
+// CONCATENATED MODULE: ./modules/LockIsHere/style.js
+
+const style_useStyles = Object(styles_["makeStyles"])(() => ({
+  LockIsHereHolder: {
+    '@media (max-width:768px)': {
+      '& br': {
+        display: 'none'
+      }
+    },
+    '& p': {
+      color: '#fff',
+      fontSize: 21,
+      marginTop: 0,
+      marginBottom: 40,
+      '@media (max-width:768px)': {
+        textAlign: 'center',
+        fontSize: 17,
+        lineHeight: '29px',
+        marginBottom: 30
+      }
+    },
+    '& img': {
+      width: '100%',
+      '@media (max-width:767px)': {
+        padding: '40px'
+      }
+    }
+  },
+  ButtonHolder: {
+    textAlign: 'right',
+    marginTop: 10,
+    marginBottom: 40,
+    marginRight: 160,
+    '@media (max-width:768px)': {
+      marginRight: 0,
+      textAlign: 'center'
+    }
+  }
+}));
+/* harmony default export */ var LockIsHere_style = (style_useStyles);
+// EXTERNAL MODULE: ./common/Button/index.js + 1 modules
+var Button = __webpack_require__("J3jm");
+
+// CONCATENATED MODULE: ./modules/LockIsHere/index.js
+
+
+
+
+
+
+
+
+const LockIsHere = () => {
+  const classes = LockIsHere_style();
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+    className: classes.LockIsHereHolder,
+    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Container_default.a, {
+      children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+        children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
+          item: true,
+          lg: 4,
+          xs: 12,
+          sm: 4,
+          md: 4,
+          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+            src: "../../static/images/homepage/lookishere.png"
+          })
+        }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("p", {
+          children: ["The leading name in automotive scan tools, M2K, is proud to introduce LOCK PICK \u2013 a ground-breaking interface for BMW vehicles.", /*#__PURE__*/Object(jsx_runtime_["jsx"])("br", {}), "LOCK PICK is an advanced system that allows for engineering level capabilities including immobilizer functions, key programming, module virginizing & cloning, and recovers FRM."]
+        }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+          className: classes.ButtonHolder,
+          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+            as: "#",
+            href: "#",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+              href: "#",
+              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Button["a" /* default */], {
+                children: "Learn More"
+              })
+            })
+          })
+        })]
+      })
+    })
+  });
+};
+
+/* harmony default export */ var modules_LockIsHere = (LockIsHere);
+// CONCATENATED MODULE: ./modules/HomeRegister/style.js
+
+const HomeRegister_style_useStyles = Object(styles_["makeStyles"])(() => ({
+  HomeRegisterHolder: {
+    margin: '150px 0',
+    '@media (max-width:768px)': {
+      margin: '40px 0'
+    },
+    '& p': {
+      color: '#fff',
+      fontSize: 22,
+      marginTop: 20,
+      marginBottom: 30
+    },
+    '& img': {
+      width: '100%',
+      '@media (max-width:768px)': {
+        width: '95%'
+      },
+      '@media (max-width:767px)': {
+        width: '80%'
+      }
+    }
+  },
+  HomeRegisterBg: {
+    display: 'flex',
+    margin: 0,
+    background: '#3680d6',
+    marginBottom: 190,
+    height: 400,
+    justifyContent: 'center',
+    alignItems: 'center',
+    '@media (max-width:768px)': {
+      marginBottom: 50
+    },
+    '@media (max-width:767px)': {
+      height: '100%',
+      marginBottom: 0,
+      display: 'inline-block'
+    }
+  },
+  HomeRegisterImage: {
+    position: 'relative',
+    maxWidth: 810,
+    height: 760,
+    top: 70,
+    left: 20,
+    '@media (max-width:768px)': {
+      height: '100%',
+      maxWidth: '100%',
+      margin: '0 auto',
+      display: 'block',
+      left: 'inherit',
+      textAlign: 'center'
+    }
+  },
+  HomeRegisterContent: {
+    position: 'relative',
+    right: '100px',
+    '@media (max-width:768px)': {
+      marginTop: 50,
+      right: 'inherit',
+      marginBottom: 50,
+      padding: 30,
+      paddingBottom: 10
+    },
+    textAlign: 'center',
+    '& h3 , h4': {
+      color: '#fff',
+      fontFamily: 'Poppins-SemiBold',
+      fontSize: 36,
+      marginTop: 0,
+      textTransform: 'uppercase',
+      '@media (max-width:767px)': {
+        fontSize: 27
+      }
+    },
+    '& h3 ': {
+      color: '#fff',
+      marginBottom: 8
+    },
+    '& h4 ': {
+      color: '#fff',
+      marginTop: 0,
+      marginBottom: 19
+    }
+  },
+  ButtonHolder: {
+    textAlign: 'right',
+    marginTop: 10,
+    marginBottom: 40
+  },
+  HomeRegisterBorder: {
+    height: '1px',
+    background: '#fff',
+    padding: 3,
+    marginBottom: 30,
+    width: 400,
+    '@media (max-width:768px)': {
+      width: 300,
+      display: 'inline-block'
+    },
+    '@media (max-width:767px)': {
+      width: 'inherit',
+      display: 'flex',
+      padding: 2
+    }
+  }
+}));
+/* harmony default export */ var HomeRegister_style = (HomeRegister_style_useStyles);
+// CONCATENATED MODULE: ./modules/HomeRegister/index.js
+
+
+
+
+
+
+
+
+const HomeRegister = () => {
+  const classes = HomeRegister_style();
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+    className: classes.HomeRegisterHolder,
+    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Container_default.a, {
+      children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+        className: classes.HomeRegisterBg,
+        children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+          className: classes.HomeRegisterImage,
+          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+            src: "../../static/images/homepage/register.png"
+          })
+        }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+          className: classes.HomeRegisterContent,
+          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h3", {
+            children: "REGISTER NOW"
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("h4", {
+            children: " AND GET YOURS!"
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+            className: classes.HomeRegisterBorder
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+            as: '#',
+            href: "#",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+              href: "#",
+              children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Button["a" /* default */], {
+                children: "REGISTER"
+              })
+            })
+          })]
+        })]
+      })
+    })
+  });
+};
+
+/* harmony default export */ var modules_HomeRegister = (HomeRegister);
+// CONCATENATED MODULE: ./modules/ContactForm/style.js
+
+const ContactForm_style_useStyles = Object(styles_["makeStyles"])(() => ({
+  ContactFormHolder: {
+    backgroundSize: '50%',
+    backgroundRepeat: 'no-repeat',
+    '& p': {
+      color: '#fff',
+      fontSize: 20,
+      marginTop: 20,
+      lineHeight: '35px',
+      marginBottom: 40,
+      '@media (max-width:767px)': {
+        marginBottom: 30
+      }
+    },
+    '& img': {
+      width: '100%'
+    },
+    '& input': {
+      marginBottom: 27
+    },
+    '& .last': {
+      marginTop: 70,
+      '@media (max-width:767px)': {
+        marginTop: 0
+      }
+    },
+    '& textarea': {
+      background: '#555a64',
+      width: '100%',
+      paddingLeft: 40,
+      height: 226,
+      outline: 0,
+      transition: '0.3s',
+      fontSize: 19,
+      fontFamily: 'Poppins-Regular',
+      border: 0,
+      paddingTop: 30,
+      '&::placeholder ': {
+        color: '#fff',
+        fontSize: 19,
+        outline: 0,
+        border: 0,
+        background: ' transparent'
+      },
+      '&:focus': {
+        outline: 0,
+        border: '1px solid #fba62f',
+        color: '#fff'
+      }
+    }
+  },
+  overlay: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    right: 0,
+    backgroundRepeat: 'no-repeat',
+    'mix-blend-mode': 'multiply',
+    transition: 'background 0.3s, border-radius 0.3s, opacity 0.3s',
+    backgroundPosition: 'center right',
+    backgroundSize: '67% auto',
+    background: "url('../../static/images/homepage/contactbg.png')"
+  },
+  ContactFormContent: {
+    display: 'flex',
+    marginBottom: 15
+  },
+  ContactFormIcon: {
+    marginRight: 17,
+    '& svg': {
+      fontSize: '28px'
+    }
+  },
+  ContactFormInfo: {
+    fontSize: '18px',
+    textTransform: 'uppercase',
+    fontFamily: 'Poppins-SemiBold',
+    '@media (max-width:767px)': {
+      fontSize: '16px'
+    }
+  },
+  ContactFormBg: {
+    color: '#fff',
+    marginTop: 10,
+    background: '#3680d6',
+    padding: 60,
+    '@media (max-width:767px)': {
+      padding: 25
+    },
+    '& h3': {
+      marginBottom: 40,
+      marginTop: 0,
+      fontSize: '33px',
+      fontFamily: 'Poppins-SemiBold',
+      '@media (max-width:767px)': {
+        fontSize: '28px',
+        marginBottom: 20
+      }
+    }
+  },
+  ContactFormRight: {
+    position: 'relative',
+    '& h3': {
+      marginBottom: 20,
+      color: '#FFA62F',
+      marginTop: 0,
+      fontSize: '32px',
+      fontFamily: 'Poppins-SemiBold'
+    }
+  },
+  ButtonHolder: {
+    textAlign: 'left',
+    marginTop: 27,
+    marginBottom: 40
+  }
+}));
+/* harmony default export */ var ContactForm_style = (ContactForm_style_useStyles);
+// EXTERNAL MODULE: external "react-icons/fi"
+var fi_ = __webpack_require__("C9pf");
+
+// EXTERNAL MODULE: external "react-icons/md"
+var md_ = __webpack_require__("j3R+");
+
+// EXTERNAL MODULE: external "react-icons/hi"
+var hi_ = __webpack_require__("qEf8");
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__("cDcd");
+
+// CONCATENATED MODULE: ./common/Input/style.js
+
+const Input_style_useStyles = Object(styles_["makeStyles"])(() => ({
+  BasicInput: {
+    border: '0',
+    height: '70px',
+    background: ' #555a63',
+    width: '100%',
+    transition: '0.3s',
+    fontSize: 19,
+    paddingLeft: '40px',
+    outline: 0,
+    '& input:read-only': {
+      background: '#F2F2F2'
+    },
+    '&::placeholder ': {
+      color: '#fff',
+      background: ' transparent'
+    },
+    '&:focus': {
+      color: '#fff',
+      transition: '0.3s',
+      border: '1px solid #fba62f'
+    }
+  }
+}));
+/* harmony default export */ var Input_style = (Input_style_useStyles);
+// CONCATENATED MODULE: ./common/Input/index.js
+
+
+function Input_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function Input_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { Input_ownKeys(Object(source), true).forEach(function (key) { Input_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { Input_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function Input_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+const Input = /*#__PURE__*/Object(external_react_["forwardRef"])((props, ref) => {
+  const classes = Input_style();
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+    ref: ref,
+    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("input", Input_objectSpread({
+      className: classes.BasicInput
+    }, props))
+  });
+});
+/* harmony default export */ var common_Input = (Input);
+// CONCATENATED MODULE: ./modules/ContactForm/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+const ContactForm = () => {
+  const classes = ContactForm_style();
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+    className: classes.ContactFormHolder,
+    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Container_default.a, {
+      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])(Grid_default.a, {
+          container: true,
+          spacing: 6,
+          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
+            item: true,
+            lg: 5,
+            xs: 12,
+            sm: 6,
+            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+              className: classes.ContactFormBg,
+              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h3", {
+                children: " Need help?"
+              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
+                children: " Contact us now and we will answer your questions"
+              }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+                className: classes.ContactFormContent,
+                children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                  className: classes.ContactFormIcon,
+                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(fi_["FiMapPin"], {})
+                }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                  className: classes.ContactFormInfo,
+                  children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
+                    href: "https://www.google.com.eg/maps/search/Lock+Pick+3301+W.+MacArthurBLVD.+Santa+Ana,+CA+92704+-+USA/@33.7197151,-117.8787288,13z/data=!3m1!4b1",
+                    target: "_blank",
+                    children: ["Lock Pick ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("br", {}), " 3301 W. MacArthurBLVD. ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("br", {}), " Santa Ana, CA 92704 -USA"]
+                  })
+                })]
+              }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+                className: classes.ContactFormContent,
+                children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                  className: classes.ContactFormIcon,
+                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(md_["MdMailOutline"], {})
+                }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                  className: classes.ContactFormInfo,
+                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+                    href: "mailto:Info@Lock-Pick.US",
+                    target: "_blank",
+                    children: "Info@Lock-Pick.US"
+                  })
+                })]
+              }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+                className: `${classes.ContactFormContent} last `,
+                children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                  className: classes.ContactFormIcon,
+                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(hi_["HiOutlinePhone"], {})
+                }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                  className: classes.ContactFormInfo,
+                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+                    href: "tel:+1-949-333-3800",
+                    children: "+1-949-333-3800"
+                  })
+                })]
+              })]
+            })
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Grid_default.a, {
+            item: true,
+            lg: 7,
+            xs: 12,
+            sm: 6,
+            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+              className: classes.ContactFormRight,
+              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                className: classes.overlay
+              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("h3", {
+                children: " SEND US A MESSAGE "
+              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(common_Input, {
+                placeholder: "Full Name",
+                type: "text"
+              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(common_Input, {
+                placeholder: "Your Email",
+                type: "text"
+              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("textarea", {
+                placeholder: "Your message"
+              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+                className: classes.ButtonHolder,
+                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+                  as: "#",
+                  href: "#",
+                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+                    href: "#",
+                    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Button["a" /* default */], {
+                      children: "Send"
+                    })
+                  })
+                })
+              })]
+            })
+          })]
+        })
+      })
+    })
+  });
+};
+
+/* harmony default export */ var modules_ContactForm = (ContactForm);
+// CONCATENATED MODULE: ./pages/index.js
+
+
+
+
+
+
+
+function Home() {
+  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+    children: [/*#__PURE__*/Object(jsx_runtime_["jsxs"])(head_default.a, {
+      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("title", {
+        children: "lock pick"
+      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("link", {
+        rel: "icon",
+        href: "/favicon.ico"
+      })]
+    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(modules_Header, {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])(modules_LockIsHere, {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])(modules_HomeRegister, {}), /*#__PURE__*/Object(jsx_runtime_["jsx"])(modules_ContactForm, {})]
+  });
+}
 
 /***/ }),
 
@@ -3506,6 +3400,13 @@ function parseRelativeUrl(url, base) {
 
 /***/ }),
 
+/***/ "j3R+":
+/***/ (function(module, exports) {
+
+module.exports = require("react-icons/md");
+
+/***/ }),
+
 /***/ "nOHt":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3658,10 +3559,10 @@ function makePublicRouterInstance(router) {
 
 /***/ }),
 
-/***/ "rqBl":
+/***/ "qEf8":
 /***/ (function(module, exports) {
 
-module.exports = require("react-burger-menu");
+module.exports = require("react-icons/hi");
 
 /***/ }),
 
@@ -3774,13 +3675,6 @@ exports.__esModule=true;exports.normalizePathSep=normalizePathSep;exports.denorm
 /***/ (function(module, exports) {
 
 module.exports = require("next/head");
-
-/***/ }),
-
-/***/ "zPlV":
-/***/ (function(module, exports) {
-
-
 
 /***/ })
 
