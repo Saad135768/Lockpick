@@ -21,7 +21,6 @@ a {
     box-sizing: border-box;
     font-weight: normal;
 }
-
 @media (min-width: 1280px){
 .MuiContainer-maxWidthLg {
     width: 95% !important;
