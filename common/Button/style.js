@@ -24,11 +24,11 @@ const useStyles = makeStyles(() => ({
   
     '&:hover': {
       color: '#fff',
-      background: '#0e4c8d',
-      border:'1px solid #0e4c8d',
+      background: '#3680d6',
+      border:'1px solid #3680d6',
     },
     '&:hover a': {
-      color: '#0E4C8D',
+      color: '#3680d6',
     },
     '& a': {
       color: '#fff',

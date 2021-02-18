@@ -4,6 +4,10 @@ import Container from '@material-ui/core/Container'
 import Button from '../../common/Button'
 import useStyles from './style'
 import { useRouter } from 'next/router'
+import { RiSearchFill , RiShoppingCartFill } from 'react-icons/ri';
+
+import { FaUser } from 'react-icons/fa';
+
 
 const Navbar = () => {
   const classes = useStyles()
@@ -51,6 +55,29 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
+
+              <ul className={classes.RightMenu}>
+  
+ 
+  <li>
+    <Link as={'#'} href="#">
+      <a href="#"> <RiSearchFill/></a>
+    </Link>
+  </li>
+  <li>
+    <Link as={'#'} href="#">
+    <a href="#"> <FaUser/></a>
+    </Link>
+  </li>
+  <li>
+    <Link as={'#'} href="#">
+    <a href="#"> <RiShoppingCartFill/></a>
+    </Link>
+  </li>
+</ul>
+
+              
+             
             </div>
           </Grid>
         </Grid>

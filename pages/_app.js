@@ -4,6 +4,7 @@ import Head from 'next/head'
 import MobileMenu from '../modules/MobileMenu'
 import Navbar from '../modules/Navbar'
 import Footer from '../modules/Footer'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 createStore({})
 
@@ -12,9 +13,10 @@ function MyApp ({ Component, pageProps }) {
     <StateMachineProvider>
       <MobileMenu/>
       <Navbar />
-      <div style={{ minHeight: 400 }}>
+      <ParallaxProvider>
         <Component {...pageProps} />
-      </div>
+        </ParallaxProvider>
+   
       <Footer />
 
       <Head>
@@ -24,6 +26,8 @@ function MyApp ({ Component, pageProps }) {
         />
         <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
+
         <style>
           {`
             @font-face {

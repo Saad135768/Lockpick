@@ -29,10 +29,12 @@ const Footer = () => {
                   </a>
                 </li>
               </Link>
+              <div className={classes.Copyright}>
               <p> © 2021 LOCKPICK All Rights Reserved. </p>
+</div>
             </Grid>
 
-            <Grid item lg={5} xs={12} sm={5}>
+            <Grid item lg={5} xs={12} sm={4}>
               <div className={classes.CenterLogo}>
                 <img
                   alt="m2k-logo"
@@ -40,7 +42,7 @@ const Footer = () => {
                 />
               </div>
             </Grid>
-            <Grid item lg={4} xs={12} sm={4}>
+            <Grid item lg={4} xs={12} sm={5}>
               <div className={classes.FooterRight}>
                 <h4> Follow Us </h4>
 

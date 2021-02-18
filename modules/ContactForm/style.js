@@ -100,7 +100,7 @@ color:'#fff',
 marginTop: 10,
 background:'#3680d6',
 padding:60,
-'@media (max-width:767px)': {
+'@media (max-width:768px)': {
   padding:25,
 },
 '& h3': {
@@ -128,9 +128,12 @@ position: 'relative',
 
 ButtonHolder: {
 textAlign: 'left',
+position:'relative',
 marginTop:27,
 marginBottom: 40,
-
+'@media (max-width: 767px)': {
+  marginBottom: 20,
+},
 },
 }))
 

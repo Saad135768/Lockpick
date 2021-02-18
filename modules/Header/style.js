@@ -16,7 +16,12 @@ const useStyles = makeStyles(() => ({
     height: '100%',
     '& img': {
       width: '100%',
-  
+      '@media (max-width:1024px)': {
+        width: '80%',
+        margin: '0 auto',
+        display: 'block',
+
+      },
     },
     '& h1': {
       marginTop: '10px',
@@ -94,12 +99,17 @@ const useStyles = makeStyles(() => ({
       marginBottom: 30,
     margin: '0 auto',
     display: 'block',
-     width:'inherit',
-     
+     maxWidth:'150px',
+     '@media (max-width:768px)': {
+      maxWidth:'100px',
+
+    },
     },
 
   },
   HeaderCirclesItem:{
+  
+
     textAlign: 'center',
     '& img': {
       marginBottom:30,
@@ -109,10 +119,19 @@ const useStyles = makeStyles(() => ({
       color: '#fff',
       fontSize: 22,
     },
+
+
   },
   HeaderMainImge:{
     maxHeight:380,
-  }
+      '@media (max-width:767px)': {
+
+   '& .parallax-inner': {
+    transform: 'inherit !important;',
+    },
+  },
+},
+
 }))
 
 export default useStyles

@@ -24,7 +24,9 @@ const useStyles = makeStyles(() => ({
     },
     },
 
-
+    '& button:hover': {
+      border: '1px solid #fff',
+    },
 },
 HomeRegisterBg :{
   display: 'flex',
@@ -99,7 +101,9 @@ ButtonHolder: {
 textAlign: 'right',
 marginTop:10,
 marginBottom: 40,
-
+'@media (max-width: 767px)': {
+  marginBottom: 0,
+},
 },
 
 HomeRegisterBorder:{

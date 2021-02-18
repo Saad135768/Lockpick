@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
       padding: '0',
     },
     '& a': {
-      fontSize: '20px',
+      fontSize: '19px',
       color: '#ffa62f',
       marginRight: '55px',
       '& img': {
@@ -53,6 +53,34 @@ const useStyles = makeStyles(() => ({
     },
 
   },
+  RightMenu :{
+    color: 'white',
+    marginTop: '35px',
+    textTransform: 'uppercase',
+    fontFamily: 'Poppins-Light',
+    padding: '0',
+    textAlign: 'left',
+    '& li': {
+      color: '#ffa62f',
+      display: 'inline-block',
+      padding: '0',
+    },
+    '& a': {
+      fontSize: '19px',
+      color: '#ffa62f',
+      marginRight: '55px',
+      '& img': {
+        position: 'relative',
+        top: 10,
+      },
+    },
+    '& a.active': {
+      paddingBottom: '2px',
+      fontFamily: 'Poppins-Bold',
+      borderBottom: '3px solid #3680d6',
+    },
+  },
+
   NavbarHolder: {
     background: 'transparent',
     padding:0,
@@ -76,6 +104,7 @@ display:'none',
     '& img': {
       marginBottom: '3px',
       padding: '0',
+      width: '100%',
       marginTop: '6px',
     },
   },

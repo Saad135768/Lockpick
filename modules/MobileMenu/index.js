@@ -50,17 +50,17 @@ const MobileMenu = () => {
             </li>
             <li>
               <Link as={'#'} href="#">
-                <a href="#">Registrations</a>
+                <a href="#">Products</a>
               </Link>
             </li>
             <li>
               <Link as={'#'} href="#">
-                <a href="#">News</a>
+                <a href="#">Download</a>
               </Link>
             </li>
             <li>
               <Link as={'#'} href="#">
-                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
               </Link>
             </li>
           </ul>

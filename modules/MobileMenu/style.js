@@ -31,12 +31,18 @@ const useStyles = makeStyles(() => ({
   
     ' & img': {
       width: '100%',
+      
+      '@media (max-width:1024px)': {
+        width: '100%',
+      },
+
       '@media (max-width:768px)': {
         width: '80%',
         padding: '0px 60px',
         paddingLeft: 0,
         margin: '14px 0',
       },
+      
     },
   },
 

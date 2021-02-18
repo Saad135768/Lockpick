@@ -4,6 +4,10 @@ const useStyles = makeStyles(() => ({
   FooterHolder: {
     zIndex: 3,
     paddingBottom: '34px',
+    '@media (max-width: 767px)': {
+      paddingBottom: 0,
+
+    },
     color: '#a6a6a6',
     '& li': {
       listStyle: 'none',
@@ -13,7 +17,10 @@ const useStyles = makeStyles(() => ({
       padding: '0',
     },
 
+    '@media (max-width:767px)': {
+      textAlign: 'center',
 
+    },
   },
   FooterSeperator:{
     marginTop:'30px',
@@ -28,32 +35,26 @@ const useStyles = makeStyles(() => ({
     '& img': {
       width: '90%',
       marginTop:40,
-    },
-  },
-
-  Copyright: {
-    textAlign: 'center',
-    '@media (max-width: 414px)': {
-      marginTop: 20,
-    },
-
-    '& p  ': {
-      display: 'inline-block',
-      fontSize: 15,
-      color: '#fff',
-      '@media (max-width: 414px)': {
-        textAlign: 'center',
-        lineHeight: '27px',
-        fontSize: 16,
+      '@media (max-width: 767px)': {
+        marginTop:20,
+        width: '70%',
       },
     },
   },
 
+  Copyright: {
+    '& p  ': {
+      color: '#fff',
+  },
+},
   FooterLogo: {
     '& img': {
       width: '100%',
       marginTop: 55,
-   
+      '@media (max-width: 767px)': {
+        marginTop: 35,
+        width: '50%',
+      },
     },
   },
   FooterRight: {
@@ -63,6 +64,10 @@ const useStyles = makeStyles(() => ({
       fontFamily: 'Poppins-SemiBold',
       fontSize: 27,
       marginBottom: 10,
+  },
+  '@media (max-width: 768px)': {
+    marginTop:30,
+
   },
   },
 

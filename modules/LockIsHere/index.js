@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid"
 import useStyles from "./style"
 import Button from "../../common/Button"
 import Link from "next/link"
+import { Parallax } from 'react-scroll-parallax'
 
 const LockIsHere = () => {
   const classes = useStyles()
@@ -12,7 +13,9 @@ const LockIsHere = () => {
       <Container>
         <div>
           <Grid item lg={4} xs={12} sm={4} md={4}>
+          <Parallax x={[0, 10]}>
             <img src="../../static/images/homepage/lookishere.png" />
+            </Parallax>
           </Grid>
           <p>
             The leading name in automotive scan tools, M2K, is proud to

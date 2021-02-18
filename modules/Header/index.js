@@ -2,6 +2,8 @@ import Link from "next/link"
 import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
 import Slider from "react-slick"
+import ScrollAnimation from 'react-animate-on-scroll'
+import { Parallax } from 'react-scroll-parallax'
 
 import useStyles from "./style"
 var settings = {
@@ -54,14 +56,23 @@ const Header = () => {
               <div className={classes.HeaderContent}>
                 <h1> unlock your bmw</h1>
                 <div className={classes.HeaderMainImge}>
+                <Parallax  x={[20, -10]}>
+
                   <img
                     src="../../static/images/homepage/header2.png"
                     alt="lockpick-header-image"
                   />
+                  </Parallax>
                 </div>
 
                 <div className={classes.HeaderCircles}>
+                <ScrollAnimation animateIn="fadeIn">
+
                   <h2> unlimited potential</h2>
+                  </ScrollAnimation>
+                  <ScrollAnimation animateIn='fadeInUp'>
+
+
                   <Slider {...settings}>
                     <div>
                       <div className={classes.HeaderCirclesItem}>
@@ -102,6 +113,8 @@ const Header = () => {
                       </div>
                     </div>
                   </Slider>
+                  </ScrollAnimation>
+
                 </div>
               </div>
             </Grid>
