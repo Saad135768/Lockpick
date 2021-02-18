@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react'
 import Link from 'next/link'
-import { stack as Menu1 } from 'react-burger-menu'
+import { slide as Menu1 } from 'react-burger-menu'
 import Router, { useRouter } from 'next/router'
 import { Container, Grid } from '@material-ui/core'
 import useStyles from './style'

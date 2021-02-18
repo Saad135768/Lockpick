@@ -13,14 +13,11 @@ const AboutModule = () => {
       <Container>
 
        <div className={classes.FormHolder}>
-       <ScrollAnimation animateIn="fadeInUp"
-       delay={100}
-         animateOnce={true}>
+   
                 <div className={classes.AboutMainImge}>
 
         <img src="../../static/images/about/about.png" />
         </div>
-        </ScrollAnimation>
         <ScrollAnimation animateIn="fadeIn">
 
          <p>
