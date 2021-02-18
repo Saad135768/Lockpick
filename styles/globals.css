@@ -36,9 +36,6 @@ a {
   background: #337cd1;
   transition: 0.4s;
 }
-div#__next {
-  overflow-x: hidden;
-}
 
 
 .slick-slide :focus{

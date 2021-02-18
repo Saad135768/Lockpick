@@ -4,6 +4,7 @@ import useStyles from './style'
 import Button from '../../common/Button'
 import Link from 'next/link'
 import { Parallax } from 'react-scroll-parallax'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const HomeRegister = () => {
   const classes = useStyles()
@@ -24,8 +25,8 @@ const HomeRegister = () => {
 <div className={classes.HomeRegisterBorder}/>
 
 
-
-
+<ScrollAnimation animateIn="fadeInUp"
+         animateOnce={true}>
 <Link as={'#'} href="#">
       <a href="#">
         <Button>
@@ -33,6 +34,7 @@ const HomeRegister = () => {
         </Button>
       </a>
     </Link>
+    </ScrollAnimation>
 
   </div>
   </div>

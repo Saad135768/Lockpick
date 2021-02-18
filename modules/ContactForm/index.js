@@ -7,6 +7,7 @@ import { FiMapPin } from "react-icons/fi"
 import { MdMailOutline } from "react-icons/md"
 import { HiOutlinePhone } from "react-icons/hi"
 import Input from "../../common/Input"
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const ContactForm = () => {
   const classes = useStyles()
@@ -63,14 +64,20 @@ const ContactForm = () => {
                 <Input placeholder="Your Email" type="text" />
                 <textarea placeholder="Your message"></textarea>
 
-                <div className={classes.ButtonHolder}>
+               
+              </div>
+              <div className={classes.ButtonHolder}>
+              <ScrollAnimation animateIn="fadeInUp"
+         animateOnce={true}>
+
                   <Link as={"#"} href="#">
                     <a href="#">
                       <Button>Send</Button>
                     </a>
                   </Link>
+                  </ScrollAnimation>
+
                 </div>
-              </div>
             </Grid>
           </Grid>
         </div>

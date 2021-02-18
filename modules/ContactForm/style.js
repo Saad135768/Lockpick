@@ -4,6 +4,7 @@ const useStyles = makeStyles(() => ({
 
   ContactFormHolder: {
     backgroundSize: '50%',
+    overflow: 'hidden',
     backgroundRepeat: 'no-repeat',
   
     '& p': {
@@ -32,8 +33,10 @@ const useStyles = makeStyles(() => ({
   },
 },
 '& textarea': {
-  background: '#555a64',
+  background: '#555b65c2',
   width: '100%',
+  zIndex: 99,
+  position: 'relative',
   paddingLeft: 40,
   height: 226,
   outline: 0,
@@ -43,6 +46,9 @@ const useStyles = makeStyles(() => ({
 
   border:0,
   paddingTop:30,
+  '@media (max-width: 767px)': {
+    paddingLeft: '20px',
+  },
   '&::placeholder ': {
     color: '#fff',
     fontSize: 19,
@@ -128,11 +134,12 @@ position: 'relative',
 
 ButtonHolder: {
 textAlign: 'left',
-position:'relative',
 marginTop:27,
 marginBottom: 40,
 '@media (max-width: 767px)': {
   marginBottom: 20,
+  textAlign: 'center',
+
 },
 },
 }))

@@ -7,9 +7,11 @@ const useStyles = makeStyles(() => ({
     '@media (max-width:768px)': {
   '& br': {
   display:'none',
-}
-
+},
+'& .parallax-inner': {
+  transform: 'inherit !important;',
     },
+  },
     '& p': {
       color: '#fff',
       fontSize: 21,
@@ -26,6 +28,9 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     '@media (max-width:767px)': {
     padding:'40px',
+      width: '80%',
+      margin: '0 auto',
+      display: 'block',
     },
 },
 

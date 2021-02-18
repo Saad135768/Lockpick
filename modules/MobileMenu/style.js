@@ -20,6 +20,7 @@ const useStyles = makeStyles(() => ({
         marginLeft: 15,
       },
     },
+ 
   },
   LoginText: {
     '@media (max-width:414px)': {
@@ -97,14 +98,19 @@ const useStyles = makeStyles(() => ({
         color: '#fff',
         display: ' block',
         textAlign: 'left',
-        marginBottom: 17,
+        marginBottom: 25,
       },
         fontSize: '1.15em',
       '& ul': {
         padding: '0px',
      
 
-      }
+      },
+      '& .active': {
+        paddingBottom: '2px',
+        fontFamily: 'Poppins-Bold',
+        color: '#fba62f',
+      },
     },
     ' & .bm-morph-shape': {
       fill: '#2b323c',
@@ -214,6 +220,31 @@ const useStyles = makeStyles(() => ({
     paddingLeft: '10px',
     textAlign: 'right',
     width: '100%',
+  },
+  RightMenu :{
+    color: 'white',
+    marginTop: '35px',
+    textTransform: 'uppercase',
+    fontFamily: 'Poppins-Light',
+    padding: '0',
+    display:'flex',
+    textAlign: 'left',
+    '& li': {
+      color: '#ffa62f',
+      display: 'inline-block',
+      padding: '0',
+    },
+    '& a': {
+      fontSize: '26px',
+      color: '#ffa62f',
+      marginRight: '25px',
+     
+      '& img': {
+        position: 'relative',
+        top: 10,
+      },
+    },
+    
   },
 }))
 

@@ -4,9 +4,9 @@ import Container from '@material-ui/core/Container'
 import Button from '../../common/Button'
 import useStyles from './style'
 import { useRouter } from 'next/router'
-import { RiSearchFill , RiShoppingCartFill } from 'react-icons/ri';
-
-import { FaUser } from 'react-icons/fa';
+import { RiShoppingCartFill } from 'react-icons/ri'
+import { BiSearchAlt} from 'react-icons/bi'
+import { FaUser } from 'react-icons/fa'
 
 
 const Navbar = () => {
@@ -50,8 +50,9 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link as={'#'} href="#">
-                    <a href="#">About Us</a>
+                  <Link as={'/about'} href="/about">
+                    <a className={router.pathname === '/about' ? 'active' : ''}>
+                     About</a>
                   </Link>
                 </li>
               </ul>
@@ -61,7 +62,7 @@ const Navbar = () => {
  
   <li>
     <Link as={'#'} href="#">
-      <a href="#"> <RiSearchFill/></a>
+      <a href="#"> <BiSearchAlt/></a>
     </Link>
   </li>
   <li>

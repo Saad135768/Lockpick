@@ -5,12 +5,18 @@ const useStyles = makeStyles(() => ({
   BasicInput: {
     border: '0',
     height: '70px',
-    background:' #555a63',
+    background:'#555b65c2',
     width: '100%',
     transition: '0.3s',
     fontSize: 19,
     paddingLeft: '40px',
+    zIndex: 99,
+    position: 'relative',
     outline: 0,
+    '@media (max-width: 767px)': {
+      paddingLeft: '20px',
+    },
+
     '& input:read-only': {
       background: '#F2F2F2',
     },

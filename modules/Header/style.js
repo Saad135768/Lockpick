@@ -20,7 +20,6 @@ const useStyles = makeStyles(() => ({
         width: '80%',
         margin: '0 auto',
         display: 'block',
-
       },
     },
     '& h1': {

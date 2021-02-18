@@ -17,7 +17,7 @@ const Footer = () => {
           />
         </div>
         <Container maxWidth="lg">
-          <Grid container spacing={2}>
+          <Grid container >
             <Grid item lg={3} sm={3} xs={12}>
               <Link as={"/"} href="/">
                 <li className={classes.FooterLogo}>

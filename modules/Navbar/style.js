@@ -36,6 +36,10 @@ const useStyles = makeStyles(() => ({
       color: '#ffa62f',
       display: 'inline-block',
       padding: '0',
+      ' & :hover': {
+        transition: '0.1s',
+        borderBottom:'3px solid #3680d6',
+      },
     },
     '& a': {
       fontSize: '19px',
@@ -59,6 +63,7 @@ const useStyles = makeStyles(() => ({
     textTransform: 'uppercase',
     fontFamily: 'Poppins-Light',
     padding: '0',
+    display:'flex',
     textAlign: 'left',
     '& li': {
       color: '#ffa62f',
@@ -66,9 +71,10 @@ const useStyles = makeStyles(() => ({
       padding: '0',
     },
     '& a': {
-      fontSize: '19px',
+      fontSize: '26px',
       color: '#ffa62f',
-      marginRight: '55px',
+      marginLeft: '25px',
+     
       '& img': {
         position: 'relative',
         top: 10,

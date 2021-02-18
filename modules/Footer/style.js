@@ -33,8 +33,10 @@ const useStyles = makeStyles(() => ({
 
   CenterLogo:{
     '& img': {
-      width: '90%',
-      marginTop:40,
+      width: '80%',
+      margin: '80px auto',
+      display: 'block',
+      marginBottom: 40,
       '@media (max-width: 767px)': {
         marginTop:20,
         width: '70%',
@@ -43,8 +45,14 @@ const useStyles = makeStyles(() => ({
   },
 
   Copyright: {
+    marginTop:'51px',
+    '@media (max-width: 767px)': {
+      marginTop:'0',
+
+    },
     '& p  ': {
       color: '#fff',
+      fontSize: 16,
   },
 },
   FooterLogo: {
@@ -67,7 +75,6 @@ const useStyles = makeStyles(() => ({
   },
   '@media (max-width: 768px)': {
     marginTop:30,
-
   },
   },
 
@@ -84,6 +91,13 @@ const useStyles = makeStyles(() => ({
       borderRadius: 50,
       padding: 8,
       lineHeight: 42,
+    
+    },
+
+    '& svg:hover': {
+      background:'#fff',
+      color:'#3680d6',
+      transition:'0.3s',
     },
     
   },
@@ -102,6 +116,7 @@ const useStyles = makeStyles(() => ({
       fontSize: '17px',
       color: '#fff',
       marginRight: '25px',
+    
       '@media (max-width: 768px)': {
         marginRight: '0',
       },

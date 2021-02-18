@@ -27,6 +27,12 @@ const useStyles = makeStyles(() => ({
     '& button:hover': {
       border: '1px solid #fff',
     },
+    '@media (max-width:767px)': {
+
+    '& .parallax-inner': {
+      transform: 'inherit !important;',
+        },
+      },
 },
 HomeRegisterBg :{
   display: 'flex',

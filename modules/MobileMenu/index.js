@@ -4,8 +4,10 @@ import Link from 'next/link'
 import { stack as Menu1 } from 'react-burger-menu'
 import Router, { useRouter } from 'next/router'
 import { Container, Grid } from '@material-ui/core'
-import Button from '../../common/Button'
 import useStyles from './style'
+import { RiShoppingCartFill } from 'react-icons/ri'
+import { BiSearchAlt} from 'react-icons/bi'
+import { FaUser } from 'react-icons/fa'
 
 const MobileMenu = () => {
   const router = useRouter()
@@ -43,11 +45,12 @@ const MobileMenu = () => {
       >
         <Grid item lg={9}>
           <ul className={classes.centermenu}>
-            <li>
-              <Link as={'#'} href="#">
-                <a href="#">Home</a>
-              </Link>
-            </li>
+          <li>
+                  <Link as={'/'} href="/">
+                    <a className={router.pathname === '/' ? 'active' : ''}>
+                     Home</a>
+                  </Link>
+                </li>
             <li>
               <Link as={'#'} href="#">
                 <a href="#">Products</a>
@@ -59,11 +62,30 @@ const MobileMenu = () => {
               </Link>
             </li>
             <li>
-              <Link as={'#'} href="#">
-                <a href="#">About Us</a>
-              </Link>
-            </li>
+                  <Link as={'/about'} href="/about">
+                    <a className={router.pathname === '/about' ? 'active' : ''}>
+                     About</a>
+                  </Link>
+                </li>
           </ul>
+          <ul className={classes.RightMenu}>
+ 
+  <li>
+    <Link as={'#'} href="#">
+      <a href="#"> <BiSearchAlt/></a>
+    </Link>
+  </li>
+  <li>
+    <Link as={'#'} href="#">
+    <a href="#"> <FaUser/></a>
+    </Link>
+  </li>
+  <li>
+    <Link as={'#'} href="#">
+    <a href="#"> <RiShoppingCartFill/></a>
+    </Link>
+  </li>
+</ul>
         </Grid>
       </Menu1>
     </div>

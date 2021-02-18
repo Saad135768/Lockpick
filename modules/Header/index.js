@@ -67,7 +67,6 @@ const Header = () => {
 
                 <div className={classes.HeaderCircles}>
                 <ScrollAnimation animateIn="fadeIn">
-
                   <h2> unlimited potential</h2>
                   </ScrollAnimation>
                   <ScrollAnimation animateIn='fadeInUp'>
