@@ -54,7 +54,12 @@ const Header = () => {
           <Grid container justify="center">
             <Grid item lg={9} xs={12}>
               <div className={classes.HeaderContent}>
+              <ScrollAnimation animateIn="fadeIn"
+                       animateOnce={true}>
+                  
                 <h1> unlock your bmw</h1>
+                </ScrollAnimation>
+
                 <div className={classes.HeaderMainImge}>
                 <Parallax  x={[20, -10]}>
 
