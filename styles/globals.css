@@ -32,11 +32,6 @@ a {
 .slick-slide {
   padding: 10px 10px;
 }
-.slick-slide:hover {
-  background: #337cd1;
-  transition: 0.4s;
-}
-
 
 .slick-slide :focus{
     outline: none;

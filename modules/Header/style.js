@@ -51,6 +51,11 @@ const useStyles = makeStyles(() => ({
       top:10,
 
     },
+    '& .slick-slide:hover': {
+      background: '#337cd1',
+      transition: '0.4s',
+    }
+    
   },
 
 

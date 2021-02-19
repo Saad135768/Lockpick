@@ -45,10 +45,9 @@ const useStyles = makeStyles(() => ({
   },
 
   Copyright: {
-    marginTop:'51px',
+    marginTop:'66px',
     '@media (max-width: 767px)': {
       marginTop:'0',
-
     },
     '& p  ': {
       color: '#fff',

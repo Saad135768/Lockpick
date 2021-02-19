@@ -38,12 +38,12 @@ const Navbar = () => {
                     <a className={router.pathname === '/' ? 'active' : ''}>
                      Home</a>
                   </Link>
-
-                <li>
-                  <Link as={'#'} href="#">
-                    <a href="">Products</a>
+                  <Link href="/products">
+                    <a className={router.pathname === '/products' ? 'active' : ''}>
+                    Products</a>
                   </Link>
-                </li>
+
+              
                 <li>
                   <Link as={'#'} href="#">
                     <a href="#">Download</a>
