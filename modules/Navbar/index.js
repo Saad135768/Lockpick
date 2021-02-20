@@ -43,12 +43,11 @@ const Navbar = () => {
                     Products</a>
                   </Link>
 
-              
-                <li>
-                  <Link as={'#'} href="#">
-                    <a href="#">Download</a>
+                  <Link href="/download">
+                    <a className={router.pathname === '/download' ? 'active' : ''}>
+                    Download</a>
                   </Link>
-                </li>
+
                 <li>
                   <Link as={'/about'} href="/about">
                     <a className={router.pathname === '/about' ? 'active' : ''}>

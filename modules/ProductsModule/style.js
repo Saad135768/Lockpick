@@ -4,6 +4,24 @@ const useStyles = makeStyles(() => ({
   ProductsHolder: {
   },
   
+  CustomeTitle:{
+background:'#3680d6',
+padding:'15px 25px',
+'@media (max-width:767px)': {
+  padding:'15px 15px',
+},
+'& h3': {
+  color:'#fff',
+  fontSize: 30,
+  fontFamily:'Poppins-SemiBold',
+  textTransform: 'uppercase',
+  margin: 0,
+  '@media (max-width:767px)': {
+    textAlign:'center',
+    fontSize: 24,
+    },
+},
+  },
   FormHolder: {
     margin:'50px 0',
     '& img': {

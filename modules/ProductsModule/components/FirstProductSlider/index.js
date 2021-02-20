@@ -34,10 +34,8 @@ const FirstProductSlider = () => {
   return (
     <div className={classes.ProductSliderHolder}>
       <div className={classes.ProductSliderBg}>
-
-      <Grid container spacing={10}>
-
-      <Grid lg={6}>
+      <Grid container>
+      <Grid lg={6} sm={6} xs={12}>
       <Slider {...settings}>
           <div>
            <img src="../../../../static/images/products/product1.png"/>
@@ -48,12 +46,12 @@ const FirstProductSlider = () => {
          
         </Slider>
 </Grid>
-<Grid lg={6}>
+<Grid lg={6} sm={6} xs={12}>
 <ProductSliderData
 title={'Lock Pick Basic Kit'}
 type={'Starter kit'}
 price={'$2,999,00'}
-include={'Includes'}
+include={'Includes:'}
 description={'Main Device, Accessories, Interface Boards, And Full Software.'}
 buttonTitle={'Add to cart'}
 buttonLink={''}

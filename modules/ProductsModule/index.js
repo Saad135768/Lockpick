@@ -2,6 +2,8 @@ import Container from "@material-ui/core/Container"
 import useStyles from "./style"
 import Link from "next/link"
 import FirstProductSlider from "../ProductsModule/components/FirstProductSlider"
+import SecondProductSlider from "../ProductsModule/components/SecondProductSlider"
+
 import { Parallax } from 'react-scroll-parallax'
 import ScrollAnimation from 'react-animate-on-scroll'
 
@@ -20,7 +22,7 @@ const ProductsModule = () => {
 ADD-ON <span> – </span> OPTIONS </h2>
          </ScrollAnimation>
 
-                <div className={classes.ProductsMainImge}>
+            <div className={classes.ProductsMainImge}>
         <img src="../../static/images/products/header.png" />
         </div>
         <p>
@@ -29,6 +31,13 @@ ADD-ON <span> – </span> OPTIONS </h2>
       
         </div>
         <FirstProductSlider/>
+
+        <div className={classes.CustomeTitle}>
+          <h3> full package & options </h3>
+
+        </div>
+        <SecondProductSlider/>
+
       </Container>
 
     </div>

@@ -4,6 +4,7 @@ import Router from 'next/router'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import useStyles from './style'
 import Button from '../../../../common/Button'
+import NumericInput from 'react-numeric-input'
 
 import AddIcon from '@material-ui/icons/Add'
 import RemoveIcon from '@material-ui/icons/Remove'
@@ -31,7 +32,9 @@ const ProductSliderData = ({
             <h5> {spec} </h5>
 
           </div>
-
+          <div className={classes.NumericInput}>
+          <NumericInput mobile min={0}  value={0}/>
+          </div>
 
           <div className={`${classes.SectionButton} SectionButton`}>
             {buttonTitle
@@ -59,8 +62,6 @@ const ProductSliderData = ({
                   {buttonTitle}
                 </Button>
               ))}
-
-     
           </div>
     </div>
   )

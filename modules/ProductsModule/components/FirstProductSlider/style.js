@@ -3,12 +3,13 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   ProductSliderHolder: {
    margin:'80px 0',
+   padding:'0 40px',
     '& .slick-slide img': {
       display: 'block',
-      width: '80%',
-      margin: '19px auto',
+      width: '85%',
+      margin: '0px auto',
       display: 'block',
-      maxHeight: 400,
+      maxHeight: 450,
       objectFit: 'contain',
     },
     '& .slick-dots li button:before': {
@@ -22,8 +23,11 @@ const useStyles = makeStyles(() => ({
     '& button.slick-arrow.slick-next.slick-disabled , button.slick-arrow.slick-prev.slick-disabled' : {
       opacity: 0.25,
     },
+    '& .slick-dots li': {
+      bottom: '0 10px',
+    },
     '& .slick-dots': {
-      bottom: 0,
+      bottom: '-25px',
     },
     '& .slick-dots li.slick-active button::before': {
       bottom: 0,
@@ -39,13 +43,13 @@ const useStyles = makeStyles(() => ({
     },
     '& .slick-next ': {
       borderLeft: '30px solid white',
-      right: 60,
+      right: 10,
       zIndex: 9,
 
     },
     '& .slick-prev': {
       borderRight: '30px solid white',
-      left: 60,
+      left: 10,
       zIndex: 9,
     },
     '& .slick-next': {
@@ -55,7 +59,7 @@ const useStyles = makeStyles(() => ({
   
   ProductSliderBg:{
     background:'#FFFFFF3B',
-    padding: 80,
+    padding: '60px 20px',
     borderRadius:20,
     width:'100%',
   }
