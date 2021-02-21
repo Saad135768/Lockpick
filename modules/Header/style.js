@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
     '& img': {
       width: '100%',
       '@media (max-width:1024px)': {
-        width: '80%',
+        width: '100%',
         margin: '0 auto',
         display: 'block',
       },
@@ -33,6 +33,9 @@ const useStyles = makeStyles(() => ({
       },
       '@media (max-width:767px)': {
         fontSize: 35,
+      },
+      '@media (max-width:375px)': {
+        fontSize: 32,
       },
     },
     
@@ -103,7 +106,8 @@ const useStyles = makeStyles(() => ({
       },
       '@media (max-width:767px)': {
         fontSize:30,
-        marginBottom: 30,
+        marginBottom: 15,
+        marginTop:30,
       },
     },
     '& img': {
@@ -157,6 +161,14 @@ two:{
   position: 'absolute',
   animation: 'animate 15s linear infinite',
   bottom: 0,
+  maxHeight: 200,
+  '& img': {
+    height: 200,
+    '@media (max-width:767px)': {
+      height: 60,
+    },
+
+  },
 },
 three:{
   animation: 'fadeIn 1.5s infinite alternate',
@@ -176,8 +188,8 @@ three:{
     '@media (max-width:767px)': {
       width:'100%',
       marginLeft: -5,
-
     },
+   
   },
   
 },
