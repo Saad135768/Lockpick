@@ -13,8 +13,6 @@ const FirstProductSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    vertical: true,
-    verticalSwiping: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -27,6 +25,7 @@ const FirstProductSlider = () => {
       {
         breakpoint: 480,
         settings: {
+          dots: false,
           slidesToShow: 1,
           slidesToScroll: 1
         }

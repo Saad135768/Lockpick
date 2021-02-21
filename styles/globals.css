@@ -29,9 +29,6 @@ a {
 .slick-slide {
   outline: none !important;
 }
-.slick-slide {
-  padding: 10px 10px;
-}
 
 .slick-slide :focus{
     outline: none;
@@ -56,6 +53,7 @@ a {
   
   .input-group {
     height: 50px;
+    margin-right: 5px;
     position: relative;
   }
   .input-group .search {
@@ -69,7 +67,7 @@ a {
     color: #fba62f;
     outline: none;
     padding: 5px;
-    padding-left: 10px;
+    padding-left: 14px;
     position: relative;
     transition: all 150ms cubic-bezier(0.2, 0.6, 0.252, 1.2);
   }

@@ -10,8 +10,6 @@ const SecondProductSlider = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 1,
-    vertical: true,
-    verticalSwiping: true,
     slidesToScroll: 1,
     responsive: [
       {
@@ -26,6 +24,7 @@ const SecondProductSlider = () => {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
+          dots:false,
           slidesToScroll: 1,
         },
       },
@@ -39,7 +38,7 @@ const SecondProductSlider = () => {
            
             <div className={classes.second}>
               <ProductSliderData
-                title={"Lock Pick Basic Kit"}
+                title={"full package"}
                 type={"Starter kit"}
                 price={"$2,999,00"}
                 include={"Includes:"}

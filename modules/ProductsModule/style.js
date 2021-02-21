@@ -24,6 +24,9 @@ padding:'15px 25px',
   },
   FormHolder: {
     margin:'50px 0',
+    '@media (max-width:767px)': {
+      margin:'20px 0',
+    },
     '& img': {
       width: '100%',
       display: 'block',
@@ -35,9 +38,16 @@ padding:'15px 25px',
       fontSize:'45px',
       fontFamily:'Poppins-SemiBold',
       lineHeight:'45px',
+      '@media (max-width:767px)': {
+        fontSize:'35px',
+        lineHeight:'40px',
+      },
       '& span': {
         color: '#fff',
         margin: '0 10px',
+        '@media (max-width:767px)': {
+          margin: '0 4px',
+        },
       },
     },
     '& p': {

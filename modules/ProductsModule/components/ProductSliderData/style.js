@@ -2,14 +2,18 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   ProductSliderDataHolder: {
+    '@media (max-width:767px)': {
+    marginTop:0,
+    },
     '& h1': {
       color: '#FFA62F',
     fontFamily: 'Poppins-SemiBold',
     fontSize: 37,
     textTransform: 'uppercase',
     marginBottom:0,
+    marginTop: 0,
     '@media (max-width:1024px)': {
-      fontSize: 31,
+      fontSize: 27,
     },
     },
     '& h4': {
@@ -17,6 +21,9 @@ const useStyles = makeStyles(() => ({
     fontSize: 19,
     marginTop:0,
     marginBottom:0,
+    '@media (max-width:1767px)': {
+      fontSize: 19,
+    },
     },
     '& h2': {
       color: '#fff',
@@ -26,6 +33,7 @@ const useStyles = makeStyles(() => ({
     marginBottom:50,
     '@media (max-width:1024px)': {
       marginBottom:10,
+      fontSize: 27,
     },
 
     },
@@ -34,18 +42,25 @@ const useStyles = makeStyles(() => ({
     fontSize: 19,
     marginTop:0,
     marginBottom:0,
+    '@media (max-width:768px)': {
+      fontSize: 16,
+    },
     },
     '& h6': {
       color: '#fff',
     fontSize: 19,
     marginTop:20,
     marginBottom:40,
+    '@media (max-width:768px)': {
+      fontSize: 16,
+    },
     },
     
     '& button': {
       width: '100%',
       marginTop:'20px',
       marginBottom: 20,
+    
     },
     
     '@media (max-width:1024px)': {

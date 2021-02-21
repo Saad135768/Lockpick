@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
     fontFamily: 'Poppins-Light',
     padding: '0',
     width: '100%',
-    marginLeft: 50,
+    marginLeft: 65,
     textAlign: 'left',
     '& li': {
       color: '#ffa62f',
@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
       fontSize: '19px',
       fontFamily: 'Poppins-Regular',
       color: '#ffa62f',
-      marginRight: '60px',
+      marginRight: '55px',
       '@media (max-width: 1024px)': {
         marginRight: '25px',
       },
@@ -203,6 +203,44 @@ display:'none',
       fontSize: '18px',
     },
   },
+
+  testholder: {
+    position: "relative", 
+    zIndex: 9,
+    '& svg': {
+      zIndex: 99,
+      position: 'relative',
+    },
+    '&:hover em ': {
+      background: '#3780d5',
+      transition: '0.3s',
+    },
+  },
+  test: {
+    position: "absolute",
+    top: "-12px",
+    background: "#315888",
+    width: "22px",
+    height: "22px",
+    borderRadius: "50px",
+    textAlign: "center",
+    color: "#fff",
+    fontStyle: "normal",
+    lineHeight: "22px",
+    fontWeight: "bold",
+    right: "0px",
+    zIndex: 0,
+    fontSize: "13px",
+
+   
+
+
+    '& span': {
+      fontFamily: 'Poppins-SemiBold',
+    },
+
+  },
+
 }))
 
 export default useStyles

@@ -96,9 +96,14 @@ const useStyles = makeStyles(() => ({
       fontSize: '1.15em',
       '& a': {
         color: '#fff',
-        display: ' block',
+        display: 'block',
+        textTransform: 'uppercase',
         textAlign: 'left',
-        marginBottom: 25,
+        marginBottom: 30,
+        fontSize: 22,
+      },
+      '& svg': {
+        fontSize: 27,
       },
         fontSize: '1.15em',
       '& ul': {

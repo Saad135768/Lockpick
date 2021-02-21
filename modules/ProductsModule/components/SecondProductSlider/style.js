@@ -3,11 +3,17 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   ProductSliderHolder: {
    margin:'80px 0',
+   '@media (max-width:767px)': {
+    margin:'40px 0',
+   },
     '& .slick-slide img': {
       display: 'block',
       width: '80%',
       margin: '0px auto',
       objectFit: 'contain',
+      '@media (max-width:767px)': {
+        margin: '20px auto',
+      },
     },
     '& .slick-dots li button:before': {
       fontSize: '20px',
@@ -45,13 +51,20 @@ const useStyles = makeStyles(() => ({
       borderLeft: '30px solid white',
       right: 35,
       zIndex: 9,
-
+      '@media (max-width:767px)': {
+        right: 0,
+        top: '15%',
+      },
     },
     '& .slick-prev': {
       borderRight: '30px solid white',
       right: '45% !important',
       left:'inherit',
       zIndex: 9,
+      '@media (max-width:767px)': {
+        left:'0',
+        top: '15%',
+      },
     },
     '& .slick-next': {
     },
@@ -63,12 +76,15 @@ const useStyles = makeStyles(() => ({
     padding: '60px 20px',
     borderRadius:20,
     width:'100%',
+    '@media (max-width:767px)': {
+      padding: '40px 15px',
+     },
   },
   
   firstsecond: {
 display:'flex !important',
 '@media (max-width:767px)': {
-  display:'inline-block !important',
+    flexDirection: 'column-reverse',
 },
   },
   first: {
@@ -79,8 +95,12 @@ width:'50%',
   },
   second: {
     width:'50%',
+    paddingRight: 40,
+    paddingLeft: 40,
     '@media (max-width:767px)': {
       width:'100%',
+      paddingRight: 10,
+      paddingLeft: 10,
     },
   },
 }))

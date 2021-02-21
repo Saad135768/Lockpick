@@ -3,13 +3,17 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   ProductSliderHolder: {
    margin:'80px 0',
-   padding:'0 40px',
+   padding:'40px 0',
+   '@media (max-width:767px)': {
+    padding:'0 0',
+    margin:'40px 0',
+   },
     '& .slick-slide img': {
       display: 'block',
       width: '85%',
       margin: '0px auto',
       display: 'block',
-      maxHeight: 450,
+      height: 460,
       objectFit: 'contain',
     },
     '& .slick-dots li button:before': {
@@ -28,6 +32,10 @@ const useStyles = makeStyles(() => ({
     },
     '& .slick-dots': {
       bottom: '-25px',
+      '@media (max-width:767px)': {
+        bottom: 0,
+
+      },
     },
     '& .slick-dots li.slick-active button::before': {
       bottom: 0,
@@ -43,13 +51,13 @@ const useStyles = makeStyles(() => ({
     },
     '& .slick-next ': {
       borderLeft: '30px solid white',
-      right: 10,
+      right: 30,
       zIndex: 9,
 
     },
     '& .slick-prev': {
       borderRight: '30px solid white',
-      left: 10,
+      left: 30,
       zIndex: 9,
     },
     '& .slick-next': {
@@ -62,6 +70,10 @@ const useStyles = makeStyles(() => ({
     padding: '60px 20px',
     borderRadius:20,
     width:'100%',
+    '@media (max-width:767px)': {
+      padding: '40px 15px',
+     },
+
   }
 
 }))

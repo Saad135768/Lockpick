@@ -55,6 +55,14 @@ const useStyles = makeStyles(() => ({
     '& .slick-slide:hover': {
       transition: '0.2s',
     },
+    '& .slick-slide': {
+      outline: 'none !important',
+      padding: '10px 10px',
+    },
+    '& .slick-slide:focus': {
+      outline: 'none !important',
+    },
+    
     '& .first .animated.fadeInUp': {
       animationDelay: '0.2s',
     },
