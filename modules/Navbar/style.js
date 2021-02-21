@@ -43,8 +43,12 @@ const useStyles = makeStyles(() => ({
     },
     '& a': {
       fontSize: '19px',
+      fontFamily: 'Poppins-Regular',
       color: '#ffa62f',
-      marginRight: '55px',
+      marginRight: '65px',
+      '@media (max-width: 1024px)': {
+        marginRight: '25px',
+      },
       '& img': {
         position: 'relative',
         top: 10,
@@ -58,6 +62,7 @@ const useStyles = makeStyles(() => ({
 
   },
   RightMenu :{
+    position:'relative',
     color: 'white',
     marginTop: '35px',
     textTransform: 'uppercase',

@@ -60,9 +60,12 @@ const Navbar = () => {
   
  
   <li>
-    <Link as={'#'} href="#">
-      <a href="#"> <BiSearchAlt/></a>
-    </Link>
+  <div class="container">
+  <form action="#" method="get">
+    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search"/>
+    <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+  </form>
+</div>
   </li>
   <li>
     <Link as={'#'} href="#">
@@ -76,7 +79,6 @@ const Navbar = () => {
   </li>
 </ul>
 
-              
              
             </div>
           </Grid>

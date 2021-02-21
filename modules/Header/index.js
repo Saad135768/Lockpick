@@ -52,34 +52,51 @@ const Header = () => {
       <Container maxWidth="lg">
         <div className={classes.HeaderImage}>
           <Grid container justify="center">
-            <Grid item lg={9} xs={12}>
+            <Grid item lg={10} xs={12}>
               <div className={classes.HeaderContent}>
               <ScrollAnimation animateIn="fadeIn"
                        animateOnce={true}>
                   
-                <h1> unlock your bmw</h1>
+                <h1>unlock your bmw</h1>
                 </ScrollAnimation>
 
                 <div className={classes.HeaderMainImge}>
-                <Parallax  x={[20, -10]}>
-
+                <div className={classes.one}>
                   <img
-                    src="../../static/images/homepage/header2.png"
+                    src="../../static/images/homepage/car.png"
                     alt="lockpick-header-image"
                   />
-                  </Parallax>
+                                    <div className={classes.two}>
+
+<img
+  src="../../static/images/homepage/shadow.png"
+  alt="lockpick-header-image"
+/>
+</div>
+                  </div>
+
+<div className={classes.three}>
+
+<img
+  src="../../static/images/homepage/glow.png"
+  alt="lockpick-header-image"
+/>
+
+                </div>
                 </div>
 
                 <div className={classes.HeaderCircles}>
                 <ScrollAnimation animateIn="fadeIn">
                   <h2> unlimited potential</h2>
                   </ScrollAnimation>
-                  <ScrollAnimation animateIn='fadeInUp'>
-
 
                   <Slider {...settings}>
                     <div>
-                      <div className={classes.HeaderCirclesItem}>
+                  
+
+                <div className={`${classes.HeaderCirclesItem} first `}>
+                <ScrollAnimation animateIn='fadeInUp'
+                    >
                         <img
                           src="../../static/images/homepage/key.png"
                           alt="lockpick-key-image"
@@ -88,11 +105,16 @@ const Header = () => {
                           
                           Program New <br /> & Used Keys
                         </h3>
+                        </ScrollAnimation>
                       </div>
                     </div>
 
                     <div>
-                      <div className={classes.HeaderCirclesItem}>
+                 
+
+                        <div className={`${classes.HeaderCirclesItem} second `}>
+                        <ScrollAnimation animateIn='fadeInUp'
+                                      >
                         <img
                           src="../../static/images/homepage/rest.png"
                           alt="lockpick-rest-image"
@@ -102,10 +124,16 @@ const Header = () => {
                           Reset transmission <br />
                           modules ISN
                         </h3>
+                        </ScrollAnimation>
+
                       </div>
+
                     </div>
                     <div>
-                      <div className={classes.HeaderCirclesItem}>
+
+                  <div className={`${classes.HeaderCirclesItem} third `}>
+                  <ScrollAnimation animateIn='fadeInUp'
+                             >
                         <img
                           src="../../static/images/homepage/clone.png"
                           alt="lockpick-clone-image"
@@ -114,11 +142,10 @@ const Header = () => {
                           
                           Clone BMW <br /> & Mini modules
                         </h3>
+                      </ScrollAnimation>
                       </div>
-                    </div>
+                      </div>
                   </Slider>
-                  </ScrollAnimation>
-
                 </div>
               </div>
             </Grid>

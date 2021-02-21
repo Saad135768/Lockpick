@@ -24,9 +24,8 @@ const HomeRegister = () => {
 
 <div className={classes.HomeRegisterBorder}/>
 
-
 <ScrollAnimation animateIn="fadeInUp"
-         animateOnce={true}>
+         >
 <Link as={'#'} href="#">
       <a href="#">
         <Button>

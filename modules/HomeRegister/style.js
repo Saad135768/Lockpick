@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
   HomeRegisterHolder: {
     margin: '150px 0',
     '@media (max-width:768px)': {
-      margin: '40px 0',
+      margin: '60px 0',
     },
     '& p': {
       color: '#fff',
@@ -16,6 +16,9 @@ const useStyles = makeStyles(() => ({
   '& img': {
     width: '100%',
   
+    '@media (max-width:1024px)': {
+      marginTop:40,
+    },
     '@media (max-width:768px)': {
       width: '95%',
     },
@@ -27,12 +30,7 @@ const useStyles = makeStyles(() => ({
     '& button:hover': {
       border: '1px solid #fff',
     },
-    '@media (max-width:767px)': {
-
-    '& .parallax-inner': {
-      transform: 'inherit !important;',
-        },
-      },
+ 
 },
 HomeRegisterBg :{
   display: 'flex',
@@ -43,7 +41,7 @@ HomeRegisterBg :{
   justifyContent: 'center',
   alignItems: 'center',
 
-  '@media (max-width:768px)': {
+  '@media (max-width:1024px)': {
     marginBottom: 50,
   },
   '@media (max-width:767px)': {
@@ -71,13 +69,15 @@ HomeRegisterImage :{
 HomeRegisterContent:{
   position: 'relative',
   right: '100px',
+  '@media (max-width:1024px)': {
+    right: '10px',
+  },
   '@media (max-width:768px)': {
     marginTop: 50,
     right: 'inherit',
     marginBottom: 50,
     padding: 30,
     paddingBottom: 10,
-
   },
   textAlign: 'center',
   '& h3 , h4': {

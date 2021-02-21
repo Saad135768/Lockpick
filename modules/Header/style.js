@@ -3,11 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   HeaderHolder: {
-    position: 'relative',
-    backgroundSize: '90%',
-    backgroundRepeat: 'no-repeat',
-    background: "url('../../static/images/homepage/watermark.png')",
-    padding: '84px 0',
+    padding: '75px 0',
     paddingBottom:'60px',
     '@media (max-width:768px)': {
       padding: '44px 0',
@@ -27,8 +23,7 @@ const useStyles = makeStyles(() => ({
       color:'#3680d6',
       textTransform: 'uppercase',
       fontSize: 60,
-      textAlign:'left',
-      marginLeft:'130px',
+      textAlign:'center',
       marginBottom: 0,
       fontFamily: 'Poppins-SemiBold',
       '@media (max-width:768px)': {
@@ -37,8 +32,7 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
       },
       '@media (max-width:767px)': {
-        fontSize: 43,
-
+        fontSize: 35,
       },
     },
     
@@ -52,16 +46,29 @@ const useStyles = makeStyles(() => ({
 
     },
     '& .slick-slide:hover': {
-      background: '#337cd1',
-      transition: '0.4s',
+      transition: '0.2s',
+    },
+    '& .first .animated.fadeInUp': {
+      animationDelay: '0.2s',
+    },
+    '& .second .animated.fadeInUp': {
+      animationDelay: '0.4s',
+    },
+    '& .third .animated.fadeInUp': {
+      animationDelay: '0.6s',
     }
     
   },
 
+  HeaderImage:{
+    position: 'relative',
+    backgroundSize: '100%',
+    backgroundRepeat: 'no-repeat',
+    background: "url('../../static/images/homepage/watermark.png')",
+  },
 
   HeaderMainImage: {
     position: 'relative',
-    height: '100%',
     '& img': {
       position: 'relative',
       width: '80%',
@@ -112,8 +119,18 @@ const useStyles = makeStyles(() => ({
 
   },
   HeaderCirclesItem:{
-  
-
+    transition: 'all .4s',
+    '-moz-transition': 'all .4s',
+    '-webkit-transition': 'all .4s',
+    '-o-transition': 'all .4s',
+    '-ms-transition': 'all .4s',
+    '&:hover': {
+      'transform ':  'translateY(-10px) ',
+    '-moz-transform ':  'translateY(-10px) ',
+    '-webkit-transform ':  'translateY(-10px) ',
+    '-ms-transform ':  'translateY(-10px) ',
+    '-o-transform ':  'translateY(-10px) ',
+    },
     textAlign: 'center',
     '& img': {
       marginBottom:30,
@@ -127,13 +144,42 @@ const useStyles = makeStyles(() => ({
 
   },
   HeaderMainImge:{
-    maxHeight:380,
       '@media (max-width:767px)': {
-
    '& .parallax-inner': {
     transform: 'inherit !important;',
     },
   },
+},
+one:{
+  position: 'relative',
+},
+two:{
+  position: 'absolute',
+  animation: 'animate 15s linear infinite',
+  bottom: 0,
+},
+three:{
+  animation: 'fadeIn 1.5s infinite alternate',
+  position: 'absolute',
+  bottom: 0,
+  position: 'absolute',
+  left: '50%',
+  top: '57%',
+  '@media (max-width:767px)': {
+    top: '51%',
+  },
+  '-webkit-transform': 'translate(-50%, -50%)',
+  transform: 'translate(-50%, -50%)',
+  '& img': {
+    marginLeft: 10,
+    width:'90%',
+    '@media (max-width:767px)': {
+      width:'100%',
+      marginLeft: -5,
+
+    },
+  },
+  
 },
 
 }))

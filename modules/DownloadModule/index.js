@@ -1,8 +1,6 @@
 import Container from "@material-ui/core/Container"
 import useStyles from "./style"
 import Link from "next/link"
-import ContactForm from "../ContactForm"
-import { Parallax } from 'react-scroll-parallax'
 import ScrollAnimation from 'react-animate-on-scroll'
 import Grid from "@material-ui/core/Grid"
 import Button from "../../common/Button"

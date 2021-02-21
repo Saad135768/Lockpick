@@ -4,6 +4,7 @@ import useStyles from "./style"
 import Button from "../../common/Button"
 import Link from "next/link"
 import { Parallax } from 'react-scroll-parallax'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const LockIsHere = () => {
   const classes = useStyles()
@@ -26,11 +27,14 @@ const LockIsHere = () => {
             module virginizing & cloning, and recovers FRM.
           </p>
           <div className={classes.ButtonHolder}>
+          <ScrollAnimation animateIn='fadeInUp'
+                             >
             <Link as={"#"} href="#">
               <a href="#">
                 <Button>Learn More</Button>
               </a>
             </Link>
+            </ScrollAnimation>
           </div>
         </div>
       </Container>

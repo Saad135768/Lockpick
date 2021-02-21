@@ -36,3 +36,89 @@ a {
 .slick-slide :focus{
     outline: none;
 }
+
+
+
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+}
+
+
+
+@keyframes run{
+  0%{
+ transform:translate(-100px , -100px),
+  }
+  100%{
+    transform:translate(0px ,0px)
+  }
+  }
+
+  
+  .search-container {
+    position: relative;
+    display: inline-block;
+    margin: 4px 2px;
+    height: 50px;
+    width: 50px;
+    vertical-align: bottom;
+  }
+  
+  .mglass {
+    display: inline-block;
+    pointer-events: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+  }
+  
+  .searchbutton {
+    font-size: 35px;
+    width: 100%;
+    margin: 0;
+    line-height: 30px;
+    padding: 0;
+    margin-right: 3px;
+  }
+  
+  
+  .search {
+    position: absolute;
+    background-color: #fba62f;
+    outline: none;
+    border:0;
+    border-radius: 0;
+    padding: 0;
+    width: 0;
+    top:10;
+    height: 100%;
+    z-index: 10;
+ 
+  }
+  
+  .search:focus {
+    width:230px; 
+    padding: 0 16px 0 0;
+    transition: 0.6s;
+  }
+  
+  .expandright {
+    left: auto;
+    right: 0;
+    border-top:2px solid #fff;
+    top:50px;
+  }
+  .expandright:focus {
+    padding: 0 0 0 16px;
+  }
+  input#searchright {
+    color: #2B313B;
+    font-size: 16px;
+  font-family:'Poppins-Regular';
+}
+input#searchright::placeholder {
+  font-size: 16px;
+  color: #2B313B;
+  font-family:'Poppins-Regular';
+}
