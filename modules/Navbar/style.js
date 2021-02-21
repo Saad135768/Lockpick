@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
     fontFamily: 'Poppins-Light',
     padding: '0',
     width: '100%',
-    marginLeft: 80,
+    marginLeft: 50,
     textAlign: 'left',
     '& li': {
       color: '#ffa62f',
@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
       fontSize: '19px',
       fontFamily: 'Poppins-Regular',
       color: '#ffa62f',
-      marginRight: '65px',
+      marginRight: '60px',
       '@media (max-width: 1024px)': {
         marginRight: '25px',
       },
@@ -62,14 +62,15 @@ const useStyles = makeStyles(() => ({
 
   },
   RightMenu :{
+    width: 320,
     position:'relative',
     color: 'white',
+    justifyContent: 'flex-end',
     marginTop: '35px',
     textTransform: 'uppercase',
     fontFamily: 'Poppins-Light',
     padding: '0',
     display:'flex',
-    textAlign: 'left',
     '& li': {
       color: '#ffa62f',
       display: 'inline-block',

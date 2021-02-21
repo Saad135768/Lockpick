@@ -147,7 +147,54 @@ const useStyles = makeStyles(() => ({
       display: 'none',
     },
 
-    '& img': {},
+
+    ' & .search ': {
+      width: "100%",
+       position: "relative",
+        display: "flex",
+    },
+    ' & .searchTerm ': {
+      width: "100%",
+      border: "0",
+      borderRight: "none",
+      fontFamily: 'Poppins-Light',
+      padding: "5px",
+      paddingLeft: "10px",
+      fontSize:'15px',
+      height: "45px",
+      borderRadius: "5px 0 0 5px",
+      outline: "none",
+      color: "#2B313B",
+     
+    },
+    ' & input.searchTerm::placeholder': {
+      color: '#2B313B',
+      fontFamily: 'Poppins-Light',
+      fontSize:'14px',
+    },
+    
+    ' & .searchTerm:focus': {
+      color: '#2B313B',
+
+    },
+    ' & .searchButton': {
+      width: "40px",
+      fontFamily: 'Poppins-Light',
+      height: "45px",
+      border: "1px solid #fba530",
+      background: "#fba530",
+      textAlign: "center",
+      color: "#2B313B",
+      borderRadius: "0 5px 5px 0",
+      cursor: "pointer",
+      fontSize: "20px",
+    },
+    ' & .wrap': {
+      width: "90%",
+       margin: "7px auto",
+        paddingBottom: "20px",
+    },
+   
   },
 
   MenuIcon: {
@@ -244,6 +291,8 @@ const useStyles = makeStyles(() => ({
         top: 10,
       },
     },
+
+
     
   },
 }))

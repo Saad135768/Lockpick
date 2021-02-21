@@ -71,12 +71,7 @@ const MobileMenu = () => {
           <ul className={classes.RightMenu}>
  
           <li>
-  <div class="container">
-  <form action="#" method="get">
-    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search"/>
-    <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
-  </form>
-</div>
+
   </li>
   <li>
     <Link as={'#'} href="#">
@@ -91,6 +86,14 @@ const MobileMenu = () => {
 </ul>
         </Grid>
       </Menu1>
+      <div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?"/>
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
     </div>
   )
 }

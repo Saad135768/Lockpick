@@ -9,6 +9,10 @@ const useStyles = makeStyles(() => ({
       padding: '44px 0',
       paddingBottom:'30px',
     },
+    '@media (max-width:767px)': {
+      padding: '10px 0',
+      paddingBottom:'30px',
+    },
     height: '100%',
     '& img': {
       width: '100%',

@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { RiShoppingCartFill } from 'react-icons/ri'
 import { BiSearchAlt} from 'react-icons/bi'
 import { FaUser } from 'react-icons/fa'
+import { FiSearch } from 'react-icons/fi'
 
 
 const Navbar = () => {
@@ -57,16 +58,16 @@ const Navbar = () => {
               </ul>
 
               <ul className={classes.RightMenu}>
-  
- 
-  <li>
-  <div class="container">
-  <form action="#" method="get">
-    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search"/>
-    <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
-  </form>
-</div>
+   <li> 
+<div class="wrapper">
+  <div class="input-group">
+    <input class="search" type="text" placeholder="Search .."/>
+    <span class="bar"></span>
+  </div>
+  </div>
+
   </li>
+                      
   <li>
     <Link as={'#'} href="#">
     <a href="#"> <FaUser/></a>
