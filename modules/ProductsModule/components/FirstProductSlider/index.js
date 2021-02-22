@@ -12,7 +12,6 @@ const FirstProductSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
@@ -48,6 +47,7 @@ const FirstProductSlider = () => {
         </Slider>
 </Grid>
 <Grid lg={6} sm={6} xs={12}>
+<div className={classes.ProductSliderDataHolder}>
 <ProductSliderData
 title={'Lock Pick Basic Kit'}
 type={'Starter kit'}
@@ -61,6 +61,7 @@ buttonLinkAs={''}
 >
 
 </ProductSliderData>
+</div>
 
 </Grid>
       </Grid>

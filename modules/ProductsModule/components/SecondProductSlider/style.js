@@ -77,7 +77,7 @@ const useStyles = makeStyles(() => ({
     borderRadius:20,
     width:'100%',
     '@media (max-width:767px)': {
-      padding: '40px 15px',
+      padding: '40px 20px',
      },
   },
   

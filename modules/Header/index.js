@@ -78,7 +78,7 @@ const Header = () => {
 <div className={classes.three}>
 
 <img
-  src="../../static/images/homepage/glow.png"
+  src="../../static/images/homepage/glow2.gif"
   alt="lockpick-header-image"
 />
 

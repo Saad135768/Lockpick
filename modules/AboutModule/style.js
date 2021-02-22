@@ -5,14 +5,15 @@ const useStyles = makeStyles(() => ({
   FormHolder: {
     margin:'50px 0',
     '& img': {
-      width: '100%',
+      width: '80%',
       display: 'block',
       margin: '0 auto',
+      marginBottom:20,
     },
     '& p': {
 
-    lineHeight: '30px',
-     fontSize: 21,
+    lineHeight: '35px',
+     fontSize: 20,
      color:'#fff',
      '@media (max-width:767px)': {
       textAlign:'center',

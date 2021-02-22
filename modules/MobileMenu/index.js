@@ -30,6 +30,18 @@ const MobileMenu = () => {
             <div></div>
           </div>
         </div>
+        <div className="wrap">
+        <div className="search">
+          <input
+            type="text"
+            className="searchTerm"
+            placeholder="What are you looking for?"
+          />
+          <button type="submit" className="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
       </Container>
 
       <Menu1
@@ -86,18 +98,7 @@ const MobileMenu = () => {
           </ul>
         </Grid>
       </Menu1>
-      <div className="wrap">
-        <div className="search">
-          <input
-            type="text"
-            className="searchTerm"
-            placeholder="What are you looking for?"
-          />
-          <button type="submit" className="searchButton">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
+  
     </div>
   )
 }

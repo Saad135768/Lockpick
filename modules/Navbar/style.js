@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
     fontFamily: 'Poppins-Light',
     padding: '0',
     width: '100%',
-    marginLeft: 65,
+    marginLeft: 70,
     textAlign: 'left',
     '& li': {
       color: '#ffa62f',
@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
       fontSize: '19px',
       fontFamily: 'Poppins-Regular',
       color: '#ffa62f',
-      marginRight: '55px',
+      marginRight: '50px',
       '@media (max-width: 1024px)': {
         marginRight: '25px',
       },

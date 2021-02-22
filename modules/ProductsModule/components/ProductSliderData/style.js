@@ -49,10 +49,11 @@ const useStyles = makeStyles(() => ({
     '& h6': {
       color: '#fff',
     fontSize: 19,
-    marginTop:20,
-    marginBottom:40,
+    marginTop:10,
+    marginBottom:60,
     '@media (max-width:768px)': {
       fontSize: 16,
+      marginBottom:30,
     },
     },
     

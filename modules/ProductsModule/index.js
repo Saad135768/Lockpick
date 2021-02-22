@@ -41,10 +41,10 @@ const ProductsModule = () => {
         </div>
         <SecondProductSlider />
         <ThirdProductSlider />
-
       </Container>
     </div>
     </div>
+
 
   )
 }

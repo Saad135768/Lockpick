@@ -2,6 +2,11 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   ProductsHolder: {
+    transition: 'background 0.3s, border-radius 0.3s, opacity 0.3s',
+    backgroundPosition: 'center ',
+    backgroundSize: 'cover',
+    backgroundRepeat:'no-repeat',
+    background: "url('../../static/images/products/bg.png')",
   },
   
   CustomeTitle:{
@@ -39,8 +44,8 @@ padding:'15px 25px',
       fontFamily:'Poppins-SemiBold',
       lineHeight:'45px',
       '@media (max-width:767px)': {
-        fontSize:'35px',
-        lineHeight:'40px',
+        fontSize:'27px',
+        lineHeight:'35px',
       },
       '& span': {
         color: '#fff',

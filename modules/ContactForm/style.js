@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
 },
 
 '& input': {
-  marginBottom: 27,
+  marginBottom: 34,
 },
 
 '& .last': {
@@ -126,7 +126,7 @@ position: 'relative',
     marginBottom:20,
     color:'#FFA62F',
     marginTop:0,
-    fontSize: '22px',
+    fontSize: '24px',
     fontFamily: 'Poppins-SemiBold',
   },
 },

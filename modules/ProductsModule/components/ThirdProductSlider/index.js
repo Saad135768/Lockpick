@@ -41,7 +41,6 @@ const ThirdProductSlider  = () => {
                 title={"Add-on / options"}
                 type={"Starter kit"}
                 price={"$2,999,00"}
-                include={"Includes:"}
                 description={
                   "Main Device, Accessories, Interface Boards, And Full Software."
                 }
@@ -58,10 +57,9 @@ const ThirdProductSlider  = () => {
            
             <div className={classes.second}>
               <ProductSliderData
-                title={"Lock Pick Basic Kit"}
+                title={"Add-on / options"}
                 type={"Starter kit"}
                 price={"$2,999,00"}
-                include={"Includes:"}
                 description={
                   "Main Device, Accessories, Interface Boards, And Full Software."
                 }

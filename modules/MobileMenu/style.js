@@ -5,11 +5,10 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginLeft: 15,
+    marginLeft: 0,
     ' & button': {
       '@media (max-width:768px)': {
         padding: '10px 15px',
-        marginLeft: 15,
       },
       '@media (max-width:414px)': {
         padding: '10px 10px',
@@ -183,7 +182,6 @@ const useStyles = makeStyles(() => ({
 
     },
     ' & .searchButton': {
-      width: "40px",
       fontFamily: 'Poppins-Light',
       height: "45px",
       border: "1px solid #fba530",
@@ -195,7 +193,7 @@ const useStyles = makeStyles(() => ({
       fontSize: "20px",
     },
     ' & .wrap': {
-      width: "90%",
+      width: "100%",
        margin: "7px auto",
         paddingBottom: "20px",
     },

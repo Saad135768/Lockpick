@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   ProductSliderHolder: {
    margin:'80px 0',
-   padding:'40px 0',
+   marginTop:0,
    '@media (max-width:767px)': {
     padding:'0 0',
     margin:'40px 0',
@@ -64,10 +64,16 @@ const useStyles = makeStyles(() => ({
     },
  
   },
-  
+  ProductSliderDataHolder:{
+   paddingLeft:60,
+   '@media (max-width:767px)': {
+    paddingLeft:0,
+  },
+  },
+
   ProductSliderBg:{
     background:'#FFFFFF3B',
-    padding: '60px 20px',
+    padding: '60px 60px',
     borderRadius:20,
     width:'100%',
     '@media (max-width:767px)': {

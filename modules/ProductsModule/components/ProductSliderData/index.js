@@ -22,7 +22,6 @@ const ProductSliderData = ({
   const classes = useStyles()
   return (
     <div className={classes.ProductSliderDataHolder}>
-        
           <div className={classes.SectionTitleHolder}>
             <h1> {title}</h1>
             <h4> {type} </h4>

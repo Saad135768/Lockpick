@@ -4,11 +4,16 @@ import { FaFacebookF, FaTwitter } from "react-icons/fa"
 import { AiOutlineInstagram, AiOutlineGoogle } from "react-icons/ai"
 import Link from "next/link"
 import useStyles from "./style"
-
+import ScrollToTop from 'react-scroll-up'
 const Footer = () => {
   const classes = useStyles()
   return (
     <div>
+        <div className={classes.FooterScroll}>
+      <ScrollToTop showUnder={200}>
+  <span><img src="../../static/images/backt2top.png"/></span>
+  </ScrollToTop>
+  </div>
       <div className={classes.FooterHolder}>
         <div className={classes.FooterSeperator}>
           <img
@@ -73,9 +78,12 @@ const Footer = () => {
                   <ul className={classes.centermenu}>
                     <li>
                       <Link as={"#"} href="#">
-                        <a href="#">Terms of use </a>
+                        <a href="#">Terms of use  </a>
                       </Link>
                     </li>
+                    <li>
+                    <span>  |</span>
+                      </li>
                     <li>
                       <Link as={"#"} href="#">
                         <a href="#">Privacy Policy</a>
