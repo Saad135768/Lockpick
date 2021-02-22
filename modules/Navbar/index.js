@@ -145,6 +145,7 @@ const Navbar = () => {
                 <li>
                   <div className="wrap">
                     <div className="search">
+                    <form action="/products">
                       <input
                         type="text"
                         className="searchTerm"
@@ -153,6 +154,7 @@ const Navbar = () => {
                       <button type="submit" className="searchButton">
                         <i class="fa fa-search"></i>
                       </button>
+                      </form>
                     </div>
                   </div>
                 </li>

@@ -13,6 +13,13 @@ const MobileMenu = () => {
   useEffect(() => {
     setIsOpen(false)
   }, [router.query])
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+  
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   const classes = useStyles()
   return (
@@ -77,6 +84,18 @@ const MobileMenu = () => {
                   About
                 </a>
               </Link>
+            </li>
+            <li>
+            <a
+                      onClick={() => {
+                        Router.push({
+                          pathname: "/support/tutorials",
+                        })
+                        handleClose()
+                      }}
+                    >
+                      Tutorials
+                    </a>
             </li>
           </ul>
           <ul className={classes.RightMenu}>

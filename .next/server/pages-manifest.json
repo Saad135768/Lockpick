@@ -2,8 +2,5 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/about": "pages/about.js",
-  "/support/tutorials": "pages/support/tutorials.js",
-  "/support": "pages/support.js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
+  "/support/tutorials": "pages/support/tutorials.js"
 }

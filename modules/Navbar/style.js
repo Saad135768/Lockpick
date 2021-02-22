@@ -59,6 +59,7 @@ const useStyles = makeStyles(() => ({
         position: 'relative',
         top: 10,
       },
+   
     },
     '& a.active': {
       paddingBottom: '2px',
@@ -98,6 +99,10 @@ const useStyles = makeStyles(() => ({
       paddingBottom: '2px',
       fontFamily: 'Poppins-Bold',
       borderBottom: '3px solid #3680d6',
+    },
+    '& form': {
+      display: 'inherit',
+
     },
   },
 
