@@ -39,41 +39,85 @@ const SecondProductSlider = () => {
             <div className={classes.second}>
               <ProductSliderData
                 title={"full package"}
-                type={"Starter kit"}
-                price={"$2,999,00"}
-                include={"Includes:"}
+                type={"Refurbished Dell Latitude"}
+                price={"$3,695,00"}
                 description={
-                  "Main Device, Accessories, Interface Boards, And Full Software."
+                  "Lock Pick Basic kit with preinstalled software on: Factory refurbished Dell Latitude E5470"
                 }
+                spec={'i5 Processor / 8 GB RAM / 250 SSD'}
                 buttonTitle={"Add to cart"}
                 buttonLink={""}
                 buttonLinkAs={""}
               />
             </div>
             <div className={classes.first}>
-              <img src="../../../../static/images/products/product1.png" />
+              <img src="../../../../static/images/products/1.png" />
             </div>
           </div>
+
           <div className={classes.firstsecond}>
            
-            <div className={classes.second}>
-              <ProductSliderData
-                title={"Lock Pick Basic Kit"}
-                type={"Starter kit"}
-                price={"$2,999,00"}
-                include={"Includes:"}
-                description={
-                  "Main Device, Accessories, Interface Boards, And Full Software."
-                }
-                buttonTitle={"Add to cart"}
-                buttonLink={""}
-                buttonLinkAs={""}
-              />
-            </div>
-            <div className={classes.first}>
-              <img src="../../../../static/images/products/product1.png" />
-            </div>
-          </div>
+           <div className={classes.second}>
+             <ProductSliderData
+               title={"full package"}
+               type={"Refurbished Panasonic Toughbook"}
+               price={"$4,495,00"}
+               description={
+                 "Lock Pick Basic kit with preinstalled software on: Factory refurbished Panasonic Toughbook CF-54"
+               }
+               spec={'i5 Processor / 8 GB RAM / 250 SSD'}
+               buttonTitle={"Add to cart"}
+               buttonLink={""}
+               buttonLinkAs={""}
+             />
+           </div>
+           <div className={classes.first}>
+             <img src="../../../../static/images/products/2.png" />
+           </div>
+         </div>
+
+         <div className={classes.firstsecond}>
+           
+           <div className={classes.second}>
+             <ProductSliderData
+               title={"full package"}
+               type={"New Dell Latitude"}
+               price={"$4,795,00"}
+               description={
+                 "Lock Pick Basic kit with preinstalled software on: Brand-New Dell Latitude E5400 Series"
+               }
+               spec={'i5 Processor / 8 GB RAM / 250 SSD'}
+               buttonTitle={"Add to cart"}
+               buttonLink={""}
+               buttonLinkAs={""}
+             />
+           </div>
+           <div className={classes.first}>
+             <img src="../../../../static/images/products/3.png" />
+           </div>
+         </div>
+
+         <div className={classes.firstsecond}>
+           
+           <div className={classes.second}>
+             <ProductSliderData
+               title={"full package"}
+               type={"New Panasonic Toughbook"}
+               price={"$5,495,00"}
+               description={
+                 "Lock Pick Basic kit with preinstalled software on: Brand-New Panasonic Toughbook FZ-55"
+               }
+               spec={'i5 Processor / 8 GB RAM / 250 SSD'}
+               buttonTitle={"Add to cart"}
+               buttonLink={""}
+               buttonLinkAs={""}
+             />
+           </div>
+           <div className={classes.first}>
+             <img src="../../../../static/images/products/4.png" />
+           </div>
+         </div>
+         
         </Slider>
       </div>
     </div>

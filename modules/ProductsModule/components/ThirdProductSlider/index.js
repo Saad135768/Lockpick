@@ -39,10 +39,10 @@ const ThirdProductSlider  = () => {
             <div className={classes.second}>
               <ProductSliderData
                 title={"Add-on / options"}
-                type={"Starter kit"}
-                price={"$2,999,00"}
+                type={"Add-On to BMW WIZARD"}
+                price={"$3,800,00"}
                 description={
-                  "Main Device, Accessories, Interface Boards, And Full Software."
+                  "Includes a complete BMW Wizard software update along with the Lock Pick Basic kit."
                 }
                 buttonTitle={"Add to cart"}
                 buttonLink={""}
@@ -58,10 +58,10 @@ const ThirdProductSlider  = () => {
             <div className={classes.second}>
               <ProductSliderData
                 title={"Add-on / options"}
-                type={"Starter kit"}
-                price={"$2,999,00"}
+                type={"NEW OPTION"}
+                price={"$COMING SOON"}
                 description={
-                  "Main Device, Accessories, Interface Boards, And Full Software."
+                  ""
                 }
                 buttonTitle={"Add to cart"}
                 buttonLink={""}
@@ -69,7 +69,7 @@ const ThirdProductSlider  = () => {
               />
             </div>
             <div className={classes.first}>
-              <img src="../../../../static/images/products/product1.png" />
+              <img src="../../../../static/images/products/coming.png" />
             </div>
           </div>
         </Slider>

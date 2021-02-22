@@ -27,11 +27,14 @@ const useStyles = makeStyles(() => ({
 
   TutorialsRight:{
     paddingLeft: 130,
+    '@media (max-width:767px)': {
+      paddingLeft: 0,
+    },
   },
 
   TutorialsVideo:{
     background: 'rgba(53, 128, 214, 0.25)', 
-    padding:'10px 10px',
+    padding:'15px 20px',
   },
   videoholder:{
 

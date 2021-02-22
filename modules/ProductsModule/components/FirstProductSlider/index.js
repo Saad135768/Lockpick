@@ -51,9 +51,9 @@ const FirstProductSlider = () => {
 <ProductSliderData
 title={'Lock Pick Basic Kit'}
 type={'Starter kit'}
-price={'$2,999,00'}
+price={'$2,995.00'}
 include={'Includes:'}
-description={'Main Device, Accessories, Interface Boards, And Full Software.'}
+description={'Main device, accessories, interface boards, and full software.'}
 buttonTitle={'Add to cart'}
 buttonLink={''}
 buttonLinkAs={''}

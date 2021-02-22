@@ -12,13 +12,13 @@ const TutorialsModule = () => {
     <div className={classes.Tutorials}>
       <Container>
         <Grid container justify="center" spacing={2}>
-          <Grid item lg={10}>
+          <Grid item lg={10} xs={12}>
             <div className={classes.root}>
               <Grid container spacing={3}>
-                <Grid item lg={6}>
+                <Grid item lg={6} xs={12}>
                   <img src="../../static/support/toturial.png" />
                 </Grid>
-                <Grid item lg={6}>
+                <Grid item lg={6} xs={12}>
                   <div className={classes.TutorialsRight}>
                     <h4> DOCUMNETS</h4>
                     <Link
