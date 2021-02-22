@@ -17,12 +17,12 @@ const software = () => {
 
    <Grid container justify="center" spacing={2}>
 
-     <Grid item lg={9} xs={12}>
+     <Grid item lg={10} xs={12}>
 
                 <div className={classes.SupportRight}>
 
         <img src="../../../../static/support/software.gif" />
-        <p> Windows 7, 8, 10 (x86-x64)</p>
+        <p> Windows 7, 8, 10 (X86-X64) Version</p>
         <h5>LATEST BUILD </h5>
 
         <Link as={"#"} href="#">

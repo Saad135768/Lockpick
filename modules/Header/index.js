@@ -4,7 +4,10 @@ import Container from "@material-ui/core/Container"
 import Slider from "react-slick"
 import ScrollAnimation from 'react-animate-on-scroll'
 import { Parallax } from 'react-scroll-parallax'
+import React from 'react'
+import Button from '@material-ui/core/Button'
 
+import ModalsContent from './component/ModalsContent'
 import useStyles from "./style"
 var settings = {
   dots: false,
@@ -44,9 +47,18 @@ var settings = {
     },
   ],
 }
+
 const Header = () => {
   const classes = useStyles()
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className={classes.HeaderHolder}>
       <Container maxWidth="lg">
@@ -81,15 +93,12 @@ const Header = () => {
   src="../../static/images/homepage/glow2.gif"
   alt="lockpick-header-image"
 />
-
                 </div>
                 </div>
-
                 <div className={classes.HeaderCircles}>
                 <ScrollAnimation animateIn="fadeIn">
                   <h2> unlimited potential</h2>
                   </ScrollAnimation>
-
                   <Slider {...settings}>
                     <div>
                   
@@ -97,21 +106,20 @@ const Header = () => {
                 <div className={`${classes.HeaderCirclesItem} first `}>
                 <ScrollAnimation animateIn='fadeInUp'
                     >
-                        <img
-                          src="../../static/images/homepage/key.png"
-                          alt="lockpick-key-image"
-                        />
-                        <h3>
-                          
-                          Program New <br /> & Used Keys
-                        </h3>
+                     <ModalsContent
+                     image={'../../static/images/homepage/key.png'}
+                     title={"Program New "}
+                     title2={'& Used Keys'}
+                     modalTitle={'Program New & Used Keys'}  
+                     description={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy."}
+                     >
+                     </ModalsContent>
                         </ScrollAnimation>
                       </div>
                     </div>
 
                     <div>
                  
-
                         <div className={`${classes.HeaderCirclesItem} second `}>
                         <ScrollAnimation animateIn='fadeInUp'
                                       >
@@ -151,6 +159,7 @@ const Header = () => {
             </Grid>
           </Grid>
         </div>
+        <ModalsContent/>
       </Container>
     </div>
   )
