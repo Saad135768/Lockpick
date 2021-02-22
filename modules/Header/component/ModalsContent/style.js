@@ -2,8 +2,10 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   MuiDialogContent: {
-    '@media (max-width:767px)': {
-    marginTop:0,
+    padding:30,
+    '& .MuiDialog-paperWidthSm': {
+    padding:30,
+
     },
     '& h4': {
     fontFamily: 'Poppins-SemiBold',
