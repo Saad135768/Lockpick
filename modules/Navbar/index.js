@@ -5,10 +5,23 @@ import useStyles from "./style"
 import { useRouter } from "next/router"
 import { RiShoppingCartFill } from "react-icons/ri"
 import { FaUser } from "react-icons/fa"
-
+import React from "react"
+import Router from "next/router"
+import Button from "@material-ui/core/Button"
+import Menu from "@material-ui/core/Menu"
+import MenuItem from "@material-ui/core/MenuItem"
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   return (
     <div className={classes.NavbarHolder}>
@@ -32,35 +45,97 @@ const Navbar = () => {
           <Grid item lg={9} md={9}>
             <div className={classes.navbarContent}>
               <ul className={classes.centermenu}>
-              <li>
-                <Link href="/">
-                  <a className={router.pathname === "/" ? "active" : ""}>
-                    Home
-                  </a>
-                </Link>
+                <li>
+                  <Link href="/">
+                    <a className={router.pathname === "/" ? "active" : ""}>
+                      Home
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                <Link href="/products">
-                  <a
-                    className={router.pathname === "/products" ? "active" : ""}
-                  >
-                    Products
-                  </a>
-                </Link>
+                  <Link href="/products">
+                    <a
+                      className={
+                        router.pathname === "/products" ? "active" : ""
+                      }
+                    >
+                      Products
+                    </a>
+                  </Link>
                 </li>
-                <li>
-                <Link href="/download">
-                  <a
-                    className={router.pathname === "/download" ? "active" : ""}
-                  >
-                    Download
-                  </a>
-                </Link>
+                <li
+                >
+                  <Link as={"/support"} href="/support">
+                    <a href="/support" onMouseEnter={handleClick}
+                    >
+                      Support
+                    </a>
+                  </Link>
                 </li>
+
+                <Menu
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                    <MenuItem onClick={handleClose}>
+                    <a
+                      onClick={() => {
+                        Router.push({
+                          pathname: "/support",
+                        })
+                        handleClose()
+                      }}
+                    >
+                      Support
+                    </a>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <a
+                      onClick={() => {
+                        Router.push({
+                          pathname: "/support/faq",
+                        })
+                        handleClose()
+                      }}
+                    >
+                      Faq
+                    </a>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleClose}>
+                    <a
+                      onClick={() => {
+                        Router.push({
+                          pathname: "/support/tutorials",
+                        })
+                        handleClose()
+                      }}
+                    >
+                      Tutorials
+                    </a>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <a
+                      onClick={() => {
+                        Router.push({
+                          pathname: "/support/download",
+                        })
+                        handleClose()
+                      }}
+                    >
+                      Download
+                    </a>
+                  </MenuItem>
+                
+                </Menu>
+
                 <li>
                   <Link as={"/about"} href="/about">
                     <a className={router.pathname === "/about" ? "active" : ""}>
-                      About
+                      About us
                     </a>
                   </Link>
                 </li>
@@ -68,14 +143,16 @@ const Navbar = () => {
 
               <ul className={classes.RightMenu}>
                 <li>
-                  <div class="wrapper">
-                    <div class="input-group">
+                  <div className="wrap">
+                    <div className="search">
                       <input
-                        class="search"
                         type="text"
-                        placeholder="Search .."
+                        className="searchTerm"
+                        placeholder="Search ..."
                       />
-                      <span class="bar"></span>
+                      <button type="submit" className="searchButton">
+                        <i class="fa fa-search"></i>
+                      </button>
                     </div>
                   </div>
                 </li>
@@ -93,8 +170,10 @@ const Navbar = () => {
                       <RiShoppingCartFill />
                     </a>
                   </Link>
-                  <em className={classes.test}> <span> 3</span> </em>
-
+                  <em className={classes.test}>
+                   
+                    <span> 3</span>
+                  </em>
                 </li>
               </ul>
             </div>

@@ -25,16 +25,18 @@ const useStyles = makeStyles(() => ({
   },
   centermenu: {
     color: 'white',
-    marginTop: '35px',
+    marginTop: '50px',
     textTransform: 'uppercase',
     fontFamily: 'Poppins-Light',
     padding: '0',
     width: '100%',
-    marginLeft: 70,
+    marginLeft: 60,
     textAlign: 'left',
     '& li': {
       color: '#ffa62f',
       display: 'inline-block',
+      zIndex: 99999,
+      position: 'relative',
       padding: '0',
       ' & :hover': {
         transition: '0.1s',
@@ -43,9 +45,13 @@ const useStyles = makeStyles(() => ({
     },
     '& a': {
       fontSize: '19px',
+      cursor:'pointer',
       fontFamily: 'Poppins-Regular',
       color: '#ffa62f',
-      marginRight: '50px',
+      marginRight: '42px',
+      '& :hover': {
+        cursor: 'pointer',
+      },
       '@media (max-width: 1024px)': {
         marginRight: '25px',
       },
@@ -62,7 +68,7 @@ const useStyles = makeStyles(() => ({
 
   },
   RightMenu :{
-    width: 320,
+    width: 520,
     position:'relative',
     color: 'white',
     justifyContent: 'flex-end',
@@ -79,7 +85,9 @@ const useStyles = makeStyles(() => ({
     '& a': {
       fontSize: '26px',
       color: '#ffa62f',
-      marginLeft: '25px',
+    position: 'relative',
+    top: 13,
+      marginLeft: '15px',
      
       '& img': {
         position: 'relative',
@@ -99,6 +107,52 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     '@media (max-width: 768px)': {
 display:'none',
+    },
+    ' & .search ': {
+      width: "100%",
+       position: "relative",
+        display: "flex",
+    },
+    ' & .searchTerm ': {
+      width: "100%",
+      border: "0",
+      borderRight: "none",
+      fontFamily: 'Poppins-Light',
+      padding: "5px",
+      paddingLeft: "10px",
+      background:'#4b5059',
+      fontSize:'15px',
+      height: "45px",
+      borderRadius: "5px 0 0 5px",
+      outline: "none",
+      color: "#2B313B",
+     
+    },
+    ' & input.searchTerm::placeholder': {
+      color: '#2B313B',
+      fontFamily: 'Poppins-Light',
+      fontSize:'14px',
+    },
+    
+    ' & .searchTerm:focus': {
+      color: '#2B313B',
+
+    },
+    ' & .searchButton': {
+      fontFamily: 'Poppins-Light',
+      height: "45px",
+      border: "1px solid #fba530",
+      background: "#fba530",
+      textAlign: "center",
+      color: "#fff",
+      borderRadius: "0 5px 5px 0",
+      cursor: "pointer",
+      fontSize: "20px",
+    },
+    ' & .wrap': {
+      width: "100%",
+       margin: "7px auto",
+        paddingBottom: "20px",
     },
   },
   carticon: {
@@ -218,7 +272,7 @@ display:'none',
   },
   test: {
     position: "absolute",
-    top: "-12px",
+    top: "2px",
     background: "#315888",
     width: "22px",
     height: "22px",

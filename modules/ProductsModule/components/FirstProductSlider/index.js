@@ -2,7 +2,7 @@ import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
 import useStyles from "./style"
 import Slider from "react-slick";
-import ProductSliderData from "../ProductSliderData";
+import ProductSliderData from "../ProductSliderData"
 
 const FirstProductSlider = () => {
   const classes = useStyles()
