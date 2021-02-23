@@ -122,16 +122,15 @@ const Header = () => {
                  
                         <div className={`${classes.HeaderCirclesItem} second `}>
                         <ScrollAnimation animateIn='fadeInUp'
-                                      >
-                        <img
-                          src="../../static/images/homepage/rest.png"
-                          alt="lockpick-rest-image"
-                        />
-                        <h3>
-                          
-                          Reset transmission <br />
-                          modules ISN
-                        </h3>
+                    >
+                     <ModalsContent
+                     image={'../../static/images/homepage/key.png'}
+                     title={"Reset transmission "}
+                     title2={'modules ISN'}
+                     modalTitle={'Reset Transmistion Modules ISN'}  
+                     description={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy."}
+                     >
+                     </ModalsContent>
                         </ScrollAnimation>
 
                       </div>
@@ -141,16 +140,16 @@ const Header = () => {
 
                   <div className={`${classes.HeaderCirclesItem} third `}>
                   <ScrollAnimation animateIn='fadeInUp'
-                             >
-                        <img
-                          src="../../static/images/homepage/clone.png"
-                          alt="lockpick-clone-image"
-                        />
-                        <h3>
-                          
-                          Clone BMW <br /> & Mini modules
-                        </h3>
-                      </ScrollAnimation>
+                    >
+                     <ModalsContent
+                     image={'../../static/images/homepage/key.png'}
+                     title={"Clone BMW "}
+                     title2={'& Mini modules'}
+                     modalTitle={'Clone BMW & Mini Modules'}  
+                     description={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy."}
+                     >
+                     </ModalsContent>
+                        </ScrollAnimation>
                       </div>
                       </div>
                   </Slider>
