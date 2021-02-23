@@ -81,6 +81,18 @@ const Navbar = () => {
                   onClose={handleClose}
                 >
                
+               <MenuItem onClick={handleClose}>
+                    <a
+                      onClick={() => {
+                        Router.push({
+                          pathname: "/support",
+                        })
+                        handleClose()
+                      }}
+                    >
+                      Support
+                    </a>
+                  </MenuItem>
                   <MenuItem onClick={handleClose}>
                     <a
                       onClick={() => {
