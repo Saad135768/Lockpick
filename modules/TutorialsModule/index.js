@@ -5,7 +5,9 @@ import Grid from "@material-ui/core/Grid"
 import React from "react"
 import Link from "next/link"
 import Button from "../../common/Button"
+import TutorialsSlider from '../TutorialsModule/components/TutorialsSlider'
 const TutorialsModule = () => {
+  
   const classes = useStyles()
 
   return (
@@ -15,10 +17,10 @@ const TutorialsModule = () => {
           <Grid item lg={10} xs={12}>
             <div className={classes.root}>
               <Grid container spacing={3}>
-                <Grid item lg={6} xs={12}>
+                <Grid item lg={6} xs={12} sm={6}>
                   <img src="../../static/support/toturial.png" />
                 </Grid>
-                <Grid item lg={6} xs={12}>
+                <Grid item lg={6} xs={12} sm={6}>
                   <div className={classes.TutorialsRight}>
                     <h4> DOCUMNETS</h4>
                     <Link
@@ -37,12 +39,18 @@ const TutorialsModule = () => {
                         <Button> MANUAL</Button>
                       </a>
                     </Link>
-                    <Link as={"/support/tutorials"} href="/support/tutorials">
-                      <a href="/support/tutorials">
-                        <Button> TUTORIALS</Button>
+                  
+                      <a>
+                     <TutorialsSlider
+                     title={'TUTORIALS'}
+                     
+                     >
+                       </TutorialsSlider>
                       </a>
-                    </Link>
+                    
+                   
                   </div>
+
                 </Grid>
               </Grid>
             </div>
@@ -51,15 +59,16 @@ const TutorialsModule = () => {
 <div>
   <h3> VIDEO TUTORIALS </h3>
 </div>
-<div className={classes.TutorialsVideo}>
+<div className={classes.TutorialsVideo} id="TUTORIALS">
   <p> LOCK PICK Training Video Tutorials </p>
 
   <iframe width="100%" height="417" src="https://www.youtube.com/embed/NpEaa2P7qZI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  
+
 </div>
 </div>
 
           </Grid>
+
         </Grid>
       </Container>
     </div>

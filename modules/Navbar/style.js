@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     '& li': {
       color: '#ffa62f',
       display: 'inline-block',
-      zIndex: 99999,
+      zIndex: 999,
       position: 'relative',
       padding: '0',
       ' & :hover': {
