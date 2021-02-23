@@ -153,11 +153,18 @@ const useStyles = makeStyles(() => ({
     textAlign: 'center',
     '& img': {
       marginBottom:30,
+      '&:hover': {
+        cursor: 'pointer',
+      },
+
     },
     '& h3': {
       marginTop: 0,
       color: '#fff',
       fontSize: 22,
+      '&:hover': {
+        cursor: 'pointer',
+      },
     },
 
 

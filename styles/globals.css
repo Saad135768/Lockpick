@@ -60,3 +60,8 @@ a {
     color: #fff;
     text-transform: uppercase;
 }
+
+.slick-next:before, .slick-prev:before {
+  font-size: 30px;
+ 
+}

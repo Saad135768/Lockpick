@@ -25,6 +25,7 @@ const useStyles = makeStyles(() => ({
     height: 290,
     objectFit: 'cover',
   },
+  
   },
 
   WallpaperOverlay:{

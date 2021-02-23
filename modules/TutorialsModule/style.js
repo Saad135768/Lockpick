@@ -12,6 +12,11 @@ const useStyles = makeStyles(() => ({
     ' & button': {
       borderRadius: 0,
     marginBottom: 30,
+    '@media (max-width:767px)': {
+      width:'100%',
+      marginBottom: 13,
+    },
+
       },
       ' & h4': {
         marginTop:'0',
