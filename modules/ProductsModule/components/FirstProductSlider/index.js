@@ -41,7 +41,7 @@ const FirstProductSlider = () => {
            <img src="../../../../static/images/products/product1.png"/>
           </div>
           <div>
-           <img src="../../../../static/images/products/product1.png"/>
+           <img src="../../../../static/images/products/a2.png"/>
           </div>
          
         </Slider>
