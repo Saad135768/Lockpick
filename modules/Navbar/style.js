@@ -130,7 +130,7 @@ display:'none',
       height: "45px",
       borderRadius: "5px 0 0 5px",
       outline: "none",
-      color: "#2B313B",
+      color: "#fff",
      
     },
     ' & input.searchTerm::placeholder': {
@@ -140,7 +140,7 @@ display:'none',
     },
     
     ' & .searchTerm:focus': {
-      color: '#2B313B',
+      color: '#fff',
 
     },
     ' & .searchButton': {
