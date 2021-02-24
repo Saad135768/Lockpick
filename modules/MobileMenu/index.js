@@ -6,7 +6,10 @@ import { Container, Grid } from "@material-ui/core"
 import useStyles from "./style"
 import { RiShoppingCartFill } from "react-icons/ri"
 import { FaUser } from "react-icons/fa"
-
+import Accordion from '@material-ui/core/Accordion'
+import AccordionDetails from '@material-ui/core/AccordionDetails'
+import AccordionSummary from '@material-ui/core/AccordionSummary'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 const MobileMenu = () => {
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
@@ -20,6 +23,12 @@ const MobileMenu = () => {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   const classes = useStyles()
   return (
@@ -85,18 +94,32 @@ const MobileMenu = () => {
                 </a>
               </Link>
             </li>
-            <li>
-            <a
-                      onClick={() => {
-                        Router.push({
-                          pathname: "/support/tutorials",
-                        })
-                        handleClose()
-                      }}
-                    >
-                      Tutorials
-                    </a>
+           
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+
+          <Link as={"/support"} href="/support">
+                <a className={router.pathname === "/support" ? "active" : ""}>
+                Support
+                </a>
+              </Link>
+        </AccordionSummary>
+        <AccordionDetails>
+
+                    <li>
+              <Link as={"/support/faq"} href="/support/faq">
+                <a className={router.pathname === "/support/faq" ? "active" : ""}>Support</a>
+              </Link>
             </li>
+
+                    
+
+        </AccordionDetails>
+      </Accordion>
           </ul>
           <ul className={classes.RightMenu}>
             <li></li>

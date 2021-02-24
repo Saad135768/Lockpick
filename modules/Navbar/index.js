@@ -46,7 +46,8 @@ const Navbar = () => {
           </Grid>
           <Grid item lg={9} md={9}>
             <div className={classes.navbarContent}>
-              <ul className={classes.centermenu}>
+              <ul className={classes.centermenu} onMouseLeave={handleClose}
+>
                 <li>
                   <Link href="/">
                     <a className={router.pathname === "/" ? "active" : ""}>
@@ -65,10 +66,15 @@ const Navbar = () => {
                     </a>
                   </Link>
                 </li>
-                <li
-                >
-                  <Link as={"/support"} href="/support">
-                    <a href="/support" onMouseEnter={handleClick}
+                <li>
+                  <Link 
+                   href="/support">
+                    <a 
+                    onMouseEnter={handleClick}
+                    onClick={() => console.log('click')}
+                      className={
+                        router.pathname === "/support" ? "active" : ""
+                      }
                     >
                       Support
                     </a>
@@ -82,20 +88,10 @@ const Navbar = () => {
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
                 >
-               
-               <MenuItem onClick={handleClose}>
-                    <a
-                      onClick={() => {
-                        Router.push({
-                          pathname: "/support",
-                        })
-                        handleClose()
-                      }}
-                    >
-                      Support
-                    </a>
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
+             
+                  <MenuItem onClick={handleClose}
+                                    onClose={handleClose}
+                                    >
                     <a
                       onClick={() => {
                         Router.push({

@@ -83,7 +83,10 @@ overlay: {
 ContactFormContent: {
 display:'flex',
 marginBottom:15,
-
+'& :hover':{
+  transform: 'scale(1.04)',
+  transition: '0.3s',
+},
 },
 ContactFormIcon: {
   marginRight: 17,
@@ -95,10 +98,9 @@ ContactFormIcon: {
 ContactFormInfo: {
   fontSize: '18px',
   textTransform: 'uppercase',
+  marginBottom: 15,
   fontFamily: 'Poppins-SemiBold',
-  '& :hover':{
-
-  },
+  
   '@media (max-width:767px)': {
     fontSize: '16px',
   },

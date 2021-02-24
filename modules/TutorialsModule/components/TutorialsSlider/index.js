@@ -83,10 +83,10 @@ const TutorialsSlider = ({ title }) => {
                   LockPick brochure </a>
               </div>
               <div>
-                2
-              </div>
-               <div>
-                3
+               
+               <a href="../../../../static/support/unlook.pdf" target="_blank">
+               <img src='../../../../static/support/pdf.webp'/>
+                  LockPick brochure </a>
               </div>
             </Slider>
            </div>

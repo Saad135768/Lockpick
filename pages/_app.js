@@ -26,6 +26,10 @@ function MyApp ({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+         <link
+              rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            />
         <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
@@ -33,10 +37,14 @@ function MyApp ({ Component, pageProps }) {
          <link rel="icon" href="../static/images/32x32.png" sizes="32x32" />
           <link rel="icon" href="../static/images/192x192.png" sizes="192x192" />
           <link rel="apple-touch-icon" href="../static/images/180x180.png" />   
+          
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet"/>
+
         <style>
           {`
             @font-face {
               font-family:'Poppins-Regular';
+              font-family: 'Inter', sans-serif;
               src: url('../static/fonts/Poppins-Regular.ttf');
             }
             @font-face {

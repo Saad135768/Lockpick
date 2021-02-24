@@ -50,12 +50,12 @@ var settings2 = {
   dots: true,
   infinite: false,
   arrows: true,
-  speed: 500,
+  speed: 1500,
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
   autoplay: true,
-  autoplaySpeed: 1500,
+  autoplaySpeed: 2000,
   responsive: [
   
 
@@ -92,7 +92,7 @@ const Header = () => {
             <Grid item lg={11} xs={12}>
               <div className={classes.HeaderContent}>
               <ScrollAnimation animateIn="fadeIn"
-                       animateOnce={true}>
+                    animateOnce={true}>
                   
                 <h1>unlock your bmw</h1>
                 </ScrollAnimation>

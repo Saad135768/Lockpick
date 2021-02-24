@@ -25,6 +25,7 @@ const useStyles = makeStyles(() => ({
   },
   centermenu: {
     color: 'white',
+    zIndex:99999,
     marginTop: '50px',
     textTransform: 'uppercase',
     fontFamily: 'Poppins-Light',
@@ -300,6 +301,36 @@ display:'none',
 
   },
 
+
+  paper: {
+    top: '73px !important',
+    '& *': {
+      top: '73px !important',
+    },
+    '& .MuiPaper-root.MuiPopover-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded': {
+      width: '100%',
+      maxWidth: '100%',
+      minWidth: '100%',
+      top: '0 !important',
+      left: '0 !important',
+      margin: '0 ',
+      marginLeft: '0',
+      marginRight: '0',
+      borderRadius: '0',
+      boxShadow: 'none',
+      padding: '13px',
+      background: '#F2F2F2',
+      height: 280,
+      display: 'flex',
+      overflowY: 'auto',
+      overflowX: 'hidden',
+
+    },
+    '.MuiPopover-root': {
+      height: '325px',
+      margintop: '0px !important',
+    },
+  },
 }))
 
 export default useStyles
