@@ -6,10 +6,10 @@ import { Container, Grid } from "@material-ui/core"
 import useStyles from "./style"
 import { RiShoppingCartFill } from "react-icons/ri"
 import { FaUser } from "react-icons/fa"
-import Accordion from '@material-ui/core/Accordion'
-import AccordionDetails from '@material-ui/core/AccordionDetails'
-import AccordionSummary from '@material-ui/core/AccordionSummary'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import Accordion from "@material-ui/core/Accordion"
+import AccordionDetails from "@material-ui/core/AccordionDetails"
+import AccordionSummary from "@material-ui/core/AccordionSummary"
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 const MobileMenu = () => {
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
@@ -19,16 +19,16 @@ const MobileMenu = () => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
   }
-  
+
   const handleClose = () => {
     setAnchorEl(null)
   }
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(false)
 
   const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+    setExpanded(isExpanded ? panel : false)
+  }
 
   const classes = useStyles()
   return (
@@ -47,17 +47,17 @@ const MobileMenu = () => {
           </div>
         </div>
         <div className="wrap">
-        <div className="search">
-          <input
-            type="text"
-            className="searchTerm"
-            placeholder="What are you looking for?"
-          />
-          <button type="submit" className="searchButton">
-            <i class="fa fa-search"></i>
-          </button>
+          <div className="search">
+            <input
+              type="text"
+              className="searchTerm"
+              placeholder="What are you looking for?"
+            />
+            <button type="submit" className="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
         </div>
-      </div>
       </Container>
 
       <Menu1
@@ -76,47 +76,71 @@ const MobileMenu = () => {
             </li>
             <li>
               <Link as={"/products"} href="/products">
-                <a className={router.pathname === "/products" ? "active" : ""}>Products</a>
-              </Link>
-            </li>
-
-            <li>
-            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-
-          <Link as={"/support"} href="/support">
-                <a className={router.pathname === "/support" ? "active" : ""}>
-                Support
+                <a className={router.pathname === "/products" ? "active" : ""}>
+                  Products
                 </a>
               </Link>
-        </AccordionSummary>
-        <AccordionDetails>
-
-                    <li>
-              <Link as={"/support/faq"} href="/support/faq">
-                <a className={router.pathname === "/support/faq" ? "active" : ""}>faq</a>
-              </Link>
             </li>
 
             <li>
-              <Link as={"/support/tutorials"} href="/support/tutorials">
-                <a className={router.pathname === "/support/tutorials" ? "active" : ""}>tutorials</a>
-              </Link>
-            </li>
-            <li>
-              <Link as={"/support/download"} href="/support/download">
-                <a className={router.pathname === "/support/download" ? "active" : ""}>download</a>
-              </Link>
-            </li>
+              <Accordion
+                expanded={expanded === "panel1"}
+                onChange={handleChange("panel1")}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1bh-content"
+                  id="panel1bh-header"
+                >
+                  <Link as={"/support"} href="/support">
+                    <a
+                      className={router.pathname === "/support" ? "active" : ""}
+                    >
+                      Support
+                    </a>
+                  </Link>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <li>
+                    <Link as={"/support/faq"} href="/support/faq">
+                      <a
+                        className={
+                          router.pathname === "/support/faq" ? "active" : ""
+                        }
+                      >
+                        faq
+                      </a>
+                    </Link>
+                  </li>
 
-                    
-
-        </AccordionDetails>
-      </Accordion>
+                  <li>
+                    <Link as={"/support/tutorials"} href="/support/tutorials">
+                      <a
+                        className={
+                          router.pathname === "/support/tutorials"
+                            ? "active"
+                            : ""
+                        }
+                      >
+                        tutorials
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link as={"/support/download"} href="/support/download">
+                      <a
+                        className={
+                          router.pathname === "/support/download"
+                            ? "active"
+                            : ""
+                        }
+                      >
+                        download
+                      </a>
+                    </Link>
+                  </li>
+                </AccordionDetails>
+              </Accordion>
             </li>
             <li>
               <Link as={"/about"} href="/about">
@@ -125,8 +149,6 @@ const MobileMenu = () => {
                 </a>
               </Link>
             </li>
-           
-       
           </ul>
           <ul className={classes.RightMenu}>
             <li></li>
@@ -147,7 +169,6 @@ const MobileMenu = () => {
           </ul>
         </Grid>
       </Menu1>
-  
     </div>
   )
 }
