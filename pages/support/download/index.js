@@ -4,7 +4,7 @@ import Head from 'next/head'
 const downloadPage = () =>
 <div>
    <Head>
-        <title> Tutorials  </title>
+        <title> Download </title>
       </Head>
       <DownloadModule />
 

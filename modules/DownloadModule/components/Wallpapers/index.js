@@ -18,8 +18,10 @@ const Wallpapers = () => {
       {
         breakpoint: 1024,
         settings: {
-          infinite: true,
+          slidesToShow: 2,
           slidesToShow: 2.5,
+          dots:true,
+          arrows:false,
         }
       },
     

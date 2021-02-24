@@ -12,9 +12,10 @@ const useStyles = makeStyles(() => ({
       marginBottom: 25,
       fontFamily: 'Poppins-SemiBold',
       },
+    
       ' & img': {
         width:'100%',
-       
+     
         },
         '& .slick-slide': {
           padding: '0 15px',
@@ -32,9 +33,18 @@ const useStyles = makeStyles(() => ({
       left: '-50px',
     },
 '& .slick-next': {
-  right: '50px',
+  right: '-50px',
+},
+'& .slick-dots li.slick-active button::before': {
+  bottom: 0,
+   color: '#fba62f',
+   opacity: 1,
 },
 
+'& .slick-dots li button:before': {
+  fontSize: '20px',
+  color: '#fba62f',
+},
   },
   
   TutorialsRight:{

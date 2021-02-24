@@ -68,7 +68,6 @@ marginBottom:0,
   '@media (max-width:767px)': {
     width: '100%',
     fontSize: 19,
-    margin: 0,
   },
   },
 
@@ -84,6 +83,10 @@ padding:'5px 20px',
 fontFamily: 'Poppins-Regular',
 fontSize:20,
 borderRadius:10,
+'@media (max-width:767px)': {
+  padding:'5px 10px',
+
+},
   },
 },
 
