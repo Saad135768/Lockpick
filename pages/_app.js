@@ -10,10 +10,14 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 function MyApp ({ Component, pageProps }) {
   return (
     <div>
+      <Navbar />
+      <MobileMenu/>
       <ParallaxProvider>
         <Component {...pageProps} />
         </ParallaxProvider>
+   
       <Footer />
+
       <Head>
         <meta
           name="viewport"
