@@ -61,6 +61,10 @@ fontSize: '60px',
 textTransform: 'uppercase',
 textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
 marginBottom:0,
+'@media (max-width:767px)': {
+  fontSize: '40px',
+
+},
   },
 
 

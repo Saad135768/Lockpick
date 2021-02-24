@@ -6,19 +6,15 @@ import { Container, Grid } from "@material-ui/core"
 import useStyles from "./style"
 import { RiShoppingCartFill } from "react-icons/ri"
 import { FaUser } from "react-icons/fa"
-import Accordion from "@material-ui/core/Accordion"
-import AccordionDetails from "@material-ui/core/AccordionDetails"
-import AccordionSummary from "@material-ui/core/AccordionSummary"
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import AccordionDetails from '@material-ui/core/AccordionDetails'
+import Accordion from '@material-ui/core/Accordion'
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 const MobileMenu = () => {
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
-  useEffect(() => {
-    setIsOpen(false)
-  }, [router.query])
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
+ 
 
   const handleClose = () => {
     setAnchorEl(null)
@@ -30,6 +26,12 @@ const MobileMenu = () => {
     setExpanded(isExpanded ? panel : false)
   }
 
+  useEffect(() => {
+    setIsOpen(false)
+  }, [router.query])
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
   const classes = useStyles()
   return (
     <div className={classes.MobileMenuHolder}>
@@ -83,71 +85,52 @@ const MobileMenu = () => {
             </li>
 
             <li>
-              <Accordion
-                expanded={expanded === "panel1"}
-                onChange={handleChange("panel1")}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1bh-content"
-                  id="panel1bh-header"
-                >
-                  <Link as={"/support"} href="/support">
-                    <a
-                      className={router.pathname === "/support" ? "active" : ""}
-                    >
-                      Support
-                    </a>
-                  </Link>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <li>
-                    <Link as={"/support/faq"} href="/support/faq">
-                      <a
-                        className={
-                          router.pathname === "/support/faq" ? "active" : ""
-                        }
-                      >
-                        faq
-                      </a>
-                    </Link>
-                  </li>
+            <div className={classes.root}>
+      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <Typography className={classes.secondaryHeading}>
 
-                  <li>
-                    <Link as={"/support/tutorials"} href="/support/tutorials">
-                      <a
-                        className={
-                          router.pathname === "/support/tutorials"
-                            ? "active"
-                            : ""
-                        }
-                      >
-                        tutorials
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link as={"/support/download"} href="/support/download">
-                      <a
-                        className={
-                          router.pathname === "/support/download"
-                            ? "active"
-                            : ""
-                        }
-                      >
-                        download
-                      </a>
-                    </Link>
-                  </li>
-                </AccordionDetails>
-              </Accordion>
+       
+            <li>
+              <Link as={"/support"} href="/support">
+                <a className={router.pathname === "/" ? "active" : ""}>Support</a>
+              </Link>
+            </li>
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+              <Link as={"/support/faq"} href="/support/faq">
+                <a className={router.pathname === "/support/faq" ? "active" : ""}>
+                  Faq
+                </a>
+              </Link>
+              <Link as={"/support/tutorials"} href="/support/tutorials">
+                <a className={router.pathname === "/support/tutorials" ? "active" : ""}>
+                Tutorials
+                </a>
+              </Link>
+
+              <Link as={"/support/download"} href="/support/download">
+                <a className={router.pathname === "/support/download" ? "active" : ""}>
+                Download
+                </a>
+              </Link>
+
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+  
+    </div>
             </li>
             <li>
-              <Link as={"/about"} href="/about">
                 <a className={router.pathname === "/about" ? "active" : ""}>
                   About
                 </a>
-              </Link>
             </li>
           </ul>
           <ul className={classes.RightMenu}>
