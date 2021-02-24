@@ -14,6 +14,8 @@ const useStyles = makeStyles(() => ({
     '@media (max-width:767px)': {
       padding: '10px 0',
       paddingBottom:'30px',
+      overflowX:'hidden',
+
     },
     height: '100%',
     '& img': {
@@ -126,7 +128,9 @@ const useStyles = makeStyles(() => ({
 
   HeaderContent: {
     width: '100%',
-    overflowX:'hidden',
+    '@media (max-width:767px)': {
+      overflowX:'hidden',
+    },
   },
   HeaderGlow: {
     width: '100%',

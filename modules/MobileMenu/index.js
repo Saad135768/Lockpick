@@ -85,14 +85,7 @@ const MobileMenu = () => {
             </li>
 
             <li>
-            <div className={classes.root}>
-      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography className={classes.secondaryHeading}>
+    
 
        
             <li>
@@ -100,10 +93,6 @@ const MobileMenu = () => {
                 <a className={router.pathname === "/" ? "active" : ""}>Support</a>
               </Link>
             </li>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
               <Link as={"/support/faq"} href="/support/faq">
                 <a className={router.pathname === "/support/faq" ? "active" : ""}>
                   Faq
@@ -115,13 +104,15 @@ const MobileMenu = () => {
                 </a>
               </Link>
 
+              <Link as={"/support/download"} href="/support/download">
+                <a className={router.pathname === "/support/download" ? "active" : ""}>
+                Download
+                </a>
+              </Link>
+
              
 
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
   
-    </div>
             </li>
             <Link as={"/about"} href="/about">
                 <a className={router.pathname === "/about/" ? "active" : ""}>
