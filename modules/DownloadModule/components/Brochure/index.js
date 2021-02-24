@@ -4,7 +4,6 @@ import Grid from "@material-ui/core/Grid"
 import React from 'react'
 
 import Link from "next/link"
-import Button from "../../../../common/Button"
 
 const Brochure = () => {
   const classes = useStyles()
@@ -17,9 +16,9 @@ const Brochure = () => {
       </Grid>
       </Grid>
 
-        <div className={classes.BrochureBg}>
 
       <Container>
+      <div className={classes.BrochureBg}>
 
       <Grid container justify="center" spacing={2}>
       <Grid item lg={9}>
@@ -27,18 +26,24 @@ const Brochure = () => {
       <Grid container justify="center" spacing={2}>
 
 <Grid item lg={6} xs={6}>
+  <a href="../../../../static/support/brochures1.pdf" target="_blank">
+
 <img src="../../../../static/support/brochureleft.png"/>
+</a>
 </Grid>
 <Grid item lg={6} xs={6}>
+<a href="../../../../static/support/brochures2.pdf" target="_blank">
 
 <img src="../../../../static/support/brochureright.jpg"/>
+</a>
 </Grid>
 </Grid>
 </Grid>
 
 </Grid>
-</Container>
 </div>
+</Container>
+
 </div>
 
 

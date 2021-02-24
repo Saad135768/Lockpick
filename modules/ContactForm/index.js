@@ -30,8 +30,7 @@ const ContactForm = () => {
                       href="https://www.google.com.eg/maps/search/Lock+Pick+3301+W.+MacArthurBLVD.+Santa+Ana,+CA+92704+-+USA/@33.7197151,-117.8787288,13z/data=!3m1!4b1"
                       target="_blank"
                     >
-                      Lock Pick <br /> 3301 W. MacArthurBLVD. <br /> Santa Ana,
-                      CA 92704 -USA
+                       Mac Arthur BLVD.  <br /> Santa Ana, CA 92704–USA <br />
                     </a>
                   </div>
                 </div>

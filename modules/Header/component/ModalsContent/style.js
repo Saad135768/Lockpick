@@ -5,6 +5,7 @@ const useStyles = makeStyles(() => ({
     padding:30,
     '& .MuiDialog-paperWidthSm': {
     padding:30,
+    maxWidth: 800,
     border:'6px solid #FFA62F',
     borderRadius: 20,
 

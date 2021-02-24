@@ -3,9 +3,7 @@ import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
 import Slider from "react-slick"
 import ScrollAnimation from 'react-animate-on-scroll'
-import { Parallax } from 'react-scroll-parallax'
 import React from 'react'
-import Button from '@material-ui/core/Button'
 
 import ModalsContent from './component/ModalsContent'
 import useStyles from "./style"
@@ -48,6 +46,33 @@ var settings = {
   ],
 }
 
+var settings2 = {
+  dots: true,
+  infinite: false,
+  arrows: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  dots: true,
+  autoplay: true,
+  autoplaySpeed: 1500,
+  responsive: [
+  
+
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+
+      },
+    },
+  ],
+}
+
+
+
 const Header = () => {
   const classes = useStyles()
 
@@ -64,7 +89,7 @@ const Header = () => {
       <Container maxWidth="lg">
         <div className={classes.HeaderImage}>
           <Grid container justify="center">
-            <Grid item lg={10} xs={12}>
+            <Grid item lg={11} xs={12}>
               <div className={classes.HeaderContent}>
               <ScrollAnimation animateIn="fadeIn"
                        animateOnce={true}>
@@ -72,7 +97,9 @@ const Header = () => {
                 <h1>unlock your bmw</h1>
                 </ScrollAnimation>
 
-                <div className={classes.HeaderMainImge}>
+<Slider {...settings2}>
+
+                <div className={classes.slideritem}>
                 <div className={classes.one}>
                   <img
                     src="../../static/images/homepage/car.png"
@@ -87,13 +114,40 @@ const Header = () => {
 </div>
                   </div>
 
-<div className={classes.three}>
+
+                </div>
+
+                <div className={classes.slideritem}>
+                <div className={classes.one}>
+                  <img
+                    src="../../static/images/homepage/slider2.png"
+                  />
+                      
+                  </div>
+
+
+                </div>
+
+                <div className={classes.slideritem}>
+                <div className={classes.one}>
+                  <img
+                    src="../../static/images/homepage/slider3.png"
+                  />
+                        
+                  </div>
+
+
+                </div>
+
+
+                </Slider>
+
+                <div className={classes.three}>
 
 <img
   src="../../static/images/homepage/glow2.gif"
   alt="lockpick-header-image"
 />
-                </div>
                 </div>
                 <div className={classes.HeaderCircles}>
                 <ScrollAnimation animateIn="fadeIn">
@@ -124,7 +178,7 @@ const Header = () => {
                         <ScrollAnimation animateIn='fadeInUp'
                     >
                      <ModalsContent
-                     image={'../../static/images/homepage/key.png'}
+                     image={'../../static/images/homepage/rest.png'}
                      title={"Reset transmission "}
                      title2={'modules ISN'}
                      modalTitle={'Reset Transmistion Modules ISN'}  
@@ -142,7 +196,7 @@ const Header = () => {
                   <ScrollAnimation animateIn='fadeInUp'
                     >
                      <ModalsContent
-                     image={'../../static/images/homepage/key.png'}
+                     image={'../../static/images/homepage/clone.png'}
                      title={"Clone BMW "}
                      title2={'& Mini modules'}
                      modalTitle={'Clone BMW & Mini Modules'}  

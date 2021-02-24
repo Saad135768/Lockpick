@@ -66,9 +66,3 @@ a {
  
 }
 
-.slick-prev:before  {
-content: '';
-background-image: url('../static/images/left-arrow.svg');
-background-size: cover;
-
-}

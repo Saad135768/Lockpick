@@ -96,9 +96,13 @@ ContactFormInfo: {
   fontSize: '18px',
   textTransform: 'uppercase',
   fontFamily: 'Poppins-SemiBold',
+  '& :hover':{
+
+  },
   '@media (max-width:767px)': {
     fontSize: '16px',
   },
+
 },
 ContactFormBg: {
 color:'#fff',

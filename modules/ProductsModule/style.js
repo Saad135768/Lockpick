@@ -7,6 +7,26 @@ const useStyles = makeStyles(() => ({
     backgroundSize: 'cover',
     backgroundRepeat:'no-repeat',
     background: "url('../../static/images/products/bg.png')",
+    
+   
+    '@media (min-width:1440px)': {
+      backgroundSize: 'cover',
+      margin: '0 auto',
+      padding: '0 !important',
+      width: '100% !important',
+      paddingLeft: 0,
+      paddingRight: 0,
+      maxWidth: '1280px !important',
+      '& .MuiContainer-maxWidthLg': {
+        margin: '0 auto',
+        padding: '0 !important',
+        paddingLeft: 0,
+        paddingRight: 0,
+        maxWidth: '1280px !important',
+      },
+    },
+    
+
   },
   
   CustomeTitle:{

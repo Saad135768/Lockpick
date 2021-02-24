@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   HeaderHolder: {
-    padding: '75px 0',
+    padding: '15px 0',
     paddingBottom:'60px',
     '@media (max-width:768px)': {
       padding: '44px 0',
@@ -15,11 +15,13 @@ const useStyles = makeStyles(() => ({
     },
     height: '100%',
     '& img': {
-      width: '100%',
-      '@media (max-width:1024px)': {
+      width: 'auto',
+      margin: '0 auto',
+      display: 'block',
+      '@media (max-width:768px)': {
         width: '100%',
-        margin: '0 auto',
-        display: 'block',
+
+
       },
     },
     '& h1': {
@@ -44,13 +46,22 @@ const useStyles = makeStyles(() => ({
     },
     
     '& .slick-dots li': {
-      margin: '0 15px',
+      margin: '0 10px',
     },
     '& .slick-dots li button::before': {
-      color: '#fff',
-      fontSize: 14,
-      top:10,
-
+      color: 'transparent',
+      border: '2px solid #fb9d28',
+      borderRadius: '50%',
+      width: 10,
+      height: 10,
+    },
+    '& .slick-dots': {
+      bottom: '130px',
+      position:'relative',
+      zIndex:40,
+      '@media (max-width:767px)': {
+        bottom: 0,
+      },
     },
     '& .slick-slide:hover': {
       transition: '0.2s',
@@ -105,12 +116,12 @@ const useStyles = makeStyles(() => ({
 
   HeaderCircles:{
     '& h2': {
-      fontFamily: 'Poppins-Bold',
+      fontFamily: 'Poppins-SemiBold',
       fontSize:80,
       textAlign: 'center',
       color:'#FFA62F',
       marginTop: 0,
-      marginBottom: 50,
+      marginBottom: 20,
       textTransform:'uppercase',
       '@media (max-width:768px)': {
         fontSize:50,
@@ -186,6 +197,7 @@ two:{
   maxHeight: 200,
   '& img': {
     height: 200,
+    width: '100%',
     '@media (max-width:767px)': {
       height: 60,
     },
@@ -198,7 +210,7 @@ three:{
   bottom: 0,
   position: 'absolute',
   left: '50%',
-  top: '57%',
+  top: '65%',
   '@media (max-width:767px)': {
     top: '51%',
   },
@@ -206,7 +218,7 @@ three:{
   transform: 'translate(-50%, -50%)',
   '& img': {
     marginLeft: 60,
-    marginTop:30,
+    marginTop:40,
     width:'70%',
     '@media (max-width:768px)': {
       width:'90%',

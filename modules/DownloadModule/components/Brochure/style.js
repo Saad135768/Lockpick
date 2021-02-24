@@ -12,6 +12,14 @@ const useStyles = makeStyles(() => ({
     marginBottom: 20,
     textTransform: 'uppercase',
     },
+    ' & .MuiContainer-root.MuiContainer-maxWidthLg': {
+      padding: '0 !important',
+      margin: '0  auto !important',
+      overflow: 'hidden',
+      width: '100% !important',
+    },
+
+ 
 
   },
 
@@ -66,9 +74,18 @@ const useStyles = makeStyles(() => ({
 
       },
     },
+
+    '& a img:hover': {
+      'transform ':  'translateY(-10px) ',
+    '-moz-transform ':  'translateY(-10px) ',
+    '-webkit-transform ':  'translateY(-10px) ',
+    '-ms-transform ':  'translateY(-10px) ',
+    '-o-transform ':  'translateY(-10px) ',
+    transition: 'all .4s',
+
       },
 
-
+    },
 }))
 
 export default useStyles

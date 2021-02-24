@@ -22,7 +22,7 @@ const TutorialsModule = () => {
                 </Grid>
                 <Grid item lg={6} xs={12} sm={6}>
                   <div className={classes.TutorialsRight}>
-                    <h4> DOCUMNETS</h4>
+                    <h4> DOCUMENTS</h4>
                     <Link
                       as={"../../static/support/guide.pdf"}
                       href="../../static/support/guide.pdf"

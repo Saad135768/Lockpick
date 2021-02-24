@@ -10,6 +10,8 @@ import Router from "next/router"
 import Button from "@material-ui/core/Button"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
+import { AiOutlineSearch } from "react-icons/ai"
+
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
@@ -35,7 +37,7 @@ const Navbar = () => {
               <Link as={"/"} href="/">
                 <a href="/">
                   <img
-                    src="../../static/images/logo.png"
+                    src="../../static/images/homepage/logo.svg"
                     alt="logo-pick-lock"
                   />
                 </a>
@@ -153,7 +155,7 @@ const Navbar = () => {
                         placeholder="Search ..."
                       />
                       <button type="submit" className="searchButton">
-                        <i class="fa fa-search"></i>
+                        <AiOutlineSearch/>
                       </button>
                       </form>
                     </div>
@@ -173,10 +175,10 @@ const Navbar = () => {
                       <RiShoppingCartFill />
                     </a>
                   </Link>
-                  <em className={classes.test}>
+                  {/* <em className={classes.test}>
                    
                     <span> 3</span>
-                  </em>
+                  </em> */}
                 </li>
               </ul>
             </div>
