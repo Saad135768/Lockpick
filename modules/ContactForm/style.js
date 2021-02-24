@@ -6,7 +6,6 @@ const useStyles = makeStyles(() => ({
     backgroundSize: '50%',
     overflow: 'hidden',
     backgroundRepeat: 'no-repeat',
-  
     '& p': {
       color: '#fff',
       fontSize: 20,
@@ -23,7 +22,7 @@ const useStyles = makeStyles(() => ({
 },
 
 '& input': {
-  marginBottom: 27,
+  marginBottom: 34,
 },
 
 '& .last': {
@@ -127,7 +126,7 @@ position: 'relative',
     marginBottom:20,
     color:'#FFA62F',
     marginTop:0,
-    fontSize: '32px',
+    fontSize: '24px',
     fontFamily: 'Poppins-SemiBold',
   },
 },

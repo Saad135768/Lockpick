@@ -4,6 +4,7 @@ import Head from 'next/head'
 import MobileMenu from '../modules/MobileMenu'
 import Navbar from '../modules/Navbar'
 import Footer from '../modules/Footer'
+
 import { ParallaxProvider } from 'react-scroll-parallax'
 
 createStore({})
@@ -13,6 +14,7 @@ function MyApp ({ Component, pageProps }) {
     <StateMachineProvider>
       <MobileMenu/>
       <Navbar />
+    
       <ParallaxProvider>
         <Component {...pageProps} />
         </ParallaxProvider>
@@ -28,7 +30,9 @@ function MyApp ({ Component, pageProps }) {
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
-
+         <link rel="icon" href="../static/images/32x32.png" sizes="32x32" />
+          <link rel="icon" href="../static/images/192x192.png" sizes="192x192" />
+          <link rel="apple-touch-icon" href="../static/images/180x180.png" />   
         <style>
           {`
             @font-face {
@@ -50,6 +54,7 @@ function MyApp ({ Component, pageProps }) {
         `}
         </style>
       </Head>
+   
     </StateMachineProvider>
   )
 }

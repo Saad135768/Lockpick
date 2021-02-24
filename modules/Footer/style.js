@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   FooterHolder: {
     zIndex: 3,
-    paddingBottom: '34px',
+    paddingBottom: 10,
     '@media (max-width: 767px)': {
       paddingBottom: 0,
 
@@ -12,14 +12,24 @@ const useStyles = makeStyles(() => ({
     '& li': {
       listStyle: 'none',
       display:'inline-block',
+      '& span': {
+        paddingRight: 10,
+        color: '#fff',
+      },
     },
     '& ul': {
       padding: '0',
+      marginBottom: 0,
+      margin: '30px 0px',
+      '@media (max-width:767px)': {
+
+        margin: '0',
+
+      },
     },
 
     '@media (max-width:767px)': {
       textAlign: 'center',
-
     },
   },
   FooterSeperator:{
@@ -45,7 +55,7 @@ const useStyles = makeStyles(() => ({
   },
 
   Copyright: {
-    marginTop:'66px',
+    marginTop:'90px',
     '@media (max-width: 767px)': {
       marginTop:'0',
     },
@@ -112,18 +122,28 @@ const useStyles = makeStyles(() => ({
       },
     },
     '& a': {
-      fontSize: '17px',
+      fontSize: 16,
       color: '#fff',
-      marginRight: '25px',
+      marginRight: '10px',
     
       '@media (max-width: 768px)': {
         marginRight: '0',
       },
+    
     },
     '@media (max-width: 767px)': {
       marginTop: '20px',
 
     },
+    '& li a:hover': {
+      color: '#fba62f',
+      transition: '0.3s',
+    },
+  },
+
+  FooterScroll:{
+    zIndex: 99,
+    position: 'relative',
   },
 
 }))

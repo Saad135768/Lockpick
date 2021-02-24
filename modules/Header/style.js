@@ -55,6 +55,14 @@ const useStyles = makeStyles(() => ({
     '& .slick-slide:hover': {
       transition: '0.2s',
     },
+    '& .slick-slide': {
+      outline: 'none !important',
+      padding: '10px 10px',
+    },
+    '& .slick-slide:focus': {
+      outline: 'none !important',
+    },
+    
     '& .first .animated.fadeInUp': {
       animationDelay: '0.2s',
     },
@@ -127,26 +135,36 @@ const useStyles = makeStyles(() => ({
 
   },
   HeaderCirclesItem:{
-    transition: 'all .4s',
-    '-moz-transition': 'all .4s',
-    '-webkit-transition': 'all .4s',
-    '-o-transition': 'all .4s',
-    '-ms-transition': 'all .4s',
-    '&:hover': {
-      'transform ':  'translateY(-10px) ',
-    '-moz-transform ':  'translateY(-10px) ',
-    '-webkit-transform ':  'translateY(-10px) ',
-    '-ms-transform ':  'translateY(-10px) ',
-    '-o-transform ':  'translateY(-10px) ',
+    '@media (min-width:768px)': {
+      '-moz-transition': 'all .4s',
+      '-webkit-transition': 'all .4s',
+      '-o-transition': 'all .4s',
+      '-ms-transition': 'all .4s',
+      '&:hover': {
+        'transform ':  'translateY(-10px) ',
+      '-moz-transform ':  'translateY(-10px) ',
+      '-webkit-transform ':  'translateY(-10px) ',
+      '-ms-transform ':  'translateY(-10px) ',
+      '-o-transform ':  'translateY(-10px) ',
+      transition: 'all .4s',
+    },
+
     },
     textAlign: 'center',
     '& img': {
       marginBottom:30,
+      '&:hover': {
+        cursor: 'pointer',
+      },
+
     },
     '& h3': {
       marginTop: 0,
       color: '#fff',
       fontSize: 22,
+      '&:hover': {
+        cursor: 'pointer',
+      },
     },
 
 
@@ -187,11 +205,14 @@ three:{
   '-webkit-transform': 'translate(-50%, -50%)',
   transform: 'translate(-50%, -50%)',
   '& img': {
-    marginLeft: 10,
-    width:'90%',
-    '@media (max-width:767px)': {
-      width:'100%',
-      marginLeft: -5,
+    marginLeft: 60,
+    marginTop:30,
+    width:'70%',
+    '@media (max-width:768px)': {
+      width:'90%',
+      marginLeft: 0,
+      marginTop:20,
+
     },
    
   },

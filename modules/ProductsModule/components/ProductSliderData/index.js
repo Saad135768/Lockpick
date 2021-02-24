@@ -17,19 +17,20 @@ const ProductSliderData = ({
   buttonLink,
   buttonLinkAs,
   include,
+  softwareon,
   spec,
 }) => {
   const classes = useStyles()
   return (
     <div className={classes.ProductSliderDataHolder}>
-        
           <div className={classes.SectionTitleHolder}>
             <h1> {title}</h1>
             <h4> {type} </h4>
             <h2> {price} </h2>
             <h3> {include} </h3>
             <h6> {description} </h6>
-            <h5> {spec} </h5>
+            <h5> {softwareon} </h5>
+            <em> {spec} </em>
 
           </div>
           <div className={classes.NumericInput}>

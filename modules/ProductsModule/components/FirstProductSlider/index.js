@@ -2,7 +2,7 @@ import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
 import useStyles from "./style"
 import Slider from "react-slick";
-import ProductSliderData from "../ProductSliderData";
+import ProductSliderData from "../ProductSliderData"
 
 const FirstProductSlider = () => {
   const classes = useStyles()
@@ -12,9 +12,6 @@ const FirstProductSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    initialSlide: 0,
-    vertical: true,
-    verticalSwiping: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -27,6 +24,7 @@ const FirstProductSlider = () => {
       {
         breakpoint: 480,
         settings: {
+          dots: false,
           slidesToShow: 1,
           slidesToScroll: 1
         }
@@ -43,18 +41,19 @@ const FirstProductSlider = () => {
            <img src="../../../../static/images/products/product1.png"/>
           </div>
           <div>
-           <img src="../../../../static/images/products/product1.png"/>
+           <img src="../../../../static/images/products/a2.png"/>
           </div>
          
         </Slider>
 </Grid>
 <Grid lg={6} sm={6} xs={12}>
+<div className={classes.ProductSliderDataHolder}>
 <ProductSliderData
 title={'Lock Pick Basic Kit'}
 type={'Starter kit'}
-price={'$2,999,00'}
+price={'$2,995.00'}
 include={'Includes:'}
-description={'Main Device, Accessories, Interface Boards, And Full Software.'}
+description={'Main device, accessories, interface boards, and full software.'}
 buttonTitle={'Add to cart'}
 buttonLink={''}
 buttonLinkAs={''}
@@ -62,6 +61,7 @@ buttonLinkAs={''}
 >
 
 </ProductSliderData>
+</div>
 
 </Grid>
       </Grid>

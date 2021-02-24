@@ -3,7 +3,7 @@ body {
   padding: 0;
   margin: 0;
   -webkit-font-smoothing: antialiased;
-  font-family:Poppins-Regular;
+  font-family:Poppins-Light;
   font-weight: normal;
   color: #030E1A;
   background: #2B313B;
@@ -29,9 +29,6 @@ a {
 .slick-slide {
   outline: none !important;
 }
-.slick-slide {
-  padding: 10px 10px;
-}
 
 .slick-slide :focus{
     outline: none;
@@ -52,69 +49,26 @@ a {
     transform:translate(0px ,0px)
   }
   }
- 
-  
-  .input-group {
-    height: 50px;
-    position: relative;
-  }
-  .input-group .search {
-    height: 17px;
-    width: 17px;
-    background-color: #fba62f;
-    border: 0;
-    border-radius: 50%;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-    color: #fba62f;
-    outline: none;
-    padding: 5px;
-    padding-left: 10px;
-    position: relative;
-    transition: all 150ms cubic-bezier(0.2, 0.6, 0.252, 1.2);
-  }
-  .input-group .search ~ .bar {
-    height: 2px;
-    width: 15px;
-    background: #fba62f;
-    border-radius: 4px;
-    position: absolute;
-    display: block;
-    opacity: 1;
-    right: -5px;
-    top: 20px;
-    transform: rotate(45deg);
-    transition: opacity 150ms ease;
-  }
-  .input-group .search::-moz-placeholder {
-    color: #fba62f;
-  }
-  .input-group .search:-ms-input-placeholder {
-    color: #fba62f;
-  }
-  .input-group .search::placeholder {
-    color: #fba62f;
-  }
-  .input-group .search:focus {
-    height: 30px;
-    width: 150px;
-    border-radius: 14px;
-    color: #2B313B;
-    cursor: initial;
-  }
-  .input-group .search:focus::-moz-placeholder {
-    color: #2B313B;
-  }
-  .input-group .search:focus:-ms-input-placeholder {
-    color: #2B313B;
-  }
-  .input-group .search:focus::placeholder {
-    color: #2B313B;
-  }
-  .input-group .search:focus ~ .bar {
-    box-shadow: none;
-    opacity: 0;
-    right: 0;
-    top: 5px;
-  }
 
+
+
+  .MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded {
+    background: #2b333d;
+    margin: 50px 0;
+    padding: 10px 10px;
+    border-radius: 10px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.slick-next:before, .slick-prev:before {
+  font-size: 30px;
+ 
+}
+
+.slick-prev:before  {
+content: '';
+background-image: url('../static/images/left-arrow.svg');
+background-size: cover;
+
+}
