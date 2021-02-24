@@ -115,11 +115,7 @@ const MobileMenu = () => {
                 </a>
               </Link>
 
-              <Link as={"/support/download"} href="/support/download">
-                <a className={router.pathname === "/support/download" ? "active" : ""}>
-                Download
-                </a>
-              </Link>
+             
 
           </Typography>
         </AccordionDetails>
@@ -127,11 +123,12 @@ const MobileMenu = () => {
   
     </div>
             </li>
-            <li>
-                <a className={router.pathname === "/about" ? "active" : ""}>
-                  About
+            <Link as={"/about"} href="/about">
+                <a className={router.pathname === "/about/" ? "active" : ""}>
+                About
                 </a>
-            </li>
+              </Link>
+
           </ul>
           <ul className={classes.RightMenu}>
             <li></li>

@@ -10,13 +10,13 @@ const useStyles = makeStyles(() => ({
     borderRadius: 20,
   
       fontSize: 27,
+      '@media (max-width:1024px)': {
+        padding:20,
+        margin: 0,
+    },
     },
 
-    '@media (max-width:1024px)': {
-      '& .MuiDialog-paper': {
-        margin: 0,
-      },
-    },
+ 
     
     '& h4': {
     fontFamily: 'Poppins-SemiBold',
