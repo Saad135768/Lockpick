@@ -3,10 +3,12 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   HeaderHolder: {
+    
     padding: '15px 0',
     paddingBottom:'60px',
     '@media (max-width:768px)': {
       padding: '44px 0',
+      overflowX: 'hidden',
       paddingBottom:'30px',
     },
     '@media (max-width:767px)': {
@@ -124,6 +126,7 @@ const useStyles = makeStyles(() => ({
 
   HeaderContent: {
     width: '100%',
+    overflowX:'hidden',
   },
   HeaderGlow: {
     width: '100%',
