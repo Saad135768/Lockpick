@@ -81,20 +81,6 @@ const MobileMenu = () => {
             </li>
 
             <li>
-              <Link as={"/download"} href="/download">
-                <a className={router.pathname === "/download" ? "active" : ""}>
-                Download
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link as={"/about"} href="/about">
-                <a className={router.pathname === "/about" ? "active" : ""}>
-                  About
-                </a>
-              </Link>
-            </li>
-           
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -112,7 +98,18 @@ const MobileMenu = () => {
 
                     <li>
               <Link as={"/support/faq"} href="/support/faq">
-                <a className={router.pathname === "/support/faq" ? "active" : ""}>Support</a>
+                <a className={router.pathname === "/support/faq" ? "active" : ""}>faq</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link as={"/support/tutorials"} href="/support/tutorials">
+                <a className={router.pathname === "/support/tutorials" ? "active" : ""}>tutorials</a>
+              </Link>
+            </li>
+            <li>
+              <Link as={"/support/download"} href="/support/download">
+                <a className={router.pathname === "/support/download" ? "active" : ""}>download</a>
               </Link>
             </li>
 
@@ -120,6 +117,16 @@ const MobileMenu = () => {
 
         </AccordionDetails>
       </Accordion>
+            </li>
+            <li>
+              <Link as={"/about"} href="/about">
+                <a className={router.pathname === "/about" ? "active" : ""}>
+                  About
+                </a>
+              </Link>
+            </li>
+           
+       
           </ul>
           <ul className={classes.RightMenu}>
             <li></li>

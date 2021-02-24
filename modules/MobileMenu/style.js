@@ -107,6 +107,9 @@ const useStyles = makeStyles(() => ({
         outline: 0,
         background: 'transparent',
       },
+      '@media (min-width:769px)': {
+        display: 'none',
+      },
     },
 
     ' & .bm-cross': {},
@@ -223,7 +226,15 @@ const useStyles = makeStyles(() => ({
        margin: "7px auto",
         paddingBottom: "20px",
     },
-   
+
+    ' & .MuiAccordionDetails-root': {
+      width: "100%",
+       margin: "7px auto",
+        paddingBottom: "20px",
+        display: 'block',
+
+    },
+
   },
 
   MenuIcon: {
@@ -319,6 +330,8 @@ const useStyles = makeStyles(() => ({
         position: 'relative',
         top: 10,
       },
+     
+  
     },
 
     root: {

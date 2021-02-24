@@ -82,7 +82,22 @@ const useStyles = makeStyles(() => ({
     },
     '& .third .animated.fadeInUp': {
       animationDelay: '0.6s',
-    }
+    },
+
+
+    '& .slick-prev:before , .slick-next:before ': {
+
+      fontSize: 90,
+      opacity: 1,
+    },
+
+    '& .slick-prev': {
+      left: '-50px',
+    },
+'& .slick-next': {
+  right: '-25px',
+
+},
     
   },
 
@@ -212,7 +227,7 @@ three:{
   left: '50%',
   top: '65%',
   '@media (max-width:767px)': {
-    top: '51%',
+    top: '57%',
   },
   '-webkit-transform': 'translate(-50%, -50%)',
   transform: 'translate(-50%, -50%)',
@@ -220,10 +235,15 @@ three:{
     marginLeft: 60,
     marginTop:40,
     width:'70%',
+  
     '@media (max-width:768px)': {
+      marginTop:70,
+
+    },
+    '@media (max-width:767px)': {
       width:'90%',
-      marginLeft: 0,
       marginTop:20,
+      marginLeft: 0,
 
     },
    
