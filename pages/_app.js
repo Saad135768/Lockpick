@@ -1,5 +1,4 @@
 import '../styles/globals.css'
-import { StateMachineProvider, createStore } from 'little-state-machine'
 import Head from 'next/head'
 import MobileMenu from '../modules/MobileMenu'
 import Navbar from '../modules/Navbar'
@@ -7,14 +6,12 @@ import Footer from '../modules/Footer'
 
 import { ParallaxProvider } from 'react-scroll-parallax'
 
-createStore({})
 
 function MyApp ({ Component, pageProps }) {
   return (
-    <StateMachineProvider>
-      <MobileMenu/>
+    <div>
       <Navbar />
-    
+      <MobileMenu/>
       <ParallaxProvider>
         <Component {...pageProps} />
         </ParallaxProvider>
@@ -63,7 +60,7 @@ function MyApp ({ Component, pageProps }) {
         </style>
       </Head>
    
-    </StateMachineProvider>
+    </div>
   )
 }
 

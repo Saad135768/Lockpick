@@ -8,8 +8,16 @@ const useStyles = makeStyles(() => ({
     maxWidth: 800,
     border:'6px solid #FFA62F',
     borderRadius: 20,
-
+  
+      fontSize: 27,
     },
+
+    '@media (max-width:1024px)': {
+      '& .MuiDialog-paper': {
+        margin: 0,
+      },
+    },
+    
     '& h4': {
     fontFamily: 'Poppins-SemiBold',
     fontSize: 27,

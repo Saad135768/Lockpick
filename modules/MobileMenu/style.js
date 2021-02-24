@@ -54,10 +54,14 @@ const useStyles = makeStyles(() => ({
       boxShadow: 'none',
     },
     ' & .MuiAccordionSummary-root': {
-      padding: '5px 0',
+      padding: 0,
+      margin:0,
     },
     ' & .MuiAccordionDetails-root': {
-      padding: '5px 0',
+      width: "100%",
+       margin: "8px auto",
+        paddingBottom: "20px",
+        display: 'block',
     },
 
     ' & h3 , .MuiAccordionSummary-content.Mui-expanded, .MuiAccordion-root.Mui-expanded': {
@@ -227,13 +231,7 @@ const useStyles = makeStyles(() => ({
         paddingBottom: "20px",
     },
 
-    ' & .MuiAccordionDetails-root': {
-      width: "100%",
-       margin: "7px auto",
-        paddingBottom: "20px",
-        display: 'block',
-
-    },
+  
 
   },
 

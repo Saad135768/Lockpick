@@ -27,13 +27,13 @@ const useStyles = makeStyles(() => ({
   '& img': {
     width: '100%',
     '@media (max-width:767px)': {
+    paddingTop:'0',
     padding:'40px',
       width: '80%',
       margin: '0 auto',
       display: 'block',
     },
 },
-
 },
 ButtonHolder: {
 textAlign: 'right',
