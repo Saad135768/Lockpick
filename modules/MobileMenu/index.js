@@ -11,6 +11,8 @@ import RemoveIcon from '@material-ui/icons/Remove'
 import Accordion from '@material-ui/core/Accordion'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+
 const MobileMenu = () => {
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
@@ -85,24 +87,21 @@ const MobileMenu = () => {
         </div>
           <ul className={classes.centermenu}>
             <li>
-              <a  href="/">
-                <a>Home</a>
-              </a>
-            </li>
-            <li>
-              <a as={"/products"} href="/products">
-                <a>
-                  Products
+            <a href="/" className={router.pathname === "/" ? "active" : ""}>
+            Home
                 </a>
-              </a>
             </li>
+
+            <a href="/products" className={router.pathname === "/products" ? "active" : ""}>
+            Products
+                </a>
 
 
               <div className={classes.root}>
                 <Accordion>
                   <AccordionSummary
-                    expandIcon={expanded ? <RemoveIcon /> : <AddIcon />}
-                    aria-controls="panel1bh-content"
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
                     id="panel1bh-header"
                   >
                    <li>
@@ -113,34 +112,29 @@ const MobileMenu = () => {
                   </AccordionSummary>
                   <div>
                   
-              <a href="/support/faq">
-                <a>
-                  Faq
+            
+                <a href="/support/faq" className={router.pathname === "/support/faq" ? "active" : ""}>
+                Faq
                 </a>
-                </a>
-              <a href="/support/tutorials">
-                <a>
+                <a href="/support/tutorials" className={router.pathname === "/support/tutorials" ? "active" : ""}>
                 Tutorials
                 </a>
-                </a>
 
-
-              <a href="/support/download">
-                <a>
+                <a href="/support/download" className={router.pathname === "/support/download" ? "active" : ""}>
                 Download
                 </a>
-              </a>
+            
+
                   </div>
                 </Accordion>
                 </div>
     
-       
 
-            <a href="/about">
-                <a>
+                <a href="/about" className={router.pathname === "/about" ? "active" : ""}>
                 About
                 </a>
-              </a>
+
+           
 
           </ul>
         
