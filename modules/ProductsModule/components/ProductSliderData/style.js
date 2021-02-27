@@ -19,9 +19,11 @@ const useStyles = makeStyles(() => ({
     '& h4': {
       color: '#fff',
     fontSize: 19,
+    height:60,
+    overflow: 'auto',
     marginTop:0,
     marginBottom:0,
-    '@media (max-width:1767px)': {
+    '@media (max-width:767px)': {
       fontSize: 19,
     },
     },
@@ -30,7 +32,7 @@ const useStyles = makeStyles(() => ({
     fontFamily: 'Poppins-SemiBold',
     fontSize: 37,
     marginTop:0,
-    marginBottom:50,
+    marginBottom:30,
     '@media (max-width:1024px)': {
       marginBottom:10,
       fontSize: 27,
@@ -60,10 +62,12 @@ const useStyles = makeStyles(() => ({
       color: '#fff',
     fontSize: 19,
     marginTop:10,
+    height: 75,
+    overflow: 'auto',
     marginBottom:30,
     '@media (max-width:768px)': {
       fontSize: 16,
-      marginBottom:30,
+      marginBottom:0,
     },
     },
     
@@ -73,6 +77,10 @@ const useStyles = makeStyles(() => ({
       fontSize: 21,
       display: 'block',
       paddingBottom: 30,
+      height: 60,
+     overflow: 'auto',
+     marginTop: 20,
+     marginBottom: 25,
   },
     '& button': {
       width: '100%',

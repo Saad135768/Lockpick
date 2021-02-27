@@ -49,6 +49,9 @@ const useStyles = makeStyles(() => ({
   
   TutorialsRight:{
     paddingLeft: 130,
+    '@media (max-width:768px)': {
+      paddingLeft: 30,
+    },
     '@media (max-width:767px)': {
       paddingLeft: 0,
     },

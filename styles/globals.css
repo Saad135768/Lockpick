@@ -83,3 +83,9 @@ color: #fba530;
   
   }
   
+  @media (max-width: 768px){
+    .parallax-inner {
+      transform: inherit !important;
+  }
+
+  }

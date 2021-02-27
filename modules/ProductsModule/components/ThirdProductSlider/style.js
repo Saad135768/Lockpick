@@ -14,6 +14,7 @@ const useStyles = makeStyles(() => ({
       objectFit: 'contain',
       '@media (max-width:767px)': {
         margin: '20px auto',
+        marginBottom:0,
 
       },
     },
@@ -54,7 +55,7 @@ const useStyles = makeStyles(() => ({
       right: 35,
       zIndex: 9,
         '@media (max-width:767px)': {
-          right: 0,
+          right: -10,
           top: '15%',
         },
     },
@@ -64,7 +65,7 @@ const useStyles = makeStyles(() => ({
       left:'inherit',
       zIndex: 9,
       '@media (max-width:767px)': {
-        left:'0',
+        left:'-10px',
         top: '15%',
       },
     },

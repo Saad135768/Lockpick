@@ -44,6 +44,9 @@ const useStyles = makeStyles(() => ({
   videoholder:{
 
     margin: '50px 0',
+    '@media (max-width:767px)': {
+      margin: '20px 0',
+    },
   ' & h3': {
     color: '#fff',
     textAlign: 'right',
@@ -53,6 +56,9 @@ const useStyles = makeStyles(() => ({
     textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
     marginBottom: 20,
     textTransform: 'uppercase',
+    '@media (max-width:767px)': {
+      textAlign: 'center',
+    },
     },
     ' & p': {
       color: '#fba62f',

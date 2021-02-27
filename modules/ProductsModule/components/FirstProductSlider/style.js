@@ -15,6 +15,10 @@ const useStyles = makeStyles(() => ({
       display: 'block',
       height: 460,
       objectFit: 'contain',
+      '@media (max-width:767px)': {
+        width: '80%',
+      },
+    
     },
     '& .slick-dots li button:before': {
       fontSize: '20px',
@@ -53,12 +57,18 @@ const useStyles = makeStyles(() => ({
       borderLeft: '30px solid white',
       right: 30,
       zIndex: 9,
+      '@media (max-width:767px)': {
+        right: -10,
+      },
 
     },
     '& .slick-prev': {
       borderRight: '30px solid white',
       left: 30,
       zIndex: 9,
+      '@media (max-width:767px)': {
+        left: -10,
+      },
     },
     '& .slick-next': {
     },

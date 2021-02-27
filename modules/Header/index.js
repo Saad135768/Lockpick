@@ -57,7 +57,6 @@ var settings2 = {
   autoplay: true,
   autoplaySpeed: 2000,
   responsive: [
-  
 
     {
       breakpoint: 1024,
@@ -65,6 +64,7 @@ var settings2 = {
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
+        arrows: false,
 
       },
     },

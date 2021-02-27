@@ -20,6 +20,10 @@ const useStyles = makeStyles(() => ({
         textTransform: 'uppercase',
         marginBottom:0,
         marginTop: 0,
+        '@media (max-width:767px)': {
+          paddingTop: 20,
+
+        },
     }, 
     '& .slick-next': {
         right: 40,
@@ -29,6 +33,29 @@ const useStyles = makeStyles(() => ({
     },
     '& .slick-slide': {
         padding: 40,
+        '@media (max-width:767px)': {
+          padding: 10,
+
+        },
+    },
+
+    '& .slick-dots li': {
+      margin: '0 10px',
+    },
+    '& .slick-dots li button::before': {
+      color: 'transparent',
+      border: '2px solid #fb9d28',
+      borderRadius: '50%',
+      width: 10,
+      height: 10,
+    },
+    '& .slick-dots': {
+      bottom: '130px',
+      position:'relative',
+      zIndex:40,
+      '@media (max-width:767px)': {
+        bottom: 0,
+      },
     },
 },
 
@@ -69,6 +96,10 @@ const useStyles = makeStyles(() => ({
   sliderLeft:{
 background:'#3680d6',
 padding: '100px 10px',
+'@media (max-width:768px)': {
+  padding: '20px 10px',
+
+},
 '& button': {
     marginleft: 30,
     fontSize: 15,
@@ -89,8 +120,18 @@ padding: '100px 10px',
 
   sliderRight:{
     padding: '20px 10px',
+    '@media (max-width:767px)': {
+      textAlign: 'center',
+
+    },
     '& img': {
         marginBottom:10,
+        '@media (max-width:767px)': {
+          margin: '0 auto',
+          marginBottom:10,
+          display: 'block',
+          textAlign: 'center',
+        },
       },
     '& a': {
         color:'#fff',

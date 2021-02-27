@@ -20,14 +20,14 @@ const TutorialsSlider = ({ title }) => {
 
   var settings = {
     speed: 500,
+    infinite:false,
     slidesToShow: 1,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          infinite: true,
-          slidesToShow: 2.5,
+          slidesToShow: 2,
         }
       },
     
@@ -57,7 +57,7 @@ const TutorialsSlider = ({ title }) => {
           <div className={classes.s}>
           <Grid container spacing={4}>
 
-            <Grid item lg={3}>
+            <Grid item lg={3} xs={12} sm={5}>
             <h3> TUTORIALS</h3>
 
             <div className={classes.sliderLeft}>
@@ -72,7 +72,7 @@ const TutorialsSlider = ({ title }) => {
 </Grid>
 
            
-          <Grid item lg={9}>
+          <Grid item lg={9} xs={12} sm={7}>
           <div className={classes.sliderRight}>
 
             <Slider {...settings}>
@@ -87,6 +87,12 @@ const TutorialsSlider = ({ title }) => {
                <a href="../../../../static/support/unlook.pdf" target="_blank">
                <img src='../../../../static/support/pdf.webp'/>
                   LockPick brochure </a>
+              </div>
+              <div>
+               
+               <a href="../../../../static/support/unlook.pdf" target="_blank">
+               <img src='../../../../static/support/pdf.webp'/>
+                  LockPick brochure  </a>
               </div>
             </Slider>
            </div>

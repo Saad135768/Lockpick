@@ -84,8 +84,16 @@ fontFamily: 'Poppins-Regular',
 fontSize:20,
 borderRadius:10,
 '@media (max-width:767px)': {
-  padding:'5px 10px',
-
+  padding:'5px 5px',
+  fontSize:11,
+},
+'@media (max-width:375px)': {
+  padding:'5px 7px',
+  fontSize:10,
+},
+'@media (max-width:320px)': {
+  padding:'5px 4px',
+  fontSize:9,
 },
   },
 },

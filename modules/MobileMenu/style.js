@@ -2,10 +2,19 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   MobileMenuContent: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginLeft: 0,
+    '@media (min-width:768px)': {
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginLeft: 0,
+      display: 'flex',
+    },  
+  ' &  .MuiAccordionSummary-expandIcon': {
+    margin: 0,
+    position: 'relative',
+    bottom: 8,
+
+  },
+
     ' & button': {
       '@media (max-width:768px)': {
         padding: '10px 15px',
@@ -42,11 +51,26 @@ const useStyles = makeStyles(() => ({
         paddingLeft: 0,
         margin: '14px 0',
       },
+      '@media (max-width:767px)': {
+        width: '200px',
+        padding: 0,
+        paddingLeft: 0,
+        margin: '15px 0',
+        textAlign: 'center',
+        margin: '15px auto',
+        display: 'block',
+        marginBottom: 20,
+        paddingRight: 20,
+
+      },
       
     },
   },
 
   MobileMenuHolder: {
+    '& .MuiAccordionSummary-content':{
+      margin:0,
+        },
     ' & .MuiPaper-root': {
       color: '#fff',
       transition: 'box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
@@ -90,6 +114,10 @@ const useStyles = makeStyles(() => ({
       height: '26px',
       right: '17px',
       top: '23px',
+      '@media (max-width:767px)': {
+        top: '16px',
+
+      },
     },
   
     ' & span.bm-burger-bars': {
@@ -124,18 +152,20 @@ const useStyles = makeStyles(() => ({
     },
     ' & .bm-menu ': {
       background: '#2b323c',
-      padding: '60px 10px',
+      padding: '60px 15px',
       fontSize: '1.15em',
       '& a': {
         color: '#fff',
         display: 'block',
         textTransform: 'uppercase',
         textAlign: 'left',
-        marginBottom: 30,
+        marginBottom: 10,
         fontSize: 22,
       },
       '& svg': {
         fontSize: 27,
+        color:'#df9128',
+        marginTop: 6,
       },
         fontSize: '1.15em',
       '& ul': {
@@ -154,7 +184,7 @@ const useStyles = makeStyles(() => ({
     },
     ' & .bm-item-list': {
       color: '#b8b7ad',
-      padding: '0.8em',
+      padding: '0',
       marginTop: '21px',
     },
     ' & .bm-item': {
@@ -186,9 +216,10 @@ const useStyles = makeStyles(() => ({
 
 
     ' & .search ': {
-      width: "100%",
+      width: "70%",
        position: "relative",
         display: "flex",
+      
     },
     ' & .searchTerm ': {
       width: "100%",
@@ -202,6 +233,7 @@ const useStyles = makeStyles(() => ({
       borderRadius: "5px 0 0 5px",
       outline: "none",
       color: "#2B313B",
+      background:'#46494c',
      
     },
     ' & input.searchTerm::placeholder': {
@@ -211,7 +243,7 @@ const useStyles = makeStyles(() => ({
     },
     
     ' & .searchTerm:focus': {
-      color: '#2B313B',
+      color: '#fff',
 
     },
     ' & .searchButton': {
@@ -227,6 +259,8 @@ const useStyles = makeStyles(() => ({
     },
     ' & .wrap': {
       width: "100%",
+      display:'flex',
+      justifyContent: 'space-between',
        margin: "7px auto",
         paddingBottom: "20px",
     },
@@ -369,6 +403,7 @@ const useStyles = makeStyles(() => ({
       ' &  svg.MuiSvgIcon-root': {
         color: '#fba62f',
         fontSize: 34,
+
       },
   
       

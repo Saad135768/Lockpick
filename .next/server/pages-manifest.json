@@ -2,11 +2,7 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/": "pages/index.js",
-  "/support/tutorials": "pages/support/tutorials.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
   "/support": "pages/support.js",
-  "/support/faq": "pages/support/faq.js",
-  "/products": "pages/products.js",
-  "/about": "pages/about.js",
-  "/support/download": "pages/support/download.js"
+  "/": "pages/index.js"
 }

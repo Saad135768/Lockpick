@@ -48,24 +48,7 @@ const useStyles = makeStyles(() => ({
     
   },
 
-  MoreQuestion:{
-background:'#414750',
-padding:'30px 0',
-margin:'50px 0',
-' & p': {
-  color: '#fff',
-  textTransform: 'uppercase',
-  fontSize: 21,
-  fontFamily: 'Poppins-Bold',
-},
-' & span': {
-  color: '#3580D6',
-  fontSize: 21,
-  marginLeft:5,
-  textTransform: 'none',
 
-},
-  },
 }))
 
 export default useStyles

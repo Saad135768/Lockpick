@@ -48,7 +48,8 @@ const useStyles = makeStyles(() => ({
       display: 'block',
       marginBottom: 40,
       '@media (max-width: 767px)': {
-        marginTop:20,
+        marginTop:0,
+        marginBottom: 0,
         width: '70%',
       },
     },
@@ -81,9 +82,15 @@ const useStyles = makeStyles(() => ({
       fontFamily: 'Poppins-SemiBold',
       fontSize: 27,
       marginBottom: 10,
+      '@media (max-width: 767px)': {
+        marginTop:10,
+      },
   },
   '@media (max-width: 768px)': {
     marginTop:30,
+  },
+  '@media (max-width: 767px)': {
+    marginTop: 0,
   },
   },
 

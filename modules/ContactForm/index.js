@@ -14,6 +14,14 @@ const ContactForm = () => {
 
   return (
     <div className={classes.ContactFormHolder}>
+          <div className={classes.MobileTitle}>
+          <Container>
+
+       <h3> Need help?</h3>
+       <h5> Contact us now and we will answer your questions</h5>
+       </Container>
+
+</div>
       <Container>
         <div>
           <Grid container spacing={6}>

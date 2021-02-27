@@ -1,7 +1,28 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
-
+  MobileTitle:{
+    padding: '25px',
+    background:'#3680d6',
+display:'none',
+'@media (max-width:767px)': {
+  display:'block',
+  '& h3': {
+    marginBottom:20,
+    color:'#fff',
+    marginTop:0,
+    fontSize: '28px',
+    fontFamily: 'Poppins-SemiBold',
+  },
+  '& h5': {
+    color: '#fff',
+    fontSize: 20,
+    marginTop: 20,
+    lineHeight: '30px',
+    marginBottom: 0,
+  },
+},
+  },
   ContactFormHolder: {
     backgroundSize: '50%',
     overflow: 'hidden',
@@ -14,7 +35,7 @@ const useStyles = makeStyles(() => ({
       marginBottom: 40,
       '@media (max-width:767px)': {
         marginBottom: 30,
-
+          display:'none',
       },
   },
   '& img': {
@@ -61,9 +82,14 @@ const useStyles = makeStyles(() => ({
     color: '#fff',
   },
 },
-
-
-
+'@media (max-width: 767px)': {
+  '& .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-lg-5  ': {
+    paddingBottom: 3,
+  },
+  '& .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-lg-7  ': {
+    paddingTop: 0,
+  },
+},
 },
 
 
@@ -111,9 +137,15 @@ color:'#fff',
 marginTop: 10,
 background:'#3680d6',
 padding:60,
+'@media (max-width:767px)': {
+  background:'transparent',
+  paddingBottom: '0 !important',
+},
 '@media (max-width:768px)': {
   padding:25,
+
 },
+
 '& h3': {
   marginBottom:40,
   marginTop:0,
@@ -123,10 +155,19 @@ padding:60,
     fontSize: '28px',
     marginBottom:20,
   },
+  '@media (max-width:767px)': {
+ display:'none',
+  },
 },
 },
 
 ContactFormRight:{
+  '@media (max-width:767px)': {
+    padding: '25px',
+    paddingTop: 0,
+    paddingBottom: 0,
+
+  },
 position: 'relative',
   '& h3': {
     marginBottom:20,
