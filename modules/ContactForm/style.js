@@ -126,10 +126,6 @@ ContactFormInfo: {
   textTransform: 'uppercase',
   marginBottom: 15,
   fontFamily: 'Poppins-SemiBold',
-  
-  '@media (max-width:767px)': {
-    fontSize: '16px',
-  },
 
 },
 ContactFormBg: {
@@ -165,8 +161,8 @@ ContactFormRight:{
   '@media (max-width:767px)': {
     padding: '25px',
     paddingTop: 0,
+    marginTop: 10,
     paddingBottom: 0,
-
   },
 position: 'relative',
   '& h3': {
