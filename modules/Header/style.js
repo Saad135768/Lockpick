@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
   HeaderHolder: {
     
     padding: '15px 0',
-    paddingBottom:'60px',
+    paddingBottom:'30px',
     '@media (max-width:768px)': {
       padding: '44px 0',
       overflowX: 'hidden',

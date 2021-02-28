@@ -6,68 +6,206 @@ const useStyles = makeStyles(() => ({
     '& .MuiDialog-paperWidthSm': {
     border:'1px solid #FFA62F',
     padding:'0 0',
+    overFlow:'hidden',
+    maxHeight: '100%',
     maxWidth: 950,
+    height: 300,
+    maxHeight:300,
+    '& .slick-slider': {
+      height: 300,
+      maxHeight:300,
+
+      '@media (max-width:767px)': {
+        height: '100%',
+        maxHeight: '100%',
+
+      },
+    },
+    '@media (max-width:767px)': {
+      height: '100%',
+      maxHeight: '100%',
+    },
     width: 950,
-    overflow: 'hidden',
-    background: '#2e333a',
+    background: '#fff',
     '& h3': {
         fontFamily: 'Poppins-SemiBold',
-        fontSize: 27,
+        fontSize: 24,
         color:'#FFA62F',
-        background: '#3680d6',
+        background: '#151b1f',
         textAlign: 'center',
-        padding: 10,
+        padding: 50,
         textTransform: 'uppercase',
         marginBottom:0,
         marginTop: 0,
+        '@media (max-width:768px)': {
+          padding: 0,
+        },
+        '@media (max-width:767px)': {
+          paddingTop: 0,
+          paddingBottom: 0,
+          fontSize: 20,
+
+        },
     }, 
     '& .slick-next': {
-        right: 40,
+        right: 15,
+        top: '40%',
+        '@media (max-width:767px)': {
+          top: '20%',
+          right: 40,
+        },
+
     },
     '& .slick-prev': {
-        left: 20,
+        left: 15,
+        zIndex: 9,
+        top: '40%',
+        '@media (max-width:767px)': {
+          top: '20%',
+        },
     },
     '& .slick-slide': {
-        padding: 40,
+        padding: 0,
+        '@media (max-width:767px)': {
+          padding: 10,
+
+        },
+    },
+
+    '& .slick-dots li': {
+      margin: '0 10px',
+    },
+    '& .slick-dots li button::before': {
+      color: 'transparent',
+      border: '2px solid #fb9d28',
+      borderRadius: '50%',
+      width: 10,
+      height: 10,
+    },
+    '& .slick-dots': {
+      bottom: '40px',
+      position:'relative',
+      zIndex:40,
+      '@media (max-width:767px)': {
+        bottom: 0,
+      },
     },
 },
-  sliderLeft:{
-    background:'#3680d6',
-    padding: '100px 10px',
-    '& button': {
-        marginleft: 30,
-        fontSize: 15,
-        width: '80%',
-        borderRadius: 0,
-        background: 'transparent',
-        color: '#fff',
-        padding: '10px 0',
-        margin: '0 auto',
-        display: 'block',
-        textAlign: 'center',
-        '&:hover': {
-        border:'1px solid #FFA62F',  
-        },
-      },
-    
+
+
+    '& h5': {
+      color: '#fff',
+    fontSize: 16,
+    marginTop:0,
+    marginBottom:0,
+    '@media (max-width:768px)': {
+      fontSize: 16,
+    },
+    },
+ 
+    '& h6': {
+      color: '#fff',
+    fontSize: 19,
+    marginTop:10,
+    marginBottom:30,
+    '@media (max-width:768px)': {
+      fontSize: 16,
+      marginBottom:30,
+    },
     },
     
-      sliderRight:{
-        padding: '20px 10px',
-        '& img': {
-            marginBottom:10,
-          },
-        '& a': {
-            color:'#fff',
-            marginTop:10,
-       
-            },
-           
+
+    
+    '@media (max-width:1024px)': {
+      '& button': {
+        padding:15,
+        fontSize: 'inherit',
+
       },
     },
-    
+
+  },
  
 
+  sliderLeft:{
+    paddingBottom:'57px',
+background:'#151b1f',
+
+'@media (max-width:768px)': {
+  padding: '20px 10px',
+  height: '100%',
+
+},
+
+
+},
+
+  sliderRight:{
+    padding: '0 30px 0 0',
+    fontFamily: 'Poppins-Regular',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    fontSize: 22,
+   
+    '& img': {
+        marginBottom:10,
+        '@media (max-width:767px)': {
+          margin: '0 auto',
+          marginBottom:10,
+          display: 'block',
+          textAlign: 'center',
+        },
+      },
+    '& a': {
+        color:'#fff',
+        marginTop:10,
+   
+        },
+        '@media (max-width:767px)': {
+          padding: 0,
+
+          '& p': {
+            paddingTop: 0,
+            fontSize: 19,
+            margin:0,
+            },
+        },
+
+  },
+
+  TitleHolder :{
+    '& a': {
+      marginleft: 30,
+      marginTop: 10,
+      fontSize: 15,
+      width: '120px',
+      borderRadius: 0,
+      background: 'transparent',
+      color: '#fff',
+      padding: '10px 0',
+      margin: '-2px auto',
+      border:'1px solid #fff',
+      display: 'block',
+      textAlign: 'center',
+      
+      '@media (max-width:768px)': {
+        marginTop: 100,
+      },
+      '@media (max-width:767px)': {
+        marginTop: 10,
+      },
+      '&:hover': {
+        border:'1px solid #3680d6', 
+        background:'#3680d6',
+        },
+    },
+   
+   
+  }
+
+ 
 }))
 
 export default useStyles
