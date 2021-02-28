@@ -16,14 +16,15 @@ const useStyles = makeStyles(() => ({
       maxHeight:400,
 
       '@media (max-width:767px)': {
-        height: '100%',
-        maxHeight: '100%',
-
+        height: '90%',
+        maxHeight: '90%',
+        overflow: 'auto',
       },
     },
     '@media (max-width:767px)': {
-      height: '100%',
-      maxHeight: '100%',
+      height: '80%',
+      maxHeight: '80%',
+      overflow: 'auto',
     },
     width: 950,
     background: '#e0e1e1',
@@ -38,7 +39,7 @@ const useStyles = makeStyles(() => ({
         marginBottom:0,
         marginTop: 0,
         '@media (max-width:768px)': {
-          padding: 0,
+          padding:19,
         },
         '@media (max-width:767px)': {
           paddingTop: 0,
@@ -87,11 +88,10 @@ const useStyles = makeStyles(() => ({
       position:'relative',
       zIndex:40,
       '@media (max-width:767px)': {
-        bottom: 0,
+        bottom: '7px',
       },
     },
 },
-
 
     '& h5': {
       color: '#fff',
@@ -133,12 +133,11 @@ const useStyles = makeStyles(() => ({
     paddingBottom:'57px',
 background:'#151b1f',
 
-'@media (max-width:768px)': {
+'@media (max-width:767px)': {
   padding: '20px 10px',
   height: '100%',
   maxHeight:'100%',
-
-
+  overflow: 'auto',
 },
 
 
@@ -172,7 +171,7 @@ background:'#151b1f',
 
           '& p': {
             paddingTop: 0,
-            fontSize: 19,
+            fontSize: 18,
             margin:0,
             },
         },
