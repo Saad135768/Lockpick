@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
         },
 
     '& .slick-prev:before , .slick-next:before ': {
-
+      zIndex:99,
       fontSize: 90,
       opacity: 1,
     },
@@ -31,9 +31,10 @@ const useStyles = makeStyles(() => ({
     },
     '& .slick-prev': {
       left: '-70px',
+      zIndex: 99,
+
       '@media (max-width:768px)': {
         left: '20px',
-zIndex:30,
       },
     },
 '& .slick-next': {
