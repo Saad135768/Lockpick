@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
         right: 40,
     },
     '& .slick-prev': {
-        left: -20,
+        left: 20,
     },
     '& .slick-slide': {
         padding: 40,

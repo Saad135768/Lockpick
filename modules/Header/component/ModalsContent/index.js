@@ -1,122 +1,88 @@
-import Link from 'next/link'
-import Router from 'next/router'
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
-import useStyles from './style'
-import NumericInput from 'react-numeric-input'
-import React from 'react'
-import Dialog from '@material-ui/core/Dialog'
-import { Container, Grid } from "@material-ui/core"
-import Button from '../../../../common/Button'
-import Slider from "react-slick"
+import Link from "next/link";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import useStyles from "./style";
+import React from "react";
+import Dialog from "@material-ui/core/Dialog";
+import Button from "../../../../common/Button";
+import Slider from "react-slick";
 
-const ModalsContent = ({
-  title,
-  title2,
-  description,
-  description2,
-  description3,
-  image,
-  modalTitle
- 
-}) => {
-  const classes = useStyles()
+const ModalsContent = ({ title, title2, image }) => {
+  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
+  const [index, setIndex] = React.useState(false);
+  const handleClickOpen = (index) => {
     setOpen(true);
+    setIndex (index)
   };
+  
   const handleClose = () => {
     setOpen(false);
   };
 
   var settings = {
-    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows:true,
-
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToShow: 2.5,
-          dots:true,
-          arrows:false,
-        }
-      },
-    
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots:true,
-          arrows:false,
-        }
-      }
-    ]
+    arrows: true,
+    initialSlide: index,
+  };
+  var settings1 = {
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    infinite:false,
   };
   return (
     <div>
-    <div variant="outlined" color="primary" onClick={handleClickOpen}>
-      <img src={image}/>
-     <h3> {title}  <br/>{title2} </h3>
-    </div>
-    
-    <Dialog
+      <Slider {...settings1}>
+        <div variant="outlined" color="primary" onClick={()=>handleClickOpen (0)}>
+          <img src={"../../../../static/images/homepage/key.png"} />
+          <h3>
+            1
+          </h3>
+        </div>
+        <div variant="outlined" color="primary"  onClick={()=>handleClickOpen (1)}>
+          <img src={"../../../../static/images/homepage/key.png"} />
+          <h3>   
+           2
+          </h3>
+        </div>
+        <div variant="outlined" color="primary"  onClick={()=>handleClickOpen (2)}>
+          <img src={"../../../../static/images/homepage/key.png"} />
+          <h3>
+           3
+          </h3>
+        </div>
+        
+      </Slider>
+      <Dialog
         className={classes.MuiDialogContent}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-          
-          <div className={classes.s}>
-          <Grid container spacing={4}>
-
-            <Grid item lg={3}>
-            <h3> {title}</h3>
-
+        <Slider {...settings}>
+          <div className={classes.sliderRight} index={1}>
             <div className={classes.sliderLeft}>
-
-            <Link as={"/support/tutorials#TUTORIALS"} href="/support/tutorials#TUTORIALS">
-                    <a onClick={handleClose} href="/support/tutorials#TUTORIALS">
-                      <Button>Watch Video</Button>
-                    </a>
-                  </Link>
-                  </div>
-
-</Grid>
-
-           
-          <Grid item lg={9}>
-          <div className={classes.sliderRight}>
-
-            <Slider {...settings}>
-              <div>
-                1
-              </div>
-              <div>
-                2
-              </div>
-              <div>
-                3
-              </div>
-
-            </Slider>
-           </div>
-            </Grid>
-            </Grid>
-
+              <h3> 1</h3>
             </div>
+          </div>
+          <div className={classes.sliderRight} index={2}>
+            <div className={classes.sliderLeft}>
+              <h3> 2</h3>
+            </div>
+          </div>
+          <div className={classes.sliderRight} index={3}>
+            <div className={classes.sliderLeft}>
+              <h3> 3</h3>
+            </div>
+          </div>
+          
+        </Slider>
+      </Dialog>
+    </div>
+  );
+};
 
-
-        
-    
-    </Dialog>
-  </div>
-  )
-}
-
-export default ModalsContent
+export default ModalsContent;

@@ -148,6 +148,7 @@ const useStyles = makeStyles(() => ({
     ' & .bm-menu-wrap': {
       position: 'fixed',
       height: '100%',
+      width: '340px !important',
       top: '0px',
     },
     ' & .bm-menu ': {
@@ -216,10 +217,9 @@ const useStyles = makeStyles(() => ({
 
 
     ' & .search ': {
-      width: "70%",
+      width: "75%",
        position: "relative",
         display: "flex",
-      
     },
     ' & .searchTerm ': {
       width: "100%",
