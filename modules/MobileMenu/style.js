@@ -69,6 +69,11 @@ const useStyles = makeStyles(() => ({
 
   MobileMenuHolder: {
     paddingBottom: 2,
+    '& form':{
+      display:'flex',
+      width: '100%',
+
+        },
     '& .MuiAccordionSummary-content':{
       margin:0,
         },

@@ -61,6 +61,8 @@ const MobileMenu = () => {
         <Grid item lg={9}>
         <div className="wrap">
           <div className="search">
+          <form action="/products">
+
             <input
               type="text"
               className="searchTerm"
@@ -69,6 +71,7 @@ const MobileMenu = () => {
             <button type="submit" className="searchButton">
               <i class="fa fa-search"></i>
             </button>
+            </form>
           </div>
             <div>
               <a href="#">
