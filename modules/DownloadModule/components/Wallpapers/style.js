@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
     '& .slick-prev:before , .slick-next:before ': {
       zIndex:99,
       fontSize: 90,
+      position: 'relative',
       opacity: 1,
     },
     '& button.slick-arrow.slick-prev.slick-disabled ,  button.slick-arrow.slick-next.slick-disabled': {
@@ -40,6 +41,7 @@ const useStyles = makeStyles(() => ({
 '& .slick-next': {
   right: '-50px',
   zIndex: 99,
+  
   '@media (max-width:768px)': {
     right: '35px',
   },
