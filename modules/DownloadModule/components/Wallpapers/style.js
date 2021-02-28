@@ -31,9 +31,16 @@ const useStyles = makeStyles(() => ({
     },
     '& .slick-prev': {
       left: '-70px',
+      '@media (max-width:768px)': {
+        left: '20px',
+zIndex:30,
+      },
     },
 '& .slick-next': {
   right: '-50px',
+  '@media (max-width:768px)': {
+    right: '35px',
+  },
 },
 '& .slick-dots li.slick-active button::before': {
   bottom: 0,

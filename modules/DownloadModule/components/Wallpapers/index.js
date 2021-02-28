@@ -8,18 +8,19 @@ import WallpaperItem from "../WallpaperItem/"
 const Wallpapers = () => {
   const classes = useStyles()
   var settings = {
-    infinite: true,
     speed: 500,
     slidesToShow: 3.5,
     slidesToScroll: 1,
+    arrows: true,
+    dots:false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToShow: 2.5,
-          dots: true,
-          arrows: false,
+          dots:false,
+
         },
       },
 
@@ -28,8 +29,6 @@ const Wallpapers = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
-          arrows: false,
         },
       },
     ],
