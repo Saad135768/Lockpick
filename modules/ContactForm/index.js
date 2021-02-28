@@ -39,7 +39,7 @@ const ContactForm = () => {
                       target="_blank"
                     >
                      LOCK PICK  <br /> 
- 3301 W.MACARTHUR BLVD. <br /> SANTA ANA, CA 92704 - USA <br />
+ 3301 W. MACARTHUR BLVD. <br /> SANTA ANA, CA 92704 - USA <br />
                     </a>
                   </div>
                 </div>
