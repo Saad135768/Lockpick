@@ -108,7 +108,7 @@ overlay: {
 
 ContactFormContent: {
 display:'flex',
-marginBottom:15,
+marginBottom:0,
 '& :hover':{
   transform: 'scale(1.04)',
   transition: '0.3s',

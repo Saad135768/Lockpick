@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
           opacity: 0.5,
     },
     '& .slick-prev': {
-      left: '-50px',
+      left: '-70px',
     },
 '& .slick-next': {
   right: '-50px',

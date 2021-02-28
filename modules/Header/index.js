@@ -11,7 +11,7 @@ import useStyles from "./style"
 
 var settings2 = {
   dots: true,
-  infinite: false,
+  infinite: true,
   arrows: true,
   speed: 1500,
   slidesToShow: 1,

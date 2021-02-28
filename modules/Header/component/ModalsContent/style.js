@@ -6,14 +6,14 @@ const useStyles = makeStyles(() => ({
     '& .MuiDialog-paperWidthSm': {
     border:'1px solid #FFA62F',
     padding:'0 0',
-    overFlow:'hidden',
+    overflow:'hidden',
     maxHeight: '100%',
     maxWidth: 950,
-    height: 300,
-    maxHeight:300,
+    height: 400,
+    maxHeight:400,
     '& .slick-slider': {
-      height: 300,
-      maxHeight:300,
+      height: 400,
+      maxHeight:400,
 
       '@media (max-width:767px)': {
         height: '100%',
@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
       maxHeight: '100%',
     },
     width: 950,
-    background: '#fff',
+    background: '#e0e1e1',
     '& h3': {
         fontFamily: 'Poppins-SemiBold',
         fontSize: 24,
@@ -51,7 +51,7 @@ const useStyles = makeStyles(() => ({
         right: 15,
         top: '40%',
         '@media (max-width:767px)': {
-          top: '20%',
+          top: '15%',
           right: 40,
         },
 
@@ -61,7 +61,7 @@ const useStyles = makeStyles(() => ({
         zIndex: 9,
         top: '40%',
         '@media (max-width:767px)': {
-          top: '20%',
+          top: '15%',
         },
     },
     '& .slick-slide': {
@@ -83,7 +83,7 @@ const useStyles = makeStyles(() => ({
       height: 10,
     },
     '& .slick-dots': {
-      bottom: '40px',
+      bottom: '50px',
       position:'relative',
       zIndex:40,
       '@media (max-width:767px)': {
@@ -128,12 +128,16 @@ const useStyles = makeStyles(() => ({
  
 
   sliderLeft:{
+    height: 400,
+    maxHeight:400,
     paddingBottom:'57px',
 background:'#151b1f',
 
 '@media (max-width:768px)': {
   padding: '20px 10px',
   height: '100%',
+  maxHeight:'100%',
+
 
 },
 
@@ -178,7 +182,7 @@ background:'#151b1f',
   TitleHolder :{
     '& a': {
       marginleft: 30,
-      marginTop: 10,
+      marginTop: 80,
       fontSize: 15,
       width: '120px',
       borderRadius: 0,

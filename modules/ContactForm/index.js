@@ -38,7 +38,8 @@ const ContactForm = () => {
                       href="https://www.google.com.eg/maps/search/Lock+Pick+3301+W.+MacArthurBLVD.+Santa+Ana,+CA+92704+-+USA/@33.7197151,-117.8787288,13z/data=!3m1!4b1"
                       target="_blank"
                     >
-                       Mac Arthur BLVD.  <br /> Santa Ana, CA 92704–USA <br />
+                     LOCK PICK  <br /> 
+ 3301 W.MACARTHUR BLVD. <br /> SANTA ANA, CA 92704 - USA <br />
                     </a>
                   </div>
                 </div>
@@ -66,7 +67,7 @@ const ContactForm = () => {
               <div className={classes.ContactFormRight}>
                 <div className={classes.overlay} />
 
-                <h3> SEND US A MESSAGE </h3>
+                <h3> SEND US A MESSAGE : </h3>
                 <Input placeholder="Full Name" type="text" />
                 <Input placeholder="Your Email" type="text" />
                 <textarea placeholder="Your message"></textarea>
