@@ -53,16 +53,18 @@ const useStyles = makeStyles(() => ({
         top: '40%',
         '@media (max-width:767px)': {
           top: '15%',
-          right: 40,
+          right: 20,
         },
 
     },
-    '& .slick-prev': {
+    '& .slick-prev ': {
         left: 15,
         zIndex: 9,
         top: '40%',
         '@media (max-width:767px)': {
           top: '15%',
+          width: 37,
+          height: 54,
         },
     },
     '& .slick-slide': {
@@ -124,8 +126,19 @@ const useStyles = makeStyles(() => ({
       },
     },
 
+    '@media (max-width:767px)': {
+      '& .slick-prev:before , .slick-next:before' : {
+        position: 'relative',
+        bottom: 14,
+        right: 9,
+      },
+      '& .slick-next' : {
+      
+        width: 37,
+        height: 54,
+      },
   },
- 
+},
 
   sliderLeft:{
     height: 400,
