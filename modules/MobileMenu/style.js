@@ -59,7 +59,7 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
         margin: '15px auto',
         display: 'block',
-        marginBottom: 20,
+        marginBottom: 30,
         paddingRight: 20,
 
       },
