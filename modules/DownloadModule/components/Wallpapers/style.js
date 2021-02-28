@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
     },
     '& .slick-prev': {
       left: '-70px',
-      zIndex: 99,
+      zIndex: 999,
 
       '@media (max-width:768px)': {
         left: '20px',
@@ -39,6 +39,7 @@ const useStyles = makeStyles(() => ({
     },
 '& .slick-next': {
   right: '-50px',
+  zIndex: 99,
   '@media (max-width:768px)': {
     right: '35px',
   },

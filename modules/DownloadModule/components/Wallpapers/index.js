@@ -11,7 +11,6 @@ const Wallpapers = () => {
     speed: 500,
     slidesToShow: 3.5,
     slidesToScroll: 1,
-    arrows: true,
     dots:false,
     responsive: [
       {
@@ -19,15 +18,13 @@ const Wallpapers = () => {
         settings: {
           slidesToShow: 2,
           slidesToShow: 2.5,
-          dots:false,
-
         },
       },
 
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.5,
+          slidesToShow: 1,
           slidesToScroll: 1,
           arrows: true,
         },
