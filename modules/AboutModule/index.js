@@ -20,10 +20,15 @@ const AboutModule = () => {
         <ScrollAnimation animateIn="fadeIn">
 
          <p>
-         The leading name in automotive scan tools, M2K, is proud to introduce LOCK PICK – a
+         For over 30 years M2K has been the premier supplier of OEM and propriety diagnostic and programming systems. M2K introduced WIZARD over 10 years ago which revolutionized BMW repairs and customizations for advanced technicians. WIZARD continues to provide functionality that surpasses all OEM and aftermarket systems. </p>
 
-ground-breaking interface for BMW vehicles.
-LOCK PICK is an advanced system that allows for engineering level capabilities including immobilizer functions, key programming, module virginizing & cloning, and recovers FRM</p>
+         <p>
+         To further support innovative technicians, M2K has released Lock Pick, which offers unique capabilities for BMW vehicles. Lock Pick is available as a standalone device or an add-on to the WIZARD.
+         </p>
+         <p>
+         Without any soldering, Lock Pick can safely and easily perform several advanced functions including: program new and used keys; replace or change VIN numbers; reset ISN; clone electronic modules; and repair FRM.
+
+         </p>
          </ScrollAnimation>
 
         </div>

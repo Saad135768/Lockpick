@@ -15,8 +15,8 @@ const useStyles = makeStyles(() => ({
     lineHeight: '35px',
      fontSize: 20,
      color:'#fff',
-     textAlign:'center',
      '@media (max-width:767px)': {
+      textAlign:'center',
       fontSize: 18,
       },
     },
