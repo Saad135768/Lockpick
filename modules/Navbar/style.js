@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
     padding: '0',
     width: '100%',
     zIndex: 2000,
-    marginLeft: 30,
+    marginLeft: 36,
     textAlign: 'left',
     '& li': {
       color: '#ffa62f',

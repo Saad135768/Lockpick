@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   HomeRegisterHolder: {
-    margin: '150px 0',
+    margin: '200px 0',
     '@media (max-width:768px)': {
       margin: '60px 0',
     },
