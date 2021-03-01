@@ -13,7 +13,7 @@ var settings2 = {
   dots: true,
   infinite: true,
   arrows: true,
-  speed: 1500,
+  speed: 900,
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
@@ -90,6 +90,7 @@ const Header = () => {
                     alt="lockpick-header-image"
                   />
                 </div>
+
                 <div className={classes.HeaderCircles}>
                   <ScrollAnimation animateIn="fadeIn">
                     <h2> unlimited potential</h2>

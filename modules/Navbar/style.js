@@ -25,31 +25,32 @@ const useStyles = makeStyles(() => ({
   },
   centermenu: {
     color: 'white',
-    zIndex:99999,
     marginTop: '50px',
     textTransform: 'uppercase',
     fontFamily: 'Poppins-Light',
     padding: '0',
     width: '100%',
-    marginLeft: 60,
+    zIndex: 2000,
+    marginLeft: 30,
     textAlign: 'left',
     '& li': {
       color: '#ffa62f',
       display: 'inline-block',
-      zIndex: 999,
       position: 'relative',
       padding: '0',
       ' & :hover': {
         transition: '0.1s',
-        borderBottom:'3px solid #3680d6',
+        borderTop:'3px solid #3680d6',
+        color:'#fba530',
       },
     },
     '& a': {
-      fontSize: '19px',
+      fontSize: '20px',
       cursor:'pointer',
       fontFamily: 'Poppins-Regular',
-      color: '#ffa62f',
-      marginRight: '42px',
+      color: '#3680d6',
+      marginRight: '45px',
+      paddingTop: 10,
       '& :hover': {
         cursor: 'pointer',
       },
@@ -64,8 +65,10 @@ const useStyles = makeStyles(() => ({
     },
     '& a.active': {
       paddingBottom: '2px',
-      fontFamily: 'Poppins-Bold',
-      borderBottom: '3px solid #3680d6',
+      color:'#fba62f',
+      '& :hover': {
+        color: '#FF7700',
+      },
     },
 
   },
@@ -330,6 +333,10 @@ display:'none',
       height: '325px',
       margintop: '0px !important',
     },
+  },
+
+  root :{
+width: 200,
   },
 }))
 

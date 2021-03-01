@@ -11,22 +11,26 @@ import Button from "@material-ui/core/Button"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
 import { AiOutlineSearch } from "react-icons/ai"
+import Fade from '@material-ui/core/Fade'
 
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
   const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
+  function handleClick(event) {
+    if (anchorEl !== event.currentTarget) {
+      setAnchorEl(event.currentTarget);
+    }
   }
 
-  const handleClose = () => {
-    setAnchorEl(null)
+  function handleClose() {
+    setAnchorEl(null);
   }
 
   return (
-    <div className={classes.NavbarHolder}>
+    <div className={classes.NavbarHolder}
+    >
       <div className={classes.NavbaTopImage}>
         <img src="../../static/images/homepage/topimage.png" alt="top-image" />
       </div>
@@ -45,12 +49,19 @@ const Navbar = () => {
             </div>
           </Grid>
           <Grid item lg={9} md={9}>
-            <div className={classes.navbarContent}>
-              <ul className={classes.centermenu} onMouseLeave={handleClose}
+            <div className={classes.navbarContent}
+                onMouseLeave={handleClose}
+
+            >
+              <ul className={classes.centermenu}
+
 >
                 <li>
                   <Link href="/">
-                    <a className={router.pathname === "/" ? "active" : ""}>
+                    <a 
+                onMouseEnter={handleClose}
+
+                    className={router.pathname === "/" ? "active" : ""}>
                       Home
                     </a>
                   </Link>
@@ -58,6 +69,7 @@ const Navbar = () => {
                 <li>
                   <Link href="/products">
                     <a
+                     onMouseEnter={handleClose}
                       className={
                         router.pathname === "/products" ? "active" : ""
                       }
@@ -70,11 +82,12 @@ const Navbar = () => {
                   <Link 
                    href="/support">
                     <a 
-                    onMouseEnter={handleClick}
-                    onClick={() => console.log('click')}
+                     aria-owns={anchorEl ? "simple-menu" : undefined}
                       className={
                         router.pathname === "/support" ? "active" : ""
                       }
+                    onMouseOver={handleClick}
+
                     >
                       Support
                     </a>
@@ -82,17 +95,29 @@ const Navbar = () => {
                 </li>
 
                 <Menu
-                  id="simple-menu"
-                  anchorEl={anchorEl}
-                  keepMounted
-                  open={Boolean(anchorEl)}
-                  onClose={handleClose}
+                id="simple-menu"
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                MenuListProps={{ onMouseLeave: handleClose }}
+                getContentAnchorEl={null}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "center",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "center",
+                }}
+              
                 >
              
                   <MenuItem onClick={handleClose}
-                                    onClose={handleClose}
-                                    >
+
+                     onClose={handleClose}
+                               >
                     <a
+                     className={router.pathname === "/support/faq" ? "active" : ""}
                       onClick={() => {
                         Router.push({
                           pathname: "/support/faq",
@@ -105,7 +130,9 @@ const Navbar = () => {
                   </MenuItem>
 
                   <MenuItem onClick={handleClose}>
-                    <a
+                    <a  className={router.pathname === "/support/tutorials" ? "active" : ""}
+
+                    
                       onClick={() => {
                         Router.push({
                           pathname: "/support/tutorials",
@@ -117,7 +144,9 @@ const Navbar = () => {
                     </a>
                   </MenuItem>
                   <MenuItem onClick={handleClose}>
-                    <a
+                   
+                      <a  className={router.pathname === "/support/download" ? "active" : ""}
+
                       onClick={() => {
                         Router.push({
                           pathname: "/support/download",
@@ -130,10 +159,11 @@ const Navbar = () => {
                   </MenuItem>
                 
                 </Menu>
-
                 <li>
                   <Link as={"/about"} href="/about">
-                    <a className={router.pathname === "/about" ? "active" : ""}>
+                    <a
+                     onMouseEnter={handleClose}
+                    className={router.pathname === "/about" ? "active" : ""}>
                       About us
                     </a>
                   </Link>

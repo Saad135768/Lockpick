@@ -22,7 +22,7 @@ const software = () => {
                 <div className={classes.SupportRight}>
 
         <img src="../../../../static/support/software.gif" />
-        <p> Windows 7, 8, 10 (x86-x64) Version</p>
+        <p> Windows 7, 8, 10 (x86-x64) </p>
         <h5>LATEST BUILD </h5>
 
         <Link as={"#"} href="#">

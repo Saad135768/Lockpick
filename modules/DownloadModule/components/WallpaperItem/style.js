@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   WallpaperItem:{
-    height: 290,
+    height: 365,
     position:'relative',
  
   '& svg': {
@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
     cursor: 'pointer',
   },
   '& img': {
-    height: 290,
+    height: 365,
     objectFit: 'cover',
   },
   

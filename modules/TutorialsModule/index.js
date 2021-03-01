@@ -48,6 +48,9 @@ const TutorialsModule = () => {
                        </TutorialsSlider>
                       </a>
                     
+<div>
+  <h5> VIDEO TUTORIALS </h5>
+</div>
                    
                   </div>
 
@@ -56,9 +59,6 @@ const TutorialsModule = () => {
             </div>
 <div className={classes.videoholder}>
 
-<div>
-  <h3> VIDEO TUTORIALS </h3>
-</div>
 <div className={classes.TutorialsVideo} id="TUTORIALS">
   <p> LOCK PICK Training Video Tutorials </p>
 

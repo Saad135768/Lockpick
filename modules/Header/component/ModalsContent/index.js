@@ -93,7 +93,10 @@ const ModalsContent = () => {
           color="primary"
           onClick={() => handleClickOpen(0)}
         >
-          <img src={"../../../../static/images/homepage/key.png"} />
+            <div className={classes.ImageBg}>
+
+          <img className={`${classes.ImageItem} ImageItem1`} src={"../../../../static/images/homepage/key.svg"} />
+          </div>
           <h3>
             Program New
             <br />& Used Key
@@ -104,7 +107,10 @@ const ModalsContent = () => {
           color="primary"
           onClick={() => handleClickOpen(1)}
         >
-          <img src={"../../../../static/images/homepage/rest.png"} />
+                    <div  className={classes.ImageBg}>
+
+           <img className={`${classes.ImageItem} ImageItem2`} src={"../../../../static/images/homepage/rest.svg"} />
+          </div>
           <h3>
             Reset Transmission
             <br />
@@ -116,7 +122,11 @@ const ModalsContent = () => {
           color="primary"
           onClick={() => handleClickOpen(2)}
         >
-          <img src={"../../../../static/images/homepage/clone.png"} />
+          <div  className={classes.ImageBg}>
+
+          <img className={`${classes.ImageItem} ImageItem3`}src={"../../../../static/images/homepage/clone.svg"} />
+          </div>
+
           <h3>
             Clone BMW
             <br />& Mini Modules

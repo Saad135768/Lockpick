@@ -20,7 +20,7 @@ const TutorialsSlider = ({ title }) => {
 
   var settings = {
     speed: 500,
-    infinite: false,
+    infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     responsive: [

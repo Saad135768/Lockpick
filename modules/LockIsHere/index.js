@@ -13,11 +13,9 @@ const LockIsHere = () => {
     <div className={classes.LockIsHereHolder}>
       <Container>
         <div>
-          <Grid item lg={4} xs={12} sm={4} md={4}>
-          <Parallax x={[0, 10]}>
+          <Parallax Y={[0, 10]}>
             <img src="../../static/images/homepage/lookishere.png" />
             </Parallax>
-          </Grid>
           <p>
             The leading name in automotive scan tools, M2K, is proud to
             introduce LOCK PICK – a ground-breaking interface for BMW vehicles.

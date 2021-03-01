@@ -82,6 +82,7 @@ HomeRegisterContent:{
   textAlign: 'center',
   '& h3 , h4': {
     color: '#fff',
+    textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
     fontFamily: 'Poppins-SemiBold',
     fontSize:36,
     marginTop: 0,
@@ -115,7 +116,7 @@ marginBottom: 40,
 HomeRegisterBorder:{
   height:'1px',
   background:'#fff',
-  padding: 3,
+  padding: 1,
   marginBottom: 30,
   width: 400,
   '@media (max-width:768px)': {

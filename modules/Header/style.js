@@ -30,9 +30,10 @@ const useStyles = makeStyles(() => ({
     },
     '& h1': {
       marginTop: '10px',
+      textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
       color:'#3680d6',
       textTransform: 'uppercase',
-      fontSize: 60,
+      fontSize: 65,
       textAlign:'center',
       marginBottom: 0,
       fontFamily: 'Poppins-SemiBold',
@@ -143,6 +144,7 @@ const useStyles = makeStyles(() => ({
       textAlign: 'center',
       color:'#FFA62F',
       marginTop: 0,
+      textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
       marginBottom: 20,
       textTransform:'uppercase',
       '@media (max-width:768px)': {
@@ -159,7 +161,7 @@ const useStyles = makeStyles(() => ({
       marginBottom: 30,
     margin: '0 auto',
     display: 'block',
-     maxWidth:'150px',
+     width:'100%',
      '@media (max-width:768px)': {
       maxWidth:'100px',
 
@@ -168,21 +170,7 @@ const useStyles = makeStyles(() => ({
 
   },
   HeaderCirclesItem:{
-    '@media (min-width:768px)': {
-      '-moz-transition': 'all .4s',
-      '-webkit-transition': 'all .4s',
-      '-o-transition': 'all .4s',
-      '-ms-transition': 'all .4s',
-      '&:hover': {
-        'transform ':  'translateY(-10px) ',
-      '-moz-transform ':  'translateY(-10px) ',
-      '-webkit-transform ':  'translateY(-10px) ',
-      '-ms-transform ':  'translateY(-10px) ',
-      '-o-transform ':  'translateY(-10px) ',
-      transition: 'all .4s',
-    },
-
-    },
+ 
     textAlign: 'center',
     '& img': {
       marginBottom:30,
@@ -194,7 +182,9 @@ const useStyles = makeStyles(() => ({
     '& h3': {
       marginTop: 0,
       color: '#fff',
+      textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
       fontSize: 22,
+      fontFamily: 'Poppins-Regular',
       '&:hover': {
         cursor: 'pointer',
       },

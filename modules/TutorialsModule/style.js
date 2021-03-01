@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     },
 
       },
-      ' & h4': {
+      ' & h4 , h5': {
         marginTop:'0',
         fontFamily: 'Poppins-Bold',
         textTransform:'uppercase',
@@ -28,6 +28,11 @@ const useStyles = makeStyles(() => ({
          textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
 
         },
+        ' & h5': {
+          marginBottom: '0',
+          marginTop:'30px',
+
+          },
   },
 
   TutorialsRight:{
@@ -43,7 +48,7 @@ const useStyles = makeStyles(() => ({
   },
   videoholder:{
 
-    margin: '50px 0',
+    margin: '20px 0',
     '@media (max-width:767px)': {
       margin: '20px 0',
     },

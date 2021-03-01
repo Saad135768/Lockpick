@@ -14,9 +14,11 @@ const useStyles = makeStyles(() => ({
   },
     '& p': {
       color: '#fff',
-      fontSize: 21,
+      fontSize: 26,
       marginTop:0,
       marginBottom: 40,
+      textAlign:'center',
+
       '@media (max-width:768px)': {
         textAlign:'center',
         fontSize: 17,
@@ -25,7 +27,11 @@ const useStyles = makeStyles(() => ({
         },
   },
   '& img': {
-    width: '100%',
+    width: 'auto',
+    margin: '0 auto',
+    marginBottom:20,
+    display: 'block',
+    textAlign: 'center',
     '@media (max-width:767px)': {
     paddingTop:'0',
     padding:'40px',
@@ -36,10 +42,9 @@ const useStyles = makeStyles(() => ({
 },
 },
 ButtonHolder: {
-textAlign: 'right',
+textAlign: 'center',
 marginTop:10,
 marginBottom: 40,
-marginRight:160,
 '@media (max-width:768px)': {
   marginRight:0,
   textAlign: 'center',

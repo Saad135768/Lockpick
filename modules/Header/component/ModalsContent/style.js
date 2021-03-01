@@ -109,7 +109,6 @@ const useStyles = makeStyles(() => ({
       color: '#fff',
     fontSize: 19,
     marginTop:10,
-    marginBottom:30,
     '@media (max-width:768px)': {
       fontSize: 16,
       marginBottom:30,
@@ -218,9 +217,48 @@ background:'#151b1f',
         },
     },
    
-   
-  }
+  },
+  
+  ImageBg:{
+    width: 180,
+    display:'flex',
+    height: 180,
+    background: '#fba530',
+    borderRadius: '50%',
+    margin: '0 auto',
+    marginBottom: 13,
+    '&:hover': {
+      background: '#FF7700 ',
+      boxShadow: 'inset 0 10px 10px 5px rgb(0 0 0 / 50%)',
+      transition: '0.2s',
+      
+    },
 
+    '&:hover img': {
+      transform: 'scale(1.1)',
+      transition: 'all 0.4s ease-in-out 0s',
+
+      
+    },
+
+    '& .ImageItem1 , .ImageItem2 , .ImageItem3': {
+    width: '80%',
+    display: 'block',
+    textAlign: 'center',
+    margin: '0 auto',
+    transition: 'all 0.4s ease-in-out 0s',
+    marginRight: 20,
+    maxWidth: '100%',
+      },
+      '& .ImageItem2 ': {
+        width: '60%',
+        margin: '0 auto',
+          },
+          '& .ImageItem3': {
+            width: '75%',
+            margin: '0 auto',
+              },
+  }
  
 }))
 
