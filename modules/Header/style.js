@@ -3,7 +3,13 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   HeaderHolder: {
-    
+    ' & .MuiContainer-root.MuiContainer-maxWidthLg': {
+      padding: '0 !important',
+      margin: '0  auto !important',
+      overflow: 'hidden',
+      width: '100% !important',
+    },
+
     padding: '15px 0',
     paddingBottom:'30px',
     '@media (max-width:768px)': {
@@ -97,10 +103,10 @@ const useStyles = makeStyles(() => ({
     },
 
     '& .slick-prev': {
-      left: '-50px',
+      left: '-20px',
     },
 '& .slick-next': {
-  right: '-25px',
+  right: '-20px',
 
 },
     
@@ -140,10 +146,10 @@ const useStyles = makeStyles(() => ({
   HeaderCircles:{
     '& h2': {
       fontFamily: 'Poppins-SemiBold',
-      fontSize:80,
+      fontSize:90,
       textAlign: 'center',
       color:'#FFA62F',
-      marginTop: 0,
+      marginTop: 50,
       textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
       marginBottom: 20,
       textTransform:'uppercase',
@@ -180,9 +186,8 @@ const useStyles = makeStyles(() => ({
 
     },
     '& h3': {
-      marginTop: 0,
+      marginTop: 20,
       color: '#fff',
-      textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
       fontSize: 22,
       fontFamily: 'Poppins-Regular',
       '&:hover': {

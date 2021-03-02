@@ -44,6 +44,8 @@ const ModalsContent = () => {
       {
         breakpoint: 480,
         settingsx: {
+          vertical: false,
+          verticalSwiping: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
@@ -56,7 +58,9 @@ const ModalsContent = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     dots: true,
-    infinite: true,
+    infinite: false,
+    vertical: false,
+    verticalSwiping: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -81,6 +85,7 @@ const ModalsContent = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
+          arrows:false,
         },
       },
     ],
@@ -141,7 +146,7 @@ const ModalsContent = () => {
       >
         <Slider {...settingsx}>
           <div className={classes.sliderRight} index={1}>
-            <Grid container spacing={2}>
+            <Grid container>
               <Grid item lg={4} xs={12} sm={4}>
                 <div className={classes.sliderLeft}>
                   <h3>

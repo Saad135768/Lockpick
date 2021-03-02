@@ -9,11 +9,11 @@ const useStyles = makeStyles(() => ({
     overflow:'hidden',
     maxHeight: '100%',
     maxWidth: 950,
-    height: 400,
-    maxHeight:400,
+    height: 390,
+    maxHeight:390,
     '& .slick-slider': {
-      height: 400,
-      maxHeight:400,
+      height: 390,
+      maxHeight:390,
 
       '@media (max-width:767px)': {
         height: '90%',
@@ -163,7 +163,9 @@ background:'#151b1f',
     justifyContent: 'center',
     height: '100%',
     fontSize: 22,
-   
+    '& p': {
+      paddingLeft: 30,
+    },
     '& img': {
         marginBottom:10,
         '@media (max-width:767px)': {
@@ -194,14 +196,16 @@ background:'#151b1f',
     '& a': {
       marginleft: 30,
       marginTop: 80,
-      fontSize: 15,
+      fontSize: 12,
       width: '120px',
       borderRadius: 0,
       background: 'transparent',
       color: '#fff',
+      textTransform:'uppercase',
       padding: '10px 0',
+      fontFamily: 'Poppins-Bold',
       margin: '-2px auto',
-      border:'1px solid #fff',
+      border:'1px solid #fba62f',
       display: 'block',
       textAlign: 'center',
       
@@ -212,8 +216,10 @@ background:'#151b1f',
         marginTop: 10,
       },
       '&:hover': {
-        border:'1px solid #3680d6', 
-        background:'#3680d6',
+        border:'1px solid #000', 
+        background:'#fff',
+        transition:'0.4s',
+        color:'#000',
         },
     },
    

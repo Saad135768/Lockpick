@@ -3,14 +3,13 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   ProductsHolder: {
     transition: 'background 0.3s, border-radius 0.3s, opacity 0.3s',
-    backgroundPosition: 'center ',
-    backgroundSize: 'cover',
+    backgroundPosition: '85px 940px ',
     backgroundRepeat:'no-repeat',
-    background: "url('../../static/images/products/bg.png')",
-    
-   
+    background: "url('../../static/images/products/bg2.png')",
+
     '@media (min-width:1440px)': {
-      backgroundSize: 'cover',
+      borderRight: '1px solid #0000001c',
+      borderLeft: '1px solid #0000001c',
       margin: '0 auto',
       padding: '0 !important',
       width: '100% !important',
@@ -22,11 +21,15 @@ const useStyles = makeStyles(() => ({
         padding: '0 !important',
         paddingLeft: 0,
         paddingRight: 0,
+        width: '1280px !important',
         maxWidth: '1280px !important',
       },
     },
     
 
+  },
+  Holder2 :{
+  
   },
   
   CustomeTitle:{
@@ -60,9 +63,10 @@ padding:'15px 25px',
     '& h2': {
       textAlign: 'center',
       color: '#fba62f',
-      fontSize:'45px',
+      textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
+      fontSize:'47px',
       fontFamily:'Poppins-SemiBold',
-      lineHeight:'45px',
+      lineHeight:'60px',
       '@media (max-width:767px)': {
         fontSize:'27px',
         lineHeight:'35px',

@@ -33,6 +33,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   FooterSeperator:{
+    filter: 'drop-shadow(1px 7px 4px black)',
     marginTop:'30px',
     '& img': {
       width: '100%',

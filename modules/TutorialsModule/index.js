@@ -5,6 +5,8 @@ import Grid from "@material-ui/core/Grid"
 import React from "react"
 import Link from "next/link"
 import Button from "../../common/Button"
+import { AiOutlineFilePdf } from 'react-icons/ai'
+
 import TutorialsSlider from '../TutorialsModule/components/TutorialsSlider'
 const TutorialsModule = () => {
   
@@ -23,6 +25,8 @@ const TutorialsModule = () => {
                 <Grid item lg={6} xs={12} sm={6}>
                   <div className={classes.TutorialsRight}>
                     <h4> DOCUMENTS</h4>
+                    <div className={classes.TutorialsButtons}>
+                    <div>
                     <Link
                       as={"../../static/support/guide.pdf"}
                       href="../../static/support/guide.pdf"
@@ -39,6 +43,8 @@ const TutorialsModule = () => {
                         <Button> MANUAL</Button>
                       </a>
                     </Link>
+                   
+
                   
                       <a>
                      <TutorialsSlider
@@ -47,6 +53,12 @@ const TutorialsModule = () => {
                      >
                        </TutorialsSlider>
                       </a>
+                      </div>
+
+                      <div className={classes.TutorialsIcon}>
+                    <img src='../../static/images/pdf2.png'/>
+                    </div>
+                    </div>
                     
 <div>
   <h5> VIDEO TUTORIALS </h5>

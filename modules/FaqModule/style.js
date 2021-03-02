@@ -43,13 +43,13 @@ const useStyles = makeStyles(() => ({
     ' & h1': {
       color: '#fff',
       fontSize: 27,
-      marginBottom:'40px',  
+      marginBottom:'60px',  
       fontFamily: 'Poppins-Bold',
     },
     ' & h2': {
       color: '#ffa62f',
       margin: '0',
-      fontSize: 24,
+      fontSize: 23,
       fontFamily: 'Poppins-SemiBold',
     },
     ' & h3 , .MuiAccordionSummary-content.Mui-expanded, .MuiAccordion-root.Mui-expanded': {

@@ -43,6 +43,9 @@ const FirstProductSlider = () => {
           <div>
            <img src="../../../../static/images/products/a2.png"/>
           </div>
+          <div>
+           <img src="../../../../static/images/products/software.png"/>
+          </div>
          
         </Slider>
 </Grid>

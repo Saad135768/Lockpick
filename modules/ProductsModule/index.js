@@ -3,6 +3,7 @@ import useStyles from "./style"
 import FirstProductSlider from "../ProductsModule/components/FirstProductSlider"
 import SecondProductSlider from "../ProductsModule/components/SecondProductSlider"
 import ThirdProductSlider from "../ProductsModule/components/ThirdProductSlider"
+import Grid from "@material-ui/core/Grid"
 
 import { Parallax } from "react-scroll-parallax"
 import ScrollAnimation from "react-animate-on-scroll"
@@ -15,6 +16,10 @@ const ProductsModule = () => {
       <div className={classes.ProductsHolderBg}>
 
       <Container>
+      <Grid container justify="center">
+
+        <Grid item lg={11}>
+
         <div className={classes.FormHolder}>
           <ScrollAnimation animateIn="fadeIn">
             <h2>
@@ -26,6 +31,9 @@ const ProductsModule = () => {
           <div className={classes.ProductsMainImge}>
             <img src="../../static/images/products/header.png" />
           </div>
+          <div className={classes.Holder2}>
+          <div>
+
           <p>
             You can purchase the Lock Pick package (main device, accessories &
             boards, and software) and install on your own laptop. You can also
@@ -35,12 +43,19 @@ const ProductsModule = () => {
           </p>
         </div>
         <FirstProductSlider />
+        </div>
+
+        </div>
 
         <div className={classes.CustomeTitle}>
           <h3> full package & options </h3>
         </div>
+    
         <SecondProductSlider />
         <ThirdProductSlider />
+        </Grid>
+        </Grid>
+
       </Container>
     </div>
     </div>

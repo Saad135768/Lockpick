@@ -84,7 +84,7 @@ HomeRegisterContent:{
     color: '#fff',
     textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
     fontFamily: 'Poppins-SemiBold',
-    fontSize:36,
+    fontSize:40,
     marginTop: 0,
     textTransform:'uppercase',
     '@media (max-width:767px)': {
@@ -94,7 +94,7 @@ HomeRegisterContent:{
 
 '& h3 ': {
   color: '#fff',
-  marginBottom: 8,
+  marginBottom: 0,
 },
 '& h4 ': {
   color: '#fff',

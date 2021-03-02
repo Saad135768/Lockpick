@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
     width:'280px',
     border: '1px solid #FFA62F',
     fontFamily:'Poppins-SemiBold',
-    fontSize: ' 27px',
+    fontSize: ' 31px',
     outline: '0',
     textTransform:'uppercase',
     cursor: 'pointer',

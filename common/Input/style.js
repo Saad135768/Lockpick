@@ -5,10 +5,10 @@ const useStyles = makeStyles(() => ({
   BasicInput: {
     border: '0',
     height: '70px',
-    background:'#555b65c2',
+    background:'#ffffff21',
     width: '100%',
     transition: '0.3s',
-    fontSize: 19,
+    fontSize: 22,
     paddingLeft: '40px',
     zIndex: 99,
     position: 'relative',

@@ -74,6 +74,7 @@ const useStyles = makeStyles(() => ({
   },
   RightMenu :{
     width: 520,
+    marginBottom:0,
     position:'relative',
     color: 'white',
     justifyContent: 'flex-end',
@@ -111,6 +112,7 @@ const useStyles = makeStyles(() => ({
   },
 
   NavbarHolder: {
+    borderBottom:'1px solid #0000001c',
     background: 'transparent',
     padding:0,
     width: '100%',
@@ -161,7 +163,6 @@ display:'none',
     ' & .wrap': {
       width: "100%",
        margin: "7px auto",
-        paddingBottom: "20px",
     },
   },
   carticon: {

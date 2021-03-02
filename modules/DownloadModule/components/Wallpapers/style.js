@@ -66,6 +66,7 @@ const useStyles = makeStyles(() => ({
     '@media (max-width:767px)': {
       paddingLeft: 0,
     },
+    
   },
 
 }))
