@@ -173,6 +173,10 @@ position: 'relative',
     marginTop:0,
     fontSize: '34px',
     fontFamily: 'Poppins-Bold',
+    '@media (max-width:767px)': {
+      fontSize: '25px',
+
+    },
   },
 },
 
