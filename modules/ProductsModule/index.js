@@ -18,7 +18,7 @@ const ProductsModule = () => {
       <Container>
       <Grid container justify="center">
 
-        <Grid item lg={11}>
+        <Grid item lg={11} xs={12}>
 
         <div className={classes.FormHolder}>
           <ScrollAnimation animateIn="fadeIn">
