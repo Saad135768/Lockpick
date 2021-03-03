@@ -28,7 +28,7 @@ const software = () => {
                    
                       <Button>
                         
-                      <a href="http://12.21.38.254:8080/LP_setup.exe">
+                      <a href="http://12.21.38.254:8080/LP_setup.exe" download>
                         Download
                         </a>
 
