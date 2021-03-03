@@ -64,6 +64,7 @@ padding:'15px 25px',
       color: '#fba62f !important',
       fontSize:'47px !important',
       textAlign:'center',
+      textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
       fontFamily:'Poppins-SemiBold',
       lineHeight:'60px',
       '@media (max-width:767px)': {
