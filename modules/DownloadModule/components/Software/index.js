@@ -28,7 +28,7 @@ const software = () => {
                    
                       <Button>
                         
-                      <a href="http://12.21.38.254:8080/LP_setup.exe" download>
+                      <a href="https://files.cleversell.io/LP_setup.exe" download>
                         Download
                         </a>
 
