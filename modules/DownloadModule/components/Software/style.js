@@ -48,6 +48,17 @@ marginBottom:0,
     
 
   '& button': {
+cursor:'pointer',
+    '&:hover a': {
+      color:'#ffff',
+        },
+
+    '& a': {
+      color:'#2b323c',
+      cursor:'pointer',
+
+        },
+  
     color:'#2b323c',
     fontFamily: 'Poppins-Bold',
     textAlign:'center',
