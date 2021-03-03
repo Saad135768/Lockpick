@@ -25,11 +25,9 @@ const software = () => {
         <p> Windows 7, 8, 10 (x86-x64) </p>
         <h5>LATEST BUILD </h5>
 
-        <Link as={"http://12.21.38.254:8080/LP_setup.exe"} href="http://12.21.38.254:8080/LP_setup.exe">
                     <a href="http://12.21.38.254:8080/LP_setup.exe">
                       <Button>Download </Button>
                     </a>
-                  </Link>
                   <div className={classes.while}>
 
         <Link as={"/support/tutorials"} href="/support/tutorials">
