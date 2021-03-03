@@ -30,7 +30,8 @@ const useStyles = makeStyles(() => ({
     '& h2': {
       color: '#fff',
     fontFamily: 'Poppins-SemiBold',
-    fontSize: 37,
+    fontSize: '37px !important' ,
+    textAlign:'left !important;',
     marginTop:0,
     marginBottom:30,
     '@media (max-width:1024px)': {
@@ -62,7 +63,7 @@ const useStyles = makeStyles(() => ({
       color: '#fff',
     fontSize: 19,
     marginTop:10,
-    height: 75,
+    height: 90,
     overflow: 'auto',
     marginBottom:30,
     '@media (max-width:768px)': {

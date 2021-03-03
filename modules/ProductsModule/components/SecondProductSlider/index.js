@@ -40,7 +40,7 @@ const SecondProductSlider = () => {
               <ProductSliderData
                 title={"full package"}
                 type={"Refurbished Dell Latitude"}
-                price={"$3,695,00"}
+                price={"$3,695.00"}
                 description={
                   "Lock Pick Basic kit with preinstalled software on: Factory refurbished Dell Latitude E5470"
                 }
@@ -60,10 +60,10 @@ const SecondProductSlider = () => {
            <div className={classes.second}>
              <ProductSliderData
                title={"full package"}
-               type={"Refurbished Panasonic Toughbook"}
-               price={"$4,495,00"}
+               type={"Refurbished Panasonic Toughbook CF-C2"}
+               price={"$4,495.00"}
                description={
-                 "Lock Pick Basic kit with preinstalled software on: Factory refurbished Panasonic Toughbook CF-54"
+                 "Lock Pick Basic kit with preinstalled software on: Factory refurbished Panasonic Toughbook CF-C2"
                }
                spec={'i5 Processor / 8 GB RAM / 250 SSD'}
                buttonTitle={"Add to cart"}
@@ -82,7 +82,7 @@ const SecondProductSlider = () => {
              <ProductSliderData
                title={"full package"}
                type={"New Dell Latitude"}
-               price={"$4,795,00"}
+               price={"$4,795.00"}
                description={
                  "Lock Pick Basic kit with preinstalled software on: Brand-New Dell Latitude E5400 Series"
                }
@@ -102,10 +102,10 @@ const SecondProductSlider = () => {
            <div className={classes.second}>
              <ProductSliderData
                title={"full package"}
-               type={"New Panasonic Toughbook"}
-               price={"$5,495,00"}
+               type={"Refurbished Panasonic Toughbook CF-54"}
+               price={"4,495.00"}
                description={
-                 "Lock Pick Basic kit with preinstalled software on: Brand-New Panasonic Toughbook FZ-55"
+                 "Lock Pick Basic kit with preinstalled software on: Factory refurbished Panasonic Toughbook CF- 54"
                }
                spec={'i5 Processor / 8 GB RAM / 250 SSD'}
                buttonTitle={"Add to cart"}
@@ -118,6 +118,28 @@ const SecondProductSlider = () => {
            </div>
          </div>
          
+
+
+         <div className={classes.firstsecond}>
+           
+           <div className={classes.second}>
+             <ProductSliderData
+               title={"full package"}
+               type={"New Panasonic Toughbook 55"}
+               price={"$5,495.00"}
+               description={
+                 "Lock Pick Basic kit with preinstalled software on: Brand-New Panasonic Toughbook FZ-55"
+               }
+               spec={'i5 Processor / 8 GB RAM / 250 SSD'}
+               buttonTitle={"Add to cart"}
+               buttonLink={""}
+               buttonLinkAs={""}
+             />
+           </div>
+           <div className={classes.first}>
+             <img src="../../../../static/images/products/5.png" />
+           </div>
+         </div>
         </Slider>
       </div>
     </div>

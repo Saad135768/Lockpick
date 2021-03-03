@@ -222,7 +222,7 @@ two:{
   },
 },
 three:{
-  animation: 'fadeIn 1.5s infinite alternate',
+  // animation: 'fadeIn 1.5s infinite alternate',
   position: 'absolute',
   bottom: 0,
   position: 'absolute',

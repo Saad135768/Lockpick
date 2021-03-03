@@ -41,7 +41,8 @@ const useStyles = makeStyles(() => ({
       ' & :hover': {
         transition: '0.1s',
         borderTop:'3px solid #3680d6',
-        color:'#fba530',
+        color:'#FF7700',
+
       },
     },
     '& a': {

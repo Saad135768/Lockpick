@@ -22,10 +22,10 @@ const ProductsModule = () => {
 
         <div className={classes.FormHolder}>
           <ScrollAnimation animateIn="fadeIn">
-            <h2>
+            <h5>
               BASIC KIT<span> – </span> FULL PACKAGE <br />
               ADD-ON <span> – </span> OPTIONS
-            </h2>
+            </h5>
           </ScrollAnimation>
 
           <div className={classes.ProductsMainImge}>

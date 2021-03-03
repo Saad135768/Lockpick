@@ -61,7 +61,7 @@ const TutorialsModule = () => {
                     </div>
                     
 <div>
-  <h5> VIDEO TUTORIALS </h5>
+  <h5> VIDEOS </h5>
 </div>
                    
                   </div>

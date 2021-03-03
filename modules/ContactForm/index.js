@@ -70,7 +70,7 @@ const ContactForm = () => {
                 <h3> SEND US A MESSAGE : </h3>
                 <Input placeholder="Full Name" type="text" />
                 <Input placeholder="Your Email" type="text" />
-                <textarea placeholder="Your message"></textarea>
+                <textarea placeholder="Your Message"></textarea>
 
                
               </div>

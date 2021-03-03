@@ -26,9 +26,10 @@ const LockIsHere = () => {
           </p>
           <div className={classes.ButtonHolder}>
           <ScrollAnimation animateIn='fadeInUp'
-                             >
-            <Link as={"#"} href="#">
-              <a href="#">
+             
+             >                
+            <Link as={"../../../../static/support/unlook.pdf"} href="../../../../static/support/unlook.pdf">
+              <a href="../../../../static/support/unlook.pdf"  target="_blank">
                 <Button>Learn More</Button>
               </a>
             </Link>

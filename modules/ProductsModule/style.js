@@ -60,11 +60,10 @@ padding:'15px 25px',
       display: 'block',
       margin: '0 auto',
     },
-    '& h2': {
-      textAlign: 'center',
-      color: '#fba62f',
-      textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
-      fontSize:'47px',
+    '& h5': {
+      color: '#fba62f !important',
+      fontSize:'47px !important',
+      textAlign:'center',
       fontFamily:'Poppins-SemiBold',
       lineHeight:'60px',
       '@media (max-width:767px)': {

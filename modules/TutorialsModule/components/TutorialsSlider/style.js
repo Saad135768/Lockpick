@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
         color:'#FFA62F',
         background: '#3680d6',
         textAlign: 'center',
-        padding: 10,
+        padding: 20,
         textTransform: 'uppercase',
         marginBottom:0,
         marginTop: 0,
@@ -95,7 +95,7 @@ const useStyles = makeStyles(() => ({
 
   sliderLeft:{
 background:'#3680d6',
-padding: '100px 10px',
+padding: '105px 10px',
 '@media (max-width:768px)': {
   padding: '20px 10px',
 

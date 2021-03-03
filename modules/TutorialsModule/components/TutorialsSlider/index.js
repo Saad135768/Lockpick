@@ -58,14 +58,7 @@ const TutorialsSlider = ({ title }) => {
             <Grid item lg={3} xs={12} sm={5}>
               <h3> TUTORIALS</h3>
               <div className={classes.sliderLeft}>
-                <Link
-                  as={"/support/tutorials#TUTORIALS"}
-                  href="/support/tutorials#TUTORIALS"
-                >
-                  <a onClick={handleClose} href="/support/tutorials#TUTORIALS">
-                    <Button>Watch Video</Button>
-                  </a>
-                </Link>
+               
               </div>
             </Grid>
 
@@ -91,14 +84,7 @@ const TutorialsSlider = ({ title }) => {
                     </a>
                   </div>
                   <div>
-                    <a
-                      href="../../../../static/support/unlook.pdf"
-                      target="_blank"
-                    >
-                      <img src="../../../../static/support/pdf.webp" />
-                      LockPick brochure
- 
-                    </a>
+                
                   </div>
               
                 </Slider>

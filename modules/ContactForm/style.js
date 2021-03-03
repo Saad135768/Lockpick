@@ -53,7 +53,7 @@ display:'none',
   },
 },
 '& textarea': {
-  background: '#ffffff3d',
+  background: '#ffffff21',
   width: '100%',
   zIndex: 99,
   position: 'relative',

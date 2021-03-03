@@ -35,20 +35,9 @@ a {
 }
 
 
-@keyframes fadeIn { 
-  from { opacity: 0; } 
-}
 
 
 
-@keyframes run{
-  0%{
- transform:translate(-100px , -100px),
-  }
-  100%{
-    transform:translate(0px ,0px)
-  }
-  }
 
   .MuiMenuItem-root a {
     text-align: center;
@@ -69,8 +58,7 @@ a {
   color: #FF7700 !important;
 }
 .MuiMenuItem-root a:hover{
-  color: #fba530 !important;
-  border-top: 3px solid #3680d6;
+  color: #FF7700 !important;
 }
 
   .MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded {
