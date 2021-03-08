@@ -3,6 +3,21 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   HomeRegisterHolder: {
+    '@media (min-width:1440px)': {
+      padding: '0 !important',
+      width: '100% !important',
+      paddingLeft: 0,
+      paddingRight: 0,
+      maxWidth: '1280px !important',
+      '& .MuiContainer-maxWidthLg': {
+        margin: '0 auto',
+        padding: '0 !important',
+        paddingLeft: 0,
+        paddingRight: 0,
+        width: '1280px !important',
+        maxWidth: '1280px !important',
+      },
+    },
     margin: '200px 0',
     marginBottom: '100px',
     '@media (max-width:768px)': {

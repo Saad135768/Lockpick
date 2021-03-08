@@ -40,14 +40,14 @@ var settings2 = {
   dots: true,
   infinite: true,
   arrows: true,
-  speed: 900,
+  speed: 2000,
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
   autoplay: true,
-  autoplaySpeed: 1000,
+  autoplaySpeed: 900,
   responsive: [
     {
       breakpoint: 1024,
