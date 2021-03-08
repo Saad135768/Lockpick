@@ -68,7 +68,8 @@ const useStyles = makeStyles(() => ({
       border: '5px solid #3680d69e',
       bottom: 120,
       position: 'relative',
-      boxShadow: '-2px -2px 8px 0px #00000038',
+      boxShadow: '0px 12px 12px 3px #00000038',
+      
       '@media (max-width:767px)': {
         width:'100%',
 

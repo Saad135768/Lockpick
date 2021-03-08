@@ -15,7 +15,7 @@ const HomeRegister = () => {
        <div className={classes.HomeRegisterBg}>
        <Parallax x={[-10,9]}>
      <div className={classes.HomeRegisterImage}>
-     <img src="../../static/images/homepage/register.png"/>
+     <img src="../../static/images/homepage/register2.png"/>
 </div>
 </Parallax>
   <div className={classes.HomeRegisterContent}>

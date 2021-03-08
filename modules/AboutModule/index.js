@@ -15,7 +15,8 @@ const AboutModule = () => {
    
                 <div className={classes.AboutMainImge}>
 
-        <img src="../../static/images/about/about.gif" />
+        <img src="../../static/images/about/about.gif" style={{filter:'drop-shadow(0.35rem 3.35rem 0.9rem rgba(0, 0, 0, 0.3)'}}/>
+       
         </div>
         <ScrollAnimation animateIn="fadeIn">
 
@@ -32,8 +33,8 @@ const AboutModule = () => {
          </ScrollAnimation>
 
         </div>
-      </Container>
       <ContactForm/>
+      </Container>
 
     </div>
   )

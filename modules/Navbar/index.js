@@ -31,9 +31,7 @@ const Navbar = () => {
   return (
     <div className={classes.NavbarHolder}
     >
-      <div className={classes.NavbaTopImage}>
-        <img src="../../static/images/homepage/topimage.png" alt="top-image" />
-      </div>
+      <div className={classes.NavbaTopImage}/>
       <Container maxWidth="lg">
         <Grid container>
           <Grid item lg={3} md={3}>

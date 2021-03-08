@@ -74,16 +74,13 @@ a {
  
 }
 .slick-prev:before {
-
 content: "\f104";
 font: normal normal normal 14px/1 FontAwesome;
 font-size: 60px;
 color: #fba530;
-
 }
 
 .slick-next:before {
-
   content: "\f105";
   font: normal normal normal 14px/1 FontAwesome;
   font-size: 60px;
@@ -99,4 +96,6 @@ color: #fba530;
   }
 
 
- 
+  @media (min-width:1440px){
+
+}

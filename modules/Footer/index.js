@@ -15,12 +15,8 @@ const Footer = () => {
   </ScrollToTop>
   </div>
       <div className={classes.FooterHolder}>
-        <div className={classes.FooterSeperator}>
-          <img
-            alt="seperator"
-            src="../../static/images/homepage/footerline.png"
-          />
-        </div>
+        <div className={classes.FooterSeperator}/>
+         
         <Container maxWidth="lg">
           <Grid container >
             <Grid item lg={3} sm={3} xs={12}>

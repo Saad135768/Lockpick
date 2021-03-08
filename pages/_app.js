@@ -23,6 +23,10 @@ function MyApp ({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        <link
+  rel="stylesheet"
+  href="https://video-react.github.io/assets/video-react.css"
+/>
          <link
               rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"

@@ -15,7 +15,23 @@ const useStyles = makeStyles(() => ({
     height: '100%',
   },
   NavbaTopImage:{
+    background: '#3780d5',
+    padding: 25,
+    filter:'drop-shadow(0px 9px 10px black)',
+    marginBottom: 0,
+    '@media (min-width: 1440px)': {
+      width: '1280px',
+      margin: '0 auto',
+      display: 'block',
+      paddingRight: '0 !important',
+      paddingLeft: '0 !important',
+      maxWidth: 1280,
+    },
+  
+
     '& img': {
+      position:'relative',
+      zIndex:2,
       height: 45,
       width: '100%',
       objectFit: 'cover',
@@ -117,6 +133,18 @@ const useStyles = makeStyles(() => ({
     background: 'transparent',
     padding:0,
     width: '100%',
+    ' & .MuiContainer-root.MuiContainer-maxWidthLg ': {
+boxShadow:'none',
+    },
+    
+    '@media (min-width:1440px)': {
+      margin: '0 auto',
+      padding: '0 !important',
+      width: '100% !important',
+      paddingLeft: 0,
+      paddingRight: 0,
+      maxWidth: '1280px !important',
+    },
     '@media (max-width: 768px)': {
 display:'none',
     },

@@ -4,6 +4,7 @@ const useStyles = makeStyles(() => ({
 
   HomeRegisterHolder: {
     margin: '200px 0',
+    marginBottom: '100px',
     '@media (max-width:768px)': {
       margin: '60px 0',
     },
@@ -36,7 +37,7 @@ HomeRegisterBg :{
   display: 'flex',
   margin: 0,
   background: '#3680d6',
-  marginBottom: 190,
+  marginBottom: 165,
   height: 400,
   justifyContent: 'center',
   alignItems: 'center',
@@ -51,9 +52,10 @@ HomeRegisterBg :{
   },
 },
 HomeRegisterImage :{
+ 
   position: 'relative',
   maxWidth: 810,
-  height: 760,
+  height: 740,
   top: 70,
   left: 20,
   '@media (max-width:768px)': {

@@ -6,10 +6,13 @@ import React from "react"
 import Link from "next/link"
 import Button from "../../common/Button"
 import { AiOutlineFilePdf } from 'react-icons/ai'
-
+import ReactPlayer from 'react-player/lazy'
+import TutorialsVideos from '../TutorialsModule/components/TutorialsVideos'
 import TutorialsSlider from '../TutorialsModule/components/TutorialsSlider'
 const TutorialsModule = () => {
-  
+  const url = 'https://www.youtube.com/watch?v=d46Azg3Pm4c'
+  const url2 = 'https://www.youtube.com/watch?v=d46Azg3Pm4c'
+
   const classes = useStyles()
 
   return (
@@ -20,7 +23,8 @@ const TutorialsModule = () => {
             <div className={classes.root}>
               <Grid container spacing={3}>
                 <Grid item lg={6} xs={12} sm={6}>
-                  <img src="../../static/support/toturial.png" />
+                  <img  src="../../static/support/toturial.png" style={{filter:'drop-shadow(0.35rem 3.35rem 0.9rem rgba(0, 0, 0, 0.3)'}}/>
+
                 </Grid>
                 <Grid item lg={6} xs={12} sm={6}>
                   <div className={classes.TutorialsRight}>
@@ -72,9 +76,10 @@ const TutorialsModule = () => {
 <div className={classes.videoholder}>
 
 <div className={classes.TutorialsVideo} id="TUTORIALS">
-  <p> LOCK PICK Training Video Tutorials </p>
+  <h2> LOCK PICK Training Video Tutorials </h2>
 
-  <iframe width="100%" height="417" src="https://www.youtube.com/embed/NpEaa2P7qZI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<TutorialsVideos/>
 
 </div>
 </div>

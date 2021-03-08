@@ -40,7 +40,7 @@ const ThirdProductSlider  = () => {
               <ProductSliderData
                 title={"Add-on / options"}
                 type={"Add-On to BMW WIZARD"}
-                price={"$3,800,00"}
+                price={"$3,800.00"}
                 description={
                   "Includes a complete BMW Wizard software update along with the Lock Pick Basic kit."
                 }

@@ -49,7 +49,7 @@ const useStyles = makeStyles(() => ({
 },
 SupportHolder: {
   paddingLeft: 120,
-  marginBottom:60,
+  paddingBottom:60,
   '@media (max-width:1024px)': {
     paddingLeft: 0,
   },

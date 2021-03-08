@@ -9,8 +9,9 @@ const SupportModule = () => {
   const classes = useStyles()
 
   return (
+    <Container>
+
     <div className={classes.SupportHolder}>
-      <Container>
       <Grid container spacing={2}>
       <Grid item lg={10}>
       <h1> SUPPORT</h1>
@@ -70,9 +71,10 @@ const SupportModule = () => {
        
 
        
-      </Container>
 
     </div>
+    </Container>
+
   )
 }
 

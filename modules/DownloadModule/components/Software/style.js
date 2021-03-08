@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   SupportBg: {
-    marginBottom:60,
+    paddingBottom:60,
 textAlign:'center',
     '& img': {
       width: '100%',

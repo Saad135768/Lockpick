@@ -10,6 +10,10 @@ const useStyles = makeStyles(() => ({
       width: '100% !important',
     },
 
+    ' & .slick-list': {
+      overflow: 'visible',
+    },
+
     padding: '15px 0',
     paddingBottom:'30px',
     '@media (max-width:768px)': {
@@ -26,6 +30,8 @@ const useStyles = makeStyles(() => ({
     height: '100%',
     '& img': {
       width: 'auto',
+      position: 'relative',
+      zIndex: 9,
       margin: '0 auto',
       display: 'block',
       '@media (max-width:768px)': {
@@ -96,17 +102,15 @@ const useStyles = makeStyles(() => ({
     },
 
 
-    '& .slick-prev:before , .slick-next:before ': {
 
-      fontSize: 90,
-      opacity: 1,
-    },
 
     '& .slick-prev': {
-      left: '-20px',
+      left: '-40px',
+      zIndex:9,
     },
 '& .slick-next': {
-  right: '-20px',
+  right: '15px',
+  zIndex:9,
 
 },
     
@@ -138,6 +142,14 @@ const useStyles = makeStyles(() => ({
     '@media (max-width:767px)': {
       overflowX:'hidden',
     },
+    '& .slick-prev , .slick-next ': {
+        opacity: 0.5,
+      },
+    '& .slick-prev:before , .slick-next:before ': {
+      content:"''",
+        fontSize: 90,
+        opacity: 0.3,
+      },
   },
   HeaderGlow: {
     width: '100%',
@@ -208,9 +220,10 @@ one:{
   position: 'relative',
 },
 two:{
+  zIndex:1,
   position: 'absolute',
   animation: 'animate 15s linear infinite',
-  bottom: 0,
+  bottom: 56,
   maxHeight: 200,
   '& img': {
     height: 200,

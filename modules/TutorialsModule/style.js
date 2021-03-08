@@ -54,13 +54,39 @@ const useStyles = makeStyles(() => ({
       paddingLeft: 140,
     },
   },
-
   TutorialsVideo:{
     background: 'rgba(53, 128, 214, 0.25)', 
-    padding:'15px 20px',
+    padding:'10px 20px',
   },
   videoholder:{
+    '& .control-dots': {
+      bottom: 0,
+      height: 0,
+      display: 'none',
+  },
 
+  '& li.thumb.selected ': {
+    borderBottom: '1px solid #fba62f !important',
+},
+
+  ' & li.thumb ': {
+    width: '220px !important;',
+    '@media (max-width:767px)': {
+      width: '150px !important;',
+    },
+  },
+    ' & ul.thumbs.animated  , ul.thumbs ': {
+      padding: 0,
+      margin: 0,
+      transition: 'inherit !important',
+    transform: 'unset !important',
+    },
+    ' & .carousel .thumb ': {
+      border:'none',
+    },
+    ' & .carousel .thumbs-wrapper': {
+      marginLeft: 0,
+    },
     margin: '20px 0',
     '@media (max-width:767px)': {
       margin: '20px 0',
@@ -80,10 +106,35 @@ const useStyles = makeStyles(() => ({
     },
     ' & p': {
       color: '#fba62f',
-      fontSize: 18,
+      fontSize: 16,
       fontFamily: 'Poppins-SemiBold',
-    marginTop:0,
+    marginTop:10,
+    marginBottom:0,
+    '@media (max-width:767px)': {
+      fontSize: 12,
+
+    },
       },
+      ' & h2': {
+        color: '#fba62f',
+        fontSize: 18,
+        fontFamily: 'Poppins-SemiBold',
+      marginTop:10,
+      marginBottom:10,
+      '@media (max-width:767px)': {
+        fontSize: 16,
+        marginBottom: 20,
+
+      },
+        },
+      ' & h4': {
+        color: '#fba62f',
+        fontSize: 16,
+        fontFamily: 'Poppins-SemiBold',
+        marginTop:0,
+        opacity:'0.5',
+        textShadow:'none',
+        },
   },
   TutorialsButtons:{
 display:'flex',
@@ -116,6 +167,24 @@ display:'flex',
       right:10,
     }
   },
+
+  SmallVideos:{
+    margin: '20px 0',
+    '& p': {
+      paddingBottom: 0,
+      marginTop: 15,
+      marginBottom: 0,
+      lineHeight: '15px',
+      fontSize: 15,
+    },
+    paddingBottom: 50,
+    '& span': {
+      color:'#fba62f',
+      fontFamily: 'Poppins-SemiBold',
+      opacity:'0.5',
+    },
+  }
+  
 }))
 
 export default useStyles

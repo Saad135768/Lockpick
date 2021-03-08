@@ -8,6 +8,33 @@ import Slider4 from "react-slick"
 
 import ModalsContent from "./component/ModalsContent"
 import useStyles from "./style"
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+    className={className}
+
+    onClick={onClick}
+  >
+<img src="../../static/images/right-arrow.svg"/>
+
+  </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+  
+      onClick={onClick}
+    >
+<img src="../../static/images/left-arrow2.svg"/>
+
+    </div>
+  );
+}
 
 var settings2 = {
   dots: true,
@@ -17,8 +44,10 @@ var settings2 = {
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 1000,
   responsive: [
     {
       breakpoint: 1024,
@@ -64,7 +93,7 @@ const Header = () => {
                       />
                       <div className={classes.two}>
                         <img
-                          src="../../static/images/homepage/shadow.png"
+                          src="../../static/images/homepage/shadow2.png"
                           alt="lockpick-header-image"
                         />
                       </div>
@@ -73,14 +102,16 @@ const Header = () => {
 
                   <div className={classes.slideritem}>
                     <div className={classes.one}>
-                      <img src="../../static/images/homepage/slider2.png" />
+                      <img src="../../static/images/homepage/slider2.png" style={{filter:'drop-shadow(0.35rem 2.35rem 0.9rem rgba(0, 0, 0, 0.3)'}}/>
                     </div>
                   </div>
 
                   <div className={classes.slideritem}>
                     <div className={classes.one}>
-                      <img src="../../static/images/homepage/slider3.png" />
+                      <img src="../../static/images/homepage/slider3.png" style={{filter:'drop-shadow(0.35rem 2.35rem 0.9rem rgba(0, 0, 0, 0.3)'}}/>
+
                     </div>
+                    
                   </div>
                 </Slider>
 

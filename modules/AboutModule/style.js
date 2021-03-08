@@ -5,10 +5,10 @@ const useStyles = makeStyles(() => ({
   FormHolder: {
     margin:'50px 0',
     '& img': {
-      width: '80%',
+      width: '70%',
       display: 'block',
       margin: '0 auto',
-      marginBottom:20,
+      marginBottom:50,
     },
     '& p': {
 
@@ -32,6 +32,8 @@ AboutMainImge:{
   transform: 'inherit !important;',
   },
 },
+
+
 },
 }))
 

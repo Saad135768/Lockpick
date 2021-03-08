@@ -29,7 +29,8 @@ const ProductsModule = () => {
           </ScrollAnimation>
 
           <div className={classes.ProductsMainImge}>
-            <img src="../../static/images/products/header.png" />
+            <img src="../../static/images/products/header.png" style={{filter:'drop-shadow(0.35rem 3.35rem 0.9rem rgba(0, 0, 0, 0.3)'}}/>
+
           </div>
           <div className={classes.Holder2}>
           <div>

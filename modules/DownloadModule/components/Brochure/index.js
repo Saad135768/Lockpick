@@ -10,11 +10,14 @@ const Brochure = () => {
 
   return (
     <div className={classes.BrochureHolder}>
+            <Container>
+
          <Grid container justify="center" >
       <Grid item lg={9}> 
       <h3>BROCHURES</h3>
       </Grid>
       </Grid>
+      </Container>
 
 
       <Container>
@@ -29,6 +32,7 @@ const Brochure = () => {
   <a href="../../../../static/support/brochures1.pdf" target="_blank">
 
 <img src="../../../../static/support/brochureleft.png"/>
+
 </a>
 </Grid>
 <Grid item lg={6} xs={6}>
