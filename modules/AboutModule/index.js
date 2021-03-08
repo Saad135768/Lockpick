@@ -33,8 +33,8 @@ const AboutModule = () => {
          </ScrollAnimation>
 
         </div>
-      <ContactForm/>
       </Container>
+      <ContactForm/>
 
     </div>
   )

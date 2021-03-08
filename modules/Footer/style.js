@@ -45,6 +45,8 @@ const useStyles = makeStyles(() => ({
       paddingRight: '0 !important',
       paddingLeft: '0 !important',
       maxWidth: 1280,
+      marginTop:30,
+
     },
   
     '& img': {
