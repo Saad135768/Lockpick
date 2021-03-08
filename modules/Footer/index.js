@@ -25,7 +25,7 @@ const Footer = () => {
                   <a href="/">
                     <img
                       alt="logo-footer"
-                      src="../../static/images/footer-logo.png"
+                      src="../../static/images/footer-logo.svg"
                     />
                   </a>
                 </li>
