@@ -20,6 +20,7 @@ const useStyles = makeStyles(() => ({
     marginBottom: 30,
     '@media (max-width:767px)': {
       width:'100%',
+      boxShadow: 'none',
       marginBottom: 13,
     },
 
@@ -68,18 +69,26 @@ const useStyles = makeStyles(() => ({
   '& li.thumb.selected ': {
     borderBottom: '1px solid #fba62f !important',
 },
+'& button.control-arrow.control-next': {
+  textAlign: 'right',
+  right: '-25px',
+
+},
+'& button.control-arrow.control-prev': {
+  textAlign: 'left',
+  left: '-30px',
+
+},
 
   ' & li.thumb ': {
     width: 'auto !important;',
     '@media (max-width:767px)': {
-      width: '150px !important;',
+      width: '125px !important;',
     },
   },
     ' & ul.thumbs.animated  , ul.thumbs ': {
       padding: 0,
       margin: 0,
-      transition: 'inherit !important',
-    transform: 'unset !important',
     },
     ' & .carousel .thumb ': {
       border:'none',

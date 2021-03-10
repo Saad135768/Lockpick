@@ -91,7 +91,7 @@ const TutorialsVideos = ({ data }) => {
         emulateTouch={false}
         showArrows={false}
         pip={true}
-        dots={false}
+        dots={true}
         showThumbs={true}
         showStatus={false}
         autoPlay={false}
