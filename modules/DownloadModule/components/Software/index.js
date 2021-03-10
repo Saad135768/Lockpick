@@ -37,7 +37,7 @@ const software = () => {
 
         <Link as={"/support/tutorials"} href="/support/tutorials">
                     <a href="/support/tutorials">
-                    While downloading please watch first use configuration video
+                    While downloading please watch Initial Setup Video
                     </a>
                   </Link>
         </div>

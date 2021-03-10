@@ -9,7 +9,7 @@ const DUMMY_VIDEOS = [
   {
     _id: "1",
     videoUrl: "../../static/video/video.mp4",
-    text: "First use configuration",
+    text: "Instruction Video",
     image: "../../static/video/1.jpg",
     type: "M2K",
 
@@ -17,7 +17,24 @@ const DUMMY_VIDEOS = [
   {
     _id: "2",
     videoUrl: "../../static/video/video2.mp4",
-    text: "How to program key",
+    text: "Initial Setup",
+    image: "../../static/video/2.jpg",
+    type: "M2K",
+
+  },
+
+  {
+    _id: "3",
+    videoUrl: "../../static/video/video.mp4",
+    text: "DME Read Write ISN and VIN",
+    image: "../../static/video/1.jpg",
+    type: "M2K",
+
+  },
+  {
+    _id: "4",
+    videoUrl: "../../static/video/video2.mp4",
+    text: "All Key Lost",
     image: "../../static/video/2.jpg",
     type: "M2K",
 

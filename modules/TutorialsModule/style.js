@@ -70,7 +70,7 @@ const useStyles = makeStyles(() => ({
 },
 
   ' & li.thumb ': {
-    width: '220px !important;',
+    width: 'auto !important;',
     '@media (max-width:767px)': {
       width: '150px !important;',
     },

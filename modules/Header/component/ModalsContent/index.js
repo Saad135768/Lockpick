@@ -170,13 +170,14 @@ const ModalsContent = () => {
               <Grid item lg={8} sm={8} xs={12}>
                 <div className={classes.sliderRight}>
                   <p>
-                    {" "}
-                    The leading name in automotive scan tools, M2K, is proud to
-                    introduce LOCK PICK – a ground-breaking interface for BMW
-                    vehicles. LOCK PICK is an advanced system that allows for
-                    engineering level capabilities including immobilizer
-                    functions, key programming, module virginizing & cloning,
-                    and recovers FRM.
+                  Lock Pick can easily add, delete, reset, and program keys, even if all keys are lost. All of
+these functions are performed via OBD2 without any soldering or welding. All of the
+procedures are simple and easy to follow making the process streamlined.
+Lock Pick can read and write CAS and FEM/BDC on a bench without needing to
+disassemble or modify the module. This includes writing anti-theft data to the
+FEM/BDC).
+<br/>
+Lock Pick can also fix problems caused by other tools due to downgraded CAS firmware.
                   </p>
                 </div>
               </Grid>
@@ -206,12 +207,9 @@ const ModalsContent = () => {
               <Grid item lg={8} sm={8} xs={12}>
                 <div className={classes.sliderRight}>
                   <p>
-                    The leading name in automotive scan tools, M2K, is proud to
-                    introduce LOCK PICK – a ground-breaking interface for BMW
-                    vehicles. LOCK PICK is an advanced system that allows for
-                    engineering level capabilities including immobilizer
-                    functions, key programming, module virginizing & cloning,
-                    and recovers FRM.
+                  A unique feature of Lock Pick is the ability to reset transmission modules (EGS) for all
+6HP &amp; 8HP transmissions in E, F, and G series. It can also duplicate 6HP gearbox in F
+chassis via OBD2 or on a bench without opening or modifying the DME.
                   </p>
                 </div>
               </Grid>
@@ -241,12 +239,10 @@ const ModalsContent = () => {
               <Grid item lg={8} sm={8} xs={12}>
                 <div className={classes.sliderRight}>
                   <p>
-                    The leading name in automotive scan tools, M2K, is proud to
-                    introduce LOCK PICK – a ground-breaking interface for BMW
-                    vehicles. LOCK PICK is an advanced system that allows for
-                    engineering level capabilities including immobilizer
-                    functions, key programming, module virginizing & cloning,
-                    and recovers FRM.
+                  Lock Pick can read and write to almost all ECU’s in BMW and Mini vehicles. This
+includes the new Bosch MDG1 modules found in F30, G01, G12, G20, G29, and G30.   
+ECU cloning currently supports DFLASH and PFLASH for N13, N20, N63, S63, N55 and
+B38. More to come ….
                   </p>
                 </div>
               </Grid>

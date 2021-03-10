@@ -9,11 +9,11 @@ const useStyles = makeStyles(() => ({
     overflow:'hidden',
     maxHeight: '100%',
     maxWidth: 950,
-    height: 390,
-    maxHeight:390,
+    height: 500,
+    maxHeight:500,
     '& .slick-slider': {
-      height: 390,
-      maxHeight:390,
+      height: 500,
+      maxHeight:500,
 
       '@media (max-width:767px)': {
         height: '90%',
@@ -140,8 +140,8 @@ const useStyles = makeStyles(() => ({
 },
 
   sliderLeft:{
-    height: 400,
-    maxHeight:400,
+    height: 500,
+    maxHeight:500,
     paddingBottom:'57px',
 background:'#151b1f',
 
