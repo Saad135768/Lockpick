@@ -5,11 +5,12 @@ const useStyles = makeStyles(() => ({
   FaqHolder:{
   },
   Tutorials: {
+    ' & img': {
+      width:'100%',
+      },
      margin:'90px 0',
      marginBottom:40,
-    ' & img': {
-    width:'100%',
-    },
+
     ' & button': {
       zIndex: 9,
       fontSize: 26,

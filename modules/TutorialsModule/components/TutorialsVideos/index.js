@@ -8,7 +8,7 @@ import ReactPlayer from 'react-player/lazy'
 const DUMMY_VIDEOS = [
   {
     _id: "1",
-    videoUrl: "../../static/video/video.mp4",
+    videoUrl: "../../static/video/1.mp4",
     text: "Instruction Video",
     image: "../../static/video/1.jpg",
     type: "M2K",
@@ -16,7 +16,7 @@ const DUMMY_VIDEOS = [
   },
   {
     _id: "2",
-    videoUrl: "../../static/video/video2.mp4",
+    videoUrl: "../../static/video/2.mp4",
     text: "Initial Setup",
     image: "../../static/video/2.jpg",
     type: "M2K",
@@ -25,17 +25,17 @@ const DUMMY_VIDEOS = [
 
   {
     _id: "3",
-    videoUrl: "../../static/video/video.mp4",
+    videoUrl: "../../static/video/3.mp4",
     text: "DME Read Write ISN and VIN",
-    image: "../../static/video/1.jpg",
+    image: "../../static/video/3.jpg",
     type: "M2K",
 
   },
   {
     _id: "4",
-    videoUrl: "../../static/video/video2.mp4",
+    videoUrl: "../../static/video/4.mp4",
     text: "All Key Lost",
-    image: "../../static/video/2.jpg",
+    image: "../../static/video/4.jpg",
     type: "M2K",
 
   },
@@ -45,13 +45,10 @@ const DUMMY_VIDEOS = [
 
 const VideoSlide = ({ url, isSelected, text }) => (
   <ReactPlayer   controls={true}
-   width="100%" height="476px" url={url}     
-   playing
-  config={{ file: { attributes: {
-    autoPlay: true,
-    muted: false
-  }}}}
-   playing />
+   width="100%" height="476px" url={url}  
+   stopOnUnmount={true}   
+   playing={isSelected}
+  />
 )
 
 const TutorialsVideos = ({ data }) => {
@@ -68,10 +65,14 @@ const TutorialsVideos = ({ data }) => {
       const videoId = getVideoId(item.props.url)
       console.log(item, "oooo")
       return (
+        <a href="#scrollTo">
+
           <div className={classes.root}>
+
 
           <img key={videoId} src={item.props.image} />
           <br />
+
           <p>
             {item.props.text}
           </p>
@@ -79,6 +80,7 @@ const TutorialsVideos = ({ data }) => {
             {item.props.type}
           </h4>
         </div>
+        </a>
       )
     })
 
@@ -86,7 +88,6 @@ const TutorialsVideos = ({ data }) => {
   return (
     <div>
       <Carousel
-        autoPlay={false}
         className={classes.carousel}
         emulateTouch={false}
         showArrows={false}
@@ -102,8 +103,8 @@ const TutorialsVideos = ({ data }) => {
         {}
         {data.map((v) => (
           <VideoSlide
+
             url={v.videoUrl}
-            playing={true} 
             image={v.image}
             text={v.text}
             type={v.type}
