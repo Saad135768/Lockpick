@@ -47,7 +47,8 @@ const VideoSlide = ({ url, isSelected, text }) => (
   <ReactPlayer   controls={true}
    width="100%" height="476px" url={url}  
    stopOnUnmount={true}   
-   playing={isSelected}
+   playing={false}
+   autoPlay={false}
   />
 )
 

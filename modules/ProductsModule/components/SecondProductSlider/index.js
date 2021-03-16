@@ -51,7 +51,7 @@ const SecondProductSlider = () => {
               />
             </div>
             <div className={classes.first}>
-              <img src="../../../../static/images/products/1.png" />
+              <img src="../../../../static/images/products/6.png" />
             </div>
           </div>
 
