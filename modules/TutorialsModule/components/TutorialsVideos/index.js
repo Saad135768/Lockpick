@@ -71,19 +71,21 @@ export default function VerticalTabs() {
         <Tab label="DME Read Write ISN and VIN" {...a11yProps(6)} />
         <Tab label="All Key Lost" {...a11yProps(7)} />
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <TabPanel className={classes.width} value={value} index={0}>
       Instruction Video
       <ReactPlayer
           className='react-player'
           url='../../../../static/video/1.mp4'
           width='100%'
           height='100%'
+          playIcon={<img  className={classes.playicon} src={'../../../../static/video/play-button.png'}/>}
+          light={'../../../../static/video/1.jpg'}
           controls={true}
    playing={false}
    autoPlay={false}
         />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel className={classes.width} value={value} index={1}>
       Initial Setup
 
       <ReactPlayer
@@ -91,48 +93,56 @@ export default function VerticalTabs() {
           url='../../../../static/video/2.mp4'
           width='100%'
           height='100%'
+          playIcon={<img  className={classes.playicon} src={'../../../../static/video/play-button.png'}/>}
+          light={'../../../../static/video/2.jpg'}
           controls={true}
-   playing={false}
-   autoPlay={false}
+          playing={false}
+          autoPlay={false}
         />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel className={classes.width}  value={value} index={2}>
       DME Read Write ISN and VIN
       <ReactPlayer
           className='react-player'
           url='../../../../static/video/3.mp4'
           width='100%'
           height='100%'
+          playIcon={<img  className={classes.playicon} src={'../../../../static/video/play-button.png'}/>}
+          light={'../../../../static/video/3.jpg'}
           controls={true}
-   playing={false}
-   autoPlay={false}
+          playing={false}
+          autoPlay={false}
         />
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel className={classes.width}  value={value} index={3}>
       All Key Lost
       <ReactPlayer
           className='react-player'
           url='../../../../static/video/4.mp4'
           width='100%'
           height='100%'
+          playIcon={<img  className={classes.playicon} src={'../../../../static/video/play-button.png'}/>}
+          light={'../../../../static/video/4.jpg'}
           controls={true}
-   playing={false}
-   autoPlay={false}
+          playing={false}
+          autoPlay={false}
         />
       </TabPanel>
-      <TabPanel value={value} index={4}>
+      <TabPanel className={classes.width}  value={value} index={4}>
       Instruction Video
       <ReactPlayer
           className='react-player'
           url='../../../../static/video/1.mp4'
           width='100%'
           height='100%'
+          playIcon={<img  className={classes.playicon} src={'../../../../static/video/play-button.png'}/>}
+          light={'../../../../static/video/1.jpg'}
           controls={true}
    playing={false}
    autoPlay={false}
         />
       </TabPanel>
-      <TabPanel value={value} index={5}>
+      <TabPanel className={classes.width}  value={value} index={5}>
       Initial Setup
 
       <ReactPlayer
@@ -140,30 +150,36 @@ export default function VerticalTabs() {
           url='../../../../static/video/2.mp4'
           width='100%'
           height='100%'
+          playIcon={<img  className={classes.playicon} src={'../../../../static/video/play-button.png'}/>}
+          light={'../../../../static/video/2.jpg'}
           controls={true}
    playing={false}
    autoPlay={false}
         />
       </TabPanel>
-      <TabPanel value={value} index={6}>
+      <TabPanel className={classes.width}  value={value} index={6}>
       DME Read Write ISN and VIN
       <ReactPlayer
           className='react-player'
           url='../../../../static/video/3.mp4'
           width='100%'
           height='100%'
+          playIcon={<img  className={classes.playicon} src={'../../../../static/video/play-button.png'}/>}
+          light={'../../../../static/video/3.jpg'}
           controls={true}
    playing={false}
    autoPlay={false}
         />
       </TabPanel>
-      <TabPanel value={value} index={7}>
+      <TabPanel className={classes.width}  value={value} index={7}>
       All Key Lost
       <ReactPlayer
           className='react-player'
           url='../../../../static/video/4.mp4'
           width='100%'
           height='100%'
+          playIcon={<img  className={classes.playicon} src={'../../../../static/video/play-button.png'}/>}
+          light={'../../../../static/video/4.jpg'}
           controls={true}
    playing={false}
    autoPlay={false}

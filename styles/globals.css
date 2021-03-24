@@ -112,3 +112,16 @@ body {
   }
 
 }
+
+.react-player__preview{
+  height: 330px !important;
+  width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .react-player__preview{
+      height: 330px !important;
+      width: 100%;
+      }
+
+  }
