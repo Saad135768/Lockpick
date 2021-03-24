@@ -1,131 +1,93 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"
-import React from "react"
-import { Carousel } from "react-responsive-carousel"
-import { PropTypes } from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import useStyles from "./style"
-import ReactPlayer from 'react-player/lazy'
 
-const DUMMY_VIDEOS = [
-  {
-    _id: "1",
-    videoUrl: "../../static/video/1.mp4",
-    text: "Instruction Video",
-    image: "../../static/video/1.jpg",
-    type: "M2K",
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-  },
-  {
-    _id: "2",
-    videoUrl: "../../static/video/2.mp4",
-    text: "Initial Setup",
-    image: "../../static/video/2.jpg",
-    type: "M2K",
-
-  },
-
-  {
-    _id: "3",
-    videoUrl: "../../static/video/3.mp4",
-    text: "DME Read Write ISN and VIN",
-    image: "../../static/video/3.jpg",
-    type: "M2K",
-
-  },
-  {
-    _id: "4",
-    videoUrl: "../../static/video/4.mp4",
-    text: "All Key Lost",
-    image: "../../static/video/4.jpg",
-    type: "M2K",
-
-  },
-]
-
-
-
-const VideoSlide = ({ url, isSelected, text }) => (
-  <ReactPlayer   controls={true}
-   width="100%" height="476px" url={url}  
-   stopOnUnmount={true}   
-   playing={false}
-   autoPlay={false}
-  />
-)
-
-const TutorialsVideos = ({ data }) => {
-  const classes = useStyles()
-
-  const customRenderItem = (item, props) => (
-    <item.type {...item.props} {...props} />
-  )
-
-  const getVideoId = (url) => url.substr("".length, url.length)
-
-  const customRenderThumb = (children) =>
-    children.map((item) => {
-      const videoId = getVideoId(item.props.url)
-      console.log(item, "oooo")
-      return (
-        <a href="#scrollTo">
-
-          <div className={classes.root}>
-
-
-          <img key={videoId} src={item.props.image} />
-          <br />
-
-          <p>
-            {item.props.text}
-          </p>
-          <h4>
-            {item.props.type}
-          </h4>
-        </div>
-        </a>
-      )
-    })
-
-  console.log(data, "datas")
   return (
-    <div>
-      <Carousel
-        className={classes.carousel}
-        emulateTouch={false}
-        showArrows={false}
-        pip={true}
-        dots={true}
-        showThumbs={true}
-        showStatus={false}
-        autoPlay={false}
-        infiniteLoop={false}
-        renderItem={customRenderItem}
-        renderThumbs={customRenderThumb}
-      >
-        {}
-        {data.map((v) => (
-          <VideoSlide
-
-            url={v.videoUrl}
-            image={v.image}
-            text={v.text}
-            type={v.type}
-
-            key={v._id ? v._id : v.id}
-          />
-        ))}
-      </Carousel>
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
     </div>
-  )
+  );
 }
 
-VideoSlide.propTypes = {
-  url: PropTypes.string,
-  isSelected: PropTypes.bool,
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `vertical-tab-${index}`,
+    'aria-controls': `vertical-tabpanel-${index}`,
+  };
 }
 
 
-TutorialsVideos.defaultProps = {
-  data: DUMMY_VIDEOS,
-}
+export default function VerticalTabs() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
-export default TutorialsVideos
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.root}>
+      <Tabs
+        orientation="vertical"
+        variant="scrollable"
+        value={value}
+        onChange={handleChange}
+        aria-label="Vertical tabs example"
+        className={classes.tabs}
+      >
+        <Tab label="Item One" {...a11yProps(0)} />
+        <Tab label="Item Two" {...a11yProps(1)} />
+        <Tab label="Item Three" {...a11yProps(2)} />
+        <Tab label="Item Four" {...a11yProps(3)} />
+        <Tab label="Item Five" {...a11yProps(4)} />
+        <Tab label="Item Six" {...a11yProps(5)} />
+        <Tab label="Item Seven" {...a11yProps(6)} />
+      </Tabs>
+      <TabPanel value={value} index={0}>
+        Item One
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Item Two
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Item Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Item Four
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Item Five
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        Item Six
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        Item Seven
+      </TabPanel>
+    </div>
+  );
+}
