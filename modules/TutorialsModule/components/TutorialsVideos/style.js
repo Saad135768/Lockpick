@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
     flexGrow: 1,
     backgroundColor: '#2d4562',
     color:'#fff',
-    height: 450,
+    height: 420,
     display: 'flex',
 
     ' & button': {
