@@ -6,9 +6,11 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import useStyles from "./style"
+import ReactPlayer from 'react-player/lazy'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+  const classes = useStyles();
 
   return (
     <div
@@ -19,7 +21,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
+        <Box p={3} className={classes.box}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -58,36 +60,116 @@ export default function VerticalTabs() {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         className={classes.tabs}
+        indicatorColor="primary" classes={{ indicator: classes.indicator }}
       >
-        <Tab label="Item One" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
-        <Tab label="Item Five" {...a11yProps(4)} />
-        <Tab label="Item Six" {...a11yProps(5)} />
-        <Tab label="Item Seven" {...a11yProps(6)} />
+        <Tab label="Instruction Video" {...a11yProps(0)} />
+        <Tab label="Initial Setup" {...a11yProps(1)} />
+        <Tab label="DME Read Write ISN and VIN" {...a11yProps(2)} />
+        <Tab label="All Key Lost" {...a11yProps(3)} />
+        <Tab label="Instruction Video" {...a11yProps(4)} />
+        <Tab label="Initial Setup" {...a11yProps(5)} />
+        <Tab label="DME Read Write ISN and VIN" {...a11yProps(6)} />
+        <Tab label="All Key Lost" {...a11yProps(7)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+      Instruction Video
+      <ReactPlayer
+          className='react-player'
+          url='../../../../static/video/1.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+   playing={false}
+   autoPlay={false}
+        />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+      Initial Setup
+
+      <ReactPlayer
+          className='react-player'
+          url='../../../../static/video/2.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+   playing={false}
+   autoPlay={false}
+        />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+      DME Read Write ISN and VIN
+      <ReactPlayer
+          className='react-player'
+          url='../../../../static/video/3.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+   playing={false}
+   autoPlay={false}
+        />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+      All Key Lost
+      <ReactPlayer
+          className='react-player'
+          url='../../../../static/video/4.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+   playing={false}
+   autoPlay={false}
+        />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
+      Instruction Video
+      <ReactPlayer
+          className='react-player'
+          url='../../../../static/video/1.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+   playing={false}
+   autoPlay={false}
+        />
       </TabPanel>
       <TabPanel value={value} index={5}>
-        Item Six
+      Initial Setup
+
+      <ReactPlayer
+          className='react-player'
+          url='../../../../static/video/2.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+   playing={false}
+   autoPlay={false}
+        />
       </TabPanel>
       <TabPanel value={value} index={6}>
-        Item Seven
+      DME Read Write ISN and VIN
+      <ReactPlayer
+          className='react-player'
+          url='../../../../static/video/3.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+   playing={false}
+   autoPlay={false}
+        />
       </TabPanel>
+      <TabPanel value={value} index={7}>
+      All Key Lost
+      <ReactPlayer
+          className='react-player'
+          url='../../../../static/video/4.mp4'
+          width='100%'
+          height='100%'
+          controls={true}
+   playing={false}
+   autoPlay={false}
+        />
+      </TabPanel>
+     
     </div>
   );
 }
