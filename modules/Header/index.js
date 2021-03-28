@@ -5,11 +5,12 @@ import Slider from "react-slick"
 import ScrollAnimation from "react-animate-on-scroll"
 import React from "react"
 import Slider4 from "react-slick"
-
+import { useQuery } from '@apollo/react-hooks'
+import { GET_PRODUCTS } from './data'
 import ModalsContent from "./component/ModalsContent"
 import useStyles from "./style"
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props
   return (
     <div
     className={className}
@@ -19,11 +20,11 @@ function SampleNextArrow(props) {
 <img src="../../static/images/right-arrow.svg"/>
 
   </div>
-  );
+  )
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props
   return (
     <div
       className={className}
@@ -33,7 +34,7 @@ function SamplePrevArrow(props) {
 <img src="../../static/images/left-arrow2.svg"/>
 
     </div>
-  );
+  )
 }
 
 var settings2 = {
@@ -64,15 +65,6 @@ var settings2 = {
 
 const Header = () => {
   const classes = useStyles()
-
-  const [open, setOpen] = React.useState(false)
-
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
-  const handleClose = () => {
-    setOpen(false)
-  }
   return (
     <div className={classes.HeaderHolder}>
       <Container maxWidth="lg">

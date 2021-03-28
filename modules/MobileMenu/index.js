@@ -69,7 +69,7 @@ const MobileMenu = () => {
               placeholder="Search ..."
             />
             <button type="submit" className="searchButton">
-              <i class="fa fa-search"></i>
+              <i className="fa fa-search"></i>
             </button>
             </form>
           </div>
