@@ -38,6 +38,7 @@
     "js-cookie": "^2.2.1",
     "little-state-machine": "^4.0.0",
     "next": "10.0.6",
+    "next-with-apollo": "^5.1.1",
     "node-sass": "^4.14.1",
     "notistack": "^1.0.1",
     "pure-react-carousel": "^1.27.6",
