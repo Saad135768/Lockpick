@@ -1,6 +1,6 @@
 node_modules
-.next/static/
-.next/server/
-.next/cache/
+# .next/static/
+# .next/server/
+# .next/cache/
 
 
