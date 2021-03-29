@@ -67,6 +67,11 @@ const useStyles = makeStyles(() => ({
       fontFamily: 'Poppins-Regular',
       color: '#3680d6',
       marginRight: '45px',
+      '@media screen and (min-width: 1025px) and (max-width: 1200px)': {
+        marginRight: 20,
+        fontSize:19,
+      },
+
       paddingTop: 10,
       '& :hover': {
         cursor: 'pointer',
@@ -145,7 +150,7 @@ boxShadow:'none',
       paddingRight: 0,
       maxWidth: '1280px !important',
     },
-    '@media (max-width: 768px)': {
+    '@media (max-width: 1024px)': {
 display:'none',
     },
     ' & .search ': {

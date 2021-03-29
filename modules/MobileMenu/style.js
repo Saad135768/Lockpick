@@ -145,7 +145,7 @@ const useStyles = makeStyles(() => ({
         outline: 0,
         background: 'transparent',
       },
-      '@media (min-width:769px)': {
+      '@media (min-width:1025px)': {
         display: 'none',
       },
     },
@@ -217,7 +217,7 @@ const useStyles = makeStyles(() => ({
       background: 'rgba(0, 0, 0, 0.3)',
     },
 
-    '@media (min-width:769px)': {
+    '@media (min-width:1025px)': {
       display: 'none',
     },
 
