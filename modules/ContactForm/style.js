@@ -190,6 +190,11 @@ marginBottom: 40,
 
 },
 },
+errorMsg: {
+  color: 'red',
+  fontWeight: 500,
+  margin: '-20px 0 20px',
+},
 }))
 
 export default useStyles
