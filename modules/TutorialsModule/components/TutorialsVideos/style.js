@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   root: {
+    
     flexGrow: 1,
     backgroundColor: '#2d4562',
     color:'#fff',
@@ -19,8 +20,8 @@ const useStyles = makeStyles(() => ({
         textAlign:'center',
        }, 
        ' &  .MuiTab-root': {
-        width:'93%',
-        maxWidth:'93%',
+        width:'100%',
+        maxWidth:'100%',
        }, 
       
       
@@ -38,7 +39,10 @@ const useStyles = makeStyles(() => ({
       background: '#3780d5',
       borderRdius: 0,
       marginBottom: 5,
-      padding:0,
+      fontFamily: 'Poppins-SemiBold',
+      width:'100%',
+      maxWidth:'100%',
+      padding:'10px 4px',
 
       color:'#fff',
       },
@@ -57,7 +61,7 @@ fontSize:18,
   },
   tabs: {
     display: 'flex',
-    width: '30%',
+    width: '35%',
     '@media (max-width:767px)': {
       width: '100%',
     },
@@ -70,12 +74,15 @@ fontSize:18,
     '@media (max-width:767px)': {
       padding: 0,
     },
+    '& a.ytp-impression-link ': {
+      display:'none',
+     }, 
   },
   playicon:{
     width:'60px !important',
   },
   width:{
-    width:'70% !important',
+    width:'65% !important',
     '@media (max-width:767px)': {
       width:'100% !important',
 
