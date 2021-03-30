@@ -10,6 +10,7 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 import * as R from 'ramda'
 import App from 'next/app'
 import Cookies from 'js-cookie'
+import { SnackbarProvider } from 'notistack'
 function MyApp({ Component, pageProps, apollo }) {
   return (
     <>
@@ -80,14 +81,16 @@ function MyApp({ Component, pageProps, apollo }) {
       </Head>
 
       <div>
+      <SnackbarProvider maxSnack={3}>
         <ApolloProvider client={apollo}>
           <Navbar />
           <MobileMenu />
           <ParallaxProvider>
             <Component {...pageProps} />
           </ParallaxProvider>
-        </ApolloProvider>
         <Footer />
+        </ApolloProvider>
+        </SnackbarProvider>
       </div>
     </>
   )
