@@ -165,7 +165,7 @@ display:'flex',
     position: 'absolute',
     right: 0,
     zIndex: 0,
-    bottom: 65,
+    bottom: 0,
     paddingTop: 10,
     height: 410,
     '& img': {
