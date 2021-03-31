@@ -1,13 +1,26 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
+
+  SingleProductButtons: {
+ 
+'& button': {
+  width: '100%',
+  fontFamily: 'Poppins-Bold',
+  fontSize: 19,
+  textTransform: 'capitalize',
+},
+  },
+
   SingleProductContent: {
 color: '#fff',
 
+fontFmily: 'Poppins-Regular',
 
 '& h1': {
   color: '#fba62f',
   fontFamily: 'Poppins-Bold',
+  marginBottom: 10,
 },
 '& h2': {
   fontFamily: 'Poppins-SemiBold',
@@ -17,19 +30,24 @@ color: '#fff',
   fontFamily: 'Poppins-Bold',
   fontSize: 30,
   color: '#fba62f',
+  marginBottom: 0,
 },
 '& p , h5': {
   fontSize: 18,
+  fontFamily: 'Poppins-Regular',
 },
 '& h5': {
   margin: 0,
 },
 '& p span': {
   color: '#3680d6',
+  fontFamily: 'Poppins-Regular',
 },
 '& h4': {
   fontSize: 18,
   color: '#fba62f',
+  marginBottom: 0,
+  fontFamily: 'Poppins-Regular',
 
 },
 ' & h6': {
@@ -48,6 +66,10 @@ color: '#fff',
 },
 
 SingleProductHead:{
+
+  '& h2': {
+    fontSize: 16,
+  },
   display:'flex',
   width: '100%',
   marginBottom: 30,
@@ -56,7 +78,7 @@ SingleProductHead:{
   '& h4': {
     fontFamily: 'Poppins-Regular',
     color:'#fba530',
-    marginTop: 10,
+    marginTop: 5,
     '& svg': {
       width: 25,
       marginLeft: 5,
@@ -82,10 +104,10 @@ SingleProductHead:{
         background:'transparent',
       },
       '& span.react-numeric-input': {
-        width: 100,
+        width: 130,
         background:'transparent',
         fontSize:21,
-        marginBottom: 0,
+        marginBottom: 30,
         marginTop: 25,
       },
       '& b': {
@@ -126,20 +148,31 @@ SingleProductHead:{
     AddToCartBtn: {
       marginBottom:10,
       marginTop:30,
-      width:'80%',
       '& button': {
-        width:'80%',
         textTransform:'capitalize',
       },
     },
     BuyNowBtn: {
       marginBottom:10,
-      marginTop:30,
-      width:'80%',
+      marginTop:15,
       '& button': {
         color:'#fff',
         textTransform:'capitalize',
-        width:'80%',
+      },
+    },
+
+    SingleProductSlider: {
+      '&  .image-gallery-thumbnail': {
+        height: 65,
+        width: 65,
+        cursor: 'pointer',
+      },
+      '& img.image-gallery-thumbnail-image': {
+        height: 50,
+        width: 50,
+      },
+      '& button.image-gallery-thumbnail': {
+        marginBottom: 10,
       },
     },
 }))

@@ -1,45 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
-  CartHolder:{
-    marginTop:100,
-    marginBottom:140,
-    '@media (max-width:768px)': {
-      marginTop:30,
-      marginBottom:50,
-      '& .MuiGrid-spacing-xs-8': {
-        flexDirection: 'column-reverse',
-        width:'100%',
-        margin: 0,
-      },
-    },
-    '@media (max-width:767px)': {
-      marginTop:30,
-      marginBottom:40,
-      '& .MuiGrid-spacing-xs-8': {
-        flexDirection: 'column-reverse',
-        width:'100%',
-        margin: 0,
-      },
-      '& .MuiGrid-spacing-xs-8 > .MuiGrid-item': {
-        padding: 10,
 
-      },
-    },
-    '& hr': {
-      background: '#3679d6',
-      height: 1,
-      border: 0,
-      margin: 0,
-    },
-      },
   CartTableTitle:{
 display:'flex',
 justifyContent:'space-between',
-'& h2': {
-  color: '#fba530',
-  fontFamily: 'Poppins-Bold',
-},
 '& h4': {
   fontFamily: 'Poppins-Regular',
   color:'#fba530',
@@ -206,50 +171,7 @@ justifyContent:'space-between',
       },
     },
   },
-  promocode:{
-    display: 'flex',
-    '& svg ,path': {
-      color: '#fba530',
-      stroke: '#fba530',
-      fontSize: 23,
-    },
 
-  '& input': {
-    background: 'transparent',
-    border: 0,
-    marginLeft: 10,
-    outline: 0,
-    fontSize:18,
-    color: '#fba530',
-
-  },
-  '& input::placeholder': {
-    color: '#fba530',
-    fontSize:18,
-  },
-  '& input::-ms-input-placeholder': {
-    color: '#fba530',
-    fontSize:18,
-
-  },
-  '& input::-webkit-input-placeholder': {
-    color: '#fba530',
-    fontSize:18,
-  },
-  },
-
-  CartInputs:{
-    marginTop: 40,
-    
-    '& .note': {
-      marginTop: 10,
-      '& svg': {
-        marginTop: 2,
-        fontSize: 18,
-      },
-  
-    },
-  },
 }))
 
 export default useStyles

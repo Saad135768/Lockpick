@@ -6,6 +6,8 @@ import { MdKeyboardArrowRight } from "react-icons/md"
 import 'react-image-gallery/styles/css/image-gallery.css'
 import NumericInput from "react-numeric-input"
 import Button from "../../common/Button"
+import QuickCart from "../../modules/CartModule/components/QuickCart/"
+
 import Link from "next/link"
 const SingleProductModule = () => {
   const classes = useStyles()
@@ -55,6 +57,7 @@ const SingleProductModule = () => {
 <Grid container spacing={8}>
 
 <Grid item lg={6} md={6} sm={12} xs={12}>
+<div className={classes.SingleProductSlider}>
 
 <ImageGallery
             isRTL={false}
@@ -68,6 +71,7 @@ const SingleProductModule = () => {
             thumbnailPosition={'left'}
             disableKeyDown={true}
             items={images} />
+            </div>
 </Grid>
 <Grid item lg={6} md={6} sm={12} xs={12}>
 <div className={classes.SingleProductContent}>
@@ -88,20 +92,24 @@ accessories, interface boards, <span> BMW WIZARD </span> and full software
 <div className={classes.NumericInput}>
           <NumericInput mobile min={1} value={1} />
         </div>
-        <div className={classes.AddToCartBtn}>
+        <div className={classes.SingleProductButtons}>
+
+        <QuickCart/>
+        {/* <div className={classes.AddToCartBtn}>
 
         <Link as={"#"} href="#">
         <a href="#">
           <Button> Add to cart</Button>
         </a>
       </Link>
-      </div>
+      </div> */}
       <div className={classes.BuyNowBtn}>
       <Link as={"#"} href="#">
         <a href="#">
           <Button> Buy Now</Button>
         </a>
       </Link>
+      </div>
       </div>
       </div>
 </Grid>

@@ -1,13 +1,12 @@
 import Container from "@material-ui/core/Container"
+import CartData from "./components/CartData"
 import useStyles from "./style"
-import { IoIosClose } from "react-icons/io"
 import Grid from "@material-ui/core/Grid"
 import OrderSummary from "./components/OrderSummary"
-import { MdKeyboardArrowRight } from "react-icons/md"
-import Link from "next/link"
-import NumericInput from "react-numeric-input"
 import { AiOutlineTag } from "react-icons/ai"
 import { GrNotes } from "react-icons/gr"
+import Link from "next/link"
+import { MdKeyboardArrowRight } from "react-icons/md"
 
 const CartModule = () => {
   const classes = useStyles()
@@ -19,8 +18,7 @@ const CartModule = () => {
           <Grid item lg={11} md={11} sm={12} xs={12}>
             <Grid container spacing={8}>
               <Grid item lg={8} md={8} sm={12} xs={12}>
-                <div className={classes.CartTable}>
-                  <div className={classes.CartTableTitle}>
+              <div className={`${classes.CartTableTitle} CartTableTitle`}>
                     <div>
                       <h2>My Cart </h2>
                     </div>
@@ -34,40 +32,7 @@ const CartModule = () => {
                     </div>
                   </div>
                   <hr />
-
-                  <table>
-                  <tr>
-                      <td>
-                        <img src="../../static/images/products/2.png" />
-                      </td>
-                      <td>
-                        Wizard update <br /> <p>3,800,00 $</p>
-                        <div className={classes.NumericInput}>
-                          <NumericInput mobile min={1} value={1} />
-                        </div>
-                      </td>
-                      <td>3,800,00 $ </td>
-                      <td>
-                        <IoIosClose />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <img src="../../static/images/products/1.png" />
-                      </td>
-                      <td>
-                        Wizard update <br /> <p>3,800,00 $</p>
-                        <div className={classes.NumericInput}>
-                          <NumericInput mobile min={1} value={1} />
-                        </div>
-                      </td>
-                      <td>3,800,00 $ </td>
-                      <td>
-                        <IoIosClose />
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+                <CartData/>
                 <div className={classes.CartInputs}>
                <div className={classes.promocode}>
                  <div>
