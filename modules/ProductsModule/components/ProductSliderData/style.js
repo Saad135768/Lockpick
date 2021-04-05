@@ -63,15 +63,17 @@ const useStyles = makeStyles(() => ({
       color: '#fff',
     fontSize: 19,
     marginTop:10,
-    height: 90,
-    overflow: 'auto',
+    overflow: 'hidden',
     marginBottom:30,
     '@media (max-width:768px)': {
       fontSize: 16,
       marginBottom:0,
     },
+    '& p': {
+     margin: 0,
+    },
     '& span': {
-      backgroundColor: 'unset',
+      backgroundColor: 'unset !important',
       color: 'white !important'
     },
     },
@@ -82,8 +84,7 @@ const useStyles = makeStyles(() => ({
       fontSize: 21,
       display: 'block',
       paddingBottom: 30,
-      height: 60,
-     overflow: 'auto',
+     overflow: 'hidden',
      marginTop: 20,
      marginBottom: 25,
   },
