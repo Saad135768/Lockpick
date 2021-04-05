@@ -125,3 +125,7 @@ body {
       }
 
   }
+
+  .MuiPaper-root{
+  background-color: #2b333d;
+  }

@@ -35,12 +35,12 @@ const useStyles = makeStyles(() => ({
          marginBottom: 20,
          fontSize: 30,
          textShadow: 'rgb(0 0 0 / 40%) 0px 4px 5px',
-
         },
         ' & h5': {
-          marginBottom: '0',
+          marginBottom: '20px',
           marginTop:'50px',
-
+          textAlign:'center',
+          height:40,
           },
   },
 
@@ -59,7 +59,8 @@ const useStyles = makeStyles(() => ({
   },
   TutorialsVideo:{
     background: 'rgba(53, 128, 214, 0.25)', 
-    padding:'10px 20px',
+    padding:'15px 20px',
+    marginTop: 25,
   },
   videoholder:{
     '& .control-dots': {
@@ -164,7 +165,7 @@ display:'flex',
     position: 'absolute',
     right: 0,
     zIndex: 0,
-    bottom: 65,
+    bottom: 0,
     paddingTop: 10,
     height: 410,
     '& img': {

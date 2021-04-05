@@ -64,10 +64,7 @@ const TutorialsModule = () => {
                     </div>
                     </div>
                     
-<div id="scrollTo"
->
-  <h5> VIDEOS </h5>
-</div>
+
                    
                   </div>
 
@@ -75,10 +72,12 @@ const TutorialsModule = () => {
               </Grid>
             </div>
 <div className={classes.videoholder}>
+<div id="scrollTo"
+>
+  <h5> Video Tutorials </h5>
+</div>
 
 <div className={classes.TutorialsVideo} id="TUTORIALS">
-  <h2> LOCK PICK Training Video Tutorials </h2>
-
 
 <TutorialsVideos/>
 

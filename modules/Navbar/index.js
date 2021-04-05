@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className={classes.NavbaTopImage} />
       <Container maxWidth="lg">
         <Grid container>
-          <Grid item lg={3} md={3}>
+          <Grid item lg={3} md={3} sm={3}>
             <div className={classes.Logo}>
               <Link as={'/'} href="/">
                 <a href="/">
