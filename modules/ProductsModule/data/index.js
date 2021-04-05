@@ -40,6 +40,10 @@ export const GET_PRODUCTS = gql`
             en
           }
           images
+          customAttributes{
+          key
+          value
+        }
         }
         price{
           mainPrice

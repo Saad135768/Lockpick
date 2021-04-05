@@ -52,6 +52,7 @@ const SecondProductSlider = () => {
           const description = pathOr(0, ['variations', '0', 'product', 'description', 'en'], product)
           const imgs = pathOr([], ['variations', '0', 'product', 'images'], product)
           const quantity = pathOr(1, ['variations', '0', 'stock', '0', 'amount'], product)
+          const customAttributes = pathOr([], ['variations', '0', 'product', 'customAttributes', '0', 'value'], product)
           return (
            <div className={classes.firstsecond} key={product._id}>
             <div className={classes.second}>
@@ -60,7 +61,7 @@ const SecondProductSlider = () => {
                 type={"Full package"}
                 price={(discountedPrice || mainPrice)?.toFixed(2)}
                 description={description}
-                spec={'i5 Processor / 8 GB RAM / 250 SSD'}
+                spec={customAttributes}
                 buttonTitle={"Add to cart"}
                 buttonLink={`/product/${product._id}`}
                 buttonLinkAs={""}
