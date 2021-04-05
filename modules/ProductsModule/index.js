@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import Container from '@material-ui/core/Container'
 import useStyles from './style'
 import FirstProductSlider from '../ProductsModule/components/FirstProductSlider'
@@ -5,13 +6,9 @@ import SecondProductSlider from '../ProductsModule/components/SecondProductSlide
 import ThirdProductSlider from '../ProductsModule/components/ThirdProductSlider'
 import Grid from '@material-ui/core/Grid'
 import ScrollAnimation from 'react-animate-on-scroll'
-import { useQuery } from '@apollo/react-hooks'
-import { GET_PRODUCTS } from './data'
-import { useRouter } from 'next/router'
 
 const ProductsModule = () => {
-  const parsed = useRouter().query
-  const { data } = useQuery(GET_PRODUCTS, { variables: { searchTerm: parsed?.searchTerm } })
+ 
   const classes = useStyles()
   return (
     <div className={classes.ProductsHolder}>
@@ -46,7 +43,7 @@ const ProductsModule = () => {
                       also be purchased as an add on to our BMW Wizard.
                     </p>
                   </div>
-                  <SecondProductSlider data={data}/>
+                  <FirstProductSlider />
                 </div>
               </div>
 
@@ -54,8 +51,8 @@ const ProductsModule = () => {
                 <h3> full package & options </h3>
               </div>
 
-              <SecondProductSlider data={data}/>
-              <ThirdProductSlider data={data}/>
+              <SecondProductSlider />
+              <ThirdProductSlider />
             </Grid>
           </Grid>
         </Container>

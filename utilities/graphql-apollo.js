@@ -8,8 +8,8 @@ import { withClientState } from 'apollo-link-state'
 import Cookies from 'js-cookie'
 import * as R from 'ramda'
 
-// const GRAPHQL_URL = 'https://api.lockpick.qpix.io/'
-const GRAPHQL_URL = 'https://api.yorklongman.qpix.io/'
+const GRAPHQL_URL = 'https://api.lockpick.qpix.io/'
+// const GRAPHQL_URL = 'https://api.yorklongman.qpix.io/'
 const cache = new InMemoryCache()
 const link = createUploadLink({
   fetch, // Switches between unfetch & node-fetch for client & server.

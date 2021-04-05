@@ -43,12 +43,10 @@ const ProductSliderData = ({
               && (buttonLinkAs ? (
                   <Button onClick={() => Router.push(buttonLinkAs) }>
                     {buttonTitle}
-                    <ArrowForwardIcon />
                   </Button>
               ) : buttonLink ? (
                     <Button onClick={() => Router.push(buttonLink) }>
                       {buttonTitle}
-                      <ArrowForwardIcon />
                     </Button>
               ) : (
                 <Button>

@@ -39,7 +39,6 @@ export const GET_PRODUCTS = gql`
           description{
             en
           }
-          outOfStock
           images
         }
         price{

@@ -1,12 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Grid from '@material-ui/core/Grid'
 import useStyles from './style'
 import Slider from 'react-slick'
 import ProductSliderData from '../ProductSliderData'
+import { useQuery } from '@apollo/react-hooks'
+import { GET_PRODUCTS } from '../../data'
 import { pathOr } from 'ramda'
+import { useRouter } from 'next/router'
 
-const FirstProductSlider = ({ data }) => {
+const FirstProductSlider = () => {
+  const parsed = useRouter().query
+  const { data } = useQuery(GET_PRODUCTS, { variables: { 
+    searchTerm: parsed?.searchTerm,
+    // ID for taxonomy called "Basic kit"
+    taxonomies: '6068e1ee21364b4f65baff89'
+   } })
+   const [images, setImages] = useState([])
   const imgs = []
+useEffect(() => {
+setImages(imgs)
+}, [data])
+
   const classes = useStyles()
   var settings = {
     dots: true,
@@ -39,24 +53,11 @@ const FirstProductSlider = ({ data }) => {
         <Grid container>
           <Grid lg={6} sm={6} xs={12}>
             <Slider {...settings}>
-              {/* <div>
-                <img src="../../../../static/images/products/product1.png" />
-              </div>
-              <div>
-                <img src="../../../../static/images/products/a2.png" />
-              </div>
-              <div>
-                <img src="../../../../static/images/products/software.png" />
-              </div> */}
-              <div>
-              {imgs.map((img) =>{ 
-                console.log(`imggggg`, img)
-                return (
+              {images.map((img) => (
                  <div key={img}>
                  <img src={img} />
                </div>
-              )})}
-              </div>
+              ))}
             </Slider>
           </Grid>
           <Grid lg={6} sm={6} xs={12}>
@@ -64,10 +65,10 @@ const FirstProductSlider = ({ data }) => {
               {pathOr([], ['getProducts', 'items'], data).map((product) => {
                 const name = pathOr('', ['variations', '0', 'product', 'name', 'en'], product)
                 const discountedPrice = pathOr(0, ['variations', '0', 'price', 'discountedPrice'], product)
-                const mainPrice = pathOr(0, ['variations', '0', 'product', 'mainPrice'], product)
+                const mainPrice = pathOr(0, ['variations', '0', 'price', 'mainPrice'], product)
                 const description = pathOr(0, ['variations', '0', 'product', 'description', 'en'], product)
                 const quantity = pathOr(1, ['variations', '0', 'stock', '0', 'amount'], product)
-                // imgs.push(pathOr([], ['variations', '0', 'product', 'images'], product))
+                pathOr([], ['variations', '0', 'product', 'images'], product).map((img) => imgs.push(img))
                 return( 
               <React.Fragment key={product._id}>
                 <ProductSliderData

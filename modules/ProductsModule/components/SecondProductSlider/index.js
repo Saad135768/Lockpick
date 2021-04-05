@@ -1,10 +1,20 @@
 import Container from "@material-ui/core/Container"
 import useStyles from "./style"
 import Slider from "react-slick"
+import { useQuery } from '@apollo/react-hooks'
+import { GET_PRODUCTS } from '../../data'
 import ProductSliderData from "../ProductSliderData"
 import { pathOr } from 'ramda'
+import { useRouter } from 'next/router'
 
-const SecondProductSlider = ({ data }) => {
+const SecondProductSlider = () => {
+  const parsed = useRouter().query
+  const { data } = useQuery(GET_PRODUCTS, { variables: { 
+    searchTerm: parsed?.searchTerm,
+    // ID for taxonomy called "full package"
+    taxonomies: '6068e2e621364b4f65baff94'
+   } })
+   
   const classes = useStyles()
   var settings = {
     dots: true,
@@ -38,7 +48,7 @@ const SecondProductSlider = ({ data }) => {
         {pathOr([], ['getProducts', 'items'], data).map((product) => {
           const name = pathOr('', ['variations', '0', 'product', 'name', 'en'], product)
           const discountedPrice = pathOr(0, ['variations', '0', 'price', 'discountedPrice'], product)
-          const mainPrice = pathOr(0, ['variations', '0', 'product', 'mainPrice'], product)
+          const mainPrice = pathOr(0, ['variations', '0', 'price', 'mainPrice'], product)
           const description = pathOr(0, ['variations', '0', 'product', 'description', 'en'], product)
           const imgs = pathOr([], ['variations', '0', 'product', 'images'], product)
           const quantity = pathOr(1, ['variations', '0', 'stock', '0', 'amount'], product)
@@ -47,7 +57,7 @@ const SecondProductSlider = ({ data }) => {
             <div className={classes.second}>
               <ProductSliderData
                 title={name}
-                type={"Refurbished Dell Latitude"}
+                type={"Full package"}
                 price={(discountedPrice || mainPrice)?.toFixed(2)}
                 description={description}
                 spec={'i5 Processor / 8 GB RAM / 250 SSD'}
