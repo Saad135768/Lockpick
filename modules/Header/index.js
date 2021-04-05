@@ -66,59 +66,24 @@ const Header = () => {
                 </ScrollAnimation>
 
                 <Slider {...settings2}>
-                  {/* {pathOr([], ['cms', 'slider'], cms).map(({ name, url, imageURL }) => (
+                  {pathOr([], ['cms', 'slider'], cms).map(({ name, url, imageURL }) => (
                     <div className={classes.slideritem} key={imageURL}>
-                    <div className={classes.two}>
+                    <div className={classes.one}>
                       <img
                         src={imageURL}
                         alt={name}
                         onClick={() => Router.push(url)}
-                        style={{
-                          filter:
-                            'drop-shadow(0.35rem 2.35rem 0.9rem rgba(0, 0, 0, 0.3)',
-                        }}
+                        className={classes.img}
                       />
                     </div>
-                  </div>
-                  ))} */}
-                   <div className={classes.slideritem}>
-                    <div className={classes.one}>
-                      <img
-                        src="../../static/images/homepage/car.png"
-                        alt="lockpick-header-image"
-                      />
-                      <div className={classes.two}>
+                    {/* <div className={classes.two}>
                         <img
                           src="../../static/images/homepage/shadow2.png"
                           alt="lockpick-header-image"
                         />
-                      </div>
-                    </div>
+                      </div> */}
                   </div>
-
-                  <div className={classes.slideritem}>
-                    <div className={classes.one}>
-                      <img
-                        src="../../static/images/homepage/slider2.png"
-                        style={{
-                          filter:
-                            'drop-shadow(0.35rem 2.35rem 0.9rem rgba(0, 0, 0, 0.3)',
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className={classes.slideritem}>
-                    <div className={classes.one}>
-                      <img
-                        src="../../static/images/homepage/slider3.png"
-                        style={{
-                          filter:
-                            'drop-shadow(0.35rem 2.35rem 0.9rem rgba(0, 0, 0, 0.3)',
-                        }}
-                      />
-                    </div>
-                  </div>
+                  ))}
                 </Slider>
 
                 <div className={classes.three}>

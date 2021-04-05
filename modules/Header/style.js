@@ -219,6 +219,10 @@ const useStyles = makeStyles(() => ({
 one:{
   position: 'relative',
 },
+img: {
+  filter: 'drop-shadow(0.35rem 2.35rem 0.9rem rgba(0, 0, 0, 0.3)',
+  cursor: 'pointer',
+},
 two:{
   zIndex:1,
   position: 'absolute',

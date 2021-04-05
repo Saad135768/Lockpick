@@ -35,6 +35,7 @@
     "graphql": "^14.7.0",
     "graphql-tag": "^2.10.1",
     "isomorphic-unfetch": "^3.1.0",
+    "react-html-parser": "^2.0.2",
     "js-cookie": "^2.2.1",
     "little-state-machine": "^4.0.0",
     "next": "10.0.6",

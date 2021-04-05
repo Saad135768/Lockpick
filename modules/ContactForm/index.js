@@ -14,12 +14,13 @@ import { useMutation } from '@apollo/react-hooks'
 import { ADD_CONTACT_FORM } from './data'
 
 const ContactForm = (props) => {
-  const { handleSubmit, errors, register, control } = useForm()
+  const { handleSubmit, errors, register, control, reset } = useForm()
   const [addContactForm] = useMutation(ADD_CONTACT_FORM)
   const addForm = async ({ name, email, message }) => {
     try{
        await addContactForm({ variables: { name, email, message } })
        props.enqueueSnackbar('Your message has been sent', { variant: 'success' })
+       reset()
     }
     catch(error) {
       if (error.graphQLErrors)

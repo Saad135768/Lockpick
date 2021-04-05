@@ -49,6 +49,9 @@ const useStyles = makeStyles(() => ({
     zIndex: 2000,
     marginLeft: 36,
     textAlign: 'left',
+    '@media (min-width: 920px)': {
+      marginLeft: 22,
+    },
     '& li': {
       color: '#ffa62f',
       display: 'inline-block',
@@ -211,7 +214,7 @@ display:'none',
       padding: '0',
       width: '100%',
       position: 'relative',
-      marginTop: '6px',
+      marginTop: 13,
     },
   },
 
