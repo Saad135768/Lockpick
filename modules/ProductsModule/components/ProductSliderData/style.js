@@ -70,6 +70,10 @@ const useStyles = makeStyles(() => ({
       fontSize: 16,
       marginBottom:0,
     },
+    '& span': {
+      backgroundColor: 'unset',
+      color: 'white !important'
+    },
     },
     
     '& em': {
