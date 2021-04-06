@@ -1,101 +1,91 @@
-import Container from "@material-ui/core/Container"
-import useStyles from "./style"
-import Grid from "@material-ui/core/Grid"
+import React, { useState } from 'react'
+import { Grid, Container, Breadcrumbs  } from '@material-ui/core'
+import useStyles from './style'
 import ImageGallery from 'react-image-gallery'
-import { MdKeyboardArrowRight } from "react-icons/md"
+import { MdKeyboardArrowRight } from 'react-icons/md'
 import 'react-image-gallery/styles/css/image-gallery.css'
-import NumericInput from "react-numeric-input"
-import Button from "../../common/Button"
-import QuickCart from "../../modules/CartModule/components/QuickCart/"
+import ReactHtmlParser from 'react-html-parser'
+import NumericInput from 'react-numeric-input'
+import Button from '../../common/Button'
+import QuickCart from '../../modules/CartModule/components/QuickCart/'
+import Link from 'next/link'
+import { pathOr } from 'ramda'
 
-import Link from "next/link"
-const SingleProductModule = () => {
+const SingleProductModule = (props) => {
+  const [productsQuantity, setProductsQuantity] = useState(1)
+  const name = pathOr('No name found', ['product', 'product','name', 'en'], props)
+  const productCode = pathOr('No name found', ['product', 'product','productCode'], props)
+  const description = pathOr('No description', ['product', 'product','description', 'en'], props)
+  const quantity = pathOr(1, ['product','variations', '0','stock', '0', 'amount'], props)
+  const mainPrice = pathOr(0, ['product','variations', '0','price', 'mainPrice'], props)
+  const discountedPrice = pathOr(0, ['product','variations', '0','price', 'discountedPrice'], props)
+  const imgs = []
+  pathOr([], ['product', 'product','images'], props).forEach((img) => imgs.push({ original: img, thumbnail: img }))
   const classes = useStyles()
-  const images = [
-    {
-      original: '../../static/images/products/product1.png',
-      thumbnail: '../../static/images/products/product1.png',
-    },
-    {
-      original: '../../static/images/products/product1.png',
-      thumbnail: '../../static/images/products/product1.png',
-    },
-    {
-      original: '../../static/images/products/product1.png',
-      thumbnail: '../../static/images/products/product1.png',
-    },
-    {
-      original: '../../static/images/products/product1.png',
-      thumbnail: '../../static/images/products/product1.png',
-    },
-  ];
   return (
     <div className={classes.AboutHolder}>
       <Container>
-      <Grid container justify="center">
-          <Grid item lg={10} md={10} sm={12} xs={12}>
+        <Grid container justify="center">
+          <Grid item md={10} xs={12}>
             <Grid container spacing={8}>
-      <div className={classes.SingleProductHead}>
-                    <div>
-                      <h2>  
-                      <a href="/">Home / </a>
-                      <a href="/products">Products /</a>
-                      <a href="/singleproduct">  LockPick  Basic Kit </a>
-                    </h2>
-                    </div>
-                    <div>
-                      <h4>
-                        <Link as={"/products"} href="/products">
-                          <a href="/products">Continue Shopping</a>
-                        </Link>
-                        <MdKeyboardArrowRight />
-                      </h4>
-                    </div>
-                    </div>
-</Grid>
+              <div className={classes.SingleProductHead}>
+                <div>
+                  <h2>
+                  <Breadcrumbs aria-label="breadcrumb">
+                    <Link href="/"><a>Home</a></Link>
+                    <Link href="/products"><a>Products</a></Link>
+                    <Link href={`/product/${props?.productKey}`}><a>{name}</a></Link>
+                  </Breadcrumbs>
+                  </h2>
+                </div>
+                <div>
+                  <h4>
+                    <Link href="/products">
+                      <a>Continue Shopping</a>
+                    </Link>
+                    <MdKeyboardArrowRight />
+                  </h4>
+                </div>
+              </div>
+            </Grid>
 
-<Grid container spacing={8}>
+            <Grid container spacing={8}>
+              <Grid item lg={6} md={6} sm={12} xs={12}>
+                <div className={classes.SingleProductSlider}>
+                  <ImageGallery
+                    isRTL={false}
+                    showFullscreenButton={true}
+                    showNav={false}
+                    slideDuration={800}
+                    autoPlay={true}
+                    infinite={false}
+                    showPlayButton={false}
+                    slideInterval={3000}
+                    thumbnailPosition={'left'}
+                    disableKeyDown={true}
+                    items={imgs}
+                  />
+                </div>
+              </Grid>
+              <Grid item lg={6} md={6} sm={12} xs={12}>
+                <div className={classes.SingleProductContent}>
+                  <h1> {name} </h1>
+                  <h6> SKU : {productCode}</h6>
+                  <h2>Product Description </h2>
+                  <p>
+                  {ReactHtmlParser(description)}
+                  </p>
+                  <h3> $ {(discountedPrice || mainPrice).toFixed(2)}</h3>
+                  <h5> VAT (Included or Excluded)</h5>
+                  <h5> Shipping Description</h5>
+                  <h4> Quantity</h4>
 
-<Grid item lg={6} md={6} sm={12} xs={12}>
-<div className={classes.SingleProductSlider}>
-
-<ImageGallery
-            isRTL={false}
-            showFullscreenButton={true}
-            showNav={false}
-            slideDuration={800}
-            autoPlay={true}
-            infinite={false}
-            showPlayButton={false}
-            slideInterval={3000}
-            thumbnailPosition={'left'}
-            disableKeyDown={true}
-            items={images} />
-            </div>
-</Grid>
-<Grid item lg={6} md={6} sm={12} xs={12}>
-<div className={classes.SingleProductContent}>
-
-<h1> LockPick Basic Kit </h1>
-<h6> SKU : 001</h6>
-<h2>Product Description </h2> 
-<p>
-Main device, <span> Basic Kit</span> accessories, interface boards, and full softwareMain 
-device, accessories, interface boards, <span> Full Package</span>  and full softwareMain device, 
-accessories, interface boards, <span> BMW WIZARD </span> and full software
-</p>
-<h3> $ 2.995.00</h3>
-<h5> VAT (Included or Excluded)</h5> 
-<h5> Shipping Description</h5> 
-<h4> Quantity</h4>
-
-<div className={classes.NumericInput}>
-          <NumericInput mobile min={1} value={1} />
-        </div>
-        <div className={classes.SingleProductButtons}>
-
-        <QuickCart/>
-        {/* <div className={classes.AddToCartBtn}>
+                  <div className={classes.NumericInput}>
+                  <NumericInput mobile min={1} max={quantity} value={productsQuantity} onChange={(e) => setProductsQuantity(e)}/>
+                  </div>
+                  <div className={classes.SingleProductButtons}>
+                    <QuickCart />
+                    {/* <div className={classes.AddToCartBtn}>
 
         <Link as={"#"} href="#">
         <a href="#">
@@ -103,22 +93,20 @@ accessories, interface boards, <span> BMW WIZARD </span> and full software
         </a>
       </Link>
       </div> */}
-      <div className={classes.BuyNowBtn}>
-      <Link as={"#"} href="#">
-        <a href="#">
-          <Button> Buy Now</Button>
-        </a>
-      </Link>
-      </div>
-      </div>
-      </div>
-</Grid>
-</Grid>
-</Grid>
-</Grid>
-
+                    <div className={classes.BuyNowBtn}>
+                      <Link as={'#'} href="#">
+                        <a href="#">
+                          <Button> Buy Now</Button>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </Container>
-
     </div>
   )
 }

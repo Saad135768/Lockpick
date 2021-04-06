@@ -39,20 +39,9 @@ const ProductSliderData = ({
           </div>
 
           <div className={`${classes.SectionButton} SectionButton`}>
-            {buttonTitle
-              && (buttonLinkAs ? (
-                  <Button onClick={() => Router.push(buttonLinkAs) }>
-                    {buttonTitle}
-                  </Button>
-              ) : buttonLink ? (
-                    <Button onClick={() => Router.push(buttonLink) }>
-                      {buttonTitle}
-                    </Button>
-              ) : (
-                <Button>
-                  {buttonTitle}
-                </Button>
-              ))}
+            <Button onClick={() => Router.push(buttonLinkAs) }>
+              {buttonTitle}
+       </Button>
           </div>
     </div>
   )

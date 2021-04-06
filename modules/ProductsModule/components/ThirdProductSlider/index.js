@@ -1,18 +1,29 @@
+import React, { useState, useEffect } from 'react'
 import useStyles from "./style"
 import Slider from "react-slick"
 import ProductSliderData from "../ProductSliderData"
 import { useQuery } from '@apollo/react-hooks'
-import { GET_PRODUCTS } from '../../data'
+import { GET_PRODUCTS, GET_TAXONOMIES } from '../../data'
 import { useRouter } from 'next/router'
 import { pathOr } from 'ramda'
 
 const ThirdProductSlider  = () => {
+  const [taxonomyId, setTaxonomyId] = useState()
+
   const parsed = useRouter().query
+  const { data: Taxonomy } = useQuery(GET_TAXONOMIES)
   const { data } = useQuery(GET_PRODUCTS, { variables: { 
     searchTerm: parsed?.searchTerm,
     // ID for taxonomy called "bmw wizard"
-    taxonomies: '6068e33321364b4f65baff9b'
+    taxonomies: taxonomyId
    } })
+
+   useEffect(() => {
+    const taxonomy = pathOr([], ['getTaxonomies', 'items'], Taxonomy)
+    .find((taxonomy) => taxonomy.name.en === 'bmw wizard')
+   if (taxonomy) setTaxonomyId(taxonomy._id)
+  }, [Taxonomy])
+
   const classes = useStyles()
   var settings = {
     dots: true,
@@ -61,7 +72,7 @@ const ThirdProductSlider  = () => {
                 description={description}
                 buttonTitle={"Add to cart"}
                 buttonLink={`/product/${product._id}`}
-                buttonLinkAs={""}
+                buttonLinkAs={`/product/${product._id}`}
                 quantity={quantity}
               />
             </div>
