@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 
   SingleProductContent: {
-color: '#fff',
+color: '#fff !important',
 
 fontFmily: 'Poppins-Regular',
 
@@ -37,6 +37,7 @@ fontFmily: 'Poppins-Regular',
   fontFamily: 'Poppins-Regular',
   '& p span': {
     background: 'unset !important',
+    color: '#fff !important',
   },
 },
 '& h5': {
