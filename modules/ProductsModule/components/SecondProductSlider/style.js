@@ -90,6 +90,7 @@ display:'flex !important',
   },
   first: {
 width:'50%',
+cursor: 'pointer',
 '@media (max-width:767px)': {
   width:'100%',
 },

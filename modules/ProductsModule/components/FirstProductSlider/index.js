@@ -6,7 +6,7 @@ import ProductSliderData from '../ProductSliderData'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_PRODUCTS, GET_TAXONOMIES } from '../../data'
 import { pathOr } from 'ramda'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 
 const FirstProductSlider = () => {
   const [images, setImages] = useState([])
@@ -21,7 +21,7 @@ const FirstProductSlider = () => {
    } })
 
   const imgs = []
-
+  const id = []
 useEffect(() => {
   setImages(imgs)
 }, [data])
@@ -65,7 +65,7 @@ useEffect(() => {
           <Grid lg={6} sm={6} xs={12}>
             <Slider {...settings}>
               {images.map((img) => (
-                 <div key={img}>
+                 <div key={img} onClick={() => Router.push(`/product/${id[0]}`)}>
                  <img src={img} />
                </div>
               ))}
@@ -80,6 +80,7 @@ useEffect(() => {
                 const description = pathOr(0, ['variations', '0', 'product', 'description', 'en'], product)
                 const quantity = pathOr(1, ['variations', '0', 'stock', '0', 'amount'], product)
                 pathOr([], ['variations', '0', 'product', 'images'], product).map((img) => imgs.push(img))
+                id.push(product._id)
                 return( 
               <React.Fragment key={product._id}>
                 <ProductSliderData
