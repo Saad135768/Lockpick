@@ -1,12 +1,12 @@
 import SingleProductModule from '../../modules/SingleProductModule'
 import Head from 'next/head'
 
-const SingleProductPage = () => <div>
+const SingleProductPage = () => <>
     
     <Head>
         <title>Single Product </title>
       </Head>
       <SingleProductModule />
-    </div>
+    </>
 
 export default SingleProductPage
