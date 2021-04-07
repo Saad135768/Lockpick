@@ -1,20 +1,27 @@
+import React, { useState, useEffect } from 'react'
 import Container from "@material-ui/core/Container"
 import useStyles from "./style"
 import Slider from "react-slick"
 import { useQuery } from '@apollo/react-hooks'
-import { GET_PRODUCTS } from '../../data'
+import { GET_PRODUCTS, GET_TAXONOMIES } from '../../data'
 import ProductSliderData from "../ProductSliderData"
 import { pathOr } from 'ramda'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 
-const SecondProductSlider = () => {
+const SecondProductSlider = ({ taxonomyName, ...props }) => {
+  const [taxonomyId, setTaxonomyId] = useState()
   const parsed = useRouter().query
+  const { data: Taxonomy } = useQuery(GET_TAXONOMIES)
   const { data } = useQuery(GET_PRODUCTS, { variables: { 
     searchTerm: parsed?.searchTerm,
     // ID for taxonomy called "full package"
-    taxonomies: '6068e2e621364b4f65baff94'
+    taxonomies: taxonomyId
    } })
-   
+   useEffect(() => {
+    const taxonomy = pathOr([], ['getTaxonomies', 'items'], Taxonomy)
+    .find((taxonomy) => taxonomy.name.en === taxonomyName)
+   if (taxonomy) setTaxonomyId(taxonomy._id)
+    }, [Taxonomy])
   const classes = useStyles()
   var settings = {
     dots: true,
@@ -64,11 +71,11 @@ const SecondProductSlider = () => {
                 spec={customAttributes}
                 buttonTitle={"Add to cart"}
                 buttonLink={`/product/${product._id}`}
-                buttonLinkAs={""}
+                buttonLinkAs={`/product/${product._id}`}
                 quantity={quantity}
               />
             </div>
-            <div className={classes.first}>
+            <div className={classes.first} onClick={() => Router.push(`/product/${product._id}`)}>
               <img src={imgs[0]} />
             </div>
           </div>

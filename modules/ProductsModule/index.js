@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import Container from '@material-ui/core/Container'
+import React from 'react'
+import { Container, Grid } from '@material-ui/core'
 import useStyles from './style'
 import FirstProductSlider from '../ProductsModule/components/FirstProductSlider'
 import SecondProductSlider from '../ProductsModule/components/SecondProductSlider'
-import ThirdProductSlider from '../ProductsModule/components/ThirdProductSlider'
-import Grid from '@material-ui/core/Grid'
 import ScrollAnimation from 'react-animate-on-scroll'
 
 const ProductsModule = () => {
@@ -51,8 +49,8 @@ const ProductsModule = () => {
                 <h3> full package & options </h3>
               </div>
 
-              <SecondProductSlider />
-              <ThirdProductSlider />
+              <SecondProductSlider taxonomyName={'full package'}/>
+              <SecondProductSlider taxonomyName={'bmw wizard'} />
             </Grid>
           </Grid>
         </Container>

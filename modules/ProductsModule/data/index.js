@@ -57,3 +57,16 @@ export const GET_PRODUCTS = gql`
     }
   }
 `
+
+export const GET_TAXONOMIES = gql`
+query getTaxonomies($name: String) {
+  getTaxonomies(name: $name) {
+    items{
+      _id
+      name{
+        en
+      }
+    }
+  }
+}
+`
