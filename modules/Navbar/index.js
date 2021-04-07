@@ -12,7 +12,6 @@ import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
 import { AiOutlineSearch } from "react-icons/ai"
 import Fade from '@material-ui/core/Fade'
-import Login from '../../modules/Modals/components/Login'
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
@@ -209,7 +208,6 @@ const Navbar = () => {
           </Grid>
         </Grid>
       </Container>
-      <Login/>
 
     </div>
   )

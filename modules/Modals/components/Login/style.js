@@ -25,15 +25,12 @@ margin: '10px 0',
     outline: 0,
     '&::placeholder ': {
       color: '#397399',
-      fontFamily: 'Poppins-Regular',
+      fontFamily: 'Poppins-Light',
       background:' transparent',
     },
     '&:focus': {
-      color: 'red',
       transition: '0.3s',
-      fontFamily: 'Poppins-Regular',
-
-      border:'1px solid #fba62f',
+      fontFamily: 'Poppins-Light',
     },
   },
   closeButton: {
@@ -60,6 +57,10 @@ zIndex:'2000 !important',
         background: '#397399',
         color: '#FFF',
         width:'100%',
+        fontSize: 19,
+        fontFamily: 'Poppins-Regular',
+        borderRadius: 8,
+        padding:10,
       },
     },
    
