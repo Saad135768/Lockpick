@@ -21,29 +21,42 @@ export default function CustomizedDialogs() {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-         Login
+         Sign Up
       </Button>
       
       <Dialog className={classes.root} onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-      <img alt="logo-footer" src="../../static/images/login-logo.png"/>
-      <DialogTitle id="form-dialog-title">
-          <h3> Welcome Back </h3>
-     
-        </DialogTitle>
-        <Input className={classes.LoginInput} placeholder="Email" type="text" />
-        <Input className={classes.LoginInput}  placeholder="Password" type="text" />
+        <div className={classes.LeftRight}>
+
+      <div className={classes.Left}>
+
+      <img alt="logo-footer" src="../../static/images/register-logo.png"/>
+  
+       
                     <a href="#">
-                      <Button>LOG IN</Button>
+                      <Button>REGISTER</Button>
                     </a>
 <div  className={classes.register}>
                     <a href="#">
-                      <h2>Register</h2>
+                      <h2>* Required Inputs</h2>
                     </a>
                     </div>
 
         <div>
          
         </div>
+        </div>
+        <div  className={classes.Right}>
+        <Input className={classes.LoginInput} placeholder="* Full Name" type="text" />
+        <Input className={classes.LoginInput}  placeholder="* Country" type="text" />
+        <Input className={classes.LoginInput} placeholder="* Region/City" type="text" />
+        <Input className={classes.LoginInput}  placeholder="* Address" type="text" />
+        <Input className={classes.LoginInput} placeholder="* Email" type="text" />
+
+        <Input className={classes.LoginInput}  placeholder="* Phone" type="tel" />
+</div>
+</div>
+
+
       </Dialog>
     </div>
   )
