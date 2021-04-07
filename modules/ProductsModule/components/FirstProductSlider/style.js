@@ -89,7 +89,9 @@ const useStyles = makeStyles(() => ({
     '@media (max-width:767px)': {
       padding: '40px 15px',
      },
-
+'& img': {
+cursor: 'pointer',
+},
   }
 
 }))

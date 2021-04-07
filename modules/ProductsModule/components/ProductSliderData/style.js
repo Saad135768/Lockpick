@@ -71,6 +71,7 @@ const useStyles = makeStyles(() => ({
     },
     '& p': {
      margin: 0,
+     fontSize: 19,
     },
     '& span': {
       backgroundColor: 'unset !important',

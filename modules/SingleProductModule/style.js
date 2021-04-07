@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 
   SingleProductContent: {
-color: '#fff',
+color: '#fff !important',
 
 fontFmily: 'Poppins-Regular',
 
@@ -35,6 +35,10 @@ fontFmily: 'Poppins-Regular',
 '& p , h5': {
   fontSize: 18,
   fontFamily: 'Poppins-Regular',
+  '& p span': {
+    background: 'unset !important',
+    color: '#fff !important',
+  },
 },
 '& h5': {
   margin: 0,
@@ -69,6 +73,9 @@ SingleProductHead:{
 
   '& h2': {
     fontSize: 16,
+  },
+  '& nav': {
+    color: '#fff',
   },
   display:'flex',
   width: '100%',
