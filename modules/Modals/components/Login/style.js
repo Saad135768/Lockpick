@@ -1,7 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
-
+  errorMsg: {
+    color: 'red',
+    fontWeight: '600',
+  },
   register:{
 textAlign: 'right',
 textTransform:'uppercase',
