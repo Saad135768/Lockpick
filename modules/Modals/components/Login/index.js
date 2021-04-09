@@ -71,7 +71,7 @@ console.log(`watch()`, watch())
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={() => setOpen(true)}>
-        Open dialog
+        Login
       </Button>
 
       <form onSubmit={handleSubmit((values) => console.log(values))}>
