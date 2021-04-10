@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import useStyles from './style'
 import { useMutation } from '@apollo/react-hooks'
+import Cookies from 'js-cookie'
 import Input from '../../../../common/Input'
 import Button from '../../../../common/Button'
-import Dialog from '@material-ui/core/Dialog'
+import Modal from '@material-ui/core/Modal'
 import { DialogTitle } from '@material-ui/core'
 import { useForm, Controller } from 'react-hook-form'
 import { withSnackbar } from 'notistack'
@@ -12,7 +13,7 @@ import { LOGIN_MUTATION } from '../../data'
 const CustomizedDialogs = (props) => {
   const [open, setOpen] = useState()
   const { register, handleSubmit, errors, control, watch } = useForm({
-    onBlur: 'on',
+    mode: 'onBlur',
   })
   const [login] = useMutation(LOGIN_MUTATION)
   const customerLogin = async ({ password, username }) => {
@@ -67,27 +68,28 @@ const CustomizedDialogs = (props) => {
 //     validationSchema.map(({ name, validations }) => register(name, validations))
 //   }, [register])
   const classes = useStyles()
-console.log(`watch()`, watch())
+
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={() => setOpen(true)}>
         Login
       </Button>
 
-      <form onSubmit={handleSubmit((values) => console.log(values))}>
-      <Dialog
+      <form onSubmit={handleSubmit(customerLogin)}>
+      <Modal
         className={classes.root}
         onClose={() => setOpen(false)}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
+        <div>
         <img alt="logo-footer" src="../../static/images/login-logo.png" />
         <DialogTitle id="form-dialog-title">
           <h3> Welcome Back </h3>
         </DialogTitle>
         <Controller
-        control={control}
-        name='username'
+          control={control}
+          name='username'
           as={
           <Input 
           className={classes.LoginInput} 
@@ -98,10 +100,10 @@ console.log(`watch()`, watch())
         />
            {errors.username && ( <p className={classes.errorMsg}>{errors.username.message}</p> )}
          <Controller
-        control={control}
-        name='password'
+          control={control}
+          name='password'
           ref={register({ 
-            required: 'This field is required', })}
+              required: 'This field is required', })}
           as={<Input 
           className={classes.LoginInput} 
           placeholder="Password"
@@ -116,7 +118,8 @@ console.log(`watch()`, watch())
           </a>
         </div>
         <div></div>
-      </Dialog>
+        </div>
+      </Modal>
         </form>
     </div>
   )

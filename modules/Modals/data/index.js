@@ -8,6 +8,7 @@ export const REGISTER_MUTATION = gql`
     $name: String
     $phone: String!
     $verificationStrategy: String
+    $address: [CustomerAddressInput]
     $sendPin: Boolean
    
   ) {
@@ -18,6 +19,7 @@ export const REGISTER_MUTATION = gql`
       name: $name
       phone: $phone
       sendPin: $sendPin
+      address: $address
       verificationStrategy: $verificationStrategy
     
     ) {
