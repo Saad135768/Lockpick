@@ -3,7 +3,7 @@ import SignUp from '../../modules/Modals/components/SignUp'
 
 import Head from 'next/head'
 
-const ModalsPage = () =>
+const Auth = () =>
 <div>
    <Head>
         <title> Modals  </title>
@@ -15,4 +15,4 @@ const ModalsPage = () =>
 </div> 
 
 
-export default ModalsPage
+export default Auth

@@ -15,7 +15,7 @@ const FirstProductSlider = () => {
   const parsed = useRouter().query
   const { data: Taxonomy } = useQuery(GET_TAXONOMIES)
   const { data } = useQuery(GET_PRODUCTS, { variables: { 
-    searchTerm: parsed?.searchTerm,
+    // searchTerm: parsed?.searchTerm,
     // ID for taxonomy called "Basic kit"
     taxonomies: taxonomyId
    } })
@@ -79,6 +79,7 @@ useEffect(() => {
                 const mainPrice = pathOr(0, ['variations', '0', 'price', 'mainPrice'], product)
                 const description = pathOr(0, ['variations', '0', 'product', 'description', 'en'], product)
                 const quantity = pathOr(1, ['variations', '0', 'stock', '0', 'amount'], product)
+                const variationsId = pathOr('', ['variations', '0', '_id'], product)
                 pathOr([], ['variations', '0', 'product', 'images'], product).map((img) => imgs.push(img))
                 id.push(product._id)
                 return( 
@@ -93,6 +94,7 @@ useEffect(() => {
                   buttonLink={`/product/${product._id}`}
                   buttonLinkAs={`/product/${product._id}`}
                   quantity={quantity}
+                  variationsId={variationsId}
                 />
               </React.Fragment>)})}
              

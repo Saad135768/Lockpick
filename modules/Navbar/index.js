@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
@@ -7,11 +7,10 @@ import { useRouter } from 'next/router'
 import { RiShoppingCartFill } from 'react-icons/ri'
 import { FaUser } from 'react-icons/fa'
 import Router from 'next/router'
-import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { AiOutlineSearch } from 'react-icons/ai'
-import Fade from '@material-ui/core/Fade'
+
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
@@ -188,15 +187,15 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <Link as={'#'} href="#">
-                    <a href="#">
+                  <Link href='/login'>
+                    <a>
                       <FaUser />
                     </a>
                   </Link>
                 </li>
                 <li className={classes.testholder}>
-                  <Link as={'#'} href="#">
-                    <a href="#">
+                  <Link href='/cart'>
+                    <a>
                       <RiShoppingCartFill />
                     </a>
                   </Link>
