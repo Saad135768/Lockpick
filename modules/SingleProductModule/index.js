@@ -57,7 +57,7 @@ const SingleProductModule = (props) => {
                   <Breadcrumbs aria-label="breadcrumb">
                     <Link href="/"><a>Home</a></Link>
                     <Link href="/products"><a>Products</a></Link>
-                    <Link href={`/product/${props?.productKey}`}><a>{name}</a></Link>
+                    <a>{name}</a>
                   </Breadcrumbs>
                   </h2>
                 </div>

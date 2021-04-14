@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import useStyles from './style'
-import Input from '../../../../common/Input'
 import Button from '../../../../common/Button'
 import Dialog from '@material-ui/core/Dialog'
 import Cookies from 'js-cookie'
@@ -11,16 +10,11 @@ import { REGISTER_MUTATION } from '../../data'
 
 const CustomizedDialogs = (props) => {
   const [open, setOpen] = useState(false)
-  const { register, handleSubmit, errors } = useForm({
-    mode: 'onBlur',
+  const { register, handleSubmit, errors, watch } = useForm({
+    mode: 'onBlur'
   })
 
   const [Register] = useMutation(REGISTER_MUTATION)
-
-  
-    useEffect(() => {
-      ['name', 'password', 'email', 'phone', 'country', 'city', 'address'].map((name) => register(name, { required: 'Required' }))
-    }, [register])
   
   const addCustomer = async ({
     name,
@@ -45,9 +39,9 @@ const CustomizedDialogs = (props) => {
           type: 'user',
         },
       })
-      const token = res.data.res.data.addCustomerAccount.token
+      const token = res.data.addCustomerAccount.token
       if (token) {
-        props.enqueueSnackbar('Welcome back!', { variant: 'success' })
+        props.enqueueSnackbar(`Welcome ${name}`, { variant: 'success' })
         Cookies.set('token', token)
         window.location = '/'
       }
@@ -91,71 +85,80 @@ const CustomizedDialogs = (props) => {
             </div>
             <div className={classes.Right}>
                 
-                  <Input
+                  <input
                   name="name"
                     className={classes.LoginInput}
                     placeholder="* Full Name"
                     type="text"
-                    ref={register}
+                    ref={register({ required: 'This field is required' })}
               />
               {errors.name && (
                 <p className={classes.errorMsg}>{errors.name.message}</p>
               )}
                 
-                  <Input
+                  <input
+                  name="email"
+                    className={classes.LoginInput}
+                    placeholder="* Email"
+                    type="email"
+                    ref={register({ required: 'This field is required' })}
+              />
+              {errors.email && (
+                <p className={classes.errorMsg}>{errors.email.message}</p>
+              )}
+                  <input
+                  name="password"
+                    className={classes.LoginInput}
+                    placeholder="* password"
+                    type="password"
+                    ref={register({ required: 'This field is required' })}
+              />
+              {errors.password && (
+                <p className={classes.errorMsg}>{errors.password.message}</p>
+              )}
+
+                
+                  <input
+                  name="phone"
+                    className={classes.LoginInput}
+                    placeholder="* Phone"
+                    type="tel"
+                    ref={register({ required: 'This field is required' })}
+              />
+              {errors.phone && (
+                <p className={classes.errorMsg}>{errors.phone.message}</p>
+              )}
+                 <input
                   name="country"
                     className={classes.LoginInput}
                     placeholder="* Country"
                     type="text"
-                    ref={register}
+                    ref={register({ required: 'This field is required' })}
               />
               {errors.country && (
                 <p className={classes.errorMsg}>{errors.country.message}</p>
               )}
                 
-                  <Input
+                  <input
                   name="city"
                     className={classes.LoginInput}
                     placeholder="* Region/City"
                     type="text"
-                    ref={register}
+                    ref={register({ required: 'This field is required' })}
               />
               {errors.city && (
                 <p className={classes.errorMsg}>{errors.city.message}</p>
               )}
                 
-                  <Input
+                  <input
                   name="address"
                     className={classes.LoginInput}
                     placeholder="* Address"
                     type="text"
-                    ref={register}
+                    ref={register({ required: 'This field is required' })}
               />
               {errors.address && (
                 <p className={classes.errorMsg}>{errors.address.message}</p>
-              )}
-                
-                  <Input
-                  name="email"
-                    className={classes.LoginInput}
-                    placeholder="* Email"
-                    type="email"
-                    ref={register}
-              />
-              {errors.email && (
-                <p className={classes.errorMsg}>{errors.email.message}</p>
-              )}
-
-                
-                  <Input
-                  name="phone"
-                    className={classes.LoginInput}
-                    placeholder="* Phone"
-                    type="tel"
-                    ref={register}
-              />
-              {errors.phone && (
-                <p className={classes.errorMsg}>{errors.phone.message}</p>
               )}
             </div>
           </div>

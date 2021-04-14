@@ -12,7 +12,7 @@ import { LOGIN_MUTATION } from '../../data'
 
 const CustomizedDialogs = (props) => {
   const [open, setOpen] = useState()
-  const { register, handleSubmit, errors, watch } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
   })
   const [login] = useMutation(LOGIN_MUTATION)
@@ -40,34 +40,6 @@ const CustomizedDialogs = (props) => {
       } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
     }
   }
-console.log(`watch()`, watch())
-const validationSchema = [
-  {
-    name: 'username',
-    validations: {
-      required: 'Required',
-      pattern: {
-        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: 'Invalid email',
-      },
-    },
-  },
-  {
-    name: 'password',
-    validations: {
-        required: 'Required',
-        minLength: {
-          value: 6,
-          message: 'Password must be atleast 6 characters',
-        },
-      }
-},
-]
-
-  useEffect(() => {
-    validationSchema.map(({ name, validations }) => register(name, validations))
-  }, [register])
-
 
   const classes = useStyles()
 
@@ -94,7 +66,11 @@ const validationSchema = [
           className={classes.LoginInput} 
           placeholder="Email"
           type='email'
-          ref={register}
+          ref={register({  required: 'This field is required',
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: 'Invalid email',
+          },})}
         />
            {errors.username && ( <p className={classes.errorMsg}>{errors.username.message}</p> )}
          <input 
@@ -102,7 +78,11 @@ const validationSchema = [
           className={classes.LoginInput} 
           placeholder="Password"
           type='Password'
-          ref={register}
+          ref={register({required: 'This field is required',
+          minLength: {
+            value: 6,
+            message: 'Password must be atleast 6 characters',
+          },})}
         />
         {errors.password && ( <p className={classes.errorMsg}>{errors.password.message}</p> )}
           <Button> LOG IN </Button>
