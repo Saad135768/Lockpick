@@ -9,7 +9,7 @@ import Link from 'next/link'
 import CartData from '../CartData'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 
-export default function QuickCart() {
+export default function QuickCart(props) {
   const classes = useStyles()
   const [state, setState] = React.useState({
     right: false,
@@ -67,19 +67,18 @@ export default function QuickCart() {
 
   return (
     <div>
-      {['Add to cart'].map(anchor => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+      
+          <div onClick={toggleDrawer('Add to cart', true)}>
+          <Button onClick={props?.func}>{'Add to cart'}</Button>
+          </div>
           <Drawer
             className={classes.QuickCart}
             anchor={'right'}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
+            open={state['Add to cart']}
+            onClose={toggleDrawer('Add to cart', false)}
           >
-            {list(anchor)}
+            {list('Add to cart')}
           </Drawer>
-        </React.Fragment>
-      ))}
     </div>
   )
 }

@@ -107,18 +107,12 @@ const SingleProductModule = (props) => {
                   <NumericInput mobile min={1} max={quantity} value={productsQuantity} onChange={(e) => setProductsQuantity(e)}/>
                   </div>
                   <div className={classes.SingleProductButtons}>
-                    <div className={classes.AddToCartBtn}>
-                        <Button onClick={() => AddToCart(variationsId, productsQuantity) }> Add to cart</Button>
-                    </div>
-                    <QuickCart />
+                   
+                    <QuickCart func={() => AddToCart(variationsId, productsQuantity)} />
 
-                    {/* <div className={classes.BuyNowBtn}>
-                      <Link as={'#'} href="#">
-                        <a href="#">
+                    <div className={classes.BuyNowBtn}>
                           <Button> Buy Now</Button>
-                        </a>
-                      </Link>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </Grid>

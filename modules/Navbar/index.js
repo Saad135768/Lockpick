@@ -4,9 +4,8 @@ import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import useStyles from './style'
 import { useRouter } from 'next/router'
-import { RiShoppingCartFill } from 'react-icons/ri'
+import { RiShoppingCartFill, RiLogoutBoxRLine } from 'react-icons/ri'
 import { FaUser } from 'react-icons/fa'
-import { FiLogOut } from 'react-icons/fi'
 import Router from 'next/router'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -27,7 +26,6 @@ const Navbar = () => {
   function handleClose() {
     setAnchorEl(null)
   }
-
   return (
     <div className={classes.NavbarHolder}>
       <div className={classes.NavbaTopImage} />
@@ -189,19 +187,20 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  {Cookies.get('token') ? 
+                  {/* {!!Cookies.get('token') ? 
                   <a>
-                    <FiLogOut onClick={() => {
+                    <RiLogoutBoxRLine onClick={() => {
                       Cookies.remove('token')
                       window.location = '/'
                     }}/>
                   </a>
-                  :  <Link href='/login'>
+                  :  */}
+                   <Link href='/login'>
                   <a>
                     <FaUser />
                   </a>
                 </Link>
-                  }
+                  {/* } */}
                 
                 </li>
                 <li className={classes.testholder}>

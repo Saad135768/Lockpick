@@ -7,6 +7,7 @@ import NumericInput from 'react-numeric-input'
 import { useMutation } from '@apollo/react-hooks'
 import { UPDATE_CART_ITEM } from '../../../../commonData'
 import { withSnackbar } from 'notistack'
+import QuickCart from './../../../CartModule/components/QuickCart'
 
 const ProductSliderData = ({
   title,
@@ -54,9 +55,8 @@ const ProductSliderData = ({
           </div>
 
           <div className={`${classes.SectionButton} SectionButton`}>
-            <Button onClick={() => AddToCart(variationsId, productsQuantity) }>
-              {buttonTitle}
-       </Button>
+            
+            <QuickCart func={() => AddToCart(variationsId, productsQuantity) } />
           </div>
     </div>
   )
