@@ -76,12 +76,6 @@ const Header = () => {
                         className={classes.img}
                       />
                     </div>
-                    {/* <div className={classes.two}>
-                        <img
-                          src="../../static/images/homepage/shadow2.png"
-                          alt="lockpick-header-image"
-                        />
-                      </div> */}
                   </div>
                   ))}
                 </Slider>

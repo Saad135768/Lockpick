@@ -6,10 +6,12 @@ import useStyles from './style'
 import { useRouter } from 'next/router'
 import { RiShoppingCartFill } from 'react-icons/ri'
 import { FaUser } from 'react-icons/fa'
+import { FiLogOut } from 'react-icons/fi'
 import Router from 'next/router'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { AiOutlineSearch } from 'react-icons/ai'
+import Cookies from 'js-cookie'
 
 const Navbar = () => {
   const classes = useStyles()
@@ -187,11 +189,20 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <Link href='/login'>
-                    <a>
-                      <FaUser />
-                    </a>
-                  </Link>
+                  {Cookies.get('token') ? 
+                  <a>
+                    <FiLogOut onClick={() => {
+                      Cookies.remove('token')
+                      window.location = '/'
+                    }}/>
+                  </a>
+                  :  <Link href='/login'>
+                  <a>
+                    <FaUser />
+                  </a>
+                </Link>
+                  }
+                
                 </li>
                 <li className={classes.testholder}>
                   <Link href='/cart'>

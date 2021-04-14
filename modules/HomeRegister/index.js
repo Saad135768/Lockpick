@@ -11,36 +11,29 @@ const HomeRegister = () => {
 
   return (
     <div className={classes.HomeRegisterHolder}>
-       <Container>
-       <div className={classes.HomeRegisterBg}>
-       <Parallax x={[-10,9]}>
-     <div className={classes.HomeRegisterImage}>
-     <img src="../../static/images/homepage/register2.png"/>
-</div>
-</Parallax>
-  <div className={classes.HomeRegisterContent}>
-<h3>REGISTER NOW</h3>
-<h4> AND GET YOURS!</h4>
+      <Container>
+        <div className={classes.HomeRegisterBg}>
+          <Parallax x={[-10, 9]}>
+            <div className={classes.HomeRegisterImage}>
+              <img src="../../static/images/homepage/register2.png" />
+            </div>
+          </Parallax>
+          <div className={classes.HomeRegisterContent}>
+            <h3>REGISTER NOW</h3>
+            <h4> AND GET YOURS!</h4>
 
-<div className={classes.HomeRegisterBorder}/>
+            <div className={classes.HomeRegisterBorder} />
 
-<ScrollAnimation animateIn="fadeInUp"
-         >
-<Link as={'#'} href="#">
-      <a href="#">
-        <Button>
-        REGISTER
-        </Button>
-      </a>
-    </Link>
-    </ScrollAnimation>
-
-  </div>
-  </div>
-
-
-            </Container>
-
+            <ScrollAnimation animateIn="fadeInUp">
+              <Link href="login">
+                <a>
+                  <Button>REGISTER</Button>
+                </a>
+              </Link>
+            </ScrollAnimation>
+          </div>
+        </div>
+      </Container>
     </div>
   )
 }

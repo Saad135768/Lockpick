@@ -24,6 +24,7 @@ justifyContent:'space-between',
       height: 165,
       width:165,
       objectFit: 'cover', 
+      cursor: 'pointer',
     },
     '& p': {
       margin: 0,
@@ -171,7 +172,18 @@ justifyContent:'space-between',
       },
     },
   },
+  NoBorder: {
+    '& td': {
+        borderBottom:'0 !important',
+    },
+    '& p': {
+        borderBottom:'0 !important',
+        marginBottom: '0',
+        position: 'relative',
+        top: '10px',
 
+    },
+    },
 }))
 
 export default useStyles

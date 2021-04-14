@@ -6,8 +6,12 @@ const useStyles = makeStyles(() => ({
 textAlign: 'right',
 textTransform:'uppercase',
 margin: '10px 0',
-
-
+  },
+  errorMsg: {
+    color: 'red',
+    fontWeight: '600',
+    marginTop: 0,
+    marginLeft: 20,
   },
   LoginInput: {
     border: 0,

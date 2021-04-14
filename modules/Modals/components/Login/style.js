@@ -4,6 +4,7 @@ const useStyles = makeStyles(() => ({
   errorMsg: {
     color: 'red',
     fontWeight: '600',
+    marginTop: 0,
   },
   register:{
 textAlign: 'right',

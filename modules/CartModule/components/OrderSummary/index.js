@@ -1,9 +1,13 @@
+import React, { useState, useEffect } from 'react'
 import useStyles from "./style"
-import React from "react"
 import Button from "../../../../common/Button"
 import Link from "next/link"
 
-const OrderSummary = () => {
+
+const OrderSummary = ({ data, total, ...props }) => {
+
+
+ 
   const classes = useStyles()
 
   return (
@@ -16,7 +20,7 @@ const OrderSummary = () => {
             <h3> Subtotal</h3>
           </div>
           <div>
-            <h4> $ 9,790.00 </h4>
+            <h4> {total?.toFixed(2)} $</h4>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -45,7 +49,7 @@ const OrderSummary = () => {
           <h3>Total</h3>
         </div>
         <div>
-          <p className={classes.total}> $ 9,790.00 </p>
+          <p className={classes.total}> {total?.toFixed(2)} $ </p>
         </div>
       </div>
       <Link as={"#"} href="#">

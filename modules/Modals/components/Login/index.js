@@ -4,15 +4,15 @@ import { useMutation } from '@apollo/react-hooks'
 import Cookies from 'js-cookie'
 import Input from '../../../../common/Input'
 import Button from '../../../../common/Button'
-import Modal from '@material-ui/core/Modal'
+import Dialog from '@material-ui/core/Dialog'
 import { DialogTitle } from '@material-ui/core'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { withSnackbar } from 'notistack'
 import { LOGIN_MUTATION } from '../../data'
 
 const CustomizedDialogs = (props) => {
   const [open, setOpen] = useState()
-  const { register, handleSubmit, errors, control, watch } = useForm({
+  const { register, handleSubmit, errors, watch } = useForm({
     mode: 'onBlur',
   })
   const [login] = useMutation(LOGIN_MUTATION)
@@ -40,33 +40,35 @@ const CustomizedDialogs = (props) => {
       } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
     }
   }
+console.log(`watch()`, watch())
+const validationSchema = [
+  {
+    name: 'username',
+    validations: {
+      required: 'Required',
+      pattern: {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: 'Invalid email',
+      },
+    },
+  },
+  {
+    name: 'password',
+    validations: {
+        required: 'Required',
+        minLength: {
+          value: 6,
+          message: 'Password must be atleast 6 characters',
+        },
+      }
+},
+]
 
-// const validationSchema = [
-//   {
-//     name: 'username',
-//     validations: {
-//       required: 'Required',
-//       pattern: {
-//         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-//         message: 'Invalid email',
-//       },
-//     },
-//   },
-//   {
-//     name: 'password',
-//     validations: {
-//         required: 'Required',
-//         minLength: {
-//           value: 6,
-//           message: 'Password must be atleast 6 characters',
-//         },
-//       }
-// },
-// ]
+  useEffect(() => {
+    validationSchema.map(({ name, validations }) => register(name, validations))
+  }, [register])
 
-//   useEffect(() => {
-//     validationSchema.map(({ name, validations }) => register(name, validations))
-//   }, [register])
+
   const classes = useStyles()
 
   return (
@@ -75,52 +77,43 @@ const CustomizedDialogs = (props) => {
         Login
       </Button>
 
-      <form onSubmit={handleSubmit(customerLogin)}>
-      <Modal
+      <Dialog
         className={classes.root}
         onClose={() => setOpen(false)}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
+      <form onSubmit={handleSubmit(customerLogin)}>
         <div>
         <img alt="logo-footer" src="../../static/images/login-logo.png" />
         <DialogTitle id="form-dialog-title">
           <h3> Welcome Back </h3>
         </DialogTitle>
-        <Controller
-          control={control}
-          name='username'
-          as={
-          <Input 
+            <input 
+            name='username'
           className={classes.LoginInput} 
           placeholder="Email"
           type='email'
           ref={register}
-        />}
         />
            {errors.username && ( <p className={classes.errorMsg}>{errors.username.message}</p> )}
-         <Controller
-          control={control}
-          name='password'
-          ref={register({ 
-              required: 'This field is required', })}
-          as={<Input 
+         <input 
+            name='password'
           className={classes.LoginInput} 
           placeholder="Password"
           type='Password'
-        />}
+          ref={register}
         />
         {errors.password && ( <p className={classes.errorMsg}>{errors.password.message}</p> )}
-          <Button type='submit'> LOG IN </Button>
-        <div className={classes.register}>
+          <Button> LOG IN </Button>
+        {/* <div className={classes.register}>
           <a href="#">
             <h2>Register</h2>
           </a>
+        </div> */}
         </div>
-        <div></div>
-        </div>
-      </Modal>
         </form>
+      </Dialog>
     </div>
   )
 }
