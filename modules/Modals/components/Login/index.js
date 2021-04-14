@@ -66,7 +66,7 @@ const CustomizedDialogs = (props) => {
           className={classes.LoginInput} 
           placeholder="Email"
           type='email'
-          ref={register({  required: 'This field is required',
+          ref={register({ required: 'This field is required',
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
             message: 'Invalid email',

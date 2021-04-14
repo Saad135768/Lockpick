@@ -77,9 +77,7 @@ const CustomizedDialogs = (props) => {
 
               <Button>REGISTER</Button>
               <div className={classes.register}>
-                <a href="#">
                   <h2>* Required Inputs</h2>
-                </a>
               </div>
 
             </div>
