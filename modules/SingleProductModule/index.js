@@ -10,17 +10,40 @@ import Button from '../../common/Button'
 import QuickCart from '../../modules/CartModule/components/QuickCart/'
 import Link from 'next/link'
 import { pathOr } from 'ramda'
+import { UPDATE_CART_ITEM } from '../../commonData'
+import { withSnackbar } from 'notistack'
+import { useMutation } from '@apollo/react-hooks'
 
 const SingleProductModule = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
+  const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
+ 
+  // Products values
   const name = pathOr('No name found', ['product', 'product','name', 'en'], props)
   const productCode = pathOr('No name found', ['product', 'product','productCode'], props)
   const description = pathOr('No description', ['product', 'product','description', 'en'], props)
   const quantity = pathOr(1, ['product','variations', '0','stock', '0', 'amount'], props)
   const mainPrice = pathOr(0, ['product','variations', '0','price', 'mainPrice'], props)
   const discountedPrice = pathOr(0, ['product','variations', '0','price', 'discountedPrice'], props)
+  const variationsId = pathOr('', ['product','variations', '0', '_id'], props)
   const imgs = []
   pathOr([], ['product', 'product','images'], props).forEach((img) => imgs.push({ original: img, thumbnail: img }))
+
+  // Add to cart mutation
+  const AddToCart = async (variation, quantity) => {
+    try {
+       await updateCartItem({ variables: { variation: { variation, quantity }} })
+       props.enqueueSnackbar('Product has been added to cart successfully', { variant: 'success' })
+    }
+    catch(error) {
+      if (error.graphQLErrors) {
+        props.enqueueSnackbar(error.graphQLErrors[0].message, {
+          variant: 'error',
+        })
+      } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+    }
+  }
+
   const classes = useStyles()
   return (
     <div className={classes.AboutHolder}>
@@ -34,7 +57,7 @@ const SingleProductModule = (props) => {
                   <Breadcrumbs aria-label="breadcrumb">
                     <Link href="/"><a>Home</a></Link>
                     <Link href="/products"><a>Products</a></Link>
-                    <Link href={`/product/${props?.productKey}`}><a>{name}</a></Link>
+                    <a>{name}</a>
                   </Breadcrumbs>
                   </h2>
                 </div>
@@ -84,21 +107,11 @@ const SingleProductModule = (props) => {
                   <NumericInput mobile min={1} max={quantity} value={productsQuantity} onChange={(e) => setProductsQuantity(e)}/>
                   </div>
                   <div className={classes.SingleProductButtons}>
-                    <QuickCart />
-                    {/* <div className={classes.AddToCartBtn}>
+                   
+                    <QuickCart func={() => AddToCart(variationsId, productsQuantity)} />
 
-        <Link as={"#"} href="#">
-        <a href="#">
-          <Button> Add to cart</Button>
-        </a>
-      </Link>
-      </div> */}
                     <div className={classes.BuyNowBtn}>
-                      <Link as={'#'} href="#">
-                        <a href="#">
                           <Button> Buy Now</Button>
-                        </a>
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -111,4 +124,4 @@ const SingleProductModule = (props) => {
   )
 }
 
-export default SingleProductModule
+export default withSnackbar(SingleProductModule)

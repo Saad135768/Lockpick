@@ -8,13 +8,20 @@ import Divider from '@material-ui/core/Divider'
 import Link from 'next/link'
 import CartData from '../CartData'
 import { MdKeyboardArrowRight } from 'react-icons/md'
+import Cookies from 'js-cookie'
+import Router from 'next/router'
+import { withSnackbar } from 'notistack'
 
-export default function QuickCart() {
+const QuickCart = (props) => {
   const classes = useStyles()
   const [state, setState] = React.useState({
     right: false,
   })
-
+const token = Cookies.get('token')
+const navigation = () => {
+  Router.replace('/login')
+  props.enqueueSnackbar('Please login first', { variant: 'warning'})
+}
   const toggleDrawer = (anchor, open) => event => {
     if (
       event.type === 'keydown' &&
@@ -66,20 +73,21 @@ export default function QuickCart() {
   )
 
   return (
-    <div>
-      {['Add to cart'].map(anchor => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+    <div onClick={token ? null : navigation}>
+      
+          <div onClick={token && toggleDrawer('Add to cart', true)}>
+          <Button onClick={token && props?.func}>{'Add to cart'}</Button>
+          </div>
           <Drawer
             className={classes.QuickCart}
             anchor={'right'}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
+            open={state['Add to cart']}
+            onClose={toggleDrawer('Add to cart', false)}
           >
-            {list(anchor)}
+            {list('Add to cart')}
           </Drawer>
-        </React.Fragment>
-      ))}
     </div>
   )
 }
+
+export default withSnackbar(QuickCart)

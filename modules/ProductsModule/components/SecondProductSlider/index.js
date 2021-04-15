@@ -60,6 +60,7 @@ const SecondProductSlider = ({ taxonomyName, ...props }) => {
           const imgs = pathOr([], ['variations', '0', 'product', 'images'], product)
           const quantity = pathOr(1, ['variations', '0', 'stock', '0', 'amount'], product)
           const customAttributes = pathOr([], ['variations', '0', 'product', 'customAttributes', '0', 'value'], product)
+          const variationsId = pathOr('', ['variations', '0', '_id'], product)
           return (
            <div className={classes.firstsecond} key={product._id}>
             <div className={classes.second}>
@@ -70,9 +71,8 @@ const SecondProductSlider = ({ taxonomyName, ...props }) => {
                 description={description}
                 spec={customAttributes}
                 buttonTitle={"Add to cart"}
-                buttonLink={`/product/${product._id}`}
-                buttonLinkAs={`/product/${product._id}`}
                 quantity={quantity}
+                variationsId={variationsId}
               />
             </div>
             <div className={classes.first} onClick={() => Router.push(`/product/${product._id}`)}>

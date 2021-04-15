@@ -30,7 +30,7 @@ export const GET_PRODUCTS = gql`
       items {
       _id
       variations{
-        
+        _id
         product{
           _id
           name{
