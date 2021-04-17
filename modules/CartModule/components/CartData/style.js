@@ -172,6 +172,51 @@ justifyContent:'space-between',
       },
     },
   },
+  CartInputs:{
+    margin: '15px 40px',
+    '& .note': {
+      marginTop: 10,
+      '& svg': {
+        marginTop: 2,
+        fontSize: 18,
+      },
+    },
+    '& tr': {
+      border:'0 !important',
+    },
+    '& td': {
+      border:'0 !important',
+    },
+  },
+td_total: {
+  border:'0 !important',
+  textAlign: 'center !important',
+  '& p': {
+    fontSize: 20,
+  },
+},
+  ViewCart:{
+      
+    '& button': {
+    color: '#2B313B',
+    width: '100%',
+    border: '1px solid #FFA62F',
+    cursor: 'pointer',
+    outline: 0,
+    padding: '5px 28px',
+    fontSize: '25px',
+    background: '#FFA62F',
+    transition: 'all .3s ease',
+    fontFamily: 'Poppins-SemiBold',
+    borderRadius: 13,
+    textTransform: 'uppercase',
+    '&:hover': {
+      color: '#FFA62F',
+      background: '#2B313B',
+
+    },
+  },
+  },
   NoBorder: {
     '& td': {
         borderBottom:'0 !important',

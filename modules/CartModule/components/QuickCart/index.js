@@ -5,7 +5,6 @@ import Drawer from '@material-ui/core/Drawer'
 import Button from '../../../../common/Button'
 import List from '@material-ui/core/List'
 import Divider from '@material-ui/core/Divider'
-import Link from 'next/link'
 import CartData from '../CartData'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import Cookies from 'js-cookie'
@@ -35,12 +34,7 @@ const navigation = () => {
 
   const list = anchor => (
     <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+     
     >
       <div className={classes.CartTable2}>
         <div className={classes.CartHolder}>
@@ -48,7 +42,12 @@ const navigation = () => {
             <div className={classes.QuickTableTitle}>
               <div>
                 <h4>
-                  <MdKeyboardArrowRight />
+                  <MdKeyboardArrowRight  className={clsx(classes.list, {
+        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}/>
                 </h4>
               </div>
               <div className={classes.QuickCartTitle}>
@@ -57,15 +56,6 @@ const navigation = () => {
             </div>
             <CartData />
           </List>
-        </div>
-        <div className={classes.CartInputs}>
-          <div className={classes.ViewCart}>
-            <Link as={'/cart'} href="/cart">
-              <a href="/cart">
-                <Button> View Cart </Button>
-              </a>
-            </Link>
-          </div>
         </div>
         <Divider />
       </div>
