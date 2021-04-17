@@ -67,6 +67,38 @@ const useStyles = makeStyles(() => ({
     },
   },
 
+  CartIconHolder: {
+    position: "relative", 
+    zIndex: 9,
+    '& svg': {
+      zIndex: 99,
+      position: 'relative',
+    },
+    '&:hover em ': {
+      background: '#3780d5',
+      transition: '0.3s',
+    },
+  },
+  CartIconNumber: {
+    position: "absolute",
+    bottom: 37,
+    background: "#315888",
+    width: "26px",
+    height: "26px",
+    borderRadius: "50px",
+    textAlign: "center",
+    color: "#fff",
+    fontStyle: "normal",
+    lineHeight: "26px",
+    right: 0,
+    zIndex: 999,
+    fontSize: "13px",
+    '& span': {
+      fontFamily: 'Poppins-SemiBold',
+    },
+
+  },
+
   MobileMenuHolder: {
     paddingBottom: 2,
     '& form':{

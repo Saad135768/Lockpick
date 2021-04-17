@@ -306,7 +306,7 @@ display:'none',
     },
   },
 
-  testholder: {
+  CartIconHolder: {
     position: "relative", 
     zIndex: 9,
     '& svg': {
@@ -318,20 +318,19 @@ display:'none',
       transition: '0.3s',
     },
   },
-  test: {
+  CartIconNumber: {
     position: "absolute",
-    top: "2px",
+    top: "1px",
     background: "#315888",
-    width: "22px",
-    height: "22px",
+    width: "26px",
+    height: "26px",
     borderRadius: "50px",
     textAlign: "center",
     color: "#fff",
     fontStyle: "normal",
-    lineHeight: "22px",
-    fontWeight: "bold",
-    right: "0px",
-    zIndex: 0,
+    lineHeight: "26px",
+    right: "-16px",
+    zIndex: 999,
     fontSize: "13px",
 
    

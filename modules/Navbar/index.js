@@ -203,16 +203,16 @@ const Navbar = () => {
                   {/* } */}
                 
                 </li>
-                <li className={classes.testholder}>
+                <li className={classes.CartIconHolder}>
                   <Link href='/cart'>
                     <a>
                       <RiShoppingCartFill />
                     </a>
                   </Link>
-                  {/* <em className={classes.test}>
+                  <em className={classes.CartIconNumber}>
                    
                     <span> 3</span>
-                  </em> */}
+                  </em>
                 </li>
               </ul>
             </div>
