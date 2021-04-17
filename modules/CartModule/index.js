@@ -10,7 +10,7 @@ import Link from "next/link"
 import { MdKeyboardArrowRight } from "react-icons/md"
 import { useQuery } from '@apollo/react-hooks'
 import { GET_CART } from './../../commonData'
-import { path, pathOr } from 'ramda'
+import { pathOr } from 'ramda'
 
 const CartModule = () => {
   const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
@@ -19,8 +19,11 @@ const CartModule = () => {
   const [total, setTotal] = useState()
   
   useEffect(() => {
-    if(data) {
-      setCart(pathOr([], ['getCurrentCustomer', 'cart'], data))
+    if (data) setCart(pathOr([], ['getCurrentCustomer', 'cart'], data))
+  }, [data])
+
+
+  useEffect(() => {
     cart?.variations?.reduce((a,b) => {
       const discountedPrice = pathOr(1, ['variation', 'price', 'discountedPrice'], b)
       const mainPrice = pathOr(1, ['variation', 'price', 'mainPrice'], b)
@@ -29,8 +32,7 @@ const CartModule = () => {
       setTotal(total)
       return total
     }, 0)
-  }
-  }, [data, cart, total])
+  }, [cart])
 
   return (
     <div className={classes.CartHolder}>
@@ -53,7 +55,7 @@ const CartModule = () => {
                     </div>
                   </div>
                   <hr />
-                <CartData />
+                <CartData total={total} />
                 <div className={classes.CartInputs}>
                <div className={classes.promocode}>
                  <div>

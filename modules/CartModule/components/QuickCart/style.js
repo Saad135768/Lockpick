@@ -176,38 +176,6 @@ const useStyles = makeStyles(() => ({
     },
     },
   
-    CartInputs:{
-      margin: '15px 40px',
-      '& .note': {
-        marginTop: 10,
-        '& svg': {
-          marginTop: 2,
-          fontSize: 18,
-        },
-      },
-    },
-    ViewCart:{
-      
-      '& button': {
-      color: '#2B313B',
-      width: '100%',
-      border: '1px solid #FFA62F',
-      cursor: 'pointer',
-      outline: 0,
-      padding: '5px 28px',
-      fontSize: '25px',
-      background: '#FFA62F',
-      transition: 'all .3s ease',
-      fontFamily: 'Poppins-SemiBold',
-      borderRadius: 13,
-      textTransform: 'uppercase',
-      '&:hover': {
-        color: '#FFA62F',
-        background: '#2B313B',
-
-      },
-    },
-    },
     CartTable2: {
       height: '85vh',
       '& img': {
