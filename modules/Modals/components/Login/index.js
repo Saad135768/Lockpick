@@ -9,6 +9,7 @@ import { DialogTitle } from '@material-ui/core'
 import { useForm } from 'react-hook-form'
 import { withSnackbar } from 'notistack'
 import { LOGIN_MUTATION } from '../../data'
+import { FaUserAlt } from "react-icons/fa";
 
 const CustomizedDialogs = (props) => {
   const [open, setOpen] = useState()
@@ -46,8 +47,9 @@ const CustomizedDialogs = (props) => {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={() => setOpen(true)}>
-        Login
+      <FaUserAlt/>   login 
       </Button>
+     
 
       <Dialog
         className={classes.root}
