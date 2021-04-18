@@ -11,11 +11,15 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { AiOutlineSearch } from 'react-icons/ai'
 import Cookies from 'js-cookie'
+import useStore from '../../store'
 
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
   const { parsed } = router
+
+  const cart = useStore((state) => state.cart)
+  
   const [anchorEl, setAnchorEl] = useState(null)
   const [searchTerm, setSearchTerm] = useState()
   function handleClick(event) {
@@ -26,6 +30,7 @@ const Navbar = () => {
   function handleClose() {
     setAnchorEl(null)
   }
+  const token = Cookies.get('token')
   return (
     <div className={classes.NavbarHolder}>
       <div className={classes.NavbaTopImage} />
@@ -204,6 +209,7 @@ const Navbar = () => {
                 
                 </li>
                 <li className={classes.testholder}>
+                  {token && <span className={classes.cartnumber}><p>{cart?.variations?.length || 0}</p></span>}
                   <Link href='/cart'>
                     <a>
                       <RiShoppingCartFill />

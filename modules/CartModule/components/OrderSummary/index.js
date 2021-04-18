@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react'
 import useStyles from "./style"
 import Button from "../../../../common/Button"
 import Link from "next/link"
+import useStore from '../../../../store'
 
 
-const OrderSummary = ({ data, total, ...props }) => {
+const OrderSummary = (props) => {
+  const total = useStore((state) => state.total)
+  const setTotal = useStore((state) => state.setTotal)
 
-
- 
+  const cart = useStore((state) => state.cart)
+ useEffect(() => {
+  setTotal(total)
+  if (!cart?.variations?.length) setTotal(0)
+ }, [cart, total])
   const classes = useStyles()
 
   return (

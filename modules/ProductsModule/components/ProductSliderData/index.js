@@ -8,6 +8,7 @@ import { useMutation } from '@apollo/react-hooks'
 import { UPDATE_CART_ITEM } from '../../../../commonData'
 import { withSnackbar } from 'notistack'
 import QuickCart from './../../../CartModule/components/QuickCart'
+import useStore from '../../../../store'
 
 const ProductSliderData = ({
   title,
@@ -22,12 +23,15 @@ const ProductSliderData = ({
   variationsId,
   ...props
 }) => {
+  const setCart = useStore((state) => state.setCart)
+
   const [productsQuantity, setProductsQuantity] = useState(1)
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
   const AddToCart = async (variation, quantity) => {
     try {
-       await updateCartItem({ variables: { variation: { variation, quantity }} })
+      const res = await updateCartItem({ variables: { variation: { variation, quantity }} })
        props.enqueueSnackbar('Product has been added to cart successfully', { variant: 'success' })
+       setCart(res.data.updateCartItem)
     }
     catch(error) {
       if (error.graphQLErrors) {

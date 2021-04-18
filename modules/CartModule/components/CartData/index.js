@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import useStyles from './style'
 import { IoIosClose } from 'react-icons/io'
 import NumericInput from 'react-numeric-input'
@@ -6,17 +6,22 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_CART, UPDATE_CART_ITEM } from './../../../../commonData'
 import { pathOr } from 'ramda'
 import { withSnackbar } from 'notistack'
-import Router from 'next/router'
 import Button from '../../../../common/SecondaryButton'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
+import useStore from '../../../../store'
 
 const CartData = (props) => {
   const { pathname } = useRouter()
-  const [cart, setCart] = useState([])
-  const [total, setTotal] = useState()
 
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
   const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
+  
+  const total = useStore((state) => state.total)
+  const setTotal = useStore((state) => state.setTotal)
+  console.log(`total`, total)
+  const cart = useStore((state) => state.cart)
+  const setCart = useStore((state) => state.setCart)
+
   useEffect(() => {
     if (data) setCart(pathOr([], ['getCurrentCustomer', 'cart'], data))
   }, [data])
@@ -27,9 +32,9 @@ const CartData = (props) => {
       const discountedPrice = pathOr(1, ['variation', 'price', 'discountedPrice'], b)
       const mainPrice = pathOr(1, ['variation', 'price', 'mainPrice'], b)
       const quantity = pathOr(1, ['quantity'], b)
-      const total =  a + ((discountedPrice || mainPrice) * quantity )
-      setTotal(total)
-      return total
+      const totals =  a + ((discountedPrice || mainPrice) * quantity )
+      setTotal(totals)
+      return totals
     }, 0)
   }, [cart])
 
@@ -115,7 +120,7 @@ const CartData = (props) => {
           </tr>
           <tr className={classes.CartInputs}>
             <td colSpan={3} className={classes.ViewCart}>
-              <button> View cart </button>
+              <button onClick={() => Router.push('/cart')}> View cart </button>
             </td>
           </tr>
         </>
