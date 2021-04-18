@@ -2,10 +2,16 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
 
-  register:{
+  Logout:{
+    marginTop: 32,
 textAlign: 'right',
 textTransform:'uppercase',
 margin: '10px 0',
+'& h2': {
+  marginTop: 0,
+  fontSize: 18,
+  cursor: 'pointer',
+},
   },
   errorMsg: {
     color: 'red',
@@ -55,7 +61,7 @@ margin: '10px 0',
     '& h3': {
       fontFamily: 'Poppins-SemiBold',
       textAlign: 'center',
-
+      color: '#2b333d',
     },
   
 zIndex:'2000 !important',
@@ -69,6 +75,7 @@ zIndex:'2000 !important',
         background: '#397399',
         color: '#FFF',
         width:'100%',
+        textTransform: 'capitalize',
         fontSize: 18,
         fontFamily: 'Poppins-Regular',
         borderRadius: 8,
@@ -88,10 +95,16 @@ display:'flex',
   },
 
   Left:{
-    
+    '& .NotActive': {
+border: '1px solid #FFA62F',
+cursor: 'pointer',
+opacity: 0.3,
+outline: '0',
+padding: '8px 28px',
+    },
     '& .ButtonHolder': {
-      marginTop: 100,
-      marginBottom: 60,
+      marginTop: 10,
+      marginBottom: 20,
       '@media (max-width:767px)': {
         marginTop: 20,
         marginBottom: 30,
@@ -108,18 +121,16 @@ display:'flex',
     '& img': {
       width: '100%',
     },
-    '& h2': {
-      color: '#397399',
-      textAlign: 'center',
-      textTransform:'capitalize',
-      fontStyle: 'italic',
-      fontSize: 20,
-    },
+   
   },
   Right:{
     width:'55%',
     padding:'10px',
     marginTop: 15,
+    display: 'flex',
+    alignIems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
     background:'#fff',
     '@media (max-width:767px)': {
       width:'100%',

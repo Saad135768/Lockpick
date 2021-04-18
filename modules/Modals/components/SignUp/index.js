@@ -7,6 +7,7 @@ import { useMutation } from '@apollo/react-hooks'
 import { useForm } from 'react-hook-form'
 import { withSnackbar } from 'notistack'
 import { REGISTER_MUTATION } from '../../data'
+import { FaUserPlus } from "react-icons/fa";
 
 const CustomizedDialogs = (props) => {
   const [open, setOpen] = useState(false)
@@ -59,7 +60,7 @@ const CustomizedDialogs = (props) => {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={() => setOpen(true)}>
-        Sign Up
+      <FaUserPlus/>    Sign Up  
       </Button>
         <Dialog
           className={classes.root}

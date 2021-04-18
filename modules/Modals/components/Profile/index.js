@@ -4,8 +4,9 @@ import Button from '../../../../common/Button'
 import Dialog from '@material-ui/core/Dialog'
 import { DialogTitle } from '@material-ui/core'
 import { withSnackbar } from 'notistack'
+import { GoPerson } from "react-icons/go"
 
-const CustomizedDialogs = (props) => {
+const CustomizedDialogs = () => {
   const [open, setOpen] = useState()
   
    
@@ -14,7 +15,7 @@ const CustomizedDialogs = (props) => {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={() => setOpen(true)}>
-        Profile
+      <GoPerson/>     Profile 
       </Button>
 
       <Dialog
