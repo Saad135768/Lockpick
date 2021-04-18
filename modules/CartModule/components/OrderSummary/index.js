@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import useStyles from "./style"
 import Button from "../../../../common/Button"
 import Link from "next/link"
+import useStore from '../../../../store'
 
 
-const OrderSummary = ({ data, total, ...props }) => {
+const OrderSummary = (props) => {
 
-
+  const total = useStore((state) => state.total)
  
   const classes = useStyles()
 
