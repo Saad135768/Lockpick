@@ -81,11 +81,18 @@ const MobileMenu = () => {
               </a>
             </div>
             <div>
-              <a href="#">
-                <a href="#">
-                  <RiShoppingCartFill />
-                </a>
-              </a>
+              
+              <li className={classes.CartIconHolder}>
+                  <Link href='/cart'>
+                    <a>
+                      <RiShoppingCartFill />
+                    </a>
+                  </Link>
+                  <em className={classes.CartIconNumber}>
+                   
+                    <span> 3</span>
+                  </em>
+                </li>
             </div>
         </div>
           <ul className={classes.centermenu}>

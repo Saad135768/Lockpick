@@ -19,7 +19,7 @@ const Navbar = () => {
   const { parsed } = router
 
   const cart = useStore((state) => state.cart)
-  
+
   const [anchorEl, setAnchorEl] = useState(null)
   const [searchTerm, setSearchTerm] = useState()
   function handleClick(event) {
@@ -192,33 +192,24 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  {/* {!!Cookies.get('token') ? 
-                  <a>
-                    <RiLogoutBoxRLine onClick={() => {
-                      Cookies.remove('token')
-                      window.location = '/'
-                    }}/>
-                  </a>
-                  :  */}
                    <Link href='/login'>
                   <a>
                     <FaUser />
                   </a>
                 </Link>
-                  {/* } */}
                 
                 </li>
-                <li className={classes.testholder}>
-                  {token && <span className={classes.cartnumber}><p>{cart?.variations?.length || 0}</p></span>}
+                <li className={classes.CartIconHolder}>
                   <Link href='/cart'>
                     <a>
                       <RiShoppingCartFill />
                     </a>
                   </Link>
-                  {/* <em className={classes.test}>
+                  {token && <em className={classes.CartIconNumber}>
                    
-                    <span> 3</span>
-                  </em> */}
+                    <span> {cart?.variations?.length || 0}</span>
+                  </em>
+}
                 </li>
               </ul>
             </div>
