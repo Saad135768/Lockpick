@@ -4,7 +4,7 @@ import Button from '../../../../common/Button'
 import Dialog from '@material-ui/core/Dialog'
 import { withSnackbar } from 'notistack'
 import { DialogTitle } from '@material-ui/core'
-import { RiLockPasswordFill } from "react-icons/ri"
+import { RiAccountPinBoxFill } from "react-icons/ri"
 
 
 const CustomizedDialogs = () => {
@@ -15,7 +15,7 @@ const CustomizedDialogs = () => {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={() => setOpen(true)}>
-      <RiLockPasswordFill/>  change password 
+      <RiAccountPinBoxFill/> Account Information 
       </Button>
         <Dialog
           className={classes.root}
@@ -34,8 +34,8 @@ const CustomizedDialogs = () => {
           <h3> Hello Adam </h3>
          </DialogTitle>
             <Button className="NotActive"> Order History</Button>
-            <Button className="NotActive">Account Information</Button>
-             <Button>Change Password</Button>
+            <Button>Account Information</Button>
+             <Button className="NotActive">Change Password</Button>
               <div className={classes.Logout}>
                   <h2>LOG OUT</h2>
               </div>
@@ -46,28 +46,44 @@ const CustomizedDialogs = () => {
                   <input
                   name="name"
                     className={classes.LoginInput}
-                    placeholder=" Old Password"
-                    type="password"
+                    placeholder="Full Name"
+                    type="text"
                     
               />
-             
-                
-               
-              
-                  <input
-                  name="city"
+              <input
+                  name="name"
                     className={classes.LoginInput}
-                    placeholder=" New Password"
-                    type="password"
-              />
-              
-                  <input
-                  name="address"
-                    className={classes.LoginInput}
-                    placeholder="Confirm Password"
-                    type="password"
+                    placeholder="Country"
+                    type="text"
               />
              
+             <input
+                  name="name"
+                    className={classes.LoginInput}
+                    placeholder="Region/City"
+                    type="text"
+              />
+              <input
+                  name="name"
+                    className={classes.LoginInput}
+                    placeholder="Address"
+                    type="text"
+              />
+             
+             <input
+                  name="name"
+                    className={classes.LoginInput}
+                    placeholder="Email"
+                    type="text"
+              />
+              <input
+                  name="name"
+                    className={classes.LoginInput}
+                    placeholder="phone"
+                    type="text"
+              />
+             
+           
             </div>
           </div>
       </form>

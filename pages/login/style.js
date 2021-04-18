@@ -4,11 +4,13 @@ const useStyles = makeStyles(() => ({
 
   ModalHolder:{
     margin: '100px 0',
+    justifyContent: 'space-around',
 textAlign: 'center',
 display: 'flex',
 '& button': {
-  margin: 10,
+  margin: 0,
   fontSize: 18,
+  width:'100%',
 },
 '& svg': {
   fontSize: 18,
