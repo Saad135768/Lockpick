@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import useStyles from './style'
 import { IoIosClose } from 'react-icons/io'
 import NumericInput from 'react-numeric-input'
@@ -12,13 +12,15 @@ import useStore from '../../../../store'
 
 const CartData = (props) => {
   const { pathname } = useRouter()
-  const [cart, setCart] = useState([])
 
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
   const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
   
   const total = useStore((state) => state.total)
   const setTotal = useStore((state) => state.setTotal)
+  console.log(`total`, total)
+  const cart = useStore((state) => state.cart)
+  const setCart = useStore((state) => state.setCart)
 
   useEffect(() => {
     if (data) setCart(pathOr([], ['getCurrentCustomer', 'cart'], data))

@@ -6,9 +6,14 @@ import useStore from '../../../../store'
 
 
 const OrderSummary = (props) => {
-
   const total = useStore((state) => state.total)
- 
+  const setTotal = useStore((state) => state.setTotal)
+
+  const cart = useStore((state) => state.cart)
+ useEffect(() => {
+  setTotal(total)
+  if (!cart?.variations?.length) setTotal(0)
+ }, [cart, total])
   const classes = useStyles()
 
   return (

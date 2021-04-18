@@ -114,7 +114,7 @@ const useStyles = makeStyles(() => ({
       padding: '0',
     },
     '& a': {
-      fontSize: '26px',
+      fontSize: 33,
       color: '#ffa62f',
     position: 'relative',
     top: 13,
@@ -135,7 +135,25 @@ const useStyles = makeStyles(() => ({
 
     },
   },
-
+  cartnumber: {
+    height: 21,
+    position: 'absolute',
+    width: 21,
+    background: '#ffa62f',
+    borderRadius: '50%',
+    right: '-22%',
+    top: '10%',
+    color: 'white',
+    textAlign: 'center',
+    '@media (max-width: 1025px)': {
+      display: 'none',
+    },
+    '& p': {
+      display: 'inline',
+    zIndex: '100 !important',
+    position: 'relative',
+    }
+  },
   NavbarHolder: {
     borderBottom:'1px solid #0000001c',
     background: 'transparent',

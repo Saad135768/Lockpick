@@ -13,6 +13,7 @@ import { pathOr } from 'ramda'
 import { UPDATE_CART_ITEM } from '../../commonData'
 import { withSnackbar } from 'notistack'
 import { useMutation } from '@apollo/react-hooks'
+import useStore from '../../store'
 
 const SingleProductModule = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
@@ -29,11 +30,13 @@ const SingleProductModule = (props) => {
   const imgs = []
   pathOr([], ['product', 'product','images'], props).forEach((img) => imgs.push({ original: img, thumbnail: img }))
 
+  const setCart = useStore((state) => state.setCart)
   // Add to cart mutation
   const AddToCart = async (variation, quantity) => {
     try {
-       await updateCartItem({ variables: { variation: { variation, quantity }} })
+      const res = await updateCartItem({ variables: { variation: { variation, quantity }} })
        props.enqueueSnackbar('Product has been added to cart successfully', { variant: 'success' })
+       setCart(res.data.updateCartItem)
     }
     catch(error) {
       if (error.graphQLErrors) {
