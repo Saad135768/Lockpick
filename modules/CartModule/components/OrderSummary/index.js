@@ -12,7 +12,6 @@ const OrderSummary = (props) => {
   const cart = useStore((state) => state.cart)
  useEffect(() => {
   setTotal(total)
-  if (!cart?.variations?.length) setTotal(0)
  }, [cart, total])
   const classes = useStyles()
 
