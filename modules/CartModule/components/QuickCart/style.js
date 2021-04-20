@@ -183,6 +183,8 @@ const useStyles = makeStyles(() => ({
         height: '120px !important',
         width:  '120px !important',
         objectFit: 'cover', 
+        marginRight: 20,
+
       },
       '& p': {
         margin: 0,

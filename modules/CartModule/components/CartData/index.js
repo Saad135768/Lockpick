@@ -72,19 +72,20 @@ const CartData = (props) => {
           return (
             <>
               <tr key={variationsId}>
-                <td>
-                  <img src={img} onClick={() => Router.push(`/product/${productsId}`)} />
+                <td className={`${classes.imageTable} imageTable`}>
+                  <img  src={img} onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>
-                <td>
-                  {name} <br /> <p>$ {(discountedPrice || mainPrice)?.toFixed(2)}</p>
-                  <div className={classes.NumericInput}>
-                    <NumericInput mobile max={stock} defaultValue={quantity} min={1} onChange={(e) => {
+                <td className={`${classes.ItemName} ItemName`}>
+                  {name} <br /> <p  className={`${classes.ItemPrice} ItemPrice`}>$ {(discountedPrice || mainPrice)?.toFixed(2)}</p>
+                  <div 
+                  className={`${classes.NumericInput} NumericInput`}>
+                    <NumericInput  mobile max={stock} defaultValue={quantity} min={1} onChange={(e) => {
                       AddToCart(variationsId, e, 'Product has been added')
                     }} />
                   </div>
                 </td>
                 <td className={`${classes.TotalPrice} TotalPrice`}>$ {((discountedPrice || mainPrice) * quantity)?.toFixed(2)} </td>
-                <td>
+                <td className={`${classes.RemoveItem} RemoveItem`}>
                   <IoIosClose onClick={() => AddToCart(variationsId, 0, 'Product has been removed')} />
                 </td>
               </tr>
@@ -112,13 +113,13 @@ const CartData = (props) => {
         </>
         }
         {(cartLength && pathname !== '/cart') && <>
-          <tr>
+          <tr className={`${classes.CartSub} CartSub`}>
             <td colSpan={3} className={classes.td_total}>
               <p>Subtotal</p>
               <p>$ {total?.toFixed(2)}</p>
             </td>
           </tr>
-          <tr className={classes.CartInputs}>
+          <tr className={`${classes.CartInputs} CartInputs`}>
             <td colSpan={3} className={classes.ViewCart}>
               <button onClick={() => Router.push('/cart')}> View cart </button>
             </td>

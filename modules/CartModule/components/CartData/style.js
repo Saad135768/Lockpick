@@ -229,6 +229,9 @@ td_total: {
 
     },
     },
+    imageTable:{
+
+    },
 }))
 
 export default useStyles

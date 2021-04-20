@@ -37,7 +37,6 @@ const useStyles = makeStyles(() => ({
   OrderSummaryContent: {
     marginTop: 9,
     paddingBottom: 30,
-
   },
 
   OrderSummaryFlex: {

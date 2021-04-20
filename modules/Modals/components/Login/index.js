@@ -64,7 +64,7 @@ const CustomizedDialogs = (props) => {
           <h3> Welcome Back </h3>
         </DialogTitle>
             <input 
-            name='username'
+           name='username'
           className={classes.LoginInput} 
           placeholder="Email"
           type='email'
