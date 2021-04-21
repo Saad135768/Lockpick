@@ -18,7 +18,7 @@ const CartData = (props) => {
   
   const total = useStore((state) => state.total)
   const setTotal = useStore((state) => state.setTotal)
-  console.log(`total`, total)
+  
   const cart = useStore((state) => state.cart)
   const setCart = useStore((state) => state.setCart)
 
@@ -28,6 +28,7 @@ const CartData = (props) => {
 
 
   useEffect(() => {
+    // if (!cart?.variations?.length) return setTotal(0)
     cart?.variations?.reduce((a,b) => {
       const discountedPrice = pathOr(1, ['variation', 'price', 'discountedPrice'], b)
       const mainPrice = pathOr(1, ['variation', 'price', 'mainPrice'], b)
