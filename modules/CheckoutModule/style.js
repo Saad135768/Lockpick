@@ -240,6 +240,47 @@ ReturnPolicy:{
     fontFamily: 'Poppins-Regular',
   },
 },
+EditBtn :{
+  background:'transparent',
+  border:0,
+  textAlign: 'right',
+    margin: 0,
+    padding: 0,
+    textDecoration: 'underline',
+    position: 'relative',
+    bottom: 65,
+    marginTop: 0,
+     cursor:'pointer',
+  '&:focus': {
+    background:'transparent',
+    border:0,
+    color:'#fba530',
+    outline:0,
+  },
+},
+
+SaveBtn :{
+  background:'transparent',
+  border:0,
+  textAlign: 'right',
+    margin: 0,
+    marginTop: 0,
+    padding: 0,
+    textDecoration: 'underline',
+    position: 'relative',
+    cursor:'pointer',
+    bottom: 65,
+  '&:focus': {
+    background:'transparent',
+    border:0,
+    color:'#fba530',
+    outline:0,
+  },
+},
+
+SHippingEdit:{
+  width:'100%',
+},
 }))
 
 export default useStyles

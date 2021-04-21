@@ -11,7 +11,7 @@ const ShippingDetails = ({ edit }) => {
 
   return (
     <div className={classes.schoolinfoHolder}>
-        <button onClick={() => edit(false)}> Edit </button>
+        <button className={classes.EditBtn}  onClick={() => edit(false)}> Edit </button>
     
         <AccordionDetails>
                         <div className={classes.ShippingDetailsInfo}>

@@ -15,10 +15,11 @@ const EditShipping = ({ save }) => {
   const classes = useStyles()
 
   return (
+    
     <div className={classes.SHippingEdit}>
     <form autoComplete="off" noValidate onSubmit={handleSubmit(editShipping)}>
       <div className={classes.ShippingEditContent}>
-        <button type="submit"> Save </button>
+        <button  className={classes.SaveBtn} type="submit"> Save </button>
         <h5> Name </h5>
         <h5> Address</h5>
         <h5> Phone</h5>
