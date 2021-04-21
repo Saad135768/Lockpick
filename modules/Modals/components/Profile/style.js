@@ -47,6 +47,7 @@ margin: '10px 0',
     '& h3': {
       fontFamily: 'Poppins-SemiBold',
       textAlign: 'center',
+      color:'#2b333d',
     },
     '& img': {
       width: '90%',
@@ -58,7 +59,8 @@ zIndex:'2000 !important',
     '& .MuiDialog-paperWidthSm': {
       background: '#fba631',
       width:'400px',
-      borderRadius: '20px',
+      borderRadius: '25px',
+    
       maxWidth:'400px',
       padding: 20,
       '& button': {

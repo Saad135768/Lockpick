@@ -58,8 +58,8 @@ const OrderSummary = (props) => {
           <p className={classes.total}> {total?.toFixed(2)} $ </p>
         </div>
       </div>
-      <Link as={"#"} href="#">
-        <a href="#">
+      <Link as={"/checkout"} href="/checkout">
+        <a href="/checkout">
           <Button> CheckOut</Button>
         </a>
       </Link>
