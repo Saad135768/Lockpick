@@ -76,7 +76,15 @@ const CartData = (props) => {
                   <img  src={img} onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>
                 <td className={`${classes.ItemName} ItemName`}>
-                  {name} <br /> <p  className={`${classes.ItemPrice} ItemPrice`}>$ {(discountedPrice || mainPrice)?.toFixed(2)}</p>
+      <div>
+                  {name}
+                  <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity :1</p> 
+                  <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`}> + More Details :</p>
+
+                  </div>
+                  <div>
+                  <p  className={`${classes.ItemPrice} ItemPrice`}>$ {(discountedPrice || mainPrice)?.toFixed(2)}</p>
+                  </div>
                   <div 
                   className={`${classes.NumericInput} NumericInput`}>
                     <NumericInput  mobile max={stock} defaultValue={quantity} min={1} onChange={(e) => {
@@ -114,7 +122,7 @@ const CartData = (props) => {
         }
         {(cartLength && pathname !== '/cart') && <>
           <tr className={`${classes.CartSub} CartSub`}>
-            <td colSpan={3} className={classes.td_total}>
+            <td colSpan={3} className={`${classes.td_total} td_total`}>
               <p>Subtotal</p>
               <p>$ {total?.toFixed(2)}</p>
             </td>

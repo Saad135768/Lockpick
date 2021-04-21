@@ -3,14 +3,33 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
   OrderSummaryHolder: {
 
+
+'& td.ItemName': {
+  display: 'flex',
+  justifyContent:'space-between',
+},
+'& p.ItemPrice': {
+  marginTop: 0,
+},
+
+'& .ForCheckoutQuantity': {
+  display: 'block',
+  marginTop: 6,
+},
+'& .ForCheckoutMoreDetails': {
+  display: 'block',
+  marginTop: 6,
+  color:'#3680d6',
+},
+
     '& td.imageTable ': {
       borderBottom: 0,
 
   },
 
       '& td.imageTable img': {
-    width:'80px !important',
-    height: '80px !important',
+    width:'85px !important',
+    height: '85px !important',
     objectFit: 'contain',
     marginTop: 0,
 
@@ -22,7 +41,7 @@ const useStyles = makeStyles(() => ({
   fontSize: '14px !important',
   color: '#fff',
 },
-'& .NumericInput , .CartSub , .RemoveItem , .ItemPrice , .CartInputs': {
+'& .NumericInput , .CartSub , .RemoveItem , .total , .CartInputs , .TotalPrice , td_total' : {
       display: 'none !important',
       borderBottom: 0,
 
@@ -43,7 +62,7 @@ const useStyles = makeStyles(() => ({
 
  
     '& h3 ': {
-      fontSize: 19,
+      fontSize: 18,
     },
     '& h3 , p': {
       marginBottom: 0,
@@ -105,16 +124,26 @@ borderBottom:'1px solid #fba530',
     },
   },
 
-  total: {
-    fontFamily: 'Poppins-Bold',
+  totalPrice: {
+    fontFamily: 'Poppins-SemiBold',
     fontSize: 24,
     marginTop: '16px !important',
+    color:'#fba530',
+  },
+  totalText: {
+    '& h3': {
+      color:'#fba530',
+    fontFamily: 'Poppins-SemiBold',
+    fontSize: 24,
+    marginTop: 15,
+
+    },
   },
   
   promocode:{
     borderTop:'1px solid #3780d5',
     borderBottom:'1px solid #3780d5',
-    padding:'10px 0',
+    padding:'20px 0',
     display: 'flex',
     marginTop:10,
 
@@ -148,6 +177,7 @@ borderBottom:'1px solid #fba530',
       fontSize:18,
     },
   },
+
 }));
 
 export default useStyles;

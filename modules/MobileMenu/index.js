@@ -12,11 +12,15 @@ import Accordion from '@material-ui/core/Accordion'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import useStore from '../../store'
+import Cookies from 'js-cookie'
 
 const MobileMenu = () => {
   const router = useRouter()
   const [isOpen, setIsOpen] = React.useState(false)
  
+  const cart = useStore((state) => state.cart)
+
   const handleClose = () => {
     setAnchorEl(null)
   }
@@ -33,6 +37,8 @@ const MobileMenu = () => {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false)
   }
+  const token = Cookies.get('token')
+
   return (
     <div className={classes.MobileMenuHolder}>
       <Container maxWidth="lg">
@@ -83,15 +89,16 @@ const MobileMenu = () => {
             <div>
               
               <li className={classes.CartIconHolder}>
-                  <Link href='/cart'>
+              <Link href='/cart'>
                     <a>
                       <RiShoppingCartFill />
                     </a>
                   </Link>
-                  <em className={classes.CartIconNumber}>
+                  {token && <em className={classes.CartIconNumber}>
                    
-                    <span> 3</span>
+                    <span> {cart?.variations?.length || 0}</span>
                   </em>
+}
                 </li>
             </div>
         </div>

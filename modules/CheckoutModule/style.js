@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
-  CartHolder:{
+  CheckoutHolder:{
     marginTop:100,
     marginBottom:140,
     '@media (max-width:768px)': {
@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
         justifyContent:'space-between',
     background: '#4c505a',
     color: '#fff',
-    marginBottom: 20,
+    marginBottom: 0,
     padding: '0 20px',
     marginTop: 20,
     '& h4': {
@@ -78,7 +78,8 @@ const useStyles = makeStyles(() => ({
     },
   },
   ShippingDetails:{
-    
+    borderBottom: '1px solid #3780d5',
+   paddingBottom: 0,
     '& button': {
       marginTop: 30,
 fontSize: 20,
@@ -88,10 +89,15 @@ width:'100%',
 color:'#fff',
     },
     '& h5': {
-      fontSize: 25,
+      fontSize: 22,
       color: '#fba530',
       fontFamily:'Poppins-SemiBold',
       margin: '30px 0',
+      marginBottom: 28,
+    '& em': {
+      fontStyle: 'normal',
+      marginRight: 10,
+    },
     },
     '& span': {
       fontSize: 18,
@@ -201,6 +207,38 @@ alignItems:'center',
   '& img ': {
     width:'100%',
 },
+},
+
+root:{
+
+'& .MuiAccordionDetails-root a': {
+  width: '100%',
+  marginBottom: 20,
+  marginTop: 0,
+
+},
+  '& .MuiAccordionSummary-content.Mui-expanded ': {
+      marginBottom:0,
+  },
+  '& .MuiAccordion-root:before ': {
+    background:'#3780d5',
+    opacity: 1,
+
+  },
+  '& .MuiPaper-root ': {
+    backgroundColor: 'transparent',
+    boxShadow: 'none !important',
+},
+
+},
+
+ReturnPolicy:{
+  '& p': {
+    fontSize:16,
+    color:'#fff',
+    marginTop: 40,
+    fontFamily: 'Poppins-Regular',
+  },
 },
 }))
 

@@ -232,6 +232,13 @@ td_total: {
     imageTable:{
 
     },
+    ForCheckoutQuantity:{
+      display:'none',
+    },
+    ForCheckoutMoreDetails:{
+      display:'none',
+
+    },
 }))
 
 export default useStyles
