@@ -1,29 +1,19 @@
+import CancelIcon from '@material-ui/icons/Cancel'
 import React, { useState } from "react"
 import useStyles from "../../../CheckoutModule/style"
 import Grid from "@material-ui/core/Grid"
 import Button from "../../../../common/Button"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
 import Link from "next/link"
-
-
-const ShippingDetails = () => {
+const ShippingDetails = ({ edit }) => {
   const classes = useStyles()
 
-  const handleChange = (event) => {
-    setValue(event.target.value)
-  }
-  const handleChange1 = (event) => {
-    setValue2(event.target.value)
-  }
-  const [expanded, setExpanded] = React.useState(false)
 
-  const handleChangeSteps = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false)
-  }
   return (
-    <div>
-     
-                      <AccordionDetails>
+    <div className={classes.schoolinfoHolder}>
+        <button onClick={() => edit(false)}> Edit </button>
+    
+        <AccordionDetails>
                         <div className={classes.ShippingDetailsInfo}>
                           <span> *First Name</span>
                           <input

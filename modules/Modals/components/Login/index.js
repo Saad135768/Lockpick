@@ -12,7 +12,6 @@ import { LOGIN_MUTATION } from '../../data'
 import { FaUserAlt } from "react-icons/fa";
 
 const CustomizedDialogs = (props) => {
-  const [open, setOpen] = useState()
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
   })
@@ -46,16 +45,11 @@ const CustomizedDialogs = (props) => {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={() => setOpen(true)}>
-      <FaUserAlt/>   login 
-      </Button>
-     
-
       <Dialog
         className={classes.root}
-        onClose={() => setOpen(false)}
         aria-labelledby="customized-dialog-title"
-        open={open}
+        open={props.openLogin}
+        onClose={() => props.setOpenLogin(false)} 
       >
       <form onSubmit={handleSubmit(customerLogin)}>
         <div>
@@ -88,11 +82,12 @@ const CustomizedDialogs = (props) => {
         />
         {errors.password && ( <p className={classes.errorMsg}>{errors.password.message}</p> )}
           <Button> LOG IN </Button>
-        {/* <div className={classes.register}>
+        <div className={classes.register}
+        >
           <a href="#">
             <h2>Register</h2>
           </a>
-        </div> */}
+        </div>
         </div>
         </form>
       </Dialog>

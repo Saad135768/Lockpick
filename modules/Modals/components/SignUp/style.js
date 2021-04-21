@@ -55,7 +55,7 @@ margin: '10px 0',
     '& h3': {
       fontFamily: 'Poppins-SemiBold',
       textAlign: 'center',
-
+      color:'#2b333d',
     },
   
 zIndex:'2000 !important',
@@ -106,8 +106,10 @@ display:'flex',
     borderBottomRightRadius: 25,
     padding: 25,
     '& img': {
-      width: '100%',
-    },
+      width: '90%',
+       margin:'0 auto',
+       display:'block',
+          },
     '& h2': {
       color: '#397399',
       textAlign: 'center',

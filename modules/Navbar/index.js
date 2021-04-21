@@ -12,7 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { AiOutlineSearch } from 'react-icons/ai'
 import Cookies from 'js-cookie'
 import useStore from '../../store'
-
+import Login from '../../modules/Modals/components/Login'
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
@@ -31,6 +31,8 @@ const Navbar = () => {
     setAnchorEl(null)
   }
   const token = Cookies.get('token')
+  const [openLogin, setOpenLogin] = useState()
+
   return (
     <div className={classes.NavbarHolder}>
       <div className={classes.NavbaTopImage} />
@@ -192,12 +194,9 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                   <Link href='/login'>
                   <a>
-                    <FaUser />
+                  <FaUser onClick={() => setOpenLogin(true)}/>
                   </a>
-                </Link>
-                
                 </li>
                 <li className={classes.CartIconHolder}>
                   <Link href='/cart'>
@@ -215,6 +214,8 @@ const Navbar = () => {
             </div>
           </Grid>
         </Grid>
+        <Login setOpenLogin={setOpenLogin} openLogin={openLogin}/>
+
       </Container>
 
     </div>

@@ -5,17 +5,15 @@ import Grid from "@material-ui/core/Grid"
 import CheckoutSummary from "./components/CheckoutSummary"
 import Button from "../../common/Button"
 import Link from "next/link"
-import Radio from "@material-ui/core/Radio"
-import RadioGroup from "@material-ui/core/RadioGroup"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import FormControl from "@material-ui/core/FormControl"
+
 import Accordion from "@material-ui/core/Accordion"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
 import AccordionSummary from "@material-ui/core/AccordionSummary"
 import Typography from "@material-ui/core/Typography"
-import ShippingDetails from "./components/ShippingDetails"
 import PaymentMethod from "./components/PaymentMethod"
 import DeliveryMethod from "./components/DeliveryMethod"
+import EditShipping from './components/EditShipping/'
+import ShippingDetails from './components/ShippingDetails/'
 
 const CheckoutModule = () => {
   const classes = useStyles()
@@ -24,6 +22,8 @@ const CheckoutModule = () => {
   const handleChangeSteps = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false)
   }
+  const [View, setView] = useState(true)
+  const [Add, setAdd] = useState(false)
   return (
     <div className={classes.CheckoutHolder}>
       <Container>
@@ -47,6 +47,7 @@ const CheckoutModule = () => {
 
                 <div className={classes.ShippingDetails}>
                   <div className={classes.root}>
+                    
                     <Accordion
                       expanded={expanded === "panel1"}
                       onChange={handleChangeSteps("panel1")}
@@ -63,7 +64,8 @@ const CheckoutModule = () => {
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                     <ShippingDetails/>
+                     {View ? <ShippingDetails edit={setView} /> : <EditShipping save={setView} />}
+
                       </AccordionDetails>
                     </Accordion>
                     <Accordion

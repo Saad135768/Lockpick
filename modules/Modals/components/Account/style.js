@@ -119,8 +119,10 @@ padding: '8px 28px',
     borderBottomRightRadius: 25,
     padding: 25,
     '& img': {
-      width: '100%',
-    },
+      width: '90%',
+       margin:'0 auto',
+       display:'block',
+          },
    
   },
   Right:{
