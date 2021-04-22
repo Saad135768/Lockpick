@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid"
 import CheckoutSummary from "./components/CheckoutSummary"
 import Button from "../../common/Button"
 import Link from "next/link"
-
 import Accordion from "@material-ui/core/Accordion"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
 import AccordionSummary from "@material-ui/core/AccordionSummary"
@@ -14,16 +13,13 @@ import PaymentMethod from "./components/PaymentMethod"
 import DeliveryMethod from "./components/DeliveryMethod"
 import EditShipping from './components/EditShipping/'
 import ShippingDetails from './components/ShippingDetails/'
+import Cookies from 'js-cookie'
 
 const CheckoutModule = () => {
   const classes = useStyles()
-  const [expanded, setExpanded] = React.useState('panel1')
 
-  const handleChangeSteps = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false)
-  }
   const [View, setView] = useState(true)
-  const [Add, setAdd] = useState(false)
+
   return (
     <div className={classes.CheckoutHolder}>
       <Container>
@@ -41,17 +37,17 @@ const CheckoutModule = () => {
                     <h3> Logged as username@email.com</h3>
                   </div>
                   <div>
-                    <h4> Log out </h4>
+                    <h4 onClick={() => {
+                  Cookies.remove('token')
+                  window.location = '/'
+                  }}> Log out </h4>
                   </div>
                 </div>
 
                 <div className={classes.ShippingDetails}>
                   <div className={classes.root}>
                     
-                    <Accordion
-                      expanded={expanded === "panel1"}
-                      onChange={handleChangeSteps("panel1")}
-                    >
+                    <Accordion>
                       <AccordionSummary
                         aria-controls="panel1bh-content"
                         id="panel1bh-header"
@@ -68,10 +64,7 @@ const CheckoutModule = () => {
 
                       </AccordionDetails>
                     </Accordion>
-                    <Accordion
-                      expanded={expanded === "panel2"}
-                      onChange={handleChangeSteps("panel2")}
-                    >
+                    <Accordion>
                       <AccordionSummary
                         aria-controls="panel2bh-content"
                         id="panel2bh-header"
@@ -83,10 +76,7 @@ const CheckoutModule = () => {
                       </AccordionSummary>
                       <DeliveryMethod/>
                     </Accordion>
-                    <Accordion
-                      expanded={expanded === "panel3"}
-                      onChange={handleChangeSteps("panel3")}
-                    >
+                    <Accordion>
                       <AccordionSummary
                         aria-controls="panel3bh-content"
                         id="panel3bh-header"
@@ -99,10 +89,7 @@ const CheckoutModule = () => {
                      <PaymentMethod/>
                     </Accordion>
 
-                    <Accordion
-                      expanded={expanded === "panel4"}
-                      onChange={handleChangeSteps("panel4")}
-                    >
+                    <Accordion>
                       <AccordionSummary
                         aria-controls="panel4bh-content"
                         id="panel4bh-header"
