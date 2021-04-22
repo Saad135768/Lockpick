@@ -9,8 +9,12 @@ const useStyles = makeStyles(() => ({
   register:{
 textAlign: 'right',
 textTransform:'uppercase',
-margin: '10px 0',
-
+marginTop: '40px',
+'& h2': {
+  fontSize: '20px',
+  marginBottom:0,
+  cursor: 'pointer',
+},
 
   },
   LoginInput: {
@@ -44,30 +48,30 @@ margin: '10px 0',
     color: 'red',
   },
   root: {
+    '& img': {
+width: '90%',
+ margin:'0 auto',
+ display:'block',
+    },
     '& h3': {
       fontFamily: 'Poppins-SemiBold',
       textAlign: 'center',
-    },
-    '& img': {
-      width: '90%',
-      display: 'block',
-      margin:'0 auto',
+   color:'#2b333d',
     },
 zIndex:'2000 !important',
 
     '& .MuiDialog-paperWidthSm': {
       background: '#fba631',
       width:'400px',
-      borderRadius: '20px',
+      borderRadius: '25px',
+
       maxWidth:'400px',
       padding: 20,
       '& button': {
         background: '#397399',
         color: '#FFF',
-        textTransform: 'capitalize',
         width:'100%',
         fontSize: 19,
-        margin: '15px 0',
         fontFamily: 'Poppins-Regular',
         borderRadius: 8,
         padding:10,

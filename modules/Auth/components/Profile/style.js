@@ -47,21 +47,29 @@ margin: '10px 0',
     '& h3': {
       fontFamily: 'Poppins-SemiBold',
       textAlign: 'center',
-
+      color:'#2b333d',
+    },
+    '& img': {
+      width: '90%',
+      display: 'block',
+      margin:'0 auto',
     },
 zIndex:'2000 !important',
 
     '& .MuiDialog-paperWidthSm': {
       background: '#fba631',
       width:'400px',
-      borderRadius: '8px',
+      borderRadius: '25px',
+    
       maxWidth:'400px',
       padding: 20,
       '& button': {
         background: '#397399',
         color: '#FFF',
+        textTransform: 'capitalize',
         width:'100%',
         fontSize: 19,
+        margin: '15px 0',
         fontFamily: 'Poppins-Regular',
         borderRadius: 8,
         padding:10,

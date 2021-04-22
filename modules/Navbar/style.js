@@ -14,10 +14,10 @@ const useStyles = makeStyles(() => ({
     alignItems: 'left',
     height: '100%',
   },
-  NavbaTopImage:{
+  NavbaTopImage: {
     background: '#3780d5',
     padding: 25,
-    filter:'drop-shadow(0px 9px 10px black)',
+    filter: 'drop-shadow(0px 9px 10px black)',
     marginBottom: 0,
     '@media (min-width: 1440px)': {
       width: '1280px',
@@ -27,11 +27,11 @@ const useStyles = makeStyles(() => ({
       paddingLeft: '0 !important',
       maxWidth: 1280,
     },
-  
+
 
     '& img': {
-      position:'relative',
-      zIndex:2,
+      position: 'relative',
+      zIndex: 2,
       height: 45,
       width: '100%',
       objectFit: 'cover',
@@ -59,20 +59,20 @@ const useStyles = makeStyles(() => ({
       padding: '0',
       ' & :hover': {
         transition: '0.1s',
-        borderTop:'3px solid #3680d6',
-        color:'#FF7700',
+        borderTop: '3px solid #3680d6',
+        color: '#FF7700',
 
       },
     },
     '& a': {
       fontSize: '20px',
-      cursor:'pointer',
+      cursor: 'pointer',
       fontFamily: 'Poppins-Regular',
       color: '#3680d6',
       marginRight: '45px',
       '@media screen and (min-width: 1025px) and (max-width: 1200px)': {
         marginRight: 20,
-        fontSize:19,
+        fontSize: 19,
       },
 
       paddingTop: 10,
@@ -86,28 +86,28 @@ const useStyles = makeStyles(() => ({
         position: 'relative',
         top: 10,
       },
-   
+
     },
     '& a.active': {
       paddingBottom: '2px',
-      color:'#fba62f',
+      color: '#fba62f',
       '& :hover': {
         color: '#FF7700',
       },
     },
 
   },
-  RightMenu :{
+  RightMenu: {
     width: 520,
-    marginBottom:0,
-    position:'relative',
+    marginBottom: 0,
+    position: 'relative',
     color: 'white',
     justifyContent: 'flex-end',
     marginTop: '30px',
     textTransform: 'uppercase',
     fontFamily: 'Poppins-Light',
     padding: '0',
-    display:'flex',
+    display: 'flex',
     '& li': {
       color: '#ffa62f',
       display: 'inline-block',
@@ -116,10 +116,10 @@ const useStyles = makeStyles(() => ({
     '& a': {
       fontSize: 33,
       color: '#ffa62f',
-    position: 'relative',
-    top: 13,
+      position: 'relative',
+      top: 13,
       marginLeft: '15px',
-     
+      cursor: 'pointer',
       '& img': {
         position: 'relative',
         top: 10,
@@ -150,19 +150,19 @@ const useStyles = makeStyles(() => ({
     },
     '& p': {
       display: 'inline',
-    zIndex: '100 !important',
-    position: 'relative',
+      zIndex: '100 !important',
+      position: 'relative',
     }
   },
   NavbarHolder: {
-    borderBottom:'1px solid #0000001c',
+    borderBottom: '1px solid #0000001c',
     background: 'transparent',
-    padding:0,
+    padding: 0,
     width: '100%',
     ' & .MuiContainer-root.MuiContainer-maxWidthLg ': {
-boxShadow:'none',
+      boxShadow: 'none',
     },
-    
+
     '@media (min-width:1440px)': {
       margin: '0 auto',
       padding: '0 !important',
@@ -172,12 +172,12 @@ boxShadow:'none',
       maxWidth: '1280px !important',
     },
     '@media (max-width: 1024px)': {
-display:'none',
+      display: 'none',
     },
     ' & .search ': {
       width: "100%",
-       position: "relative",
-        display: "flex",
+      position: "relative",
+      display: "flex",
     },
     ' & .searchTerm ': {
       width: "100%",
@@ -186,20 +186,20 @@ display:'none',
       fontFamily: 'Poppins-Light',
       padding: "5px",
       paddingLeft: "30px",
-      background:'#4b5059',
-      fontSize:'15px',
+      background: '#4b5059',
+      fontSize: '15px',
       height: "45px",
       borderRadius: "12px 0 0 12px",
       outline: "none",
       color: "#fff",
-     
+
     },
     ' & input.searchTerm::placeholder': {
       color: '#2B313B',
       fontFamily: 'Poppins-Light',
-      fontSize:'14px',
+      fontSize: '14px',
     },
-    
+
     ' & .searchTerm:focus': {
       color: '#fff',
 
@@ -217,7 +217,7 @@ display:'none',
     },
     ' & .wrap': {
       width: "100%",
-       margin: "7px auto",
+      margin: "7px auto",
     },
   },
   carticon: {
@@ -325,7 +325,7 @@ display:'none',
   },
 
   CartIconHolder: {
-    position: "relative", 
+    position: "relative",
     zIndex: 9,
     '& svg': {
       zIndex: 99,
@@ -351,7 +351,7 @@ display:'none',
     zIndex: 999,
     fontSize: "13px",
 
-   
+
 
 
     '& span': {
@@ -391,8 +391,8 @@ display:'none',
     },
   },
 
-  root :{
-width: 200,
+  root: {
+    width: 200,
   },
 }))
 

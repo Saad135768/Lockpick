@@ -52,3 +52,27 @@ export const RESET_PASSWORD = gql`
     resetPassword(password: $password, token: $token)
   }
 `
+export const CHANGE_PASSWORD = gql`
+mutation changePassword($password: String! $newPassword: String!){
+  changePassword(password: $password newPassword: $newPassword)
+}
+`
+
+export const GET_CURRENT_CUSTOMER = gql`
+  query getCurrentCustomer {
+    getCurrentCustomer {
+      _id
+      email
+      name
+      phone
+      address {
+        countryCode
+        city
+        country
+        apartment
+        floor
+        street
+      }
+    }
+  }
+`

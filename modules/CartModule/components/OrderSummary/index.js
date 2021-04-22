@@ -11,7 +11,8 @@ const OrderSummary = (props) => {
 
   const cart = useStore((state) => state.cart)
  useEffect(() => {
-  setTotal(total)
+   if (!cart?.variations?.length) return setTotal(0)
+   setTotal(total)
  }, [cart, total])
   const classes = useStyles()
 
@@ -57,8 +58,8 @@ const OrderSummary = (props) => {
           <p className={classes.total}> {total?.toFixed(2)} $ </p>
         </div>
       </div>
-      <Link as={"#"} href="#">
-        <a href="#">
+      <Link as={"/checkout"} href="/checkout">
+        <a href="/checkout">
           <Button> CheckOut</Button>
         </a>
       </Link>
