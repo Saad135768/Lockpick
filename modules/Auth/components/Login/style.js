@@ -13,6 +13,7 @@ marginTop: '40px',
 '& h2': {
   fontSize: '20px',
   marginBottom:0,
+  cursor: 'pointer',
 },
 
   },

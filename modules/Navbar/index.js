@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import useStyles from './style'
 import { useRouter } from 'next/router'
-import { RiShoppingCartFill, RiLogoutBoxRLine } from 'react-icons/ri'
+import { RiShoppingCartFill } from 'react-icons/ri'
 import { FaUser } from 'react-icons/fa'
 import Router from 'next/router'
 import Menu from '@material-ui/core/Menu'
@@ -12,13 +12,21 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { AiOutlineSearch } from 'react-icons/ai'
 import Cookies from 'js-cookie'
 import useStore from '../../store'
-import Login from '../../modules/Modals/components/Login'
+import Login from '../../modules/Auth/components/Login'
+import SignUp from '../Auth/components/SignUp'
+import Profile from '../Auth/components/Profile'
+import ChangePassword from '../Auth/components/ChangePassword'
+import Account from '../Auth/components/Account'
+import Auth from '../Auth'
+
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
   const { parsed } = router
 
   const cart = useStore((state) => state.cart)
+  const setOpenModal = useStore((state) => state.setOpenModal)
+  const openModal = useStore((state) => state.openModal)
 
   const [anchorEl, setAnchorEl] = useState(null)
   const [searchTerm, setSearchTerm] = useState()
@@ -31,7 +39,6 @@ const Navbar = () => {
     setAnchorEl(null)
   }
   const token = Cookies.get('token')
-  const [openLogin, setOpenLogin] = useState()
 
   return (
     <div className={classes.NavbarHolder}>
@@ -195,7 +202,7 @@ const Navbar = () => {
 
                 <li>
                   <a>
-                  <FaUser onClick={() => setOpenLogin(true)}/>
+                  <FaUser onClick={() => setOpenModal(1)}/>
                   </a>
                 </li>
                 <li className={classes.CartIconHolder}>
@@ -214,8 +221,7 @@ const Navbar = () => {
             </div>
           </Grid>
         </Grid>
-        <Login setOpenLogin={setOpenLogin} openLogin={openLogin}/>
-
+        <Auth />
       </Container>
 
     </div>

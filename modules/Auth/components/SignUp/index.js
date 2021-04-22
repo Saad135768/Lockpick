@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import useStyles from './style'
 import Button from '../../../../common/Button'
 import Dialog from '@material-ui/core/Dialog'
@@ -7,13 +7,14 @@ import { useMutation } from '@apollo/react-hooks'
 import { useForm } from 'react-hook-form'
 import { withSnackbar } from 'notistack'
 import { REGISTER_MUTATION } from '../../data'
-import { FaUserPlus } from "react-icons/fa";
+import { FaUserPlus } from "react-icons/fa"
+import useStore from '../../../../store'
 
 const CustomizedDialogs = (props) => {
-  const [open, setOpen] = useState(false)
-  const { register, handleSubmit, errors, watch } = useForm({
-    mode: 'onBlur'
-  })
+  const openModal = useStore((state) => state.openModal)
+  const setOpenModal = useStore((state) => state.setOpenModal)
+
+  const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' })
 
   const [Register] = useMutation(REGISTER_MUTATION)
   
@@ -59,14 +60,11 @@ const CustomizedDialogs = (props) => {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={() => setOpen(true)}>
-      <FaUserPlus/>    Sign Up  
-      </Button>
         <Dialog
           className={classes.root}
-          onClose={() => setOpen(false)}
+          onClose={() => setOpenModal()}
           aria-labelledby="customized-dialog-title"
-          open={open}
+          open={openModal}
         >
       <form onSubmit={handleSubmit(addCustomer)}>
           <div className={classes.LeftRight}>
@@ -115,8 +113,7 @@ const CustomizedDialogs = (props) => {
               {errors.password && (
                 <p className={classes.errorMsg}>{errors.password.message}</p>
               )}
-
-                
+              
                   <input
                   name="phone"
                     className={classes.LoginInput}
