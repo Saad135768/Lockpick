@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   ModalHolder:{
-    margin: '100px 0',
+    // margin: '100px 0',
     justifyContent: 'space-around',
 textAlign: 'center',
 display: 'flex',
