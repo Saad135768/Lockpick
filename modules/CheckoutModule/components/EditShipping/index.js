@@ -26,9 +26,9 @@ const EditShipping = ({ setView, data, ...props }) => {
           
           Edit
         </button>
-        <h5> Name: {name} </h5>
-        <h5> Phone: {phone} </h5>
-        <h5>
+        <h6> Name: {name} </h6>
+        <h6> Phone: {phone} </h6>
+        <h6>
           
           Address: {AddressChecker(city)}
           {AddressChecker(state)}
@@ -36,7 +36,7 @@ const EditShipping = ({ setView, data, ...props }) => {
           {AddressChecker(apartment)}
           {AddressChecker(floor)}
           {AddressChecker(street)}
-        </h5>
+        </h6>
       </div>
     </div>
   )

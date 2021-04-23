@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 
-const DeliveryMethod = ({ setShippingMethod, ...props }) => {
+const DeliveryDetails = ({ edit, setShippingMethod, ...props }) => {
   const classes = useStyles()
   const handleChange = event => {
     setShippingMethod(event.target.value)
@@ -15,6 +15,8 @@ const DeliveryMethod = ({ setShippingMethod, ...props }) => {
 
   return (
     <div>
+        <div className={classes.schoolinfoHolder}>
+        <button className={classes.EditBtn} onClick={() => edit(false)}> Edit </button>
       <AccordionDetails>
         <div className={classes.DeliveryMethod}>
           <FormControl component="fieldset">
@@ -52,7 +54,8 @@ const DeliveryMethod = ({ setShippingMethod, ...props }) => {
         </div>
       </AccordionDetails>
     </div>
+    </div>
   )
 }
 
-export default DeliveryMethod
+export default DeliveryDetails

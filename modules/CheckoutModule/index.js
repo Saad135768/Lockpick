@@ -9,8 +9,10 @@ import AccordionDetails from '@material-ui/core/AccordionDetails'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import Typography from '@material-ui/core/Typography'
 import PaymentMethod from './components/PaymentMethod'
-import DeliveryMethod from './components/DeliveryMethod'
+import DeliveryDetails from './components/DeliveryDetails'
 import EditShipping from './components/EditShipping/'
+import EditDelivery from './components/EditDelivery'
+
 import ShippingDetails from './components/ShippingDetails/'
 import Cookies from 'js-cookie'
 import { AiOutlineCheck } from 'react-icons/ai'
@@ -26,6 +28,8 @@ import useStore from './../../store'
 const CheckoutModule = (props) => {
   const { data } = useQuery(GET_CURRENT_CUSTOMER)
   const [View, setView] = useState(true)
+  const [View2, setView2] = useState(true)
+
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
   const [shippingMethod, setShippingMethod] = useState()
@@ -140,7 +144,12 @@ console.log(`checkoutValues`, checkoutValues)
                           <em>{shippingMethod ? <AiOutlineCheck /> : 2}</em> Delivery Method
                         </h5>
                       </AccordionSummary>
-                      <DeliveryMethod setShippingMethod={setShippingMethod} />
+                      <AccordionDetails>
+
+                      {View2 ? <DeliveryDetails setShippingMethod={setShippingMethod} edit={setView2} /> : <EditDelivery save={setView2} />}
+
+                     
+                      </AccordionDetails>
                     </Accordion>
                     <Accordion>
                       <AccordionSummary
