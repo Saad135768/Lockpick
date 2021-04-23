@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
@@ -12,22 +12,19 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { AiOutlineSearch } from 'react-icons/ai'
 import Cookies from 'js-cookie'
 import useStore from '../../store'
-import Login from '../../modules/Auth/components/Login'
-import SignUp from '../Auth/components/SignUp'
-import Profile from '../Auth/components/Profile'
-import ChangePassword from '../Auth/components/ChangePassword'
-import Account from '../Auth/components/Account'
 import Auth from '../Auth'
 
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
   const { parsed } = router
-
+  
+  
   const cart = useStore((state) => state.cart)
   const setOpenModal = useStore((state) => state.setOpenModal)
-  const openModal = useStore((state) => state.openModal)
-
+  
+  const cartLength = cart?.variations?.length || 0
+  
   const [anchorEl, setAnchorEl] = useState(null)
   const [searchTerm, setSearchTerm] = useState()
   function handleClick(event) {
@@ -213,7 +210,7 @@ const Navbar = () => {
                   </Link>
                   {token && <em className={classes.CartIconNumber}>
                    
-                    <span> {cart?.variations?.length || 0}</span>
+                    <span> {cartLength}</span>
                   </em>
 }
                 </li>

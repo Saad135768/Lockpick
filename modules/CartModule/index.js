@@ -8,10 +8,11 @@ import { AiOutlineTag } from "react-icons/ai"
 import { GrNotes } from "react-icons/gr"
 import Link from "next/link"
 import { MdKeyboardArrowRight } from "react-icons/md"
+import useStore from '../../store'
 
 const CartModule = () => {
   const classes = useStyles()
-  
+  const state = useStore()
   return (
     <div className={classes.CartHolder}>
       <Container>

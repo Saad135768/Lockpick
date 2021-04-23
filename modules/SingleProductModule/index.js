@@ -21,6 +21,7 @@ const SingleProductModule = (props) => {
  
   // Products values
   const name = pathOr('No name found', ['product', 'product','name', 'en'], props)
+  const taxonomyName = pathOr('', ['product', 'product','taxonomies','0', 'name', 'en'], props)
   const productCode = pathOr('No name found', ['product', 'product','productCode'], props)
   const description = pathOr('No description', ['product', 'product','description', 'en'], props)
   const quantity = pathOr(1, ['product','variations', '0','stock', '0', 'amount'], props)
@@ -29,7 +30,7 @@ const SingleProductModule = (props) => {
   const variationsId = pathOr('', ['product','variations', '0', '_id'], props)
   const imgs = []
   pathOr([], ['product', 'product','images'], props).forEach((img) => imgs.push({ original: img, thumbnail: img }))
-
+console.log(`taxonomyName`, taxonomyName)
   const setCart = useStore((state) => state.setCart)
   // Add to cart mutation
   const AddToCart = async (variation, quantity) => {
@@ -60,7 +61,7 @@ const SingleProductModule = (props) => {
                   <Breadcrumbs aria-label="breadcrumb">
                     <Link href="/"><a>Home</a></Link>
                     <Link href="/products"><a>Products</a></Link>
-                    <a>{name}</a>
+                    <a>{taxonomyName?.toUpperCase()}</a>
                   </Breadcrumbs>
                   </h2>
                 </div>
