@@ -2,6 +2,12 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   CheckoutHolder:{
+ 
+
+  '& .MuiAccordionDetails-root': {
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
     '& .EditDelivery h6 , .EditDelivery p': {
 color:'#8d8d8e',
 margin:0,
@@ -93,10 +99,10 @@ paddingBottom:0,
     '& button': {
       textTransform:'uppercase',
       marginTop: 0,
+      transition: '0.1s', 
 fontSize: 18,
 padding:'15px 0',
 borderRadius:'0',
-width:'100%',
 color:'#fff',
     },
     '& h5': {
@@ -260,6 +266,7 @@ EditBtn :{
     textDecoration: 'underline',
     position: 'absolute',
     top: 40,
+    right:0,
     marginTop: 0,
      cursor:'pointer',
   '&:focus': {
@@ -281,6 +288,7 @@ SaveBtn :{
     textDecoration: 'underline',
     position: 'absolute',
     cursor:'pointer',
+    right:0,
     top: 40,
   '&:focus': {
     background:'transparent',
