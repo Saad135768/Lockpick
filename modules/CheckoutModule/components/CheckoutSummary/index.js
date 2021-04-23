@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from "react";
-import useStyles from "./style";
-import Link from "next/link";
-import useStore from "../../../../store";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import CartData from "../../../CartModule/components/CartData";
+import React, { useEffect } from "react"
+import useStyles from "./style"
+import Link from "next/link"
+import useStore from "../../../../store"
+import { MdKeyboardArrowRight } from "react-icons/md"
+import CartData from "../../../CartModule/components/CartData"
+import Router from 'next/router'
 
-const CheckoutSummary = (props) => {
-  const total = useStore((state) => state.total);
-  const setTotal = useStore((state) => state.setTotal);
+const CheckoutSummary = ({ total, setTotal, cart }) => {
+  // const total = useStore((state) => state.total)
+  // const setTotal = useStore((state) => state.setTotal)
+  // const cart = useStore((state) => state.cart)
+  const cartLength = cart?.variations?.length
 
-  const cart = useStore((state) => state.cart);
   useEffect(() => {
-    setTotal(total);
-    if (!cart?.variations?.length) setTotal(0);
-  }, [cart, total]);
-  const classes = useStyles();
+    setTotal(total)
+    if (!cartLength) return setTotal(0)
+  }, [cart, total])
+  const classes = useStyles()
 
   return (
     <div className={classes.OrderSummaryHolder}>
@@ -33,11 +35,11 @@ const CheckoutSummary = (props) => {
             <h3> Order Summary (1)</h3>
           </div>
           <div>
-            <h4>Edit Cart</h4>
+            <h4 onClick={() => Router.push('/cart')}>Edit Cart</h4>
           </div>
         </div>
-        <CartData />
-
+        {!!cartLength && <CartData />}
+      
         <div className={classes.promocode}>
           <div>
             <input placeholder="Enter a promo code" />
@@ -79,7 +81,7 @@ const CheckoutSummary = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CheckoutSummary;
+export default CheckoutSummary

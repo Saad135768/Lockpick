@@ -5,8 +5,10 @@ import Button from '../../common/Button'
 import Link from 'next/link'
 import { Parallax } from 'react-scroll-parallax'
 import ScrollAnimation from 'react-animate-on-scroll'
+import useStore from '../../store'
 
 const HomeRegister = () => {
+  const setOpenModal = useStore((state) => state.setOpenModal)
   const classes = useStyles()
 
   return (
@@ -25,11 +27,7 @@ const HomeRegister = () => {
             <div className={classes.HomeRegisterBorder} />
 
             <ScrollAnimation animateIn="fadeInUp">
-              <Link href="login">
-                <a>
-                  <Button>REGISTER</Button>
-                </a>
-              </Link>
+                  <Button onClick={() => setOpenModal(2) }>REGISTER</Button>
             </ScrollAnimation>
           </div>
         </div>

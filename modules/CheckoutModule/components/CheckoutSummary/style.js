@@ -109,11 +109,9 @@ borderBottom:'1px solid #fba530',
     color: '#fff',
     display: 'flex',
     justifyContent: 'space-between',
-  },
-  OrderSummaryFlex: {
-    color: '#fff',
-    display: 'flex',
-    justifyContent: 'space-between',
+    '& h4': {
+      cursor: 'pointer',
+    }
   },
   OrderSummaryInformation: {
     textAlign: 'center',
