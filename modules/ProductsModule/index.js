@@ -15,13 +15,15 @@ const ProductsModule = () => {
           <Grid container justify="center">
             <Grid item lg={11} xs={12}>
               <div className={classes.FormHolder}>
+              <div className={classes.textHolder}>
+                <div className={classes.text}>
                 <ScrollAnimation animateIn="fadeIn">
                   <h5>
                     BASIC KIT<span> – </span> FULL PACKAGE <br />
                     ADD-ON <span> – </span> OPTIONS
                   </h5>
                 </ScrollAnimation>
-
+              </div>
                 <div className={classes.ProductsMainImge}>
                   <img
                     src="../../static/images/products/header.png"
@@ -30,6 +32,7 @@ const ProductsModule = () => {
                         'drop-shadow(0.35rem 3.35rem 0.9rem rgba(0, 0, 0, 0.3)',
                     }}
                   />
+                </div>
                 </div>
                 <div className={classes.Holder2}>
                   <div>
