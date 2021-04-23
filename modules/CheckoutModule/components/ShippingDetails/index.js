@@ -1,32 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useStyles from '../../../CheckoutModule/style'
 import Grid from '@material-ui/core/Grid'
 import Button from '../../../../common/Button'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
-import Link from 'next/link'
 import { useForm } from 'react-hook-form'
+import { withSnackbar } from 'notistack'
+import { useMutation } from '@apollo/react-hooks';
+import { EDIT_CUSTOMER } from './../../../../commonData'
 
-const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props }) => {
-  const { handleSubmit, errors, register, formState, watch } = useForm({ mode: 'onBlur' })
-  const { isSubmitSuccessful  } = formState
+const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, data, ...props }) => {
+  const { handleSubmit, errors, register} = useForm({ mode: 'onBlur' })
   const classes = useStyles()
-  isSubmitSuccessful && setView() 
+  
+ 
+  const [editCustomer] = useMutation(EDIT_CUSTOMER, { fetchPolicy: 'no-cache'})
+
+const EditCustomer = async ({ name, phone, ...values }) => {
+  try{
+    await editCustomer({ variables: { name, phone, address: {...values} }})
+    setcheckoutValues(values)
+    props.enqueueSnackbar('Your data has been updated', { variant: 'success' })
+    setView() 
+  }  catch (error) {
+      if (error?.graphQLErrors) {
+        props.enqueueSnackbar(error.graphQLErrors[0].message, {
+          variant: 'error',
+        })
+      } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+    }
+}
+
   return (
     <div className={classes.schoolinfoHolder}>
-        <button className={classes.EditBtn} type='button' onClick={() =>  setView()}>
+        {/* <button className={classes.EditBtn} type='button' onClick={() =>  setView()}>
           Save
-        </button>
+        </button> */}
 
         <AccordionDetails>
-      <form onSubmit={handleSubmit((values) => setcheckoutValues(values))}>
+      <form onSubmit={handleSubmit(EditCustomer)}>
           <div className={classes.ShippingDetailsInfo}>
             <span> *Full Name</span>
             <input
               ref={register({ required: 'This field is required' })}
-              // name="name"
+              name="name"
               className={classes.CheckoutInput}
               placeholder="Full Name"
               type="text"
+              defaultValue={data?.getCurrentCustomer?.name}
             />
             {errors.name && (
               <p className={classes.errorMsg}>{errors.name.message}</p>
@@ -46,6 +66,7 @@ const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props })
               className={classes.CheckoutInput}
               placeholder="Phone"
               type="text"
+              defaultValue={data?.getCurrentCustomer?.phone}
             />
             {errors.phone && (
               <p className={classes.errorMsg}>{errors.phone.message}</p>
@@ -56,8 +77,9 @@ const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props })
               ref={register({ required: 'This field is required' })}
               name="street"
               className={classes.CheckoutInput}
-              placeholder="Address"
+              placeholder="Street"
               type="text"
+              defaultValue={data?.getCurrentCustomer?.address[0]?.street}
             />
             {errors.address && (
               <p className={classes.errorMsg}>{errors.address.message}</p>
@@ -71,6 +93,7 @@ const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props })
                   className={classes.CheckoutInput}
                   placeholder="Country"
                   type="text"
+                  defaultValue={data?.getCurrentCustomer?.address[0]?.country}
                 />
                 {errors.country && (
                   <p className={classes.errorMsg}>{errors.country.message}</p>
@@ -84,6 +107,7 @@ const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props })
                   className={classes.CheckoutInput}
                   placeholder="City"
                   type="text"
+                  defaultValue={data?.getCurrentCustomer?.address[0]?.city}
                 />
                 {errors.city && (
                   <p className={classes.errorMsg}>{errors.city.message}</p>
@@ -97,6 +121,7 @@ const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props })
                   className={classes.CheckoutInput}
                   placeholder="State"
                   type="text"
+                  defaultValue={data?.getCurrentCustomer?.address[0]?.state}
                 />
                 {errors.state && (
                   <p className={classes.errorMsg}>{errors.state.message}</p>
@@ -110,6 +135,7 @@ const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props })
                   className={classes.CheckoutInput}
                   placeholder="Zip / Postal Code"
                   type="text"
+                  defaultValue={data?.getCurrentCustomer?.address[0]?.postalCode}
                 />
                 {errors.zipCode && (
                   <p className={classes.errorMsg}>{errors.zipCode.message}</p>
@@ -125,4 +151,4 @@ const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props })
   )
 }
 
-export default ShippingDetails
+export default withSnackbar(ShippingDetails)

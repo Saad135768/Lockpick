@@ -6,16 +6,22 @@ import { MdKeyboardArrowRight } from "react-icons/md"
 import CartData from "../../../CartModule/components/CartData"
 import Router from 'next/router'
 
-const CheckoutSummary = ({ total, setTotal, cart }) => {
-  // const total = useStore((state) => state.total)
-  // const setTotal = useStore((state) => state.setTotal)
-  // const cart = useStore((state) => state.cart)
+const CheckoutSummary = () => {
+  const total = useStore((state) => state.total)
+  const setTotal = useStore((state) => state.setTotal)
+  const cart = useStore((state) => state.cart)
   const cartLength = cart?.variations?.length
+  // useEffect(() => {
+  //   if (!cartLength) {
+  //     console.log('if entered 252', total)
+  //     setTotal(252)
 
-  useEffect(() => {
-    setTotal(total)
-    if (!cartLength) return setTotal(0)
-  }, [cart, total])
+  //   } 
+  //   else {
+  //     console.log('else 252', total)
+  //     setTotal(total)
+  //   }
+  // }, [cart])
   const classes = useStyles()
 
   return (

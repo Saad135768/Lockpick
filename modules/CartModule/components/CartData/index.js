@@ -28,15 +28,15 @@ const CartData = (props) => {
 
 
   useEffect(() => {
-    // if (!cart?.variations?.length) return setTotal(0)
-    cart?.variations?.reduce((a,b) => {
+    const finalPrice = cart?.variations?.reduce((a,b) => {
       const discountedPrice = pathOr(1, ['variation', 'price', 'discountedPrice'], b)
       const mainPrice = pathOr(1, ['variation', 'price', 'mainPrice'], b)
       const quantity = pathOr(1, ['quantity'], b)
       const totals =  a + ((discountedPrice || mainPrice) * quantity )
-      setTotal(totals)
       return totals
     }, 0)
+    setTotal(finalPrice)
+
   }, [cart])
 
   const cartLength = !!(cart?.variations?.length)

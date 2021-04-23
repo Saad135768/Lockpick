@@ -68,10 +68,10 @@ export const GET_CURRENT_CUSTOMER = gql`
       address {
         city
         country
-        apartment
         postalCode
-        floor
         street
+        state
+        address1
       }
     }
   }

@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react'
+import React, {useState,  useEffect } from 'react'
 import useStyles from '../../../CheckoutModule/style'
 
-const EditShipping = ({ setView, data, ...props }) => {
+const EditShipping = ({ setView, data, setProfileData, profileData, ...props }) => {
+
+  // useEffect(() => {
+  //   setProfileData
+  // }, [data, profileData])
   const name = data?.getCurrentCustomer?.name
   const phone = data?.getCurrentCustomer?.phone
   const {
     city,
     state,
     country,
-    apartment,
-    floor,
+    address1,
     street,
+    postalCode,
   } = data?.getCurrentCustomer?.address[0]
 
   const AddressChecker = address => {
@@ -30,12 +34,12 @@ const EditShipping = ({ setView, data, ...props }) => {
         <h5> Phone: {phone} </h5>
         <h5>
           
-          Address: {AddressChecker(city)}
+          Address: {AddressChecker(street)}
+          {AddressChecker(address1)}
           {AddressChecker(state)}
+          {AddressChecker(city)}
           {AddressChecker(country)}
-          {AddressChecker(apartment)}
-          {AddressChecker(floor)}
-          {AddressChecker(street)}
+          {AddressChecker(postalCode)}
         </h5>
       </div>
     </div>

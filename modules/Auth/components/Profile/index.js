@@ -9,7 +9,7 @@ import { GET_CURRENT_CUSTOMER } from '../../data'
 import { useQuery } from '@apollo/react-hooks'
 
 const CustomizedDialogs = () => {
-  const { data } = useQuery(GET_CURRENT_CUSTOMER)
+  const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache'})
   const openModal = useStore((state) => state.openModal)
   const setOpenModal = useStore((state) => state.setOpenModal)
 

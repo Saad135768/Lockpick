@@ -25,7 +25,9 @@ const CustomizedDialogs = (props) => {
     phone,
     country,
     city,
-    address,
+    street,
+    postalCode,
+    state
   }) => {
     try {
       const res = await Register({
@@ -35,7 +37,7 @@ const CustomizedDialogs = (props) => {
           name,
           password,
           phone,
-          address: { country, city, address1: address },
+          address: { country, city, address1: street, street, state, postalCode, state },
           sendPin: false,
           verificationStrategy: 'email',
           type: 'user',
@@ -147,14 +149,34 @@ const CustomizedDialogs = (props) => {
               )}
                 
                   <input
-                  name="address"
+                    name="state"
                     className={classes.LoginInput}
-                    placeholder="* Address"
+                    placeholder="* State"
                     type="text"
                     ref={register({ required: 'This field is required' })}
               />
-              {errors.address && (
-                <p className={classes.errorMsg}>{errors.address.message}</p>
+              {errors.state && (
+                <p className={classes.errorMsg}>{errors.state.message}</p>
+              )}
+                  <input
+                    name="street"
+                    className={classes.LoginInput}
+                    placeholder="* Street"
+                    type="text"
+                    ref={register({ required: 'This field is required' })}
+              />
+              {errors.street && (
+                <p className={classes.errorMsg}>{errors.street.message}</p>
+              )}
+                  <input
+                    name="postalCode"
+                    className={classes.LoginInput}
+                    placeholder="* Zip / Postal Code"
+                    type="text"
+                    ref={register({ required: 'This field is required' })}
+              />
+              {errors.postalCode && (
+                <p className={classes.errorMsg}>{errors.postalCode.message}</p>
               )}
             </div>
           </div>

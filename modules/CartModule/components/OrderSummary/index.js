@@ -7,13 +7,22 @@ import useStore from '../../../../store'
 
 const OrderSummary = (props) => {
   const total = useStore((state) => state.total)
-  const setTotal = useStore((state) => state.setTotal)
+//   const setTotal = useStore((state) => state.setTotal)
 
-  const cart = useStore((state) => state.cart)
- useEffect(() => {
-   if (!cart?.variations?.length) return setTotal(0)
-   setTotal(total)
- }, [cart, total])
+//   const cart = useStore((state) => state.cart)
+//   const state = useStore()
+// //   console.log(`state`, state)
+// //  useEffect(() => {
+// //    console.log('vv', cart?.variations?.length)
+// //    if (!cart?.variations?.length) {
+// //     console.log('entered')
+// //     setTotal(100)
+// //    }
+// //    else {
+// //      console.log('else', total)
+// //      setTotal(total)
+// //    }
+// //  }, [cart])
   const classes = useStyles()
 
   return (

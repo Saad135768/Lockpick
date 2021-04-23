@@ -17,31 +17,19 @@ import { AiOutlineCheck } from 'react-icons/ai'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_CURRENT_CUSTOMER } from './../Auth/data'
 import { CREATE_ORDER } from './data'
-import Router from 'next/router'
 import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
-import useStore from './../../store'
-
 
 const CheckoutModule = (props) => {
-  const { data } = useQuery(GET_CURRENT_CUSTOMER)
+  const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache'})
   const [View, setView] = useState(true)
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
   const [shippingMethod, setShippingMethod] = useState()
   const [promoCode, setPromocode] = useState()
-  
-  const state = useStore()
-  const total = useStore((state) => state.total)
-  const setTotal = useStore((state) => state.setTotal)
-  const cart = useStore((state) => state.cart)
+
 
   const email = data?.getCurrentCustomer?.email
-
-
-console.log(`shippingMethod`, shippingMethod)
-console.log(`paymentMethod`, paymentMethod)
-console.log(`checkoutValues`, checkoutValues)
 
   const [createOrder] = useMutation(CREATE_ORDER)
 
@@ -53,10 +41,10 @@ console.log(`checkoutValues`, checkoutValues)
         paymentMethod,
         shippingMethod,
         promoCode,
+        shipping: 0
       }
       await createOrder({ variables: {...orderFields} }) 
       props.enqueueSnackbar('Your order has been created successfully', { variant: 'success'})
-      setCart([])
       window.location = '/'
     }
     catch (error) {
@@ -68,9 +56,9 @@ console.log(`checkoutValues`, checkoutValues)
     }
   }
 
+  const address = R.pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
+  const checkIfHasAddress = Object.values(address).some((address) => !R.isNil(address))
   useEffect(() => {
-    const address = R.pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
-    const checkIfHasAddress = Object.values(address).some((address) => R.isNil(address))
     if(checkIfHasAddress) setView(false) 
   }, [data])
   
@@ -115,13 +103,14 @@ console.log(`checkoutValues`, checkoutValues)
                       >
                         <Typography className={classes.heading}>
                           <h5>
-                            <em> {checkoutValues ?  <AiOutlineCheck /> : 1} </em> Shipping Details
+                            <em> {(checkoutValues || checkIfHasAddress) ?  <AiOutlineCheck /> : 1} </em> Shipping Details
                           </h5>
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         {View ? (
                           <ShippingDetails 
+                            data={data}
                             setView={setView} 
                             setcheckoutValues={setcheckoutValues}
                             setPromocode={setPromocode}
@@ -177,7 +166,7 @@ console.log(`checkoutValues`, checkoutValues)
                 </div>
               </Grid>
               <Grid item lg={5} md={5} sm={12} xs={12}>
-                <CheckoutSummary total={total} setTotal={setTotal} cart={cart} />
+                <CheckoutSummary />
               </Grid>
             </Grid>
           </Grid>
