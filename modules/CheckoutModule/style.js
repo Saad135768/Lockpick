@@ -2,8 +2,11 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   CheckoutHolder:{
- 
 
+  
+  '& .ButtonHolder button': {
+    width: '100%',
+  },
   '& .MuiAccordionDetails-root': {
     paddingTop: 0,
     paddingBottom: 0,
@@ -310,8 +313,10 @@ fontSize:18,
 errorMsg: {
   color: 'red',
   fontWeight: 'bold',
+},
+ContinueBtn:{
+width:'100%',
 }
-
 }))
 
 export default useStyles

@@ -116,8 +116,11 @@ const ShippingDetails = ({ setView, setcheckoutValues, setPromocode, ...props })
                 )}
               </Grid>
             </Grid>
+            <div className={classes.ContinueBtn}>
+            <Button> Continue</Button>
 
-                <Button> Continue</Button>
+            </div>
+
           </div>
       </form>
         </AccordionDetails>
