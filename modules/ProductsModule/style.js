@@ -50,13 +50,14 @@ padding:'15px 25px',
 },
   },
   FormHolder: {
-    margin:'50px 0',
+    marginBottom: 50,
     '@media (max-width:767px)': {
       margin:'20px 0',
     },
     '& img': {
       width: '100%',
       display: 'block',
+   
       margin: '0 auto',
     },
     '& h5': {
@@ -71,6 +72,10 @@ padding:'15px 25px',
         fontSize:'27px !important',
         lineHeight:'35px',
         marginBottom: 0,
+      },
+      '@media (max-width:375px)': {
+        fontSize:'24px !important',
+       
       },
       '& span': {
         color: '#fff',
@@ -96,6 +101,30 @@ padding:'15px 25px',
 
 ProductsMainImge:{
 
+},
+textHolder:{
+  position: 'relative',
+  '@media (max-width:767px)': {
+    '& img': {
+      position: 'relative',
+top:30,
+
+    },
+
+  },
+},
+text:{
+  position: 'absolute',
+
+  textAlign: 'center',
+  left:'50%',
+  top: '13%',
+  '-webkit-transform': 'translate(-50%, -50%)',
+  transform: 'translate(-50%, -50%)',
+  width: '100%',
+  '@media (max-width:767px)': {
+    top: '9%',
+  },
 },
 }))
 
