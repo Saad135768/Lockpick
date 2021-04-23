@@ -73,11 +73,11 @@ const useStyles = makeStyles(() => ({
       height: 10,
     },
     '& .slick-dots': {
-      bottom: '130px',
+      bottom: '65px',
       position:'relative',
       zIndex:40,
       '@media (max-width:767px)': {
-        bottom: 0,
+        bottom: 30,
       },
     },
     '& .slick-slide:hover': {

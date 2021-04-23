@@ -29,14 +29,14 @@ const Brochure = () => {
       <Grid container justify="center" spacing={2}>
 
 <Grid item lg={6} xs={6}>
-  <a href="../../../../static/support/brochures1.pdf" target="_blank">
+  <a href="../../../../static/support/Lock-Pick-Brochure.pdf" target="_blank">
 
 <img src="../../../../static/support/brochureleft.png"/>
 
 </a>
 </Grid>
 <Grid item lg={6} xs={6}>
-<a href="../../../../static/support/brochures2.pdf" target="_blank">
+<a href="../../../../static/support/BMW-WIZARD-Brochure.pdf" target="_blank">
 
 <img src="../../../../static/support/brochureright.jpg"/>
 </a>

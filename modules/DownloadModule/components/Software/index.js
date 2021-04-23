@@ -35,8 +35,8 @@ const software = () => {
                          </Button>
                   <div className={classes.while}>
 
-        <Link as={"/support/tutorials"} href="/support/tutorials">
-                    <a href="/support/tutorials">
+        <Link as={"/support/tutorials#TUTORIALS"} href="/support/tutorials#TUTORIALS#TUTORIALS">
+                    <a href="/support/tutorials#TUTORIALS">
                     While downloading please watch Initial Setup Video
                     </a>
                   </Link>

@@ -177,12 +177,23 @@ const useStyles = makeStyles(() => ({
     },
   
     CartTable2: {
+
+      '& .MuiList-padding': {
+        paddingTop: 0,
+        paddingBottom: 0,
+      },
+      '& .ItemLink': {
+        cursor: 'pointer',
+        width:'200px',
+        marginRight: 10,
+      },
+
       height: '85vh',
       '& img': {
         width: 'auto',
         height: '120px !important',
         width:  '120px !important',
-        objectFit: 'cover', 
+        objectFit: 'contain', 
         marginRight: 20,
 
       },

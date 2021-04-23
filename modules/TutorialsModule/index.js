@@ -32,10 +32,10 @@ const TutorialsModule = () => {
                     <div className={classes.TutorialsButtons}>
                     <div>
                     <Link
-                      as={"../../static/support/guide.pdf"}
-                      href="../../static/support/guide.pdf"
+                      as={"../../static/support/Lock-Pick-Quick-Start-Guide.pdf"}
+                      href="../../static/support/Lock-Pick-Quick-Start-Guide.pdf"
                     >
-                      <a href="../../static/support/guide.pdf" target="_blank">
+                      <a href="../../static/support/Lock-Pick-Quick-Start-Guide.pdf" target="_blank">
                         <Button>START GUIDE</Button>
                       </a>
                     </Link>
