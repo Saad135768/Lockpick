@@ -1,7 +1,7 @@
 import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
 import { FaFacebookF, FaTwitter } from "react-icons/fa"
-import { AiOutlineInstagram, AiOutlineGoogle } from "react-icons/ai"
+import { AiOutlineInstagram, AiFillYoutube } from "react-icons/ai"
 import Link from "next/link"
 import useStyles from "./style"
 import ScrollToTop from 'react-scroll-up'
@@ -10,7 +10,9 @@ const Footer = () => {
   return (
     <div>
         <div className={classes.FooterScroll}>
-      <ScrollToTop showUnder={200}>
+      <ScrollToTop showUnder={200}
+      duration={900}
+      >
   <span><img src="../../static/images/backt2top.png"/></span>
   </ScrollToTop>
   </div>
@@ -35,7 +37,7 @@ const Footer = () => {
 </div>
             </Grid>
 
-            <Grid item lg={5} xs={12} sm={4}>
+            <Grid item lg={6} xs={12} sm={4}>
               <div className={classes.CenterLogo}>
                 <img
                   alt="m2k-logo"
@@ -43,7 +45,7 @@ const Footer = () => {
                 />
               </div>
             </Grid>
-            <Grid item lg={4} xs={12} sm={5}>
+            <Grid item lg={3} xs={12} sm={5}>
               <div className={classes.FooterRight}>
                 <h4> Follow Us </h4>
 
@@ -65,8 +67,8 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <AiOutlineGoogle />
+                  <a href="https://www.youtube.com/playlist?list=PLy-GudNye8JrILOsiLsLqZAuH_xIb001P"  target="_blank">
+                      <AiFillYoutube />
                     </a>
                   </li>
                 </ul>

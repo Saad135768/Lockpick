@@ -23,7 +23,7 @@ justifyContent:'space-between',
       width: 'auto',
       height: 165,
       width:165,
-      objectFit: 'cover', 
+      objectFit: 'contain', 
       cursor: 'pointer',
     },
     '& p': {
@@ -239,6 +239,14 @@ td_total: {
       display:'none',
 
     },
+    ItemLink:{
+     cursor:'pointer',
+     '&:hover': {
+    color:'#FF7700',
+    transition: '0.3s',
+
+    },
+  },
 }))
 
 export default useStyles

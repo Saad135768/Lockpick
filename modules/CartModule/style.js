@@ -58,7 +58,7 @@ justifyContent:'space-between',
       width: 'auto',
       height: 165,
       width:165,
-      objectFit: 'cover', 
+      objectFit: 'contain', 
     },
     '& p': {
       margin: 0,
