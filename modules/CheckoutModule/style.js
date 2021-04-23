@@ -45,6 +45,7 @@ const useStyles = makeStyles(() => ({
       borderBottom: '1px solid',
       fontFamily: 'Poppins-SemiBold',
       margin: '15px 0',
+      cursor: 'pointer',
     },
     '& h3': {
       margin: '15px 0',
@@ -281,6 +282,10 @@ SaveBtn :{
 SHippingEdit:{
   width:'100%',
 },
+errorMsg: {
+  color: 'red',
+  fontWeight: 'bold',
+}
 }))
 
 export default useStyles

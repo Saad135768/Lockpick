@@ -129,3 +129,46 @@ mutation updateCartItem($variation: CartVariationInput!) {
   }
 }
 `
+
+
+export const EDIT_CUSTOMER = gql`
+  mutation editCustomer(
+    $email: String
+    $name: String
+    $phone: String
+    $dob: String
+    $gender: String
+    $address: [CustomerAddressInput]
+    $customAttributes: [CustomAttributeInput]
+  ) {
+    editCustomer(
+      email: $email
+      name: $name
+      phone: $phone
+      dob: $dob
+      gender: $gender
+      address: $address
+      customAttributes: $customAttributes
+    ) {
+      email
+      name
+      phone
+      address {
+        city
+        area
+        address1
+        apartment
+        email
+        floor
+        street
+        building
+        country
+      }
+      customAttributes {
+        key
+        value
+        valueType
+      }
+    }
+  }
+`

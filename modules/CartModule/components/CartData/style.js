@@ -230,14 +230,16 @@ td_total: {
     },
     },
     imageTable:{
-
+      '& img': {
+        cursor: 'pointer',
+      }
     },
     ForCheckoutQuantity:{
       display:'none',
     },
     ForCheckoutMoreDetails:{
       display:'none',
-
+      cursor: 'pointer',
     },
 }))
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Fragment } from 'react'
 import useStyles from './style'
 import { IoIosClose } from 'react-icons/io'
 import NumericInput from 'react-numeric-input'
@@ -71,16 +71,16 @@ const CartData = (props) => {
           const mainPrice = pathOr(0, ['variation', 'price', 'mainPrice'], variation)
           const img = pathOr('', ['variation', 'product', 'images', '0'], variation)
           return (
-            <>
+            <Fragment key={variationsId}>
               <tr key={variationsId}>
                 <td className={`${classes.imageTable} imageTable`}>
-                  <img  src={img} onClick={() => Router.push(`/product/${productsId}`)} />
+                  <img src={img} onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>
                 <td className={`${classes.ItemName} ItemName`}>
       <div>
                   {name}
                   <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity :1</p> 
-                  <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`}> + More Details :</p>
+                  <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`} onClick={() => Router.push(`/product/${productsId}`)}> + More Details :</p>
 
                   </div>
                   <div>
@@ -99,7 +99,7 @@ const CartData = (props) => {
                 </td>
               </tr>
 
-            </>
+            </Fragment>
           )
         }) : <>
           <tr className={classes.NoBorder}>
