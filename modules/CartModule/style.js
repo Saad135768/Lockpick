@@ -2,6 +2,13 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   CartHolder:{
+        '& .ItemLink': {
+       width: 280,
+       '@media (max-width:768px)': {
+width:'100%',
+
+        },
+        },
     marginTop:100,
     marginBottom:140,
     '@media (max-width:768px)': {
