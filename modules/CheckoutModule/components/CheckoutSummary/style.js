@@ -70,6 +70,11 @@ const useStyles = makeStyles(() => ({
     '&  p , h4': {
       marginTop: 22,
     },
+
+    '& .ItemLink': {
+      marginTop: '0 !important',
+    },
+
     '& h2': {
       color: '#fba530',
       fontFamily: 'Poppins-Bold',
