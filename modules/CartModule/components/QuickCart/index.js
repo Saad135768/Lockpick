@@ -8,7 +8,6 @@ import Divider from '@material-ui/core/Divider'
 import CartData from '../CartData'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import Cookies from 'js-cookie'
-import Router from 'next/router'
 import { withSnackbar } from 'notistack'
 import useStore from '../../../../store'
 
@@ -34,6 +33,14 @@ const QuickCart = props => {
 
     setState({ ...state, [anchor]: open })
   }
+
+const handleAddToCart = async (event) => {
+  if(token && props.AddToCartMutation) {
+    await props?.AddToCartMutation()
+    // Opens the quick cart
+    toggleDrawer('Add to cart', true)(event)
+  }
+}
 
   const list = anchor => (
     <div>
@@ -68,8 +75,8 @@ const QuickCart = props => {
 
   return (
     <div onClick={token ? null : navigation}>
-      <div onClick={token && toggleDrawer('Add to cart', true)}>
-        <Button onClick={token && props?.func}>{'Add to cart'}</Button>
+      <div>
+        <Button onClick={handleAddToCart}>{'Add to cart'}</Button>
       </div>
       <Drawer
         className={classes.QuickCart}
