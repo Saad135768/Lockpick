@@ -34,7 +34,11 @@ const useStyles = makeStyles(() => ({
     height: '85px !important',
     objectFit: 'contain',
     marginTop: 0,
-    marginRight:10,
+    marginRight:5,
+    '@media (min-width:900px) and (max-width:1300px)': {
+      width:'70px !important',
+      height: '70px !important',
+    },
 
 },
 
@@ -101,9 +105,29 @@ const useStyles = makeStyles(() => ({
     background: '#4c515b',
     padding: 25,
     marginTop: 12,
+    '@media (min-width:800px) and (max-width:1300px)': {
+      padding: 20,
+    },
+    
+    '& .ItemLink ': {
+   maxWidth:165,
+   '@media (min-width:900px) and (max-width:1000px)': {
+    maxWidth:137,
+  },
+   '@media (min-width:1000px) and (max-width:1280px)': {
+    maxWidth:150,
+  },
+
+    },
+    '& .TotalPrice ': {
+      maxWidth:100,
+      textAlign: 'right',
+
+       },
     '& .EditCart h4': {
 color:'#fba530',
 borderBottom:'1px solid #fba530',
+
 '&:hover': {
   color:'#FF7700',
   transition:'0.3s',
