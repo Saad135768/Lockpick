@@ -10,15 +10,18 @@ import { MdKeyboardArrowRight } from 'react-icons/md'
 import Cookies from 'js-cookie'
 import Router from 'next/router'
 import { withSnackbar } from 'notistack'
+import useStore from '../../../../store'
 
 const QuickCart = props => {
   const classes = useStyles()
   const [state, setState] = React.useState({
     right: false,
   })
+  const setOpenModal = useStore((state) => state.setOpenModal)
+
   const token = Cookies.get('token')
   const navigation = () => {
-    Router.replace('/login')
+    setOpenModal(2)
     props.enqueueSnackbar('Please login first', { variant: 'warning' })
   }
   const toggleDrawer = (anchor, open) => event => {
