@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
     
 
     '& .MuiAccordionDetails-root , .MuiAccordionDetails-root': {
-    paddingLeft:0,
+    padding:0,
     },
     '& .MuiAccordionSummary-root': {
       padding:'0',
@@ -66,12 +66,19 @@ paddingBottom:0,
     color: '#fff',
     marginBottom: 0,
     padding: '0 20px',
-    marginTop: 20,
+    marginTop: 10,
+    '@media (max-width:767px)': {
+      display:'block',
+      padding: '10px 20px',
+    },
     '& h4': {
       borderBottom: '1px solid',
       fontFamily: 'Poppins-SemiBold',
       margin: '15px 0',
       cursor: 'pointer',
+      '&:hover': {
+        color:'#fba530',
+      },
     },
     '& h3': {
       margin: '15px 0',
@@ -172,7 +179,7 @@ color:'#fff',
     },
     '& label.MuiFormControlLabel-root' :{
 
-      marginLeft:10,
+      marginLeft:18,
     },
     '&  span.MuiTypography-root ': {
       color: '#fff',
@@ -185,7 +192,7 @@ color:'#fff',
     color: '#fff',
     marginLeft: 10,
     color: '#8d8d8e',
-    marginLeft: 62,
+    marginLeft: 70,
     marginTop: 0,
     fontSize: 18,
     fontFamily: 'Poppins-Regular',
@@ -197,7 +204,11 @@ color:'#fff',
   fontSize: 18,
   marginBottom: 0,
   '@media (max-width:767px)': {
-    marginLeft: 61,
+    marginLeft: 70,
+    marginTop: 0,
+    position:'relative',
+    bottom:13,
+
   },
 },
   '& hr ': {
@@ -223,6 +234,7 @@ alignItems:'center',
     fontFamily: 'Poppins-Regular',
     position: 'relative',
     bottom: 7,
+   
 },
 
   },

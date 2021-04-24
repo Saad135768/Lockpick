@@ -60,6 +60,7 @@ const useStyles = makeStyles(() => ({
         cursor: 'pointer',
         position: 'relative',
         top: 8,
+        left: 8,
       },
     },
 
@@ -103,6 +104,10 @@ const useStyles = makeStyles(() => ({
     '& .EditCart h4': {
 color:'#fba530',
 borderBottom:'1px solid #fba530',
+'&:hover': {
+  color:'#FF7700',
+  transition:'0.3s',
+},
     },
     '& .EditCart h3': {
       color:'#fba530',
@@ -181,6 +186,9 @@ borderBottom:'1px solid #fba530',
     textAlign: 'right',
     '& h4': {
       fontSize:18,
+      '@media (max-width:767px)': {
+        marginTop:0,
+      },
     },
   },
 

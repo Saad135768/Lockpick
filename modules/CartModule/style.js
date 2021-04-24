@@ -9,6 +9,16 @@ width:'100%',
 
         },
         },
+        '& .TotalPrice': {
+          width: 255,
+          paddingLeft: 10,
+          '@media (max-width:768px)': {
+   width:'100% !important',
+   paddingLeft: 0,
+
+           },
+           },
+
     marginTop:100,
     marginBottom:140,
     '@media (max-width:768px)': {
