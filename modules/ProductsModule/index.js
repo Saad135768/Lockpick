@@ -4,9 +4,12 @@ import useStyles from './style'
 import FirstProductSlider from '../ProductsModule/components/FirstProductSlider'
 import SecondProductSlider from '../ProductsModule/components/SecondProductSlider'
 import ScrollAnimation from 'react-animate-on-scroll'
+import { GET_CART } from './../../commonData/index'
+import { useQuery } from '@apollo/react-hooks'
 
 const ProductsModule = () => {
- 
+  // This query aims only to fetch the cart to update the count on the cart icon in the navbar. incase the user navigates directly to products page without passing through the hopme page
+  useQuery(GET_CART, { onCompleted: (result) => { setCart(result.getCurrentCustomer.cart)}, fetchPolicy: 'no-cache'})
   const classes = useStyles()
   return (
     <div className={classes.ProductsHolder}>
