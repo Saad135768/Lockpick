@@ -21,7 +21,7 @@ const QuickCart = props => {
 
   const token = Cookies.get('token')
   const navigation = () => {
-    setOpenModal(2)
+    setOpenModal(1)
     props.enqueueSnackbar('Please login first', { variant: 'warning' })
   }
   const toggleDrawer = (anchor, open) => event => {
