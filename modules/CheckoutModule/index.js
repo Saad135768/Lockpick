@@ -84,7 +84,7 @@ const CheckoutModule = (props) => {
       <Container>
         <Grid container justify='center'>
           <Grid item lg={11} md={11} sm={12} xs={12}>
-            <Grid container spacing={8}>
+            <Grid container spacing={4}>
               <Grid item lg={7} md={7} sm={12} xs={12}>
                 <div className={`${classes.CheckoutTitle} CheckoutTitle`}>
                   <div>

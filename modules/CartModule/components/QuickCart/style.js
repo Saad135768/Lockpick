@@ -177,7 +177,13 @@ const useStyles = makeStyles(() => ({
     },
   
     CartTable2: {
-
+      '&  input[type="text"]': {
+        padding: '5px !important',
+        marginBottom: 5,
+      },
+      '& .CartSub p': {
+        marginTop: 5,
+      },
       '& .MuiList-padding': {
         paddingTop: 0,
         paddingBottom: 0,
