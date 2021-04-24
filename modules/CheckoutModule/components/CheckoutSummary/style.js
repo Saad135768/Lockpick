@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
   OrderSummaryHolder: {
 
-
 '& td.ItemName': {
   display: 'flex',
   justifyContent:'space-between',
@@ -35,6 +34,7 @@ const useStyles = makeStyles(() => ({
     height: '85px !important',
     objectFit: 'contain',
     marginTop: 0,
+    marginRight:10,
 
 },
 
@@ -44,7 +44,7 @@ const useStyles = makeStyles(() => ({
   fontSize: '14px !important',
   color: '#fff',
 },
-'& .NumericInput , .CartSub , .RemoveItem , .total , .CartInputs , .TotalPrice , td_total' : {
+'& .NumericInput , .CartSub , .RemoveItem , .total , .CartInputs , .ItemPrice , td_total' : {
       display: 'none !important',
       borderBottom: 0,
 
