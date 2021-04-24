@@ -7,6 +7,7 @@ import { withSnackbar } from 'notistack'
 import useStore from '../../../../store'
 import { GET_CURRENT_CUSTOMER } from '../../data'
 import { useQuery } from '@apollo/react-hooks'
+import Cookies from 'js-cookie'
 
 const CustomizedDialogs = () => {
   const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache'})
@@ -33,7 +34,12 @@ const CustomizedDialogs = () => {
           <Button onClick={() => setOpenModal()}> Order History</Button>
           <Button onClick={() => setOpenModal(4)}> Account Information </Button>
           <Button onClick={() => setOpenModal(3)}> Change Password </Button>
-
+          <div className={classes.Logout}>
+                <h2 onClick={() => {
+                  Cookies.remove('token')
+                  window.location = '/'
+                }}>LOG OUT</h2>
+              </div>
         </div>
         </form>
       </Dialog>
