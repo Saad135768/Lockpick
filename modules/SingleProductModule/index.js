@@ -21,7 +21,7 @@ const SingleProductModule = (props) => {
  
   // Products values
   const name = pathOr('No name found', ['product', 'product','name', 'en'], props)
-  const taxonomyName = pathOr('', ['product', 'product','taxonomies','0', 'name', 'en'], props)
+  let taxonomyName = pathOr('', ['product', 'product','taxonomies','0', 'name', 'en'], props)
   const productCode = pathOr('No name found', ['product', 'product','productCode'], props)
   const description = pathOr('No description', ['product', 'product','description', 'en'], props)
   const quantity = pathOr(1, ['product','variations', '0','stock', '0', 'amount'], props)
@@ -30,7 +30,8 @@ const SingleProductModule = (props) => {
   const variationsId = pathOr('', ['product','variations', '0', '_id'], props)
   const imgs = []
   pathOr([], ['product', 'product','images'], props).forEach((img) => imgs.push({ original: img, thumbnail: img }))
-console.log(`taxonomyName`, taxonomyName)
+  if(taxonomyName.includes('bmw')) taxonomyName = 'options'
+  
   const setCart = useStore((state) => state.setCart)
   // Add to cart mutation
   const AddToCart = async (variation, quantity) => {
@@ -102,7 +103,7 @@ console.log(`taxonomyName`, taxonomyName)
                   <p>
                   {ReactHtmlParser(description)}
                   </p>
-                  <h3> $ {(discountedPrice || mainPrice).toFixed(2)}</h3>
+                  <h3> $ {(discountedPrice || mainPrice).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
                   <h5> VAT (Included or Excluded)</h5>
                   <h5> Shipping Description</h5>
                   <h4> Quantity</h4>

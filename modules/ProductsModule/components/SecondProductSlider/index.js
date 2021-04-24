@@ -67,7 +67,7 @@ const SecondProductSlider = ({ taxonomyName, ...props }) => {
               <ProductSliderData
                 title={name}
                 type={"Full package"}
-                price={(discountedPrice || mainPrice)?.toFixed(2)}
+                price={(discountedPrice || mainPrice)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                 description={description}
                 spec={customAttributes}
                 buttonTitle={"Add to cart"}

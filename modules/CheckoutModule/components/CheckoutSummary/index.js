@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import useStyles from "./style"
 import Link from "next/link"
 import useStore from "../../../../store"
@@ -6,16 +6,8 @@ import { MdKeyboardArrowRight } from "react-icons/md"
 import CartData from "../../../CartModule/components/CartData"
 import Router from 'next/router'
 
-const CheckoutSummary = ({ total, setTotal, cart }) => {
-  // const total = useStore((state) => state.total)
-  // const setTotal = useStore((state) => state.setTotal)
-  // const cart = useStore((state) => state.cart)
-  const cartLength = cart?.variations?.length
-
-  useEffect(() => {
-    setTotal(total)
-    if (!cartLength) return setTotal(0)
-  }, [cart, total])
+const CheckoutSummary = ({ setPromocode, ...props }) => {
+  const total = useStore((state) => state.total)
   const classes = useStyles()
 
   return (
@@ -38,11 +30,11 @@ const CheckoutSummary = ({ total, setTotal, cart }) => {
             <h4 onClick={() => Router.push('/cart')}>Edit Cart</h4>
           </div>
         </div>
-        {!!cartLength && <CartData />}
+         <CartData />
       
         <div className={classes.promocode}>
           <div>
-            <input placeholder="Enter a promo code" />
+            <input placeholder="Enter a promo code" onChange={(e) => setPromocode(e.target.value)} />
           </div>
         </div>
 
@@ -51,7 +43,7 @@ const CheckoutSummary = ({ total, setTotal, cart }) => {
             <h3> Subtotal</h3>
           </div>
           <div>
-            <p> {total?.toFixed(2)} $</p>
+            <p>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -76,7 +68,7 @@ const CheckoutSummary = ({ total, setTotal, cart }) => {
             <h3> Total</h3>
           </div>
           <div>
-            <p className={classes.totalPrice}> {total?.toFixed(2)} $ </p>
+            <p className={classes.totalPrice}>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
           </div>
         </div>
       </div>

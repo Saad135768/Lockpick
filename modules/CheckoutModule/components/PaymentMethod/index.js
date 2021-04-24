@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 
-const PaymentMethod = ({ setPaymentMethod, ...props }) => {
+const PaymentMethod = ({ setPaymentMethod, setExpandAccordions, ...props }) => {
   const classes = useStyles()
   return (
     <div>

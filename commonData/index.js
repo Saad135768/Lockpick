@@ -8,11 +8,12 @@ export const GET_CART = gql`
       name
       phone
       address {
-        countryCode
         city
-        apartment
-        floor
+        country
+        postalCode
         street
+        state
+        address1
       }
       cart {
         variations {
@@ -136,8 +137,6 @@ export const EDIT_CUSTOMER = gql`
     $email: String
     $name: String
     $phone: String
-    $dob: String
-    $gender: String
     $address: [CustomerAddressInput]
     $customAttributes: [CustomAttributeInput]
   ) {
@@ -145,8 +144,6 @@ export const EDIT_CUSTOMER = gql`
       email: $email
       name: $name
       phone: $phone
-      dob: $dob
-      gender: $gender
       address: $address
       customAttributes: $customAttributes
     ) {
@@ -155,19 +152,11 @@ export const EDIT_CUSTOMER = gql`
       phone
       address {
         city
-        area
-        address1
-        apartment
-        email
-        floor
         street
-        building
         country
-      }
-      customAttributes {
-        key
-        value
-        valueType
+        postalCode
+        state
+        postalCode
       }
     }
   }
