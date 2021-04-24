@@ -146,8 +146,6 @@ const ShippingDetails = ({
             <Button> Continue</Button>
 
             </div>
-
-            <Button> Continue</Button>
           </div>
         </form>
       </AccordionDetails>
