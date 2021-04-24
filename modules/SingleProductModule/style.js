@@ -66,7 +66,12 @@ fontFmily: 'Poppins-Regular',
     '& img': {
      
     },
+    '@media (max-width: 767px)': {
     
+      '& .MuiGrid-spacing-xs-8': {
+  width:'100%',
+      },
+    },
 },
 
 SingleProductHead:{
@@ -82,6 +87,10 @@ SingleProductHead:{
   marginBottom: 30,
   color:'#fff',
   justifyContent:'space-between',
+  '@media (max-width: 767px)': {
+    display: 'block',
+    marginLeft: 32,
+  },
   '& h4': {
     fontFamily: 'Poppins-Regular',
     color:'#fba530',

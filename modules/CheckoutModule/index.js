@@ -9,8 +9,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import Typography from '@material-ui/core/Typography'
 import PaymentMethod from './components/PaymentMethod'
-import DeliveryMethod from './components/DeliveryMethod'
 import EditShipping from './components/EditShipping/'
+import EditDelivery from './components/EditDelivery'
 import ShippingDetails from './components/ShippingDetails/'
 import Cookies from 'js-cookie'
 import { AiOutlineCheck } from 'react-icons/ai'
@@ -21,6 +21,7 @@ import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
 import Router from 'next/router'
 import useStore from '../../store'
+import DeliveryMethod from './components/DeliveryDetails'
 
 const CheckoutModule = (props) => {
   const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache'})
@@ -31,6 +32,8 @@ const CheckoutModule = (props) => {
   // }, [data])
 
   const [View, setView] = useState(true)
+  const [view2, setView2] = useState(true)
+
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
   const [shippingMethod, setShippingMethod] = useState('normal')
@@ -152,7 +155,19 @@ const CheckoutModule = (props) => {
                           <em>{shippingMethod ? <AiOutlineCheck /> : 2}</em> Delivery Method
                         </h5>
                       </AccordionSummary>
-                      <DeliveryMethod shippingMethod={shippingMethod} setShippingMethod={setShippingMethod} />
+                      {
+                        view2 ? ( <EditDelivery 
+                          shippingMethod={shippingMethod} 
+                          setView2={setView2}
+                          />) : (
+                          <DeliveryMethod 
+                          shippingMethod={shippingMethod} 
+                          setView2={setView2}
+                          setShippingMethod={setShippingMethod} 
+                          />
+                          )
+                      }
+                     
                     </Accordion>
                     <Accordion>
                       <AccordionSummary

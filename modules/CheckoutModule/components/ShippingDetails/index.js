@@ -142,6 +142,10 @@ const ShippingDetails = ({
                 )}
               </Grid>
             </Grid>
+            <div className={classes.ContinueBtn}>
+            <Button> Continue</Button>
+
+            </div>
 
             <Button> Continue</Button>
           </div>

@@ -19,9 +19,11 @@ const useStyles = makeStyles(() => ({
     },
     '& ul': {
       padding: '0',
+      textAlign:'right',
       marginBottom: 0,
       margin: '30px 0px',
       '@media (max-width:767px)': {
+        textAlign:'center',
 
         margin: '0',
 
@@ -96,9 +98,14 @@ const useStyles = makeStyles(() => ({
       color: '#fba62f',
       fontFamily: 'Poppins-SemiBold',
       fontSize: 27,
+      textAlign: 'left',
+    marginLeft: 54,
       marginBottom: 10,
       '@media (max-width: 767px)': {
         marginTop:10,
+        textAlign:'center',
+        marginLeft: 0,
+
       },
   },
   '@media (max-width: 768px)': {

@@ -2,6 +2,24 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   CheckoutHolder:{
+
+  
+  '& .ButtonHolder button': {
+    width: '100%',
+  },
+  '& .MuiAccordionDetails-root': {
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+    '& .EditDelivery h6 , .EditDelivery p': {
+color:'#8d8d8e',
+margin:0,
+fontSize:18,
+    },
+    '& .EditDelivery .MuiGrid-spacing-xs-2 > .MuiGrid-item': {
+paddingBottom:0,
+    },
+    
     marginTop:100,
     marginBottom:140,
     '@media (max-width:768px)': {
@@ -82,11 +100,12 @@ const useStyles = makeStyles(() => ({
     borderBottom: '1px solid #3780d5',
    paddingBottom: 0,
     '& button': {
-      marginTop: 30,
-fontSize: 20,
+      textTransform:'uppercase',
+      marginTop: 0,
+      transition: '0.1s', 
+fontSize: 18,
 padding:'15px 0',
 borderRadius:'0',
-width:'100%',
 color:'#fff',
     },
     '& h5': {
@@ -102,7 +121,7 @@ color:'#fff',
     },
     '& span': {
       fontSize: 18,
-      color: '#58595e',
+      color: '#8d8d8e',
       fontFamily: 'Poppins-Regular',
       marginBottom: 0,
     },
@@ -157,7 +176,7 @@ color:'#fff',
   '& p ': {
     color: '#fff',
     marginLeft: 10,
-    color: '#58595e',
+    color: '#8d8d8e',
     marginLeft: 62,
     marginTop: 0,
     fontSize: 18,
@@ -169,6 +188,9 @@ color:'#fff',
   fontFamily: 'Poppins-Regular',
   fontSize: 18,
   marginBottom: 0,
+  '@media (max-width:767px)': {
+    marginLeft: 61,
+  },
 },
   '& hr ': {
     width: '100%',
@@ -248,8 +270,9 @@ EditBtn :{
     margin: 0,
     padding: 0,
     textDecoration: 'underline',
-    position: 'relative',
-    bottom: 65,
+    position: 'absolute',
+    top: 40,
+    right:0,
     marginTop: 0,
      cursor:'pointer',
   '&:focus': {
@@ -261,6 +284,7 @@ EditBtn :{
 },
 
 SaveBtn :{
+  textTransform: 'uppercase',
   background:'transparent',
   border:0,
   textAlign: 'right',
@@ -268,9 +292,10 @@ SaveBtn :{
     marginTop: 0,
     padding: 0,
     textDecoration: 'underline',
-    position: 'relative',
+    position: 'absolute',
     cursor:'pointer',
-    bottom: 65,
+    right:0,
+    top: 40,
   '&:focus': {
     background:'transparent',
     border:0,
@@ -281,10 +306,19 @@ SaveBtn :{
 
 SHippingEdit:{
   width:'100%',
+'& h6': {
+  color:'#8d8d8e',
+margin:0,
+fontSize:18,
+},
+
 },
 errorMsg: {
   color: 'red',
   fontWeight: 'bold',
+},
+ContinueBtn:{
+width:'100%',
 }
 }))
 
