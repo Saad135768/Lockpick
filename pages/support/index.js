@@ -5,6 +5,7 @@ const SupportPage = () =>
 <div>
    <Head>
         <title> Support  </title>
+        <link rel="icon" href="../../../static/images/logo.png" />
       </Head>
       <SupportModule />
 

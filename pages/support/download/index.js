@@ -5,6 +5,7 @@ const downloadPage = () =>
 <div>
    <Head>
         <title> Download </title>
+        <link rel="icon" href="../../../static/images/logo.png" />
       </Head>
       <DownloadModule />
 

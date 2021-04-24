@@ -2,10 +2,18 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   CheckoutHolder:{
+    
 
-  
+    '& .MuiAccordionDetails-root , .MuiAccordionDetails-root': {
+    paddingLeft:0,
+    },
+    '& .MuiAccordionSummary-root': {
+      padding:'0',
+    },
+      
   '& .ButtonHolder button': {
     width: '100%',
+    marginTop: 30,
   },
   '& .MuiAccordionDetails-root': {
     paddingTop: 0,

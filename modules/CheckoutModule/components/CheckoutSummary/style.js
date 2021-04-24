@@ -20,6 +20,9 @@ const useStyles = makeStyles(() => ({
   display: 'block',
   marginTop: 6,
   color:'#3680d6',
+  '&:hover': {
+    color: '#3191ff',
+},
 },
 
     '& td.imageTable ': {
@@ -70,6 +73,11 @@ const useStyles = makeStyles(() => ({
     '&  p , h4': {
       marginTop: 22,
     },
+
+    '& .ItemLink': {
+      marginTop: '0 !important',
+    },
+
     '& h2': {
       color: '#fba530',
       fontFamily: 'Poppins-Bold',

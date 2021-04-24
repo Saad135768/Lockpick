@@ -5,6 +5,7 @@ const tutorialsPage = () =>
 <div>
    <Head>
         <title> Tutorials  </title>
+        <link rel="icon" href="../../../static/images/logo.png" />
       </Head>
       <TutorialsModule />
 

@@ -1,14 +1,18 @@
 import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
 import useStyles from './style'
 import Button from '../../common/Button'
-import Link from 'next/link'
 import { Parallax } from 'react-scroll-parallax'
 import ScrollAnimation from 'react-animate-on-scroll'
 import useStore from '../../store'
+import { useQuery } from '@apollo/react-hooks'
+import { GET_CART } from './../../commonData'
 
 const HomeRegister = () => {
+  
+  useQuery(GET_CART, { onCompleted: (result) => { setCart(result.getCurrentCustomer.cart)}})
   const setOpenModal = useStore((state) => state.setOpenModal)
+  const setCart = useStore((state) => state.setCart)
+  
   const classes = useStyles()
 
   return (

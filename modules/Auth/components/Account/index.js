@@ -7,17 +7,36 @@ import { DialogTitle } from '@material-ui/core'
 import useStore from '../../../../store'
 import Cookies from 'js-cookie'
 import { useForm } from 'react-hook-form'
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_CURRENT_CUSTOMER } from '../../data'
+import { EDIT_CUSTOMER } from './../../../../commonData/'
 
 
-const CustomizedDialogs = () => {
-  const { data } = useQuery(GET_CURRENT_CUSTOMER)
+const CustomizedDialogs = (props) => {
+  const { register, handleSubmit, errors, formState } = useForm({ mode: 'onBlur' })
+  const { isDirty } = formState
+  const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache'})
   const openModal = useStore((state) => state.openModal)
   const setOpenModal = useStore((state) => state.setOpenModal)
-  // const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' })
-  const classes = useStyles()
 
+  const [editCustomer] = useMutation(EDIT_CUSTOMER)
+
+  const EditCustomer = async ({ name, phone, ...values }) => {
+    try{
+      if(isDirty) {
+        await editCustomer({ variables: { name, phone, address: {...values} }})
+        props.enqueueSnackbar('Your data has been updated', { variant: 'success' })
+        setOpenModal()
+      }
+    } catch (error) {
+    if (error?.graphQLErrors) {
+      props.enqueueSnackbar(error.graphQLErrors[0].message, {
+        variant: 'error',
+      })
+    } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+  }
+  }
+  const classes = useStyles()
   return (
     <div>
       <Dialog
@@ -26,7 +45,7 @@ const CustomizedDialogs = () => {
         aria-labelledby="customized-dialog-title"
         open={openModal}
       >
-        {/* <form onSubmit={handleSubmit()}> */}
+        <form onSubmit={handleSubmit(EditCustomer)}>
           <div className={classes.LeftRight}>
             <div className={classes.Left}>
               <img
@@ -37,7 +56,7 @@ const CustomizedDialogs = () => {
                 <h3> Hello { data?.getCurrentCustomer?.name } </h3>
               </DialogTitle>
               <Button className="NotActive" type='button'> Order History</Button>
-              <Button onClick={() => setOpenModal(4)} type='button'>Account Information</Button>
+              <Button onClick={() => setOpenModal(4)}>Account Information</Button>
               <Button className="NotActive" onClick={() => setOpenModal(3)} type='button'>Change Password</Button>
               <div className={classes.Logout}>
                 <h2 onClick={() => {
@@ -54,90 +73,111 @@ const CustomizedDialogs = () => {
                 className={classes.LoginInput}
                 placeholder="* Full Name"
                 type="text"
-                value={data?.getCurrentCustomer?.name}
-                disabled
-                // ref={register({ required: 'This field is required' })}
+                defaultValue={data?.getCurrentCustomer?.name}
+               ref={register({ required: 'This field is required' })}
               />
-              {/* {errors.name && ( */}
-                {/* // <p className={classes.errorMsg}>{errors.name.message}</p> */}
-              {/* )} */}
+              {errors.name && ( 
+               <p className={classes.errorMsg}>{errors.name.message}</p> 
+              )} 
 
               <input
                 name="email"
                 className={classes.LoginInput}
                 placeholder="* Email"
                 type="email"
-                value={data?.getCurrentCustomer?.email}
                 disabled
-                // ref={register({ required: 'This field is required' })}
+                defaultValue={data?.getCurrentCustomer?.email}
+               ref={register({ required: 'This field is required' })}
               />
-              {/* {errors.email && ( */}
-                {/* // <p className={classes.errorMsg}>{errors.email.message}</p> */}
-              {/* )} */}
+              {errors.email && ( 
+               <p className={classes.errorMsg}>{errors.email.message}</p> 
+              )} 
               {/* <input
                 name="password"
                 className={classes.LoginInput}
                 placeholder="* password"
                 type="password"
                 ref={register({ required: 'This field is required' })}
-              /> */}
-              {/* {errors.password && ( */}
-                {/* // <p className={classes.errorMsg}>{errors.password.message}</p> */}
-              {/* )} */}
+              /> 
+              {errors.password && ( 
+               <p className={classes.errorMsg}>{errors.password.message}</p> 
+              )}  */}
 
               <input
                 name="phone"
                 className={classes.LoginInput}
                 placeholder="* Phone"
                 type="tel"
-                value={data?.getCurrentCustomer?.phone}
-                disabled
-                // ref={register({ required: 'This field is required' })}
+                defaultValue={data?.getCurrentCustomer?.phone}
+               ref={register({ required: 'This field is required' })}
               />
-              {/* {errors.phone && ( */}
-                {/* // <p className={classes.errorMsg}>{errors.phone.message}</p> */}
-              {/* )} */}
+              {errors.phone && ( 
+               <p className={classes.errorMsg}>{errors.phone.message}</p> 
+              )} 
               <input
                 name="country"
                 className={classes.LoginInput}
                 placeholder="* Country"
                 type="text"
-                value={data?.getCurrentCustomer?.address[0]?.country}
-                disabled
-                // ref={register({ required: 'This field is required' })}
+                defaultValue={data?.getCurrentCustomer?.address[0]?.country}
+               ref={register({ required: 'This field is required' })}
               />
-              {/* {/* {errors.country && ( 
+              {errors.country && ( 
                  <p className={classes.errorMsg}>{errors.country.message}</p> 
-              )} */}
+              )} 
 
               <input
                 name="city"
                 className={classes.LoginInput}
                 placeholder="* Region/City"
                 type="text"
-                value={data?.getCurrentCustomer?.address[0]?.city}
-                disabled
-                // ref={register({ required: 'This field is required' })}
-              />
-              {/* {errors.city && (
-                <p className={classes.errorMsg}>{errors.city.message}</p>
-              )} */}
-
-              {/* <input
-                name="address"
-                className={classes.LoginInput}
-                placeholder="* Address"
-                type="text"
-                value={data?.getCurrentCustomer?.name}
-                disabled
+                defaultValue={data?.getCurrentCustomer?.address[0]?.city}
                 ref={register({ required: 'This field is required' })}
-              /> */}
-              {/* {errors.address && (
-                <p className={classes.errorMsg}>{errors.address.message}</p>
-              )} */}
+              />
+              {errors.city && (
+                <p className={classes.errorMsg}>{errors.city.message}</p>
+              )}
+
+              <input
+                name="state"
+                className={classes.LoginInput}
+                placeholder="* State"
+                type="text"
+                defaultValue={data?.getCurrentCustomer?.address[0].state}
+                ref={register({ required: 'This field is required' })}
+              />
+              {errors.state && (
+                <p className={classes.errorMsg}>{errors.state.message}</p>
+              )}
+              <input
+                name="street"
+                className={classes.LoginInput}
+                placeholder="* Street"
+                type="text"
+                defaultValue={data?.getCurrentCustomer?.address[0].street}
+                ref={register({ required: 'This field is required' })}
+              />
+              {errors.street && (
+                <p className={classes.errorMsg}>{errors.street.message}</p>
+              )}
+              <input
+                name="postalCode"
+                className={classes.LoginInput}
+                placeholder="* PostalCode"
+                type="text"
+                defaultValue={data?.getCurrentCustomer?.address[0].postalCode}
+                ref={register({ required: 'This field is required' })}
+              />
+              {errors.postalCode && (
+                <p className={classes.errorMsg}>{errors.postalCode.message}</p>
+              )}
+               <div className={classes.SaveBtn}>
+               <Button type='submit'>Save </Button>
+               </div>
+
             </div>
           </div>
-        {/* </form> */}
+        </form>
       </Dialog>
     </div>
   )

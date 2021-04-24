@@ -19,7 +19,6 @@ const Navbar = () => {
   const router = useRouter()
   const { parsed } = router
   
-  
   const cart = useStore((state) => state.cart)
   const setOpenModal = useStore((state) => state.setOpenModal)
   

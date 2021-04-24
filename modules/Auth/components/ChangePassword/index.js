@@ -101,6 +101,9 @@ const ChangePassword = async ({ oldPass, password }) => {
 {errors.confirmPass && (
                 <p className={classes.errorMsg}>{errors.confirmPass.message}</p>
               )}
+              <div className={classes.SaveBtn}>
+               <Button type='submit'>Save </Button>
+               </div>
             </div>
           </div>
         </form>

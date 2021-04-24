@@ -87,7 +87,7 @@ useEffect(() => {
                 <ProductSliderData
                   title={name}
                   type={'Starter kit'}
-                  price={(discountedPrice || mainPrice)?.toFixed(2)}
+                  price={(discountedPrice || mainPrice)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                   include={'Includes:'}
                   description={description}
                   buttonTitle={'Add to cart'}

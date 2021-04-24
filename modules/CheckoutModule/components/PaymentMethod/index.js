@@ -1,13 +1,14 @@
 import React from 'react'
 import useStyles from '../../../CheckoutModule/style'
 import Grid from '@material-ui/core/Grid'
+import Button from '../../../../common/Button'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 
-const PaymentMethod = ({ setPaymentMethod, ...props }) => {
+const PaymentMethod = ({ setPaymentMethod, setExpandAccordions, ...props }) => {
   const classes = useStyles()
   return (
     <div>
@@ -68,6 +69,11 @@ const PaymentMethod = ({ setPaymentMethod, ...props }) => {
           <div className={classes.SecondPaymentNote}>
             <img src="../../static/images/checkout/note.png" />
           </div>
+          <div className={classes.ContinueBtn}>
+            <div>
+            <Button onClick={() => setExpandAccordions('panel-4')}> Continue</Button>
+            </div>
+            </div>
         </div>
       </AccordionDetails>
     </div>

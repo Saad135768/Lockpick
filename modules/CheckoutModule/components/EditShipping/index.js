@@ -1,17 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useStyles from '../../../CheckoutModule/style'
 
-const EditShipping = ({ setView, data, ...props }) => {
-  const name = data?.getCurrentCustomer?.name
-  const phone = data?.getCurrentCustomer?.phone
-  const {
-    city,
-    state,
-    country,
-    apartment,
-    floor,
-    street,
-  } = data?.getCurrentCustomer?.address[0]
+const EditShipping = ({ setView, data, checkoutValues, ...props }) => {
+
+  const { name, phone, city, state, country,  address1, street, postalCode  } = checkoutValues
 
   const AddressChecker = address => {
     if (address) return `${address}, `
@@ -26,16 +18,16 @@ const EditShipping = ({ setView, data, ...props }) => {
           
           Edit
         </button>
-        <h6> Name: {name} </h6>
-        <h6> Phone: {phone} </h6>
+        <h6> Name: {checkoutValues?.name} </h6>
+        <h6> Phone: {checkoutValues?.phone} </h6>
         <h6>
           
-          Address: {AddressChecker(city)}
-          {AddressChecker(state)}
-          {AddressChecker(country)}
-          {AddressChecker(apartment)}
-          {AddressChecker(floor)}
-          {AddressChecker(street)}
+          Address: {AddressChecker(checkoutValues?.street)}
+          {AddressChecker(checkoutValues?.address1)}
+          {AddressChecker(checkoutValues?.state)}
+          {AddressChecker(checkoutValues?.city)}
+          {AddressChecker(checkoutValues?.country)}
+          {AddressChecker(checkoutValues?.postalCode)}
         </h6>
       </div>
     </div>
