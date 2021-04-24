@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import useStyles from '../../../CheckoutModule/style'
 import Grid from '@material-ui/core/Grid'
 import Button from '../../../../common/Button'
@@ -11,9 +11,8 @@ import { EDIT_CUSTOMER } from './../../../../commonData'
 const ShippingDetails = ({
   setView,
   setcheckoutValues,
-  setPromocode,
   checkoutValues,
-  data,
+  setExpandAccordions,
   ...props
 }) => {
   const { handleSubmit, errors, register } = useForm({ mode: 'onBlur' })
@@ -24,11 +23,12 @@ const ShippingDetails = ({
   const EditCustomer = async ({ name, phone, ...values }) => {
     try {
       await editCustomer({ variables: { name, phone, address: { ...values } } })
-      setcheckoutValues({ ...values })
+      setcheckoutValues({ name, phone, ...values })
       props.enqueueSnackbar('Your data has been updated', {
         variant: 'success',
       })
       setView()
+      setExpandAccordions('panel-2')
     } catch (error) {
       if (error?.graphQLErrors) {
         props.enqueueSnackbar(error.graphQLErrors.message, {

@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import Container from '@material-ui/core/Container'
+import { Container, Grid, Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core'
+import Loader from 'react-loader-spinner'
 import useStyles from './style'
-import Grid from '@material-ui/core/Grid'
 import CheckoutSummary from './components/CheckoutSummary'
 import Button from '../../common/Button'
-import Accordion from '@material-ui/core/Accordion'
-import AccordionDetails from '@material-ui/core/AccordionDetails'
-import AccordionSummary from '@material-ui/core/AccordionSummary'
-import Typography from '@material-ui/core/Typography'
 import PaymentMethod from './components/PaymentMethod'
-import EditShipping from './components/EditShipping/'
+import EditShipping from './components/EditShipping'
 import EditDelivery from './components/EditDelivery'
-import ShippingDetails from './components/ShippingDetails/'
+import ShippingDetails from './components/ShippingDetails'
+import DeliveryMethod from './components/DeliveryDetails'
 import Cookies from 'js-cookie'
 import { AiOutlineCheck } from 'react-icons/ai'
 import { useQuery, useMutation } from '@apollo/react-hooks'
@@ -21,32 +18,41 @@ import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
 import Router from 'next/router'
 import useStore from '../../store'
-import DeliveryMethod from './components/DeliveryDetails'
 
 const CheckoutModule = (props) => {
-  const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache'})
 
-  // // Protected Route
-  // useEffect(() => {
-  //   if(!R.pathOr(true, ['getCurrentCustomer','cart', 'variations'], data)) Router.push('/')
-  // }, [data])
+  const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache' })
 
   const [View, setView] = useState(true)
   const [view2, setView2] = useState(true)
-
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
   const [shippingMethod, setShippingMethod] = useState('normal')
   const [promoCode, setPromocode] = useState()
+  const [expandAccordions, setExpandAccordions] = useState('panel-1')
 
   const setCart = useStore((state) => state.setCart)
 
-  const email = data?.getCurrentCustomer?.email
+  const email = R.pathOr('', ['getCurrentCustomer', 'email'], data)
+  const address = R.pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
+  const checkIfHasAddress = Object.values(address).some((address) => !R.isNil(address))
   
-  const [createOrder] = useMutation(CREATE_ORDER)
+  useEffect(() => {
+    if (checkIfHasAddress) setView(false)
+    if (data) {
+      const name = data?.getCurrentCustomer?.name
+      const phone = data?.getCurrentCustomer?.phone
+      setcheckoutValues({ name, phone, ...data?.getCurrentCustomer?.address[0] })
+    }
+  }, [data])
+
+
+  // Create order mutation
+
+  const [createOrder, { loading }] = useMutation(CREATE_ORDER)
 
   const CreateOrder = async () => {
-    try{
+    try {
       const orderFields = {
         shipping: R.omit(['name', 'phone', 'address1'], checkoutValues),
         billing: R.omit(['name', 'phone', 'address1'], checkoutValues),
@@ -55,12 +61,12 @@ const CheckoutModule = (props) => {
         promoCode,
         shippingCost: 0
       }
-      const res = await createOrder({ variables: {...orderFields} }) 
-      if(paymentMethod === 'cash') {
-              props.enqueueSnackbar('Your order has been created successfully', { variant: 'success'})
-              setCart([])
-              Router.push({ pathname: `/order/${res.data.addOrder._id}` })
- }
+      const res = await createOrder({ variables: { ...orderFields } })
+      if (paymentMethod === 'cash') {
+        props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
+        setCart([])
+        Router.push({ pathname: `/order/${res.data.addOrder._id}` })
+      }
     }
     catch (error) {
       if (error?.graphQLErrors) {
@@ -71,25 +77,13 @@ const CheckoutModule = (props) => {
     }
   }
 
-  const address = R.pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
-  const checkIfHasAddress = Object.values(address).some((address) => !R.isNil(address))
-
-  useEffect(() => {
-    if(checkIfHasAddress) setView(false) 
-    if(data) {
-      const name = data?.getCurrentCustomer?.name
-      const phone = data?.getCurrentCustomer?.phone
-      setcheckoutValues({ name, phone, ...data?.getCurrentCustomer?.address[0]  })
-    }
-  }, [data])
-  
 
   const classes = useStyles()
 
   return (
     <div className={classes.CheckoutHolder}>
       <Container>
-        <Grid container justify="center">
+        <Grid container justify='center'>
           <Grid item lg={11} md={11} sm={12} xs={12}>
             <Grid container spacing={8}>
               <Grid item lg={7} md={7} sm={12} xs={12}>
@@ -117,74 +111,76 @@ const CheckoutModule = (props) => {
 
                 <div className={classes.ShippingDetails}>
                   <div className={classes.root}>
-                    <Accordion>
+                    <Accordion expanded={expandAccordions === 'panel-1'} onChange={() => setExpandAccordions('panel-1')}>
                       <AccordionSummary
-                        aria-controls="panel1bh-content"
-                        id="panel1bh-header"
+                        aria-controls='panel1bh-content'
+                        id='panel1bh-header'
                       >
                         <Typography className={classes.heading}>
                           <h5>
-                            <em> {(checkoutValues || checkIfHasAddress) ?  <AiOutlineCheck /> : 1} </em> Shipping Details
+                            <em> {(checkoutValues || checkIfHasAddress) ? <AiOutlineCheck /> : 1} </em> Shipping Details
                           </h5>
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
                         {View ? (
-                          <ShippingDetails 
-                            data={data}
+                          <ShippingDetails
                             checkoutValues={checkoutValues}
-                            setView={setView} 
+                            setView={setView}
                             setcheckoutValues={setcheckoutValues}
-                            setPromocode={setPromocode}
+                            setExpandAccordions={setExpandAccordions}
                           />
                         ) : (
-                          <EditShipping 
-                            setView={setView} 
-                            // data={data}
+                          <EditShipping
+                            setView={setView}
                             checkoutValues={checkoutValues}
                           />
                         )}
                       </AccordionDetails>
                     </Accordion>
-                    <Accordion>
+                    <Accordion expanded={expandAccordions === 'panel-2'} onChange={() => setExpandAccordions('panel-2')}>
                       <AccordionSummary
-                        aria-controls="panel2bh-content"
-                        id="panel2bh-header"
+                        aria-controls='panel2bh-content'
+                        id='panel2bh-header'
                       >
                         <h5>
                           <em>{shippingMethod ? <AiOutlineCheck /> : 2}</em> Delivery Method
                         </h5>
                       </AccordionSummary>
                       {
-                        view2 ? ( <EditDelivery 
-                          shippingMethod={shippingMethod} 
+                        view2 ? (<EditDelivery
+                          shippingMethod={shippingMethod}
                           setView2={setView2}
-                          />) : (
-                          <DeliveryMethod 
-                          shippingMethod={shippingMethod} 
-                          setView2={setView2}
-                          setShippingMethod={setShippingMethod} 
+                        />) : (
+                          <DeliveryMethod
+                            shippingMethod={shippingMethod}
+                            setShippingMethod={setShippingMethod}
+                            setView2={setView2}
+                            setExpandAccordions={setExpandAccordions}
                           />
-                          )
+                        )
                       }
-                     
+
                     </Accordion>
-                    <Accordion>
+                    <Accordion expanded={expandAccordions === 'panel-3'} onChange={() => setExpandAccordions('panel-3')}>
                       <AccordionSummary
-                        aria-controls="panel3bh-content"
-                        id="panel3bh-header"
+                        aria-controls='panel3bh-content'
+                        id='panel3bh-header'
                       >
                         <h5>
                           <em> {paymentMethod ? <AiOutlineCheck /> : 3} </em> Payment
                         </h5>
                       </AccordionSummary>
-                      <PaymentMethod setPaymentMethod={setPaymentMethod} />
+                      <PaymentMethod
+                        setPaymentMethod={setPaymentMethod}
+                        setExpandAccordions={setExpandAccordions}
+                      />
                     </Accordion>
 
-                    <Accordion>
+                    <Accordion expanded={expandAccordions === 'panel-4'} onChange={() => setExpandAccordions('panel-4')}>
                       <AccordionSummary
-                        aria-controls="panel4bh-content"
-                        id="panel4bh-header"
+                        aria-controls='panel4bh-content'
+                        id='panel4bh-header'
                       >
                         <h5>
                           <em> 4</em> Place Order
@@ -192,8 +188,13 @@ const CheckoutModule = (props) => {
                       </AccordionSummary>
                       <AccordionDetails>
                         <a>
-                            <Button onClick={CreateOrder}> Pay Now</Button>
-                            </a>
+                          <Button onClick={CreateOrder}>{!loading ? 'Proceed to payment' : <Loader
+                            type="Oval"
+                            color="#fff"
+                            height={30}
+                            width={30}
+                          />}</Button>
+                        </a>
                       </AccordionDetails>
                     </Accordion>
                   </div>
@@ -204,7 +205,7 @@ const CheckoutModule = (props) => {
                 </div>
               </Grid>
               <Grid item lg={5} md={5} sm={12} xs={12}>
-                <CheckoutSummary />
+                <CheckoutSummary setPromocode={setPromocode} />
               </Grid>
             </Grid>
           </Grid>

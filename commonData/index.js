@@ -152,10 +152,10 @@ export const EDIT_CUSTOMER = gql`
       phone
       address {
         city
-        address1
-        email
         street
         country
+        postalCode
+        state
         postalCode
       }
     }

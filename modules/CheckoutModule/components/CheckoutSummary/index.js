@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import useStyles from "./style"
 import Link from "next/link"
 import useStore from "../../../../store"
@@ -6,9 +6,8 @@ import { MdKeyboardArrowRight } from "react-icons/md"
 import CartData from "../../../CartModule/components/CartData"
 import Router from 'next/router'
 
-const CheckoutSummary = () => {
+const CheckoutSummary = ({ setPromocode, ...props }) => {
   const total = useStore((state) => state.total)
-  const cart = useStore((state) => state.cart)
   const classes = useStyles()
 
   return (
@@ -35,7 +34,7 @@ const CheckoutSummary = () => {
       
         <div className={classes.promocode}>
           <div>
-            <input placeholder="Enter a promo code" />
+            <input placeholder="Enter a promo code" onChange={(e) => setPromocode(e.target.value)} />
           </div>
         </div>
 
@@ -44,7 +43,7 @@ const CheckoutSummary = () => {
             <h3> Subtotal</h3>
           </div>
           <div>
-            <p> {total?.toFixed(2)} $</p>
+            <p>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -69,7 +68,7 @@ const CheckoutSummary = () => {
             <h3> Total</h3>
           </div>
           <div>
-            <p className={classes.totalPrice}> {total?.toFixed(2)} $ </p>
+            <p className={classes.totalPrice}>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
           </div>
         </div>
       </div>

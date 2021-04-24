@@ -1,5 +1,6 @@
 import React from 'react'
 import useStyles from '../../../CheckoutModule/style'
+import Button from '../../../../common/Button'
 import Grid from '@material-ui/core/Grid'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -7,7 +8,7 @@ import FormControl from '@material-ui/core/FormControl'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 
-const DeliveryMethod = ({ setView2, setShippingMethod, shippingMethod, ...props }) => {
+const DeliveryMethod = ({ setView2, setShippingMethod, shippingMethod, setExpandAccordions, ...props }) => {
   const classes = useStyles()
   const handleChange = event => {
     setShippingMethod(event.target.value)
@@ -53,6 +54,13 @@ const DeliveryMethod = ({ setView2, setShippingMethod, shippingMethod, ...props 
               </Grid>
             </RadioGroup>
           </FormControl>
+          <div className={classes.ContinueBtn}>
+            <div>
+            <Button onClick={() => setExpandAccordions('panel-3')}> Continue</Button>
+            </div>
+              
+
+            </div>
         </div>
       </AccordionDetails>
     </div>

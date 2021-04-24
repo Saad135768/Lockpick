@@ -51,6 +51,7 @@ function MyApp({ Component, pageProps, apollo }) {
         <link rel="icon" href="../static/images/32x32.png" sizes="32x32" />
         <link rel="icon" href="../static/images/192x192.png" sizes="192x192" />
         <link rel="apple-touch-icon" href="../static/images/180x180.png" />
+        <link rel="icon" href="../static/images/logo.png" />
 
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
