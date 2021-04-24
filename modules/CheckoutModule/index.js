@@ -7,6 +7,7 @@ import Button from '../../common/Button'
 import PaymentMethod from './components/PaymentMethod'
 import EditShipping from './components/EditShipping'
 import EditDelivery from './components/EditDelivery'
+import EditPayment from './components/EditPayment'
 import ShippingDetails from './components/ShippingDetails'
 import DeliveryMethod from './components/DeliveryDetails'
 import Cookies from 'js-cookie'
@@ -23,20 +24,28 @@ const CheckoutModule = (props) => {
 
   const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache' })
 
+  // Those are the states that toggle between components [shipping details, deleivery and payments methods]
   const [View, setView] = useState(true)
-  const [view2, setView2] = useState(true)
+  const [view2, setView2] = useState()
+  const [view3, setView3] = useState()
+
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
-  const [shippingMethod, setShippingMethod] = useState('normal')
+  const [shippingMethod, setShippingMethod] = useState()
   const [promoCode, setPromocode] = useState()
-  const [expandAccordions, setExpandAccordions] = useState('panel-1')
+
+  // Accordions state
+  const [expandShippingAccordion, setExpandShippingAccordion] = useState(true)
+  const [expandDeleiveryAccordion, setExpandDeleiveryAccordion] = useState()
+  const [expandPaymentAccordion, setExpandPaymentAccordion] = useState(true)
+  const [expandlastAccordion, setExpandlastAccordion] = useState()
 
   const setCart = useStore((state) => state.setCart)
 
   const email = R.pathOr('', ['getCurrentCustomer', 'email'], data)
   const address = R.pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
   const checkIfHasAddress = Object.values(address).some((address) => !R.isNil(address))
-  
+
   useEffect(() => {
     if (checkIfHasAddress) setView(false)
     if (data) {
@@ -60,6 +69,7 @@ const CheckoutModule = (props) => {
         promoCode,
         shippingCost: 0
       }
+      if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
       const res = await createOrder({ variables: { ...orderFields } })
       if (paymentMethod === 'cash') {
         props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
@@ -109,14 +119,14 @@ const CheckoutModule = (props) => {
 
                 <div className={classes.ShippingDetails}>
                   <div className={classes.root}>
-                    <Accordion expanded={expandAccordions === 'panel-1'} onChange={() => setExpandAccordions('panel-1')}>
+                    <Accordion expanded={expandShippingAccordion} onChange={() => setExpandShippingAccordion(!expandShippingAccordion)}>
                       <AccordionSummary
                         aria-controls='panel1bh-content'
                         id='panel1bh-header'
                       >
                         <Typography className={classes.heading}>
                           <h5>
-                            <em> {(checkoutValues || checkIfHasAddress) ? <AiOutlineCheck /> : 1} </em> Shipping Details
+                            <em> {!View ? <AiOutlineCheck /> : 1} </em> Shipping Details
                           </h5>
                         </Typography>
                       </AccordionSummary>
@@ -126,7 +136,7 @@ const CheckoutModule = (props) => {
                             checkoutValues={checkoutValues}
                             setView={setView}
                             setcheckoutValues={setcheckoutValues}
-                            setExpandAccordions={setExpandAccordions}
+                            setExpandDeleiveryAccordion={setExpandDeleiveryAccordion}
                           />
                         ) : (
                           <EditShipping
@@ -136,13 +146,13 @@ const CheckoutModule = (props) => {
                         )}
                       </AccordionDetails>
                     </Accordion>
-                    <Accordion expanded={expandAccordions === 'panel-2'} onChange={() => setExpandAccordions('panel-2')}>
+                    <Accordion expanded={expandDeleiveryAccordion}>
                       <AccordionSummary
                         aria-controls='panel2bh-content'
                         id='panel2bh-header'
                       >
                         <h5>
-                          <em>{shippingMethod ? <AiOutlineCheck /> : 2}</em> Delivery Method
+                          <em>{view2 ? <AiOutlineCheck /> : 2}</em> Delivery Method
                         </h5>
                       </AccordionSummary>
                       {
@@ -154,28 +164,35 @@ const CheckoutModule = (props) => {
                             shippingMethod={shippingMethod}
                             setShippingMethod={setShippingMethod}
                             setView2={setView2}
-                            setExpandAccordions={setExpandAccordions}
+                            setExpandDeleiveryAccordion={setExpandDeleiveryAccordion}
+                            setExpandPaymentAccordion={setExpandPaymentAccordion}
                           />
                         )
                       }
 
                     </Accordion>
-                    <Accordion expanded={expandAccordions === 'panel-3'} onChange={() => setExpandAccordions('panel-3')}>
+                    <Accordion expanded={expandPaymentAccordion} onChange={() => setExpandPaymentAccordion(!expandPaymentAccordion)}>
                       <AccordionSummary
                         aria-controls='panel3bh-content'
                         id='panel3bh-header'
                       >
                         <h5>
-                          <em> {paymentMethod ? <AiOutlineCheck /> : 3} </em> Payment
+                          <em> {!view3 ? <AiOutlineCheck /> : 3} </em> Payment
                         </h5>
                       </AccordionSummary>
-                      <PaymentMethod
+                      {view3 ? <PaymentMethod
                         setPaymentMethod={setPaymentMethod}
-                        setExpandAccordions={setExpandAccordions}
+                        setExpandPaymentAccordion={setExpandPaymentAccordion}
+                        setExpandlastAccordion={setExpandlastAccordion}
+                        setView3={setView3}
+                      /> : <EditPayment
+                        paymentMethod={paymentMethod}
+                        setView3={setView3}
                       />
+                      }
                     </Accordion>
 
-                    <Accordion expanded={expandAccordions === 'panel-4'} onChange={() => setExpandAccordions('panel-4')}>
+                    <Accordion expanded={expandlastAccordion} onChange={() => setExpandlastAccordion(!expandlastAccordion)}>
                       <AccordionSummary
                         aria-controls='panel4bh-content'
                         id='panel4bh-header'

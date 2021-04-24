@@ -78,8 +78,8 @@ const CartData = (props) => {
                 </td>
                 <td className={`${classes.ItemName} ItemName`}>
                   <div>
-                    <p className={`${classes.ItemLink} ItemLink`} onClick={() => Router.push(`/product/${productsId}`)}>    {name} </p>
-                    <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity : {quantity}</p>
+                    <p className={`${classes.ItemLink} ItemLink`} onClick={() => Router.push(`/product/${productsId}`)}>{name}</p>
+                    <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity :{quantity}</p>
                     <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`} onClick={() => Router.push(`/product/${productsId}`)}> + More Details :</p>
 
                   </div>

@@ -9,7 +9,7 @@ import { GET_CART } from './../../commonData'
 
 const HomeRegister = () => {
   
-  useQuery(GET_CART, { onCompleted: (result) => { setCart(result.getCurrentCustomer.cart)}})
+  useQuery(GET_CART, { onCompleted: (result) => { setCart(result.getCurrentCustomer.cart)}, fetchPolicy: 'no-cache'})
   const setOpenModal = useStore((state) => state.setOpenModal)
   const setCart = useStore((state) => state.setCart)
   

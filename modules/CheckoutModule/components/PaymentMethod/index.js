@@ -8,10 +8,18 @@ import FormControl from '@material-ui/core/FormControl'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 
-const PaymentMethod = ({ setPaymentMethod, setExpandAccordions, ...props }) => {
+const PaymentMethod = ({
+  setPaymentMethod,
+  setExpandlastAccordion,
+  setView3,
+  ...props
+}) => {
   const classes = useStyles()
   return (
     <div>
+      <button className={classes.SaveBtn} onClick={() => setView3()}>
+        Save
+      </button>
       <AccordionDetails>
         <div className={classes.DeliveryMethod}>
           <FormControl component="fieldset">
@@ -70,10 +78,15 @@ const PaymentMethod = ({ setPaymentMethod, setExpandAccordions, ...props }) => {
             <img src="../../static/images/checkout/note.png" />
           </div>
           <div className={classes.ContinueBtn}>
-            <div>
-            <Button onClick={() => setExpandAccordions('panel-4')}> Continue</Button>
-            </div>
-            </div>
+              <Button
+                onClick={() => {
+                  setExpandlastAccordion(true)
+                  setView3()
+                }}
+              >
+                Continue
+              </Button>
+          </div>
         </div>
       </AccordionDetails>
     </div>
