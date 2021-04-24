@@ -48,7 +48,6 @@ const CheckoutModule = (props) => {
 
 
   // Create order mutation
-
   const [createOrder, { loading }] = useMutation(CREATE_ORDER)
 
   const CreateOrder = async () => {
@@ -103,8 +102,7 @@ const CheckoutModule = (props) => {
                         window.location = '/'
                       }}
                     >
-                      {' '}
-                      Log out{' '}
+                      Log out
                     </h4>
                   </div>
                 </div>
