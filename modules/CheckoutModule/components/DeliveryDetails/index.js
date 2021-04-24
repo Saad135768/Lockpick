@@ -56,7 +56,10 @@ const DeliveryMethod = ({ setView2, setShippingMethod, shippingMethod, setExpand
           </FormControl>
           <div className={classes.ContinueBtn}>
             <div>
-            <Button onClick={() => setExpandAccordions('panel-3')}> Continue</Button>
+            <Button onClick={() => {
+              setView2(true)
+              setExpandAccordions('panel-3')
+            }}> Continue</Button>
             </div>
               
 
