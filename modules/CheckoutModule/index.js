@@ -24,7 +24,7 @@ const CheckoutModule = (props) => {
   const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache' })
 
   const [View, setView] = useState(true)
-  const [view2, setView2] = useState(true)
+  const [view2, setView2] = useState()
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
   const [shippingMethod, setShippingMethod] = useState('normal')
