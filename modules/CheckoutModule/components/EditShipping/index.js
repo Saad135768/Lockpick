@@ -23,7 +23,6 @@ const EditShipping = ({ setView, data, checkoutValues, ...props }) => {
         <h6>
           
           Address: {AddressChecker(checkoutValues?.street)}
-          {AddressChecker(checkoutValues?.address1)}
           {AddressChecker(checkoutValues?.state)}
           {AddressChecker(checkoutValues?.city)}
           {AddressChecker(checkoutValues?.country)}

@@ -14,7 +14,7 @@ const DeliveryMethod = ({
   setShippingMethod,
   shippingMethod,
   setExpandPaymentAccordion,
-  setExpandDeleiveryAccordion,
+  setExpandlastAccordion,
   ...props
 }) => {
   const classes = useStyles()
@@ -71,7 +71,7 @@ const DeliveryMethod = ({
                     if (shippingMethod) {
                       setView2(true)
                       setExpandPaymentAccordion(true)
-                      setExpandDeleiveryAccordion(true)
+                      setExpandlastAccordion(true)
                     }
                     else return props.enqueueSnackbar('please choose a delivery method', { variant: 'warning' })
                   }}

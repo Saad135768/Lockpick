@@ -36,7 +36,7 @@ const CheckoutModule = (props) => {
 
   // Accordions state
   const [expandShippingAccordion, setExpandShippingAccordion] = useState(true)
-  const [expandDeleiveryAccordion, setExpandDeleiveryAccordion] = useState()
+  const [expandDeleiveryAccordion, setExpandDeleiveryAccordion] = useState(true)
   const [expandPaymentAccordion, setExpandPaymentAccordion] = useState(true)
   const [expandlastAccordion, setExpandlastAccordion] = useState()
 
@@ -66,7 +66,7 @@ const CheckoutModule = (props) => {
         billing: R.omit(['name', 'phone', 'address1'], checkoutValues),
         paymentMethod,
         shippingMethod,
-        promoCode,
+        // promoCode,
         shippingCost: 0
       }
       if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
@@ -146,7 +146,7 @@ const CheckoutModule = (props) => {
                         )}
                       </AccordionDetails>
                     </Accordion>
-                    <Accordion expanded={expandDeleiveryAccordion}>
+                    <Accordion expanded={expandDeleiveryAccordion} onChange={() => setExpandDeleiveryAccordion(!expandDeleiveryAccordion)}>
                       <AccordionSummary
                         aria-controls='panel2bh-content'
                         id='panel2bh-header'
@@ -164,8 +164,8 @@ const CheckoutModule = (props) => {
                             shippingMethod={shippingMethod}
                             setShippingMethod={setShippingMethod}
                             setView2={setView2}
-                            setExpandDeleiveryAccordion={setExpandDeleiveryAccordion}
                             setExpandPaymentAccordion={setExpandPaymentAccordion}
+                            setExpandlastAccordion={setExpandlastAccordion}
                           />
                         )
                       }
@@ -182,7 +182,6 @@ const CheckoutModule = (props) => {
                       </AccordionSummary>
                       {view3 ? <PaymentMethod
                         setPaymentMethod={setPaymentMethod}
-                        setExpandPaymentAccordion={setExpandPaymentAccordion}
                         setExpandlastAccordion={setExpandlastAccordion}
                         setView3={setView3}
                       /> : <EditPayment
