@@ -188,6 +188,9 @@ color:'#fff',
   fontFamily: 'Poppins-Regular',
   fontSize: 18,
   marginBottom: 0,
+  '@media (max-width:767px)': {
+    marginLeft: 61,
+  },
 },
   '& hr ': {
     width: '100%',

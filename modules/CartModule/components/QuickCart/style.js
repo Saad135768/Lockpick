@@ -42,7 +42,7 @@ const useStyles = makeStyles(() => ({
         },
       },
       '@media (max-width:767px)': {
-        marginTop:30,
+        marginTop:0,
         height:'auto',
         marginBottom:40,
         '& .MuiGrid-spacing-xs-8': {
