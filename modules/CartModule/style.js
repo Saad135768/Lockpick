@@ -4,7 +4,11 @@ const useStyles = makeStyles(() => ({
   CartHolder:{
         '& .ItemLink': {
        width: 280,
-       '@media (max-width:768px)': {
+       '@media screen and (min-width: 769px) and (max-width: 1100px)': {
+        width: 200,
+      },
+
+       '@media (max-width:767px)': {
 width:'100%',
 
         },
@@ -12,6 +16,8 @@ width:'100%',
         '& .TotalPrice': {
           width: 255,
           paddingLeft: 10,
+
+          
           '@media (max-width:768px)': {
    width:'100% !important',
    paddingLeft: 0,
