@@ -78,7 +78,19 @@ zIndex:'2000 !important',
    
       
   },
-
+  Logout:{
+    marginTop: 25,
+textAlign: 'right',
+textTransform:'uppercase',
+margin: '10px 0',
+marginBottom:10,
+'& h2': {
+  marginTop: 0,
+  fontSize: 18,
+  marginBottom:10,
+  cursor: 'pointer',
+},
+  },
 }))
 
 export default useStyles
