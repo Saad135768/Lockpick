@@ -113,7 +113,7 @@ const SingleProductModule = (props) => {
                   </div>
                   <div className={classes.SingleProductButtons}>
                    
-                    <QuickCart func={() => AddToCart(variationsId, productsQuantity)} />
+                    <QuickCart AddToCartMutation={() => AddToCart(variationsId, productsQuantity)} />
 
                     <div className={classes.BuyNowBtn}>
                           <Button> Buy Now</Button>
