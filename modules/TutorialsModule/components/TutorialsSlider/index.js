@@ -67,7 +67,7 @@ const TutorialsSlider = ({ title }) => {
                 <Slider {...settings}>
                   <div>
                     <a
-                      href="../../../../static/support/setup.pdf"
+                      href="../../../../static/support/Lock-Pick-Initial-Setup.pdf"
                       target="_blank"
                     >
                       <img src="../../../../static/support/pdf.webp" />
@@ -76,7 +76,7 @@ const TutorialsSlider = ({ title }) => {
                   </div>
                   <div>
                     <a
-                      href="../../../../static/support/kit.pdf"
+                      href="../../../../static/support/Lock-Pick-Kit-Contents.pdf"
                       target="_blank"
                     >
                       <img src="../../../../static/support/pdf.webp" />

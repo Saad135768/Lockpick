@@ -28,8 +28,8 @@ const LockIsHere = () => {
           <ScrollAnimation animateIn='fadeInUp'
              
              >                
-            <Link as={"../../../../static/support/unlook.pdf"} href="../../../../static/support/unlook.pdf">
-              <a href="../../../../static/support/unlook.pdf"  target="_blank">
+            <Link as={"../../../../static/support/Lock-Pick-Brochure.pdf"} href="../../../../static/support/Lock-Pick-Brochure.pdf">
+              <a href="../../../../static/support/Lock-Pick-Brochure.pdf"  target="_blank">
                 <Button>Learn More</Button>
               </a>
             </Link>

@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
 
   CartTableTitle:{
+  
 display:'flex',
 justifyContent:'space-between',
 '& h4': {
@@ -19,11 +20,27 @@ justifyContent:'space-between',
 },
   },
   CartTable: {
+    '& .ButtonHolder': {
+      margin: '0 auto',
+      display: 'block',
+      textAlign: 'center',
+    
+    },
+    '& .ButtonHolder button': {
+      width:'300px',
+      fontSize:19,
+      marginBottom:20,
+      '@media (max-width:767px)': {
+        width:'200px',
+        fontSize:17,
+         },
+
+    },
     '& img': {
       width: 'auto',
       height: 165,
       width:165,
-      objectFit: 'cover', 
+      objectFit: 'contain', 
       cursor: 'pointer',
     },
     '& p': {
@@ -230,15 +247,25 @@ td_total: {
     },
     },
     imageTable:{
-
+      '& img': {
+        cursor: 'pointer',
+      }
     },
     ForCheckoutQuantity:{
       display:'none',
     },
     ForCheckoutMoreDetails:{
       display:'none',
+      cursor: 'pointer',
+    },
+    ItemLink:{
+     cursor:'pointer',
+     '&:hover': {
+    color:'#FF7700',
+    transition: '0.3s',
 
     },
+  },
 }))
 
 export default useStyles

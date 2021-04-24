@@ -66,12 +66,12 @@ export const GET_CURRENT_CUSTOMER = gql`
       name
       phone
       address {
-        countryCode
         city
         country
-        apartment
-        floor
+        postalCode
         street
+        state
+        address1
       }
     }
   }

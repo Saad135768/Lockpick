@@ -2,6 +2,32 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   CheckoutHolder:{
+    
+
+    '& .MuiAccordionDetails-root , .MuiAccordionDetails-root': {
+    padding:0,
+    },
+    '& .MuiAccordionSummary-root': {
+      padding:'0',
+    },
+      
+  '& .ButtonHolder button': {
+    width: '100%',
+    marginTop: 30,
+  },
+  '& .MuiAccordionDetails-root': {
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+    '& .EditDelivery h6 , .EditDelivery p': {
+color:'#8d8d8e',
+margin:0,
+fontSize:18,
+    },
+    '& .EditDelivery .MuiGrid-spacing-xs-2 > .MuiGrid-item': {
+paddingBottom:0,
+    },
+    
     marginTop:100,
     marginBottom:140,
     '@media (max-width:768px)': {
@@ -40,11 +66,19 @@ const useStyles = makeStyles(() => ({
     color: '#fff',
     marginBottom: 0,
     padding: '0 20px',
-    marginTop: 20,
+    marginTop: 10,
+    '@media (max-width:767px)': {
+      display:'block',
+      padding: '10px 20px',
+    },
     '& h4': {
       borderBottom: '1px solid',
       fontFamily: 'Poppins-SemiBold',
       margin: '15px 0',
+      cursor: 'pointer',
+      '&:hover': {
+        color:'#fba530',
+      },
     },
     '& h3': {
       margin: '15px 0',
@@ -81,11 +115,12 @@ const useStyles = makeStyles(() => ({
     borderBottom: '1px solid #3780d5',
    paddingBottom: 0,
     '& button': {
-      marginTop: 30,
-fontSize: 20,
+      textTransform:'uppercase',
+      marginTop: 0,
+      transition: '0.1s', 
+fontSize: 18,
 padding:'15px 0',
 borderRadius:'0',
-width:'100%',
 color:'#fff',
     },
     '& h5': {
@@ -101,7 +136,7 @@ color:'#fff',
     },
     '& span': {
       fontSize: 18,
-      color: '#58595e',
+      color: '#8d8d8e',
       fontFamily: 'Poppins-Regular',
       marginBottom: 0,
     },
@@ -110,6 +145,7 @@ color:'#fff',
     border: '2px solid #474c56',
     borderRadius: '1px',
     display: 'block',
+    color:'#fff',
     height: '50px',
     background:'transparent',
     marginBottom :30,
@@ -124,14 +160,14 @@ color:'#fff',
     position: 'relative',
     outline: 0,
     '&::placeholder ': {
-      color: '#fff',
+      color: '#fff !important',
       fontFamily: 'Poppins-Light',
       background:' transparent',
     },
     '&:focus': {
       transition: '0.3s',
       fontFamily: 'Poppins-Light',
-      color: '#fff',
+      color: '#fff !important',
       border:'1px solid #fba62f',
     },
   },
@@ -144,7 +180,7 @@ color:'#fff',
     },
     '& label.MuiFormControlLabel-root' :{
 
-      marginLeft:10,
+      marginLeft:18,
     },
     '&  span.MuiTypography-root ': {
       color: '#fff',
@@ -156,8 +192,8 @@ color:'#fff',
   '& p ': {
     color: '#fff',
     marginLeft: 10,
-    color: '#58595e',
-    marginLeft: 62,
+    color: '#8d8d8e',
+    marginLeft: 70,
     marginTop: 0,
     fontSize: 18,
     fontFamily: 'Poppins-Regular',
@@ -168,6 +204,13 @@ color:'#fff',
   fontFamily: 'Poppins-Regular',
   fontSize: 18,
   marginBottom: 0,
+  '@media (max-width:767px)': {
+    marginLeft: 70,
+    marginTop: 0,
+    position:'relative',
+    bottom:13,
+
+  },
 },
   '& hr ': {
     width: '100%',
@@ -192,6 +235,7 @@ alignItems:'center',
     fontFamily: 'Poppins-Regular',
     position: 'relative',
     bottom: 7,
+   
 },
 
   },
@@ -247,8 +291,9 @@ EditBtn :{
     margin: 0,
     padding: 0,
     textDecoration: 'underline',
-    position: 'relative',
-    bottom: 65,
+    position: 'absolute',
+    top: 40,
+    right:0,
     marginTop: 0,
      cursor:'pointer',
   '&:focus': {
@@ -260,6 +305,7 @@ EditBtn :{
 },
 
 SaveBtn :{
+  textTransform: 'uppercase',
   background:'transparent',
   border:0,
   textAlign: 'right',
@@ -267,9 +313,10 @@ SaveBtn :{
     marginTop: 0,
     padding: 0,
     textDecoration: 'underline',
-    position: 'relative',
+    position: 'absolute',
     cursor:'pointer',
-    bottom: 65,
+    right:0,
+    top: 40,
   '&:focus': {
     background:'transparent',
     border:0,
@@ -280,7 +327,20 @@ SaveBtn :{
 
 SHippingEdit:{
   width:'100%',
+'& h6': {
+  color:'#8d8d8e',
+margin:0,
+fontSize:18,
 },
+
+},
+errorMsg: {
+  color: 'red',
+  fontWeight: 'bold',
+},
+ContinueBtn:{
+width:'100%',
+}
 }))
 
 export default useStyles

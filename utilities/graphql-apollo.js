@@ -10,7 +10,9 @@ import * as R from 'ramda'
 
 const GRAPHQL_URL = 'https://api.lockpick.qpix.io/'
 // const GRAPHQL_URL = 'https://api.yorklongman.qpix.io/'
-const cache = new InMemoryCache()
+const cache = new InMemoryCache({
+  addTypename: false,
+})
 const link = createUploadLink({
   fetch, // Switches between unfetch & node-fetch for client & server.
   uri: GRAPHQL_URL,

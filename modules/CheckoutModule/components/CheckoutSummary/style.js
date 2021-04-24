@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
   OrderSummaryHolder: {
 
-
 '& td.ItemName': {
   display: 'flex',
   justifyContent:'space-between',
@@ -20,6 +19,9 @@ const useStyles = makeStyles(() => ({
   display: 'block',
   marginTop: 6,
   color:'#3680d6',
+  '&:hover': {
+    color: '#3191ff',
+},
 },
 
     '& td.imageTable ': {
@@ -32,6 +34,11 @@ const useStyles = makeStyles(() => ({
     height: '85px !important',
     objectFit: 'contain',
     marginTop: 0,
+    marginRight:5,
+    '@media (min-width:900px) and (max-width:1300px)': {
+      width:'70px !important',
+      height: '70px !important',
+    },
 
 },
 
@@ -41,7 +48,7 @@ const useStyles = makeStyles(() => ({
   fontSize: '14px !important',
   color: '#fff',
 },
-'& .NumericInput , .CartSub , .RemoveItem , .total , .CartInputs , .TotalPrice , td_total' : {
+'& .NumericInput , .CartSub , .RemoveItem , .total , .CartInputs , .ItemPrice , td_total' : {
       display: 'none !important',
       borderBottom: 0,
 
@@ -57,6 +64,7 @@ const useStyles = makeStyles(() => ({
         cursor: 'pointer',
         position: 'relative',
         top: 8,
+        left: 8,
       },
     },
 
@@ -70,6 +78,11 @@ const useStyles = makeStyles(() => ({
     '&  p , h4': {
       marginTop: 22,
     },
+
+    '& .ItemLink': {
+      marginTop: '0 !important',
+    },
+
     '& h2': {
       color: '#fba530',
       fontFamily: 'Poppins-Bold',
@@ -92,9 +105,33 @@ const useStyles = makeStyles(() => ({
     background: '#4c515b',
     padding: 25,
     marginTop: 12,
+    '@media (min-width:800px) and (max-width:1300px)': {
+      padding: 20,
+    },
+    
+    '& .ItemLink ': {
+   maxWidth:165,
+   '@media (min-width:900px) and (max-width:1000px)': {
+    maxWidth:137,
+  },
+   '@media (min-width:1000px) and (max-width:1280px)': {
+    maxWidth:150,
+  },
+
+    },
+    '& .TotalPrice ': {
+      maxWidth:100,
+      textAlign: 'right',
+
+       },
     '& .EditCart h4': {
 color:'#fba530',
 borderBottom:'1px solid #fba530',
+
+'&:hover': {
+  color:'#FF7700',
+  transition:'0.3s',
+},
     },
     '& .EditCart h3': {
       color:'#fba530',
@@ -109,11 +146,9 @@ borderBottom:'1px solid #fba530',
     color: '#fff',
     display: 'flex',
     justifyContent: 'space-between',
-  },
-  OrderSummaryFlex: {
-    color: '#fff',
-    display: 'flex',
-    justifyContent: 'space-between',
+    '& h4': {
+      cursor: 'pointer',
+    }
   },
   OrderSummaryInformation: {
     textAlign: 'center',
@@ -175,6 +210,9 @@ borderBottom:'1px solid #fba530',
     textAlign: 'right',
     '& h4': {
       fontSize:18,
+      '@media (max-width:767px)': {
+        marginTop:0,
+      },
     },
   },
 

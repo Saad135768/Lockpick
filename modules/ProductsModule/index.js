@@ -4,9 +4,14 @@ import useStyles from './style'
 import FirstProductSlider from '../ProductsModule/components/FirstProductSlider'
 import SecondProductSlider from '../ProductsModule/components/SecondProductSlider'
 import ScrollAnimation from 'react-animate-on-scroll'
+import { GET_CART } from './../../commonData/index'
+import { useQuery } from '@apollo/react-hooks'
+import useStore from '../../store'
 
 const ProductsModule = () => {
- 
+  const setCart = useStore((state) => state.setCart)
+  // This query aims only to fetch the cart to update the count on the cart icon in the navbar. incase the user navigates directly to products page without passing through the hopme page
+  useQuery(GET_CART, { onCompleted: (result) => { setCart(result.getCurrentCustomer.cart)}, fetchPolicy: 'no-cache'})
   const classes = useStyles()
   return (
     <div className={classes.ProductsHolder}>
@@ -15,13 +20,15 @@ const ProductsModule = () => {
           <Grid container justify="center">
             <Grid item lg={11} xs={12}>
               <div className={classes.FormHolder}>
+              <div className={classes.textHolder}>
+                <div className={classes.text}>
                 <ScrollAnimation animateIn="fadeIn">
                   <h5>
                     BASIC KIT<span> – </span> FULL PACKAGE <br />
                     ADD-ON <span> – </span> OPTIONS
                   </h5>
                 </ScrollAnimation>
-
+              </div>
                 <div className={classes.ProductsMainImge}>
                   <img
                     src="../../static/images/products/header.png"
@@ -30,6 +37,7 @@ const ProductsModule = () => {
                         'drop-shadow(0.35rem 3.35rem 0.9rem rgba(0, 0, 0, 0.3)',
                     }}
                   />
+                </div>
                 </div>
                 <div className={classes.Holder2}>
                   <div>

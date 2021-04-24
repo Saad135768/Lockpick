@@ -60,7 +60,7 @@ const ProductSliderData = ({
 
           <div className={`${classes.SectionButton} SectionButton`}>
             
-            <QuickCart func={() => AddToCart(variationsId, productsQuantity) } />
+            <QuickCart AddToCartMutation={() => AddToCart(variationsId, productsQuantity) } />
           </div>
     </div>
   )

@@ -14,6 +14,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import useStore from '../../store'
 import Cookies from 'js-cookie'
+import Auth from '../../modules/Auth'
 
 const MobileMenu = () => {
   const router = useRouter()
@@ -24,6 +25,8 @@ const MobileMenu = () => {
   const handleClose = () => {
     setAnchorEl(null)
   }
+  const setOpenModal = useStore((state) => state.setOpenModal)
+  const cartLength = cart?.variations?.length || 0
 
   useEffect(() => {
     setIsOpen(false)
@@ -82,7 +85,7 @@ const MobileMenu = () => {
             <div>
               <a href="#">
                 <a href="#">
-                  <FaUser />
+                <FaUser onClick={() => setOpenModal(1)}/>
                 </a>
               </a>
             </div>
@@ -96,7 +99,7 @@ const MobileMenu = () => {
                   </Link>
                   {token && <em className={classes.CartIconNumber}>
                    
-                    <span> {cart?.variations?.length || 0}</span>
+                    <span> {cartLength}</span>
                   </em>
 }
                 </li>
@@ -157,6 +160,7 @@ const MobileMenu = () => {
         
         </Grid>
       </Menu1>
+      <Auth />
     </div>
   )
 }

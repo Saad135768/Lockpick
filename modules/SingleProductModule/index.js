@@ -14,6 +14,7 @@ import { UPDATE_CART_ITEM } from '../../commonData'
 import { withSnackbar } from 'notistack'
 import { useMutation } from '@apollo/react-hooks'
 import useStore from '../../store'
+import Router from 'next/router'
 
 const SingleProductModule = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
@@ -21,6 +22,7 @@ const SingleProductModule = (props) => {
  
   // Products values
   const name = pathOr('No name found', ['product', 'product','name', 'en'], props)
+  let taxonomyName = pathOr('', ['product', 'product','taxonomies','0', 'name', 'en'], props)
   const productCode = pathOr('No name found', ['product', 'product','productCode'], props)
   const description = pathOr('No description', ['product', 'product','description', 'en'], props)
   const quantity = pathOr(1, ['product','variations', '0','stock', '0', 'amount'], props)
@@ -29,7 +31,8 @@ const SingleProductModule = (props) => {
   const variationsId = pathOr('', ['product','variations', '0', '_id'], props)
   const imgs = []
   pathOr([], ['product', 'product','images'], props).forEach((img) => imgs.push({ original: img, thumbnail: img }))
-
+  if(taxonomyName.includes('bmw')) taxonomyName = 'options'
+  
   const setCart = useStore((state) => state.setCart)
   // Add to cart mutation
   const AddToCart = async (variation, quantity) => {
@@ -60,7 +63,7 @@ const SingleProductModule = (props) => {
                   <Breadcrumbs aria-label="breadcrumb">
                     <Link href="/"><a>Home</a></Link>
                     <Link href="/products"><a>Products</a></Link>
-                    <a>{name}</a>
+                    <a>{taxonomyName?.toUpperCase()}</a>
                   </Breadcrumbs>
                   </h2>
                 </div>
@@ -101,7 +104,7 @@ const SingleProductModule = (props) => {
                   <p>
                   {ReactHtmlParser(description)}
                   </p>
-                  <h3> $ {(discountedPrice || mainPrice).toFixed(2)}</h3>
+                  <h3> $ {(discountedPrice || mainPrice).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
                   <h5> VAT (Included or Excluded)</h5>
                   <h5> Shipping Description</h5>
                   <h4> Quantity</h4>
@@ -111,10 +114,13 @@ const SingleProductModule = (props) => {
                   </div>
                   <div className={classes.SingleProductButtons}>
                    
-                    <QuickCart func={() => AddToCart(variationsId, productsQuantity)} />
+                    <QuickCart AddToCartMutation={() => AddToCart(variationsId, productsQuantity)} />
 
                     <div className={classes.BuyNowBtn}>
-                          <Button> Buy Now</Button>
+                          <Button onClick={async () => { 
+                            await AddToCart(variationsId, productsQuantity)
+                            Router.push('/checkout')
+                          }}> Buy Now</Button>
                     </div>
                   </div>
                 </div>

@@ -5,6 +5,7 @@ const FaqPage = () =>
 <div>
    <Head>
         <title> Faq  </title>
+        <link rel="icon" href="../../../static/images/logo.png" />
       </Head>
       <FaqtModule />
 

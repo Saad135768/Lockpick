@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Fragment } from 'react'
 import useStyles from './style'
 import { IoIosClose } from 'react-icons/io'
 import NumericInput from 'react-numeric-input'
@@ -6,7 +6,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_CART, UPDATE_CART_ITEM } from './../../../../commonData'
 import { pathOr } from 'ramda'
 import { withSnackbar } from 'notistack'
-import Button from '../../../../common/SecondaryButton'
+import Button from '../../../../common/Button'
 import Router, { useRouter } from 'next/router'
 import useStore from '../../../../store'
 
@@ -15,10 +15,10 @@ const CartData = (props) => {
 
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
   const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
-  
+
   const total = useStore((state) => state.total)
   const setTotal = useStore((state) => state.setTotal)
-  
+
   const cart = useStore((state) => state.cart)
   const setCart = useStore((state) => state.setCart)
 
@@ -28,15 +28,15 @@ const CartData = (props) => {
 
 
   useEffect(() => {
-    // if (!cart?.variations?.length) return setTotal(0)
-    cart?.variations?.reduce((a,b) => {
+    const finalPrice = cart?.variations?.reduce((a, b) => {
       const discountedPrice = pathOr(1, ['variation', 'price', 'discountedPrice'], b)
       const mainPrice = pathOr(1, ['variation', 'price', 'mainPrice'], b)
       const quantity = pathOr(1, ['quantity'], b)
-      const totals =  a + ((discountedPrice || mainPrice) * quantity )
-      setTotal(totals)
+      const totals = a + ((discountedPrice || mainPrice) * quantity)
       return totals
     }, 0)
+    setTotal(finalPrice)
+
   }, [cart])
 
   const cartLength = !!(cart?.variations?.length)
@@ -61,7 +61,7 @@ const CartData = (props) => {
   return (
     <div className={classes.CartTable}>
       <table>
-        {cartLength ? pathOr([], ['variations'], cart).map((variation) => {
+        {cartLength && pathOr([], ['variations'], cart).map((variation) => {
           const name = pathOr('', ['variation', 'product', 'name', 'en'], variation)
           const quantity = pathOr(1, ['quantity'], variation)
           const stock = pathOr(1, ['variation', 'stock', '0', 'amount'], variation)
@@ -71,37 +71,37 @@ const CartData = (props) => {
           const mainPrice = pathOr(0, ['variation', 'price', 'mainPrice'], variation)
           const img = pathOr('', ['variation', 'product', 'images', '0'], variation)
           return (
-            <>
+            <Fragment key={variationsId}>
               <tr key={variationsId}>
                 <td className={`${classes.imageTable} imageTable`}>
-                  <img  src={img} onClick={() => Router.push(`/product/${productsId}`)} />
+                  <img src={img} onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>
                 <td className={`${classes.ItemName} ItemName`}>
-      <div>
-                  {name}
-                  <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity :1</p> 
-                  <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`}> + More Details :</p>
+                  <div>
+                    <p className={`${classes.ItemLink} ItemLink`} onClick={() => Router.push(`/product/${productsId}`)}>{name}</p>
+                    <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity :{quantity}</p>
+                    <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`} onClick={() => Router.push(`/product/${productsId}`)}> + More Details :</p>
 
                   </div>
                   <div>
-                  <p  className={`${classes.ItemPrice} ItemPrice`}>$ {(discountedPrice || mainPrice)?.toFixed(2)}</p>
+                    <p className={`${classes.ItemPrice} ItemPrice`}>$ {(discountedPrice || mainPrice)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
                   </div>
-                  <div 
-                  className={`${classes.NumericInput} NumericInput`}>
-                    <NumericInput  mobile max={stock} defaultValue={quantity} min={1} onChange={(e) => {
+                  <div
+                    className={`${classes.NumericInput} NumericInput`}>
+                    <NumericInput mobile max={stock} defaultValue={quantity} min={1} onChange={(e) => {
                       AddToCart(variationsId, e, 'Product has been added')
                     }} />
                   </div>
                 </td>
-                <td className={`${classes.TotalPrice} TotalPrice`}>$ {((discountedPrice || mainPrice) * quantity)?.toFixed(2)} </td>
+                <td className={`${classes.TotalPrice} TotalPrice`}>$ {((discountedPrice || mainPrice) * quantity)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </td>
                 <td className={`${classes.RemoveItem} RemoveItem`}>
                   <IoIosClose onClick={() => AddToCart(variationsId, 0, 'Product has been removed')} />
                 </td>
               </tr>
 
-            </>
+            </Fragment>
           )
-        }) : <>
+        })} {(!cartLength && pathname !== '/checkout') && <>
           <tr className={classes.NoBorder}>
             <td colSpan={5}>
               <p>No Products found</p>
@@ -115,7 +115,8 @@ const CartData = (props) => {
               <Button
                 onClick={() => Router.push({ pathname: '/products' })}
               >
-                Go to Products
+                Go to Products 
+                
                     </Button>
             </td>
           </tr>
@@ -125,7 +126,7 @@ const CartData = (props) => {
           <tr className={`${classes.CartSub} CartSub`}>
             <td colSpan={3} className={`${classes.td_total} td_total`}>
               <p>Subtotal</p>
-              <p>$ {total?.toFixed(2)}</p>
+              <p>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
             </td>
           </tr>
           <tr className={`${classes.CartInputs} CartInputs`}>

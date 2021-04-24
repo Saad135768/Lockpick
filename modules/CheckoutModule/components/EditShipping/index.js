@@ -1,33 +1,35 @@
-import { useForm, Controller } from 'react-hook-form'
-import React, { useState } from 'react'
+import React from 'react'
+import useStyles from '../../../CheckoutModule/style'
 
-import useStyles from "../../../CheckoutModule/style"
+const EditShipping = ({ setView, data, checkoutValues, ...props }) => {
 
-const EditShipping = ({ save }) => {
+  const { name, phone, city, state, country,  address1, street, postalCode  } = checkoutValues
 
-  const { handleSubmit } = useForm({
- 
-  })
-
-  const editShipping = () => {
-    save(true)
+  const AddressChecker = address => {
+    if (address) return `${address}, `
   }
+
   const classes = useStyles()
 
   return (
-    
     <div className={classes.SHippingEdit}>
-    <form autoComplete="off" noValidate onSubmit={handleSubmit(editShipping)}>
       <div className={classes.ShippingEditContent}>
-        <button  className={classes.SaveBtn} type="submit"> Save </button>
-        <h5> Name </h5>
-        <h5> Address</h5>
-        <h5> Phone</h5>
-
-       </div>
-    </form>
+        <button className={classes.SaveBtn} onClick={() => setView(true)}>
+          
+          Edit
+        </button>
+        <h6> Name: {checkoutValues?.name} </h6>
+        <h6> Phone: {checkoutValues?.phone} </h6>
+        <h6>
+          
+          Address: {AddressChecker(checkoutValues?.street)}
+          {AddressChecker(checkoutValues?.state)}
+          {AddressChecker(checkoutValues?.city)}
+          {AddressChecker(checkoutValues?.country)}
+          {AddressChecker(checkoutValues?.postalCode)}
+        </h6>
+      </div>
     </div>
-
   )
 }
 

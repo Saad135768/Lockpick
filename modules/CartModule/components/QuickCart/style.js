@@ -42,7 +42,7 @@ const useStyles = makeStyles(() => ({
         },
       },
       '@media (max-width:767px)': {
-        marginTop:30,
+        marginTop:0,
         height:'auto',
         marginBottom:40,
         '& .MuiGrid-spacing-xs-8': {
@@ -177,12 +177,29 @@ const useStyles = makeStyles(() => ({
     },
   
     CartTable2: {
+      '&  input[type="text"]': {
+        padding: '5px !important',
+        marginBottom: 5,
+      },
+      '& .CartSub p': {
+        marginTop: 5,
+      },
+      '& .MuiList-padding': {
+        paddingTop: 0,
+        paddingBottom: 0,
+      },
+      '& .ItemLink': {
+        cursor: 'pointer',
+        width:'200px',
+        marginRight: 10,
+      },
+
       height: '85vh',
       '& img': {
         width: 'auto',
         height: '120px !important',
         width:  '120px !important',
-        objectFit: 'cover', 
+        objectFit: 'contain', 
         marginRight: 20,
 
       },

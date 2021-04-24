@@ -8,11 +8,12 @@ export const GET_CART = gql`
       name
       phone
       address {
-        countryCode
         city
-        apartment
-        floor
+        country
+        postalCode
         street
+        state
+        address1
       }
       cart {
         variations {
@@ -128,4 +129,35 @@ mutation updateCartItem($variation: CartVariationInput!) {
     }
   }
 }
+`
+
+
+export const EDIT_CUSTOMER = gql`
+  mutation editCustomer(
+    $email: String
+    $name: String
+    $phone: String
+    $address: [CustomerAddressInput]
+    $customAttributes: [CustomAttributeInput]
+  ) {
+    editCustomer(
+      email: $email
+      name: $name
+      phone: $phone
+      address: $address
+      customAttributes: $customAttributes
+    ) {
+      email
+      name
+      phone
+      address {
+        city
+        street
+        country
+        postalCode
+        state
+        postalCode
+      }
+    }
+  }
 `

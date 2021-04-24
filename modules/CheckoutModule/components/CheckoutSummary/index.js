@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
-import useStyles from "./style";
-import Link from "next/link";
-import useStore from "../../../../store";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import CartData from "../../../CartModule/components/CartData";
+import React from "react"
+import useStyles from "./style"
+import Link from "next/link"
+import useStore from "../../../../store"
+import { MdKeyboardArrowRight } from "react-icons/md"
+import CartData from "../../../CartModule/components/CartData"
+import Router from 'next/router'
 
-const CheckoutSummary = (props) => {
-  const total = useStore((state) => state.total);
-  const setTotal = useStore((state) => state.setTotal);
+const CheckoutSummary = ({ setPromocode, ...props }) => {
+  const total = useStore((state) => state.total)
+  const cart = useStore((state) => state.cart)
+  const cartLength = cart?.variations?.length || 0
 
-  const cart = useStore((state) => state.cart);
-  useEffect(() => {
-    setTotal(total);
-    if (!cart?.variations?.length) setTotal(0);
-  }, [cart, total]);
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <div className={classes.OrderSummaryHolder}>
@@ -30,17 +27,17 @@ const CheckoutSummary = (props) => {
       <div className={classes.OrderSummaryContent}>
         <div className={`${classes.OrderSummaryFlex} EditCart`}>
           <div>
-            <h3> Order Summary (1)</h3>
+            <h3> Order Summary ({cartLength})</h3>
           </div>
           <div>
-            <h4>Edit Cart</h4>
+            <h4 onClick={() => Router.push('/cart')}>Edit Cart</h4>
           </div>
         </div>
-        <CartData />
-
+         <CartData />
+      
         <div className={classes.promocode}>
           <div>
-            <input placeholder="Enter a promo code" />
+            <input placeholder="Enter a promo code" onChange={(e) => setPromocode(e.target.value)} />
           </div>
         </div>
 
@@ -49,7 +46,7 @@ const CheckoutSummary = (props) => {
             <h3> Subtotal</h3>
           </div>
           <div>
-            <p> {total?.toFixed(2)} $</p>
+            <p>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -74,12 +71,12 @@ const CheckoutSummary = (props) => {
             <h3> Total</h3>
           </div>
           <div>
-            <p className={classes.totalPrice}> {total?.toFixed(2)} $ </p>
+            <p className={classes.totalPrice}>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CheckoutSummary;
+export default CheckoutSummary

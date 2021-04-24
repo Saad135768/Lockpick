@@ -62,6 +62,9 @@ margin: '10px 0',
       fontFamily: 'Poppins-SemiBold',
       textAlign: 'center',
       color: '#2b333d',
+      '@media (max-width:767px)': {
+        marginBottom: 0,
+      },
     },
   
 zIndex:'2000 !important',
@@ -106,8 +109,8 @@ padding: '8px 28px',
       marginTop: 10,
       marginBottom: 20,
       '@media (max-width:767px)': {
-        marginTop: 20,
-        marginBottom: 30,
+        marginTop: 10,
+        marginBottom: 15,
       },
     },
     background: '#fba631',
@@ -135,6 +138,18 @@ padding: '8px 28px',
     '@media (max-width:767px)': {
       width:'100%',
       },
+  },
+  SaveBtn: {
+    '& button': {
+      width:'80% !important',
+      marginLeft: 20,
+      fontFamily:'Poppins-Regular !important',
+      border: 0,
+      '@media (max-width:767px)': {
+        width:'90% !important',
+        marginLeft: 10,
+      },
+    },
   },
 }))
 
