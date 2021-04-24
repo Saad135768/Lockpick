@@ -70,7 +70,7 @@ const ShippingDetails = ({
               <p className={classes.errorMsg}>{errors.phone.message}</p>
             )}
 
-            <span> *Address</span>
+            <span>*Street</span>
             <input
               ref={register({ required: 'This field is required' })}
               name="street"

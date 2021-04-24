@@ -32,7 +32,7 @@ const CustomizedDialogs = () => {
         
           <Button onClick={() => setOpenModal()}> Order History</Button>
           <Button onClick={() => setOpenModal(4)}> Account Information </Button>
-          <Button onClick={() => setOpenModal(3)}> Chagne Password </Button>
+          <Button onClick={() => setOpenModal(3)}> Change Password </Button>
 
         </div>
         </form>

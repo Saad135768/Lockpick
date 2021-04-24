@@ -56,6 +56,10 @@ const useStyles = makeStyles(() => ({
       fontFamily: 'Poppins-SemiBold',
       textAlign: 'center',
       color: '#2b333d',
+      '@media (max-width:767px)': {
+        marginBottom: 0,
+      },
+  
     },
 
     zIndex: '2000 !important',
@@ -93,8 +97,8 @@ const useStyles = makeStyles(() => ({
       marginTop: 100,
       marginBottom: 60,
       '@media (max-width:767px)': {
-        marginTop: 20,
-        marginBottom: 30,
+        marginTop: 10,
+        marginBottom: 15,
       },
     },
     background: '#fba631',

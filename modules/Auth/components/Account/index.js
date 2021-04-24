@@ -56,7 +56,7 @@ const CustomizedDialogs = (props) => {
                 <h3> Hello { data?.getCurrentCustomer?.name } </h3>
               </DialogTitle>
               <Button className="NotActive" type='button'> Order History</Button>
-              <Button onClick={() => setOpenModal(4)} type='submit'>Account Information</Button>
+              <Button onClick={() => setOpenModal(4)}>Account Information</Button>
               <Button className="NotActive" onClick={() => setOpenModal(3)} type='button'>Change Password</Button>
               <div className={classes.Logout}>
                 <h2 onClick={() => {
@@ -171,6 +171,10 @@ const CustomizedDialogs = (props) => {
               {errors.postalCode && (
                 <p className={classes.errorMsg}>{errors.postalCode.message}</p>
               )}
+               <div className={classes.SaveBtn}>
+               <Button type='submit'>Save </Button>
+               </div>
+
             </div>
           </div>
         </form>

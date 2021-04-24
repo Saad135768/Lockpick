@@ -6,7 +6,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_CART, UPDATE_CART_ITEM } from './../../../../commonData'
 import { pathOr } from 'ramda'
 import { withSnackbar } from 'notistack'
-import Button from '../../../../common/SecondaryButton'
+import Button from '../../../../common/Button'
 import Router, { useRouter } from 'next/router'
 import useStore from '../../../../store'
 
@@ -115,7 +115,8 @@ const CartData = (props) => {
               <Button
                 onClick={() => Router.push({ pathname: '/products' })}
               >
-                Go to Products
+                Go to Products 
+                
                     </Button>
             </td>
           </tr>

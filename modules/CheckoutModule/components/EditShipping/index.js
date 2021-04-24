@@ -18,9 +18,9 @@ const EditShipping = ({ setView, data, checkoutValues, ...props }) => {
           
           Edit
         </button>
-        <h5> Name: {checkoutValues?.name} </h5>
-        <h5> Phone: {checkoutValues?.phone} </h5>
-        <h5>
+        <h6> Name: {checkoutValues?.name} </h6>
+        <h6> Phone: {checkoutValues?.phone} </h6>
+        <h6>
           
           Address: {AddressChecker(checkoutValues?.street)}
           {AddressChecker(checkoutValues?.address1)}
@@ -28,7 +28,7 @@ const EditShipping = ({ setView, data, checkoutValues, ...props }) => {
           {AddressChecker(checkoutValues?.city)}
           {AddressChecker(checkoutValues?.country)}
           {AddressChecker(checkoutValues?.postalCode)}
-        </h5>
+        </h6>
       </div>
     </div>
   )
