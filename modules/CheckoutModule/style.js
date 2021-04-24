@@ -4,7 +4,7 @@ const useStyles = makeStyles(() => ({
   CheckoutHolder:{
     
 
-    '& .MuiAccordionDetails-root': {
+    '& .MuiAccordionDetails-root , .MuiAccordionDetails-root': {
     paddingLeft:0,
     },
     '& .MuiAccordionSummary-root': {
@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
       
   '& .ButtonHolder button': {
     width: '100%',
+    marginTop: 30,
   },
   '& .MuiAccordionDetails-root': {
     paddingTop: 0,

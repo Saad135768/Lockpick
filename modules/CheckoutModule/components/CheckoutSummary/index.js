@@ -8,6 +8,9 @@ import Router from 'next/router'
 
 const CheckoutSummary = ({ setPromocode, ...props }) => {
   const total = useStore((state) => state.total)
+  const cart = useStore((state) => state.cart)
+  const cartLength = cart?.variations?.length || 0
+
   const classes = useStyles()
 
   return (
@@ -24,7 +27,7 @@ const CheckoutSummary = ({ setPromocode, ...props }) => {
       <div className={classes.OrderSummaryContent}>
         <div className={`${classes.OrderSummaryFlex} EditCart`}>
           <div>
-            <h3> Order Summary (1)</h3>
+            <h3> Order Summary ({cartLength})</h3>
           </div>
           <div>
             <h4 onClick={() => Router.push('/cart')}>Edit Cart</h4>

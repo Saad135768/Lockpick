@@ -20,6 +20,9 @@ const useStyles = makeStyles(() => ({
   display: 'block',
   marginTop: 6,
   color:'#3680d6',
+  '&:hover': {
+    color: '#3191ff',
+},
 },
 
     '& td.imageTable ': {
