@@ -15,10 +15,10 @@ const CartData = (props) => {
 
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
   const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
-  
+
   const total = useStore((state) => state.total)
   const setTotal = useStore((state) => state.setTotal)
-  
+
   const cart = useStore((state) => state.cart)
   const setCart = useStore((state) => state.setCart)
 
@@ -28,11 +28,11 @@ const CartData = (props) => {
 
 
   useEffect(() => {
-    const finalPrice = cart?.variations?.reduce((a,b) => {
+    const finalPrice = cart?.variations?.reduce((a, b) => {
       const discountedPrice = pathOr(1, ['variation', 'price', 'discountedPrice'], b)
       const mainPrice = pathOr(1, ['variation', 'price', 'mainPrice'], b)
       const quantity = pathOr(1, ['quantity'], b)
-      const totals =  a + ((discountedPrice || mainPrice) * quantity )
+      const totals = a + ((discountedPrice || mainPrice) * quantity)
       return totals
     }, 0)
     setTotal(finalPrice)
@@ -61,7 +61,7 @@ const CartData = (props) => {
   return (
     <div className={classes.CartTable}>
       <table>
-        {cartLength ? pathOr([], ['variations'], cart).map((variation) => {
+        {cartLength && pathOr([], ['variations'], cart).map((variation) => {
           const name = pathOr('', ['variation', 'product', 'name', 'en'], variation)
           const quantity = pathOr(1, ['quantity'], variation)
           const stock = pathOr(1, ['variation', 'stock', '0', 'amount'], variation)
@@ -77,18 +77,18 @@ const CartData = (props) => {
                   <img src={img} onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>
                 <td className={`${classes.ItemName} ItemName`}>
-      <div>
-                  {name}
-                  <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity :1</p> 
-                  <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`} onClick={() => Router.push(`/product/${productsId}`)}> + More Details :</p>
+                  <div>
+                    {name}
+                    <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity :1</p>
+                    <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`} onClick={() => Router.push(`/product/${productsId}`)}> + More Details :</p>
 
                   </div>
                   <div>
-                  <p  className={`${classes.ItemPrice} ItemPrice`}>$ {(discountedPrice || mainPrice)?.toFixed(2)}</p>
+                    <p className={`${classes.ItemPrice} ItemPrice`}>$ {(discountedPrice || mainPrice)?.toFixed(2)}</p>
                   </div>
-                  <div 
-                  className={`${classes.NumericInput} NumericInput`}>
-                    <NumericInput  mobile max={stock} defaultValue={quantity} min={1} onChange={(e) => {
+                  <div
+                    className={`${classes.NumericInput} NumericInput`}>
+                    <NumericInput mobile max={stock} defaultValue={quantity} min={1} onChange={(e) => {
                       AddToCart(variationsId, e, 'Product has been added')
                     }} />
                   </div>
@@ -101,7 +101,7 @@ const CartData = (props) => {
 
             </Fragment>
           )
-        }) : <>
+        })} {(!cartLength && pathname !== '/checkout') && <>
           <tr className={classes.NoBorder}>
             <td colSpan={5}>
               <p>No Products found</p>

@@ -1,21 +1,9 @@
-import React, {useState,  useEffect } from 'react'
+import React from 'react'
 import useStyles from '../../../CheckoutModule/style'
 
-const EditShipping = ({ setView, data, setProfileData, profileData, ...props }) => {
+const EditShipping = ({ setView, data, checkoutValues, ...props }) => {
 
-  // useEffect(() => {
-  //   setProfileData
-  // }, [data, profileData])
-  const name = data?.getCurrentCustomer?.name
-  const phone = data?.getCurrentCustomer?.phone
-  const {
-    city,
-    state,
-    country,
-    address1,
-    street,
-    postalCode,
-  } = data?.getCurrentCustomer?.address[0]
+  const { name, phone, city, state, country,  address1, street, postalCode  } = checkoutValues
 
   const AddressChecker = address => {
     if (address) return `${address}, `
@@ -30,16 +18,16 @@ const EditShipping = ({ setView, data, setProfileData, profileData, ...props }) 
           
           Edit
         </button>
-        <h5> Name: {name} </h5>
-        <h5> Phone: {phone} </h5>
+        <h5> Name: {checkoutValues?.name} </h5>
+        <h5> Phone: {checkoutValues?.phone} </h5>
         <h5>
           
-          Address: {AddressChecker(street)}
-          {AddressChecker(address1)}
-          {AddressChecker(state)}
-          {AddressChecker(city)}
-          {AddressChecker(country)}
-          {AddressChecker(postalCode)}
+          Address: {AddressChecker(checkoutValues?.street)}
+          {AddressChecker(checkoutValues?.address1)}
+          {AddressChecker(checkoutValues?.state)}
+          {AddressChecker(checkoutValues?.city)}
+          {AddressChecker(checkoutValues?.country)}
+          {AddressChecker(checkoutValues?.postalCode)}
         </h5>
       </div>
     </div>

@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 
-const DeliveryMethod = ({ setShippingMethod, ...props }) => {
+const DeliveryMethod = ({ setShippingMethod, shippingMethod, ...props }) => {
   const classes = useStyles()
   const handleChange = event => {
     setShippingMethod(event.target.value)
@@ -22,6 +22,8 @@ const DeliveryMethod = ({ setShippingMethod, ...props }) => {
               aria-label="shipping method"
               name="shipping method"
               onChange={handleChange}
+              defaultValue={shippingMethod}
+
             >
               <Grid container spacing={2}>
                 <Grid item lg={9} md={9}>

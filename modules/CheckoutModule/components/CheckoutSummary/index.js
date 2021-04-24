@@ -8,20 +8,7 @@ import Router from 'next/router'
 
 const CheckoutSummary = () => {
   const total = useStore((state) => state.total)
-  const setTotal = useStore((state) => state.setTotal)
   const cart = useStore((state) => state.cart)
-  const cartLength = cart?.variations?.length
-  // useEffect(() => {
-  //   if (!cartLength) {
-  //     console.log('if entered 252', total)
-  //     setTotal(252)
-
-  //   } 
-  //   else {
-  //     console.log('else 252', total)
-  //     setTotal(total)
-  //   }
-  // }, [cart])
   const classes = useStyles()
 
   return (
@@ -44,7 +31,7 @@ const CheckoutSummary = () => {
             <h4 onClick={() => Router.push('/cart')}>Edit Cart</h4>
           </div>
         </div>
-        {!!cartLength && <CartData />}
+         <CartData />
       
         <div className={classes.promocode}>
           <div>

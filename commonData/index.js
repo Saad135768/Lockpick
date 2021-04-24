@@ -8,11 +8,12 @@ export const GET_CART = gql`
       name
       phone
       address {
-        countryCode
         city
-        apartment
-        floor
+        country
+        postalCode
         street
+        state
+        address1
       }
       cart {
         variations {

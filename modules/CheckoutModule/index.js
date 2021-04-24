@@ -19,33 +19,45 @@ import { GET_CURRENT_CUSTOMER } from './../Auth/data'
 import { CREATE_ORDER } from './data'
 import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
+import Router from 'next/router'
+import useStore from '../../store'
 
 const CheckoutModule = (props) => {
   const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache'})
+
+  // // Protected Route
+  // useEffect(() => {
+  //   if(!R.pathOr(true, ['getCurrentCustomer','cart', 'variations'], data)) Router.push('/')
+  // }, [data])
+
   const [View, setView] = useState(true)
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
-  const [shippingMethod, setShippingMethod] = useState()
+  const [shippingMethod, setShippingMethod] = useState('normal')
   const [promoCode, setPromocode] = useState()
 
+  const setCart = useStore((state) => state.setCart)
 
   const email = data?.getCurrentCustomer?.email
-
+  
   const [createOrder] = useMutation(CREATE_ORDER)
 
   const CreateOrder = async () => {
     try{
       const orderFields = {
-        shipping: checkoutValues,
-        billing: checkoutValues,
+        shipping: R.omit(['name', 'phone', 'address1'], checkoutValues),
+        billing: R.omit(['name', 'phone', 'address1'], checkoutValues),
         paymentMethod,
         shippingMethod,
         promoCode,
-        shipping: 0
+        shippingCost: 0
       }
-      await createOrder({ variables: {...orderFields} }) 
-      props.enqueueSnackbar('Your order has been created successfully', { variant: 'success'})
-      window.location = '/'
+      const res = await createOrder({ variables: {...orderFields} }) 
+      if(paymentMethod === 'cash') {
+              props.enqueueSnackbar('Your order has been created successfully', { variant: 'success'})
+              setCart([])
+              Router.push({ pathname: `/order/${res.data.addOrder._id}` })
+ }
     }
     catch (error) {
       if (error?.graphQLErrors) {
@@ -58,8 +70,14 @@ const CheckoutModule = (props) => {
 
   const address = R.pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
   const checkIfHasAddress = Object.values(address).some((address) => !R.isNil(address))
+
   useEffect(() => {
     if(checkIfHasAddress) setView(false) 
+    if(data) {
+      const name = data?.getCurrentCustomer?.name
+      const phone = data?.getCurrentCustomer?.phone
+      setcheckoutValues({ name, phone, ...data?.getCurrentCustomer?.address[0]  })
+    }
   }, [data])
   
 
@@ -111,12 +129,17 @@ const CheckoutModule = (props) => {
                         {View ? (
                           <ShippingDetails 
                             data={data}
+                            checkoutValues={checkoutValues}
                             setView={setView} 
                             setcheckoutValues={setcheckoutValues}
                             setPromocode={setPromocode}
                           />
                         ) : (
-                          <EditShipping setView={setView} data={data}/>
+                          <EditShipping 
+                            setView={setView} 
+                            // data={data}
+                            checkoutValues={checkoutValues}
+                          />
                         )}
                       </AccordionDetails>
                     </Accordion>
@@ -129,7 +152,7 @@ const CheckoutModule = (props) => {
                           <em>{shippingMethod ? <AiOutlineCheck /> : 2}</em> Delivery Method
                         </h5>
                       </AccordionSummary>
-                      <DeliveryMethod setShippingMethod={setShippingMethod} />
+                      <DeliveryMethod shippingMethod={shippingMethod} setShippingMethod={setShippingMethod} />
                     </Accordion>
                     <Accordion>
                       <AccordionSummary

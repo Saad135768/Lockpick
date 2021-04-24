@@ -1,28 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import useStyles from "./style"
 import Button from "../../../../common/Button"
-import Link from "next/link"
 import useStore from '../../../../store'
+import Router from 'next/router'
+import { pathOr } from 'ramda'
 
 
 const OrderSummary = (props) => {
   const total = useStore((state) => state.total)
-//   const setTotal = useStore((state) => state.setTotal)
 
-//   const cart = useStore((state) => state.cart)
-//   const state = useStore()
-// //   console.log(`state`, state)
-// //  useEffect(() => {
-// //    console.log('vv', cart?.variations?.length)
-// //    if (!cart?.variations?.length) {
-// //     console.log('entered')
-// //     setTotal(100)
-// //    }
-// //    else {
-// //      console.log('else', total)
-// //      setTotal(total)
-// //    }
-// //  }, [cart])
+  const cart = useStore((state) => state.cart)
   const classes = useStyles()
 
   return (
@@ -67,11 +54,11 @@ const OrderSummary = (props) => {
           <p className={classes.total}> {total?.toFixed(2)} $ </p>
         </div>
       </div>
-      <Link as={"/checkout"} href="/checkout">
-        <a href="/checkout">
-          <Button> CheckOut</Button>
+        <a>
+          <Button onClick={() => { 
+            if(pathOr(false, ['variations', 'length',], cart)) Router.push('/checkout')
+          }} disabled={!(pathOr(false, ['variations', '0',], cart))}> CheckOut</Button>
         </a>
-      </Link>
       <img src="../../../../static/images/cart/payment.jpeg" />
     </div>
   )
