@@ -58,7 +58,7 @@ const ChangePassword = async ({ oldPass, password }) => {
               <DialogTitle id="form-dialog-title">
                 <h3> Hello { data?.getCurrentCustomer?.name} </h3>
               </DialogTitle>
-              <Button className="NotActive" onClick={() => setOpenModal()} type="button"> Order History</Button>
+              <Button className="NotActive" onClick={() => setOpenModal(5)} type="button"> Order History</Button>
               <Button className="NotActive" onClick={() => setOpenModal(4)} type="button">Account Information</Button>
               <Button onClick={() => setOpenModal(3)}>Change Password</Button>
               <div className={classes.Logout}>
