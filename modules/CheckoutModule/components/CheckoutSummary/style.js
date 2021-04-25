@@ -2,10 +2,19 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   OrderSummaryHolder: {
+    
 
+    '& .CartProductInfo': {
+      width:'100%',
+    },
 '& td.ItemName': {
   display: 'flex',
   justifyContent:'space-between',
+  fontFamily: 'Poppins-Regular',
+  fontSize: '15px',
+  '@media (max-width:767px)': {
+    paddingTop: 0,
+  },
 },
 '& p.ItemPrice': {
   marginTop: 0,
@@ -26,6 +35,9 @@ const useStyles = makeStyles(() => ({
 
     '& td.imageTable ': {
       borderBottom: 0,
+      '@media (max-width:767px)': {
+        paddingTop: 10,
+      },
 
   },
 
@@ -45,7 +57,9 @@ const useStyles = makeStyles(() => ({
 
 '& .ItemName , .TotalPrice': {
   borderBottom: 0,
-  fontSize: '14px !important',
+  fontFamily: 'Poppins-Regular',
+
+  fontSize: '16px',
   color: '#fff',
 },
 '& .NumericInput , .CartSub , .RemoveItem , .total , .CartInputs , .ItemPrice , td_total' : {
@@ -117,12 +131,25 @@ const useStyles = makeStyles(() => ({
    '@media (min-width:1000px) and (max-width:1280px)': {
     maxWidth:150,
   },
-
+  '@media (max-width:767px)': {
+    maxWidth:'100%',
+     width:'100%',
+     textAlign:'center',
+     
+  },
     },
     '& .TotalPrice ': {
       maxWidth:100,
       textAlign: 'right',
+      '@media (max-width:767px)': {
+        maxWidth:'100%',
+         width:'100%',
+         paddingBottom:20,
+         paddingTop:0,
 
+         textAlign:'center',
+         
+      },
        },
     '& .EditCart h4': {
 color:'#fba530',

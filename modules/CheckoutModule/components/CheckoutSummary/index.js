@@ -46,7 +46,7 @@ const CheckoutSummary = ({ setPromocode, ...props }) => {
             <h3> Subtotal</h3>
           </div>
           <div>
-            <p>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+            <p>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -63,7 +63,7 @@ const CheckoutSummary = ({ setPromocode, ...props }) => {
             <h3> Sales Tax</h3>
           </div>
           <div>
-            <p> 0.00$</p>
+            <p> $0.00</p>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -71,7 +71,7 @@ const CheckoutSummary = ({ setPromocode, ...props }) => {
             <h3> Total</h3>
           </div>
           <div>
-            <p className={classes.totalPrice}>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
+            <p className={classes.totalPrice}>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
           </div>
         </div>
       </div>

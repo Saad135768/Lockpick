@@ -77,14 +77,14 @@ const CartData = (props) => {
                   <img src={img} onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>
                 <td className={`${classes.ItemName} ItemName`}>
-                  <div>
+                  <div className={`${classes.CartProductInfo} CartProductInfo`} >
                     <p className={`${classes.ItemLink} ItemLink`} onClick={() => Router.push(`/product/${productsId}`)}>    {name} </p>
                     <p className={`${classes.ForCheckoutQuantity} ForCheckoutQuantity`}> Quantity : {quantity}</p>
                     <p className={`${classes.ForCheckoutMoreDetails} ForCheckoutMoreDetails`} onClick={() => Router.push(`/product/${productsId}`)}> + More Details :</p>
 
                   </div>
                   <div>
-                    <p className={`${classes.ItemPrice} ItemPrice`}>$ {(discountedPrice || mainPrice)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                    <p className={`${classes.ItemPrice} ItemPrice`}>${(discountedPrice || mainPrice)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
                   </div>
                   <div
                     className={`${classes.NumericInput} NumericInput`}>
@@ -93,7 +93,7 @@ const CartData = (props) => {
                     }} />
                   </div>
                 </td>
-                <td className={`${classes.TotalPrice} TotalPrice`}>$ {((discountedPrice || mainPrice) * quantity)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </td>
+                <td className={`${classes.TotalPrice} TotalPrice`}>${((discountedPrice || mainPrice) * quantity)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </td>
                 <td className={`${classes.RemoveItem} RemoveItem`}>
                   <IoIosClose onClick={() => AddToCart(variationsId, 0, 'Product has been removed')} />
                 </td>
@@ -126,7 +126,7 @@ const CartData = (props) => {
           <tr className={`${classes.CartSub} CartSub`}>
             <td colSpan={3} className={`${classes.td_total} td_total`}>
               <p>Subtotal</p>
-              <p>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+              <p>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
             </td>
           </tr>
           <tr className={`${classes.CartInputs} CartInputs`}>

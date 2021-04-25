@@ -64,8 +64,7 @@ justifyContent:'space-between',
   padding: '30px 0',
   paddingBottom: 20,
   '@media (max-width:767px)': {
-    paddingBottom: 30,
-
+    paddingBottom: 10,
   },
          },
          '& table': {

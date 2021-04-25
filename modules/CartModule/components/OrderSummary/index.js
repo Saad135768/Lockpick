@@ -22,7 +22,7 @@ const OrderSummary = (props) => {
             <h3> Subtotal</h3>
           </div>
           <div>
-            <h4>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
+            <h4>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -41,7 +41,7 @@ const OrderSummary = (props) => {
             <h3> Sales Tax</h3>
           </div>
           <div>
-            <p> 0.00$</p>
+            <p> $0.00</p>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ const OrderSummary = (props) => {
           <h3>Total</h3>
         </div>
         <div>
-          <p className={classes.total}>$ {total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
+          <p className={classes.total}>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
         </div>
       </div>
         <a>
