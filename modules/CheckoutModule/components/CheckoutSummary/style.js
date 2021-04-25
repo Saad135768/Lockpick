@@ -14,6 +14,7 @@ const useStyles = makeStyles(() => ({
   fontSize: '15px',
   '@media (max-width:767px)': {
     paddingTop: 0,
+    paddingBottom: 10,
   },
 },
 '& p.ItemPrice': {
@@ -37,6 +38,8 @@ const useStyles = makeStyles(() => ({
       borderBottom: 0,
       '@media (max-width:767px)': {
         paddingTop: 10,
+        paddingBottom: 10,
+
       },
 
   },
