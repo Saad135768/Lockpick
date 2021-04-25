@@ -21,7 +21,7 @@ const EditDelivery = ({ setView2, shippingMethod }) => {
               <h6>{ shippingMethod === 'normal' ? 'Expedited Ground Shipping' : '3 day Shipping' }</h6>
             </Grid>
             <Grid item lg={3} md={3} xs={12}>
-              <h6> $ 0,00000 </h6>
+              <h6> $0,00000 </h6>
             </Grid>
             <Grid item lg={12} md={12} xs={12}>
               <p>{shippingMethod === 'normal'&& 'Est. Delivery Time 2-4 business days' }</p>

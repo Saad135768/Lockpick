@@ -104,7 +104,7 @@ const SingleProductModule = (props) => {
                   <p>
                   {ReactHtmlParser(description)}
                   </p>
-                  <h3> $ {(discountedPrice || mainPrice).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
+                  <h3> ${(discountedPrice || mainPrice).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
                   <h5> VAT (Included or Excluded)</h5>
                   <h5> Shipping Description</h5>
                   <h4> Quantity</h4>
