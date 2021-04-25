@@ -12,7 +12,7 @@ const ShippingDetails = ({
   setView,
   setcheckoutValues,
   checkoutValues,
-  setExpandAccordions,
+  setExpandDeleiveryAccordion,
   ...props
 }) => {
   const { handleSubmit, errors, register } = useForm({ mode: 'onBlur' })
@@ -24,17 +24,15 @@ const ShippingDetails = ({
     try {
       await editCustomer({ variables: { name, phone, address: { ...values } } })
       setcheckoutValues({ name, phone, ...values })
-      props.enqueueSnackbar('Your data has been updated', {
-        variant: 'success',
-      })
+      props.enqueueSnackbar('Your data has been updated', { variant: 'success' })
       setView()
-      setExpandAccordions('panel-2')
-    } catch (error) {
+      setExpandDeleiveryAccordion(true)
+    } 
+    catch (error) {
       if (error?.graphQLErrors) {
-        props.enqueueSnackbar(error.graphQLErrors.message, {
-          variant: 'error',
-        })
-      } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+        props.enqueueSnackbar(error.graphQLErrors.message, { variant: 'error' })
+      } 
+      else props.enqueueSnackbar('something went wrong', { variant: 'error' })
     }
   }
 

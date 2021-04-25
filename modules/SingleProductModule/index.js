@@ -14,6 +14,7 @@ import { UPDATE_CART_ITEM } from '../../commonData'
 import { withSnackbar } from 'notistack'
 import { useMutation } from '@apollo/react-hooks'
 import useStore from '../../store'
+import Router from 'next/router'
 
 const SingleProductModule = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
@@ -116,7 +117,10 @@ const SingleProductModule = (props) => {
                     <QuickCart AddToCartMutation={() => AddToCart(variationsId, productsQuantity)} />
 
                     <div className={classes.BuyNowBtn}>
-                          <Button> Buy Now</Button>
+                          <Button onClick={async () => { 
+                            await AddToCart(variationsId, productsQuantity)
+                            Router.push('/checkout')
+                          }}> Buy Now</Button>
                     </div>
                   </div>
                 </div>
