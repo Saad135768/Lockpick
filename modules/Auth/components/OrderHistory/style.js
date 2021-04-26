@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   OrdePlaced:{
-color:'#3680d6',
+color:'#519fd9',
 fontSize:17,
 fontFamily: 'Poppins-Regular',
     fontWeight: 'bold',
@@ -13,13 +13,25 @@ fontFamily: 'Poppins-Regular',
 
 },
 OrderNummber:{
+  display: 'flex',
   textTransform:'uppercase',
+  '& h4': {
+    fontSize: 18,
+    textTransform: 'uppercase',
+    fontFamily: 'Poppins-SemiBold',
+   },
+   '& span': {
+    marginLeft: 10,
+    fontFamily: 'Poppins-SemiBold',
+color:'#707271',
+marginTop: 2,
+   },
 },
 OrderText:{
   marginLeft: 20,
 },
 OrderSummaryInfo:{
-  padding: '0 10px',
+  padding: '15px 10px',
 background:'#f5ece5',
 width:'100%',
 '& h4': {
@@ -32,17 +44,18 @@ margin:0,
   top: 8,
 },
 },
+'& .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-12.MuiGrid-grid-md-12.MuiGrid-grid-lg-12 , .MuiGrid-spacing-xs-2 > .MuiGrid-item': {
+  paddingTop: 0,
+  paddingBottom: 0,
 },
+},
+
   Logout:{
     marginTop: 32,
 textAlign: 'right',
 textTransform:'uppercase',
 margin: '10px 0',
-'& h2': {
-  marginTop: 0,
-  fontSize: 18,
-  cursor: 'pointer',
-},
+
   },
   errorMsg: {
     color: 'red',
@@ -91,9 +104,9 @@ margin: '10px 0',
   root: {
     paddingLeft:0,
     '& h3': {
+      color:'#2b333d',
       fontFamily: 'Poppins-SemiBold',
       textAlign: 'center',
-      color: '#52a0d7',
       '@media (max-width:767px)': {
         marginBottom: 0,
       },
@@ -161,6 +174,28 @@ padding: '8px 28px',
    
   },
   Right:{
+
+   
+    '& .MuiAccordionSummary-content' : {
+      margin: '7px 0',
+    },
+
+    '& .MuiAccordionDetails-root , .MuiAccordionSummary-root' : {
+padding:0,
+
+    },
+    '& .MuiAccordion-root' : {
+      paddingBottom: 11,  
+        },
+
+        '& .MuiAccordion-root' : {
+            boxShadow:'none',
+        },
+        
+     '& .MuiAppBar-colorPrimary' : {
+      borderBottom:0,
+      boxShadow:'none',
+    },
     '&  button#simple-tab-0 , button#simple-tab-1' : {
       background: '#929292',
       width: '50%',
@@ -190,7 +225,7 @@ padding: '8px 28px',
       width:'100%',
       },
       '& .MuiBox-root': {
-        padding: '14px 7px',
+        padding: '0 7px',
     },
     '& table': {
       width:'100%',
@@ -216,25 +251,67 @@ OrderTableHolder:{
   width: '100%',
   display: 'flex',
   justifyContent: 'space-around',
-  marginTop: 20,
+  marginTop: 10,
   '& h4': {
     margin: 0,
+    color: '#6e6e6e',
+    fontFamily: 'Poppins-SemiBold',
+    marginBottom: 2,
+    fontSize: 17,
    },
 },
 OrderTableLeft:{
-  fontFamily: 'Poppins-Regular',
+  '& h5': {
+    fontFamily: 'Poppins-Regular',
+    color: '#519fd9',
+    fontSize: 18,
+    marginTop: 10,
+    marginBottom:0,
+    textTransform: 'uppercase',
+    fontFamily: 'Poppins-SemiBold',
+   },
+   '& svg': {
+    
+    top: 2,
+    position: 'relative',
+    marginRight: 10,
  
+   },
+
+   
 },
 OrderInvoice:{
   display: 'flow-root',
   textAlign: 'right',
-  color: '#3680d6',
+  color: '#519fd9',
 },
 OrderTableRight:{
 
 },
 
+OrderItems:{
+  '& h4': {
+    fontSize: 18,
+    textTransform: 'uppercase',
+    fontFamily: 'Poppins-SemiBold',
+    color:'#707271',
+   },
+   '& span': {
+    marginLeft: 15,
+   },
+},
 
+OrderTotal:{
+  '& h4': {
+    fontSize: 18,
+    textTransform: 'uppercase',
+    fontFamily: 'Poppins-SemiBold',
+    color:'#707271',
+   },
+   '& span': {
+    marginLeft: 30,
+   },
+},
 }))
 
 export default useStyles

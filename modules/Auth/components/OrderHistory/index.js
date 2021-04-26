@@ -12,11 +12,12 @@ import { GET_CURRENT_CUSTOMER } from '../../data'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import PropTypes from 'prop-types'
-import Grid from "@material-ui/core/Grid"
 import { MdKeyboardArrowRight } from "react-icons/md"
+import { RiMapPinTimeFill } from "react-icons/ri"
+import Typography from '@material-ui/core/Typography'
+import { Container, Grid, Accordion, AccordionDetails, AccordionSummary } from '@material-ui/core'
 
 const CustomizedDialogs = (props) => {
   const { register, handleSubmit, errors, formState } = useForm({ mode: 'onBlur' })
@@ -33,7 +34,7 @@ const CustomizedDialogs = (props) => {
   const classes = useStyles()
   function TabPanel(props) {
     const { children, value, index, ...other } = props
-  
+
     return (
       <div
         role="tabpanel"
@@ -71,7 +72,11 @@ const CustomizedDialogs = (props) => {
     const handleChange = (event, newValue) => {
       setValue(newValue)
     }
-  
+    const [expanded, setExpanded] = React.useState('panel1');
+
+    const handleChangeTable = (panel) => (event, newExpanded) => {
+      setExpanded(newExpanded ? panel : false)
+    }
 
   return (
     <div
@@ -116,32 +121,80 @@ const CustomizedDialogs = (props) => {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-      <div className={classes.OrderSummaryInfo}>
+                
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+     
+ <Accordion square expanded={expanded === 'panel1'} onChange={handleChangeTable('panel1')}>
+        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+        <div className={classes.OrderSummaryInfo}>
 
-      <Grid container spacing={2}>
-      <Grid item lg={5} md={5}>
-    <div  className={classes.OrderNummber}>
-    <span>Order No </span> 
-        <span className={classes.OrderText}> LP122</span>
+<Grid container spacing={2}>
+<Grid item lg={5} md={5}>
+<div  className={classes.OrderNummber}>
+<h4>Order No </h4> 
+  <span className={classes.OrderText}> LP122</span>
+</div>
+ 
+  </Grid>
+  <Grid item lg={7} md={7}>
+  <h4 className={classes.OrderInvoice}>view invoice  <MdKeyboardArrowRight /> </h4> 
+  </Grid>
+  <Grid item lg={12} md={12} sm={12} xs={12}>
+  <h4 className={classes.OrdePlaced}>Placed on Monday, 19 April, 2021</h4> 
+  </Grid>
+  <Grid item lg={6} md={6}>
+    <div className={classes.OrderItems}>
+    <h4>item : <span> 3 </span></h4> 
     </div>
-       
-        </Grid>
-        <Grid item lg={7} md={7}>
-        <h4 className={classes.OrderInvoice}>view invoice  <MdKeyboardArrowRight /> </h4> 
-        </Grid>
-        <Grid item lg={12} md={12}>
-        <h4 className={classes.OrdePlaced}>Placed on Monday, 19 April, 2021</h4> 
-        </Grid>
-        <Grid item lg={5} md={5}>
-        <h4>item : <span> 3 </span></h4> 
-        </Grid>
-        <Grid item lg={7} md={7}>
-        <h4>Total : <span> $0.000.00 </span></h4> 
-        </Grid>
-      </Grid>
-      </div>
+  </Grid>
+  <Grid item lg={6} md={6}>
+  <div className={classes.OrderTotal}>
 
+  <h4>Total : <span> $0.000.00 </span></h4> 
+  </div>
+
+  </Grid>
+</Grid>
+</div>
+
+
+        </AccordionSummary>
+        <AccordionDetails>
+       
       <table>
+ 
+      <tr>
+  <td className={classes.imageTable}>
+        <img src="../../../../static/images/products/4.png" />
+         </td>
+
+   
+      <td className={classes.OrderTableTd}>
+      <div className={classes.OrderTableHolder}>
+
+   <div className={classes.OrderTableLeft}>
+<h4>  LOCK PICK BASIC KIT </h4> 
+<h4>  Quantity </h4> 
+<h4>  track Number </h4> 
+<h4> Order Status </h4> 
+<h4> Shipping rate </h4> 
+<h5> <RiMapPinTimeFill/>Track</h5>
+ </div>
+ <div className={classes.OrderTableRight}>
+ <h4>   $0.000.00  </h4> 
+ <h4>  2 </h4> 
+ <h4>  ------ </h4> 
+ <h4>  Pending </h4> 
+ <h4>   $0.000.00  </h4> 
+
+ </div>
+
+</div>
+ </td>
+
+      
+  </tr>
  
   <tr>
   <td className={classes.imageTable}>
@@ -152,13 +205,13 @@ const CustomizedDialogs = (props) => {
       <td className={classes.OrderTableTd}>
       <div className={classes.OrderTableHolder}>
 
-      <div className={classes.OrderTableLeft}>
+   <div className={classes.OrderTableLeft}>
 <h4>  LOCK PICK BASIC KIT </h4> 
 <h4>  Quantity </h4> 
 <h4>  track Number </h4> 
 <h4> Order Status </h4> 
 <h4> Shipping rate </h4> 
-<h5> Track</h5>
+<h5> <RiMapPinTimeFill/>Track</h5>
  </div>
  <div className={classes.OrderTableRight}>
  <h4>   $0.000.00  </h4> 
@@ -176,9 +229,80 @@ const CustomizedDialogs = (props) => {
   </tr>
  
 </table>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-       PAST ORDERS
+        </AccordionDetails>
+      </Accordion>
+      <Accordion square expanded={expanded === 'panel2'} onChange={handleChangeTable('panel2')}>
+        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+        <div className={classes.OrderSummaryInfo}>
+
+<Grid container spacing={2}>
+<Grid item lg={5} md={5}>
+<div  className={classes.OrderNummber}>
+<h4>Order No </h4> 
+  <span className={classes.OrderText}> LP122</span>
+</div>
+ 
+  </Grid>
+  <Grid item lg={7} md={7}>
+  <h4 className={classes.OrderInvoice}>view invoice  <MdKeyboardArrowRight /> </h4> 
+  </Grid>
+  <Grid item lg={12} md={12} sm={12} xs={12}>
+  <h4 className={classes.OrdePlaced}>Placed on Monday, 19 April, 2021</h4> 
+  </Grid>
+  <Grid item lg={6} md={6}>
+    <div className={classes.OrderItems}>
+    <h4>item : <span> 3 </span></h4> 
+    </div>
+  </Grid>
+  <Grid item lg={6} md={6}>
+  <div className={classes.OrderTotal}>
+
+  <h4>Total : <span> $0.000.00 </span></h4> 
+  </div>
+
+  </Grid>
+</Grid>
+</div>
+        </AccordionSummary>
+        <AccordionDetails>
+        <table>
+ 
+ 
+ <tr>
+ <td className={classes.imageTable}>
+       <img src="../../../../static/images/products/4.png" />
+        </td>
+
+  
+     <td className={classes.OrderTableTd}>
+     <div className={classes.OrderTableHolder}>
+
+  <div className={classes.OrderTableLeft}>
+<h4>  LOCK PICK BASIC KIT </h4> 
+<h4>  Quantity </h4> 
+<h4>  track Number </h4> 
+<h4> Order Status </h4> 
+<h4> Shipping rate </h4> 
+<h5> <RiMapPinTimeFill/>Track</h5>
+</div>
+<div className={classes.OrderTableRight}>
+<h4>   $0.000.00  </h4> 
+<h4>  2 </h4> 
+<h4>  ------ </h4> 
+<h4>  Pending </h4> 
+<h4>   $0.000.00  </h4> 
+
+</div>
+
+</div>
+</td>
+
+     
+ </tr>
+
+</table>
+        </AccordionDetails>
+      </Accordion>
       </TabPanel>
     
     </div>
