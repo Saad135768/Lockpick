@@ -31,7 +31,7 @@ const CustomizedDialogs = () => {
         </DialogTitle>
           
         
-          <Button onClick={() => setOpenModal()}> Order History</Button>
+          <Button onClick={() => setOpenModal(5)}> Order History</Button>
           <Button onClick={() => setOpenModal(4)}> Account Information </Button>
           <Button onClick={() => setOpenModal(3)}> Change Password </Button>
           <div className={classes.Logout}>
