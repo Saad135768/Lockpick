@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps, apollo }) {
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <link rel="icon" href="../static/images/32x32.png" sizes="32x32" />
         <link rel="icon" href="../static/images/192x192.png" sizes="192x192" />
@@ -64,18 +64,25 @@ function MyApp({ Component, pageProps, apollo }) {
               font-family:'Poppins-Regular';
               font-family: 'Inter', sans-serif;
               src: url('../static/fonts/Poppins-Regular.ttf');
+              font-display: swap;
             }
             @font-face {
               font-family:'Poppins-Bold';
               src: url('../static/fonts/Poppins-Bold.ttf');
+              font-display: swap;
             }
             @font-face {
               font-family:'Poppins-SemiBold';
               src: url('../static/fonts/Poppins-SemiBold.ttf');
+              font-display: swap;
             }
             @font-face {
               font-family:'Poppins-Light';
               src: url('../static/fonts/Poppins-Light.ttf');
+              font-display: swap;
+            }
+            *{
+              font-display: swap;
             }
         `}
         </style>
