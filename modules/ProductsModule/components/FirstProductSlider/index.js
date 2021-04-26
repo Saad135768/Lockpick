@@ -62,7 +62,7 @@ useEffect(() => {
     <div className={classes.ProductSliderHolder}>
       <div className={classes.ProductSliderBg}>
         <Grid container>
-          <Grid lg={6} sm={6} xs={12}>
+          <Grid item lg={6} sm={6} xs={12}>
             <Slider {...settings}>
               {images.map((img) => (
                  <div key={img} onClick={() => Router.push(`/product/${id[0]}`)}>
@@ -71,7 +71,7 @@ useEffect(() => {
               ))}
             </Slider>
           </Grid>
-          <Grid lg={6} sm={6} xs={12}>
+          <Grid item lg={6} sm={6} xs={12}>
             <div className={classes.ProductSliderDataHolder}>
               {pathOr([], ['getProducts', 'items'], data).map((product) => {
                 const name = pathOr('', ['variations', '0', 'product', 'name', 'en'], product)
