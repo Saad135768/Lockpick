@@ -134,6 +134,7 @@ zIndex:'2000 !important',
   },
 
   LeftRight:{
+    overflow:'hidden',
 display:'flex',
 '@media (max-width:767px)': {
   display:'block',
@@ -143,6 +144,7 @@ display:'flex',
   },
 
   Left:{
+    zIndex: 9999,
     '& .NotActive': {
 border: '1px solid #FFA62F',
 cursor: 'pointer',
@@ -180,6 +182,10 @@ padding: '8px 28px',
       margin: '7px 0',
     },
 
+    '& .MuiAccordion-root.Mui-expanded' : {
+     margin:0,   
+    },
+    
     '& .MuiAccordionDetails-root , .MuiAccordionSummary-root' : {
 padding:0,
 
@@ -195,6 +201,9 @@ padding:0,
      '& .MuiAppBar-colorPrimary' : {
       borderBottom:0,
       boxShadow:'none',
+      right: 22,
+      width:'110%',
+      position: 'relative',
     },
     '&  button#simple-tab-0 , button#simple-tab-1' : {
       background: '#929292',
@@ -205,7 +214,9 @@ padding:0,
     '&  button.Mui-selected': {
       background: '#929292 !important',
       color:'#fba631',
+      borderBottom:'4px solid #519fd9',
     },
+    
     
     '& .MuiTabs-indicator': {
       background: '#929292 !important',

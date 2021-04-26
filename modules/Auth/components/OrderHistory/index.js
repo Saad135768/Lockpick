@@ -121,10 +121,7 @@ const CustomizedDialogs = (props) => {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-                
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-     
+                    
  <Accordion square expanded={expanded === 'panel1'} onChange={handleChangeTable('panel1')}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
         <div className={classes.OrderSummaryInfo}>
@@ -293,7 +290,6 @@ const CustomizedDialogs = (props) => {
 <h4>   $0.000.00  </h4> 
 
 </div>
-
 </div>
 </td>
 
@@ -303,6 +299,9 @@ const CustomizedDialogs = (props) => {
 </table>
         </AccordionDetails>
       </Accordion>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+ <h3> Soon</h3>
       </TabPanel>
     
     </div>
