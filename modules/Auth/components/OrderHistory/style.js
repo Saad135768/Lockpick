@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   OrdePlaced:{
 color:'#519fd9',
-fontSize:17,
+fontSize:16,
 fontFamily: 'Poppins-Regular',
     fontWeight: 'bold',
   },
@@ -16,7 +16,7 @@ OrderNummber:{
   display: 'flex',
   textTransform:'uppercase',
   '& h4': {
-    fontSize: 18,
+    fontSize: 16,
     textTransform: 'uppercase',
     fontFamily: 'Poppins-SemiBold',
    },
@@ -268,14 +268,14 @@ OrderTableHolder:{
     color: '#6e6e6e',
     fontFamily: 'Poppins-SemiBold',
     marginBottom: 2,
-    fontSize: 17,
+    fontSize: 16,
    },
 },
 OrderTableLeft:{
   '& h5': {
     fontFamily: 'Poppins-Regular',
     color: '#519fd9',
-    fontSize: 18,
+    fontSize: 16,
     marginTop: 10,
     marginBottom:0,
     textTransform: 'uppercase',
@@ -302,7 +302,7 @@ OrderTableRight:{
 
 OrderItems:{
   '& h4': {
-    fontSize: 18,
+    fontSize: 16,
     textTransform: 'uppercase',
     fontFamily: 'Poppins-SemiBold',
     color:'#707271',
@@ -314,7 +314,7 @@ OrderItems:{
 
 OrderTotal:{
   '& h4': {
-    fontSize: 18,
+    fontSize: 16,
     textTransform: 'uppercase',
     fontFamily: 'Poppins-SemiBold',
     color:'#707271',
