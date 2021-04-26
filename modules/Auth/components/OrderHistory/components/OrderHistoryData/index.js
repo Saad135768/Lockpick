@@ -21,7 +21,6 @@ const OrderHistoryData = () => {
               <h4> Order Status </h4>
               <h4> Shipping rate </h4>
               <h5>
-                {" "}
                 <RiMapPinTimeFill />
                 Track
               </h5>

@@ -153,9 +153,11 @@ const CustomizedDialogs = (props) => {
                             </div>
                           </Grid>
                           <Grid item lg={7} md={7}>
-                            <h4 className={classes.OrderInvoice}>
-                              view invoice <MdKeyboardArrowRight />{" "}
+                          <div className={classes.OrderInvoice}>
+                            <h4>
+                             <span>  view invoice </span> <MdKeyboardArrowRight />
                             </h4>
+                            </div>
                           </Grid>
                           <Grid item lg={12} md={12} sm={12} xs={12}>
                             <h4 className={classes.OrdePlaced}>
@@ -201,9 +203,12 @@ const CustomizedDialogs = (props) => {
                             </div>
                           </Grid>
                           <Grid item lg={7} md={7}>
-                            <h4 className={classes.OrderInvoice}>
-                              view invoice <MdKeyboardArrowRight />{" "}
+                            <div className={classes.OrderInvoice}>
+                            <h4>
+                              view invoice <MdKeyboardArrowRight />
                             </h4>
+                            </div>
+                           
                           </Grid>
                           <Grid item lg={12} md={12} sm={12} xs={12}>
                             <h4 className={classes.OrdePlaced}>

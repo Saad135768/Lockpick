@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(() => ({
   OrdePlaced:{
 color:'#519fd9',
+position: 'relative',
+bottom: 4,
 fontSize:16,
 fontFamily: 'Poppins-Regular',
     fontWeight: 'bold',
@@ -24,7 +26,7 @@ OrderNummber:{
     marginLeft: 10,
     fontFamily: 'Poppins-SemiBold',
 color:'#707271',
-marginTop: 2,
+marginTop: 0,
    },
 },
 OrderText:{
@@ -38,11 +40,12 @@ width:'100%',
 margin:0,
 '& svg': {
   width: 25,
-  height: 25,
   cursor: 'pointer',
+  fontSize:24,
   position: 'relative',
-  top: 8,
+  top: -1,
 },
+
 },
 '& .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-12.MuiGrid-grid-md-12.MuiGrid-grid-lg-12 , .MuiGrid-spacing-xs-2 > .MuiGrid-item': {
   paddingTop: 0,
@@ -262,7 +265,7 @@ OrderTableHolder:{
   width: '100%',
   display: 'flex',
   justifyContent: 'space-around',
-  marginTop: 10,
+  marginTop: 0,
   '& h4': {
     margin: 0,
     color: '#6e6e6e',
@@ -292,9 +295,15 @@ OrderTableLeft:{
    
 },
 OrderInvoice:{
-  display: 'flow-root',
+  display: 'flex',
   textAlign: 'right',
   color: '#519fd9',
+  justifyContent: 'flex-end',
+
+  '& span': {
+    position:'relative',
+bottom:8,
+  },
 },
 OrderTableRight:{
 
