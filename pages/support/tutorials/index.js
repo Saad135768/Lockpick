@@ -1,14 +1,12 @@
-import TutorialsModule from '../../../modules/TutorialsModule'
+import Tutorials from '../../../modules/Tutorials'
 import Head from 'next/head'
 
-const tutorialsPage = () =>
-<div>
+const tutorialsPage = () => <>
    <Head>
         <title> Tutorials  </title>
-        <link rel="icon" href="../../../static/images/logo.png" />
-      </Head>
-      <TutorialsModule />
+   </Head>
+   <Tutorials />
 
-</div> 
+</> 
 
 export default tutorialsPage

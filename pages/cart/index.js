@@ -1,12 +1,12 @@
-import CartModule from '../../modules/CartModule'
+import Cart from '../../modules/Cart'
 import Head from 'next/head'
 
-const CartModulePage = () => <div>
+const CartPage = () => <>
     
     <Head>
         <title>Cart </title>
-      </Head>
-      <CartModule />
-    </div>
+    </Head>
+    <Cart />
+  </>
 
-export default CartModulePage
+export default CartPage

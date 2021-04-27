@@ -1,12 +1,12 @@
-import CheckoutModule from '../../modules/CheckoutModule'
+import Checkout from '../../modules/Checkout'
 import Head from 'next/head'
 
-const CheckoutPage = () => <div>
+const CheckoutPage = () => <>
     
     <Head>
         <title>Checkout </title>
-      </Head>
-      <CheckoutModule />
-    </div>
+    </Head>
+    <Checkout />
+  </>
 
 export default CheckoutPage
