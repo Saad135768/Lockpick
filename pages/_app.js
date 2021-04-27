@@ -2,9 +2,9 @@ import React from 'react'
 import '../styles/globals.css'
 import Head from 'next/head'
 import { ApolloProvider } from '@apollo/react-hooks'
-import MobileMenu from '../modules/MobileMenu'
-import Navbar from '../modules/Navbar'
-import Footer from '../modules/Footer'
+import MobileMenu from '../modules/Layout//MobileMenu'
+import Navbar from '../modules/Layout/Navbar'
+import Footer from '../modules/Layout/Footer'
 import withData from '../utilities/graphql-apollo'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import * as R from 'ramda'
@@ -103,6 +103,7 @@ function MyApp({ Component, pageProps, apollo }) {
     </>
   )
 }
+
 MyApp.getInitialProps = async appContext => {
   try {
     let token =

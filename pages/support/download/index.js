@@ -1,14 +1,12 @@
-import DownloadModule from '../../../modules/DownloadModule'
+import Download from '../../../modules/Download'
 import Head from 'next/head'
 
-const downloadPage = () =>
-<div>
+const downloadPage = () => <>
    <Head>
         <title> Download </title>
-        <link rel="icon" href="../../../static/images/logo.png" />
-      </Head>
-      <DownloadModule />
+   </Head>
+   <Download />
 
-</div> 
+</> 
 
 export default downloadPage

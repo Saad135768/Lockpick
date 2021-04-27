@@ -1,14 +1,12 @@
-import FaqtModule from '../../../modules/FaqModule'
+import Faq from '../../../modules/Faq'
 import Head from 'next/head'
 
-const FaqPage = () =>
-<div>
-   <Head>
+const FaqPage = () => <>
+    <Head>
         <title> Faq  </title>
-        <link rel="icon" href="../../../static/images/logo.png" />
-      </Head>
-      <FaqtModule />
+    </Head>
+    <Faq />
 
-</div> 
+</> 
 
 export default FaqPage

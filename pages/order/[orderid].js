@@ -1,9 +1,7 @@
 import Orders from '../../modules/orders'
-import { GET_ORDER } from '../../modules/CheckoutModule/data'
+import { GET_ORDER } from '../../modules/Checkout/data'
 
-const Order = (props) => { 
-    return ( <Orders {...props} />)
-}
+const Order = (props) => <Orders {...props} />
 
 Order.getInitialProps = async (ctx) => {
   try{
