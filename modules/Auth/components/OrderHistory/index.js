@@ -64,12 +64,14 @@ const CustomizedDialogs = (props) => {
   }
 
 const getOrders = pathOr([], ['getOrders', 'items'], getOrdersData)
-const orderHistory = () => (
-  !loading && getOrders.map((data) => 
+
+const orderHistory = (msg = 'No orders found') => (
+  getOrders.length ? getOrders.map((data) => 
   <Fragment key={data._id}>
     <OrderHistory data={data} />
   </Fragment>
   )
+  : <h1>{msg}</h1>
 )
 
   return (
@@ -132,7 +134,7 @@ const orderHistory = () => (
                   height={100}
                   width={100}
                   />}
-                  {getOrders.length ? orderHistory() : <h1>No Pending Orders</h1>}
+                  {!loading && orderHistory('No Pending Orders')}
                 </TabPanel>
 
                   {/* previous orders */}
@@ -143,7 +145,7 @@ const orderHistory = () => (
                   height={100}
                   width={100}
                   />}
-                  {getOrders.length ? orderHistory() : <h1>No Previous Orders</h1>}
+                  {!loading && orderHistory('No Previous Orders')}
                 </TabPanel>
               </div>
             </div>
