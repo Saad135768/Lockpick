@@ -76,3 +76,53 @@ export const GET_CURRENT_CUSTOMER = gql`
     }
   }
 `
+
+
+export const GET_ORDER = gql`
+ query getOrder($_id: ID!) {
+   getOrder(_id:$_id) {
+    _id
+    orderId
+    onlineOrderPaymentId
+    status
+    variations{
+      quantity
+      total
+      variation{
+        product{
+          _id
+          name{
+            en
+          }
+          images
+        }
+      }
+    }
+    totals{
+      shipping
+    }
+   }
+ }
+
+`
+
+export const GET_ORDERS = gql`
+query getOrders($status: String) {
+  getOrders(status: $status){
+    items{
+      checkoutId
+      _id
+      orderId
+      status
+      variations{
+      quantity
+      }
+      shippingDate
+      totals{
+        total
+      }
+      
+    }
+  }
+}
+`
