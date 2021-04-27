@@ -1,9 +1,7 @@
-import SingleProduct from '../../modules/SingleProductModule'
-import { SINGLE_PRODUCT_QUERY } from '../../modules/SingleProductModule/data'
+import SingleProduct from '../../modules/SingleProduct'
+import { SINGLE_PRODUCT_QUERY } from '../../modules/SingleProduct/data'
 
-const Product = (props) => { 
-    return ( <SingleProduct {...props} />)
-}
+const Product = (props) => <SingleProduct {...props} />
 
 Product.getInitialProps = async (ctx) => {
   try{

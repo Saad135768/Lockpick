@@ -1,21 +1,14 @@
 import Head from 'next/head'
-import Header from '../modules/Header'
-import LockIsHere from '../modules/LockIsHere'
-import HomeRegister from '../modules/HomeRegister'
-import ContactForm from '../modules/ContactForm'
+import Home from '../modules/Home'
 
-export default function Home () {
-  return (
-    <div>
+const HomePage = () => 
+    <>
       <Head>
         <title>lock pick</title>
       </Head>
-      
-      <Header/>
-      <LockIsHere/>
-      <HomeRegister/>
-      <ContactForm/>
+    <Home />
 
-    </div>
-  )
-}
+    </>
+
+
+export default HomePage

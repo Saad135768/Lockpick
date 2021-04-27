@@ -1,15 +1,12 @@
-import SupportModule from '../../modules/SupportModule'
+import Support from '../../modules/Support'
 import Head from 'next/head'
 
-const SupportPage = () =>
-<div>
+const SupportPage = () => <>
    <Head>
-        <title> Support  </title>
-        <link rel="icon" href="../../../static/images/logo.png" />
-      </Head>
-      <SupportModule />
-
-</div> 
+      <title> Support  </title>
+   </Head>
+   <Support />
+</> 
 
 
 export default SupportPage

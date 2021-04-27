@@ -1,12 +1,12 @@
-import AboutModule from '../../modules/AboutModule'
+import About from '../../modules/About'
 import Head from 'next/head'
 
-const AboutPage = () => <div>
+const AboutPage = () => <>
     
     <Head>
         <title>About Us </title>
-      </Head>
-      <AboutModule />
-    </div>
+    </Head>
+    <About />
+</>
 
 export default AboutPage
