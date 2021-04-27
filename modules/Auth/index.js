@@ -3,6 +3,8 @@ import SignUp from '../../modules/Auth/components/SignUp'
 import Profile from '../../modules/Auth/components/Profile'
 import Account from '../../modules/Auth/components/Account'
 import ChangePassword from '../../modules/Auth/components/ChangePassword'
+import OrderHistory from '../../modules/Auth/components/OrderHistory'
+
 import useStyles from './style'
 import Head from 'next/head'
 import useStore from '../../store'
@@ -24,6 +26,8 @@ const Auth = () => {
         { (openModal === 1 && token) && <Profile /> }
         { openModal === 3 && <ChangePassword /> }
         { openModal === 4 && <Account /> }
+        { openModal === 5 && <OrderHistory /> }
+
       </div>
 
     </div>

@@ -47,7 +47,7 @@ const ProductSliderData = ({
           <div className={classes.SectionTitleHolder}>
             <h1> {title}</h1>
             <h4> {type} </h4>
-            <h2> {`$ ${price}`} </h2>
+            <h2> {`$${price}`} </h2>
             <h3> {include} </h3>
             <h6> {ReactHtmlParser(description)} </h6>
             <h5> {softwareon} </h5>

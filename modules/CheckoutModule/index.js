@@ -25,7 +25,7 @@ const CheckoutModule = (props) => {
   const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache' })
 
   // Those are the states that toggle between components [shipping details, deleivery and payments methods]
-  const [View, setView] = useState(true)
+  const [view, setView] = useState(true)
   const [view2, setView2] = useState()
   const [view3, setView3] = useState()
 
@@ -126,12 +126,12 @@ const CheckoutModule = (props) => {
                       >
                         <Typography className={classes.heading}>
                           <h5>
-                            <em> {!View ? <AiOutlineCheck /> : 1} </em> Shipping Details
+                            <em> {!view ? <AiOutlineCheck /> : 1} </em> Shipping Details
                           </h5>
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        {View ? (
+                        {view ? (
                           <ShippingDetails
                             checkoutValues={checkoutValues}
                             setView={setView}

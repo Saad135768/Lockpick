@@ -55,7 +55,7 @@ const CustomizedDialogs = (props) => {
               <DialogTitle id="form-dialog-title">
                 <h3> Hello { data?.getCurrentCustomer?.name } </h3>
               </DialogTitle>
-              <Button className="NotActive" type='button'> Order History</Button>
+              <Button className="NotActive" type='button' onClick={() => setOpenModal(5)}> Order History</Button>
               <Button onClick={() => setOpenModal(4)}>Account Information</Button>
               <Button className="NotActive" onClick={() => setOpenModal(3)} type='button'>Change Password</Button>
               <div className={classes.Logout}>
