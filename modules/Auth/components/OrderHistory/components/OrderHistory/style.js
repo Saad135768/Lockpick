@@ -275,6 +275,8 @@ OrderTableHolder:{
    },
 },
 OrderTableLeft:{
+  width:'100%',
+  marginBottom:10,
   '& h5': {
     fontFamily: 'Poppins-Regular',
     color: '#519fd9',

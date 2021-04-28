@@ -259,6 +259,7 @@ padding:0,
 
 OrderTableTd: {
 width:'100%',
+paddingBottom:10,
 },
 
 OrderTableHolder:{
@@ -275,6 +276,7 @@ OrderTableHolder:{
    },
 },
 OrderTableLeft:{
+
   '& h5': {
     fontFamily: 'Poppins-Regular',
     color: '#519fd9',
@@ -372,6 +374,10 @@ cursor: 'pointer',
 //         },
 // },
 
+OrderHeight:{
+  height:500,
+  overflowY:'auto',
+},
 }))
 
 export default useStyles

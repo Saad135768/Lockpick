@@ -72,8 +72,8 @@ const OrderHistory = ({ data, ...props }) => {
         ): <Loader
               type="Oval"
               color="#fba631"
-              height={100}
-              width={100}
+              height={50}
+              width={50}
       />}
         </table>
       </AccordionDetails>
