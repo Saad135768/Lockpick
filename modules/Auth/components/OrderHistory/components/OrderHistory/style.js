@@ -332,6 +332,15 @@ OrderTotal:{
     marginLeft: 30,
    },
 },
+OrderTablName:{
+height: 25,
+overflow: 'hidden',
+textOverflow: 'ellipsis',
+display: '-webkit-box',
+'-webkit-line-clamp': 1,
+'-webkit-box-orient': 'vertical',
+
+},
 }))
 
 export default useStyles
