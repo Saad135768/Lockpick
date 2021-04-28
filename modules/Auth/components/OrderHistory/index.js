@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react'
 import useStyles from './style'
 import Button from '../../../../common/Button'
 import Dialog from '@material-ui/core/Dialog'
-import { withSnackbar } from 'notistack'
 import { DialogTitle } from '@material-ui/core'
 import useStore from '../../../../store'
 import { pathOr } from 'ramda'
@@ -24,18 +23,14 @@ const CustomizedDialogs = (props) => {
  
   const openModal = useStore((state) => state.openModal)
   const setOpenModal = useStore((state) => state.setOpenModal)
-  
-  const classes = useStyles()
-  function TabPanel(props) {
-    const { children, value, index, ...other } = props
-
-    return (
+    
+  const TabPanel = ( { children, value, index, ...props }) => (
       <div
         role='tabpanel'
         hidden={value !== index}
         id={`simple-tabpanel-${index}`}
         aria-labelledby={`simple-tab-${index}`}
-        {...other}
+        {...props}
       >
         {value === index && (
           <Box p={3}>
@@ -44,7 +39,6 @@ const CustomizedDialogs = (props) => {
         )}
       </div>
     )
-  }
 
   TabPanel.propTypes = {
     children: PropTypes.node,
@@ -52,13 +46,12 @@ const CustomizedDialogs = (props) => {
     value: PropTypes.any.isRequired,
   }
 
-  function a11yProps(index) {
-    return {
+  const a11yProps = (index) => ( 
+    {
       id: `simple-tab-${index}`,
       'aria-controls': `simple-tabpanel-${index}`,
     }
-  }
-
+  )
   const handleChange = (_, newValue) => {
     setValue(newValue)
   }
@@ -73,6 +66,8 @@ const orderHistory = (msg = 'No orders found') => (
   )
   : <h1>{msg}</h1>
 )
+
+  const classes = useStyles()
 
   return (
     <div className={classes.OrderHistoryHolder}>
@@ -156,4 +151,4 @@ const orderHistory = (msg = 'No orders found') => (
   )
 }
 
-export default withSnackbar(CustomizedDialogs)
+export default CustomizedDialogs
