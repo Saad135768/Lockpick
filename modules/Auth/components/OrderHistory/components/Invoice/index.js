@@ -20,12 +20,12 @@ const Invoice = () => {
   alignItems="center"
 >
        
-     <Grid item lg={12} md={12}>
+     <Grid item lg={12} md={12} sm={12}>
        <h5 className={classes.InvoiceText}> INVOICE</h5>
 
        </Grid>
        
-     <Grid item lg={6} md={6}>
+     <Grid item lg={6} sm={6} md={6}>
      <div className={classes.InvoiceInfoLeft}>
 
         <h2> www.website.com </h2>
@@ -37,7 +37,7 @@ const Invoice = () => {
         </div>
 
        </Grid>
-       <Grid item lg={6} md={6}>
+       <Grid item  sm={6} lg={6} md={6}>
        <div className={classes.InvoiceInfoRight}>
         <h4>  order #1234 </h4>
         <h5> STATUS: <span> </span> </h5>
@@ -52,7 +52,7 @@ const Invoice = () => {
 
        </Grid>
        <Grid container spacing={2}>
-     <Grid item lg={6} md={6}>
+     <Grid item sm={6} lg={6} md={6}>
      <div className={classes.InvoiceBill}>
 
         <h2>Bill to: </h2>
@@ -65,7 +65,7 @@ const Invoice = () => {
         </div>
 
        </Grid>
-       <Grid item lg={4} md={4}>
+       <Grid item  sm={6} lg={4} md={4}>
        <div className={classes.InvoiceBill}>
 
        <h2>Ship to: </h2>
@@ -81,7 +81,7 @@ const Invoice = () => {
        </Grid>
 
 
-       <Grid item lg={12} md={12}>
+       <Grid item  sm={12} lg={12} md={12}>
 
        <table>
   <tr>
