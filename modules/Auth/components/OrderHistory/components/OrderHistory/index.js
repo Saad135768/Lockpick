@@ -28,8 +28,8 @@ const OrderHistory = ({ data, ...props }) => {
     <Accordion square onChange={() => set_id(data?._id)}>
       <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
         <div className={classes.OrderSummaryInfo}>
-          <Grid container spacing={2}>
-            <Grid item lg={5} md={5}>
+          <Grid container spacing={1}>
+            <Grid item lg={8} md={8}>
               <div className={classes.OrderNummber}>
                 <h4>Order No </h4>
                 <span className={classes.OrderText}>
@@ -37,7 +37,7 @@ const OrderHistory = ({ data, ...props }) => {
                 </span>
               </div>
             </Grid>
-            <Grid item md={7}>
+            <Grid item lg={4} md={4}>
               <div className={classes.OrderInvoice}>
                 <h4>
                   <span

@@ -123,6 +123,7 @@ const orderHistory = (msg = 'No orders found') => (
                   </Tabs>
                 </AppBar>
                 <TabPanel value={value} index={0}>
+                <div className={classes.OrderHeight}>
                   {loading && <div>
                    <Loader
                    className={classes.loader}
@@ -132,10 +133,14 @@ const orderHistory = (msg = 'No orders found') => (
                   width={50}
                   /> </div>}
                   {!loading && orderHistory('No Pending Orders')}
+                  </div>
+
                 </TabPanel>
 
                   {/* previous orders */}
                 <TabPanel value={value} index={1}>
+                <div className={classes.OrderHeight}>
+
                 {loading && <div>
                 <Loader
                   className={classes.loader}
@@ -145,6 +150,7 @@ const orderHistory = (msg = 'No orders found') => (
                   width={50}
                   />  </div>}
                   {!loading && orderHistory('No Previous Orders')}
+                  </div>
                 </TabPanel>
               </div>
             </div>

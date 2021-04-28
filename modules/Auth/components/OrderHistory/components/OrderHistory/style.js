@@ -114,9 +114,9 @@ const useStyles = makeStyles(() => ({
     zIndex: '2000 !important',
 
     '& .MuiDialog-paperWidthSm': {
-      width: '800px',
+      width:'850px',
       borderRadius: '25px',
-      maxWidth: '800px',
+      maxWidth:'850px',
       padding: 0,
       '& button': {
         background: '#397399',
@@ -303,17 +303,27 @@ const useStyles = makeStyles(() => ({
     },
   },
 
-  OrderTotal: {
-    '& h4': {
-      fontSize: 16,
-      textTransform: 'uppercase',
-      fontFamily: 'Poppins-SemiBold',
-      color: '#707271',
-    },
-    '& span': {
-      marginLeft: 30,
-    },
-  },
+OrderTotal:{
+  '& h4': {
+    fontSize: 16,
+    textTransform: 'uppercase',
+    fontFamily: 'Poppins-SemiBold',
+    color:'#707271',
+   },
+   '& span': {
+    marginLeft: 30,
+   },
+},
+OrderTablName:{
+height: 25,
+overflow: 'hidden',
+textTransform: 'uppercase',
+textOverflow: 'ellipsis',
+display: '-webkit-box',
+'-webkit-line-clamp': 1,
+'-webkit-box-orient': 'vertical',
+
+},
 }))
 
 export default useStyles
