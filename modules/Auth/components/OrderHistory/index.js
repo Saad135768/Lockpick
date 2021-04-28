@@ -64,7 +64,7 @@ const orderHistory = (msg = 'No orders found') => (
     <OrderHistory data={data} />
   </Fragment>
   )
-  : <h1>{msg}</h1>
+  : <div className={classes.NoOrderYet}><h1>{msg}</h1>    </div>
 )
 
   const classes = useStyles()
@@ -123,23 +123,27 @@ const orderHistory = (msg = 'No orders found') => (
                   </Tabs>
                 </AppBar>
                 <TabPanel value={value} index={0}>
-                  {loading && <Loader
+                  {loading && <div>
+                   <Loader
+                   className={classes.loader}
                   type="Oval"
                   color="#fba631"
-                  height={100}
-                  width={100}
-                  />}
+                  height={50}
+                  width={50}
+                  /> </div>}
                   {!loading && orderHistory('No Pending Orders')}
                 </TabPanel>
 
                   {/* previous orders */}
                 <TabPanel value={value} index={1}>
-                {loading && <Loader
+                {loading && <div>
+                <Loader
+                  className={classes.loader}
                   type="Oval"
                   color="#fba631"
-                  height={100}
-                  width={100}
-                  />}
+                  height={50}
+                  width={50}
+                  />  </div>}
                   {!loading && orderHistory('No Previous Orders')}
                 </TabPanel>
               </div>
