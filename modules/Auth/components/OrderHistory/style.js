@@ -116,7 +116,8 @@ margin: '10px 0',
     },
   
 zIndex:'2000 !important',
-
+maxHeight: 500,
+overflowY:'auto',
     '& .MuiDialog-paperWidthSm': {
       width:'800px',
       borderRadius: '25px',

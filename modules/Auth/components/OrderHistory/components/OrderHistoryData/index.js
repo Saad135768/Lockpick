@@ -21,7 +21,7 @@ const OrderHistoryData = ({ data, status, shippingCost }) => {
         <td className={classes.OrderTableTd}>
           <div className={classes.OrderTableHolder}>
             <div className={classes.OrderTableLeft}>
-              <h4> {name} </h4>
+         <h4 className={classes.OrderTablName}> {name}  </h4>
               <h4> Quantity </h4>
               <h4> track Number </h4>
               <h4> Order Status </h4>
