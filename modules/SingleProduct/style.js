@@ -191,6 +191,75 @@ SingleProductHead:{
         marginBottom: 10,
       },
     },
+
+    SingleProductListContent:{
+      marginLeft:50,
+
+    },
+    SingleProductList:{
+      borderTop: '1px solid #4672d3',
+      paddingBottom: 30,
+      paddingTop: 30,
+
+      '&  ul': {
+        padding:0,
+        margin: 0,
+        listStyle: 'none',
+
+      },
+      '& h3': {
+        color: '#fba62f',
+        fontFamily: 'Poppins-Bold',
+        fontSize: 38,
+        textTransform:'uppercase',
+        marginBottom: 0,
+        margin: 0,
+
+      },
+      '& li': {
+        color: '#fff',
+        fontSize: 25,
+        fontFamily: 'Poppins-Regular',
+
+        '&::before': {
+          content:'""',
+          background: '#fba62f',
+          display: 'inline-block',
+          width: '10px',
+          height:'10px',
+          marginLeft: '0',
+          borderRadius: 50,
+
+        },
+      },
+    },
+
+    SingleProductOverview:{
+      '& h3': {
+        color: '#fba62f',
+        fontFamily: 'Poppins-SemiBold',
+        fontSize: 30,
+        marginBottom: 0,
+        marginLeft:50,
+
+      },
+      '& p': {
+        color: '#fff',
+        fontSize: 20,
+        marginBottom: 0,
+        fontWeight: 'bold',
+        marginTop:15,
+        marginBottom:30,
+
+      },
+    },
+    SingleProductOverviewHolder:{
+      '& hr': {
+        borderBottom: 0,
+        borderTop: '1px solid #4672d3',
+
+      },
+    },
 }))
 
 export default useStyles
