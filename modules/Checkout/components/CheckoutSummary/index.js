@@ -5,8 +5,10 @@ import useStore from "../../../../store"
 import { MdKeyboardArrowRight } from "react-icons/md"
 import CartData from "../../../Cart/components/CartData"
 import Router from 'next/router'
+import Button from './../../../../common/SecondaryButton/index';
+import Loader from 'react-loader-spinner'
 
-const CheckoutSummary = ({ setPromocode, ...props }) => {
+const CheckoutSummary = ({ setPromocode, loading, GetPromocode, ...props }) => {
   const total = useStore((state) => state.total)
   const cart = useStore((state) => state.cart)
   const cartLength = cart?.variations?.length || 0
@@ -38,6 +40,14 @@ const CheckoutSummary = ({ setPromocode, ...props }) => {
         <div className={classes.promocode}>
           <div>
             <input placeholder="Enter a promo code" onChange={(e) => setPromocode(e.target.value)} />
+            <button onClick={() => GetPromocode()}>{ loading ? 
+            <Loader
+            type="Oval"
+            color="#fff"
+            height={30}
+            width={30}
+          />
+            : 'Apply promo code'}</button>
           </div>
         </div>
 
@@ -71,7 +81,9 @@ const CheckoutSummary = ({ setPromocode, ...props }) => {
             <h3> Total</h3>
           </div>
           <div>
-            <p className={classes.totalPrice}>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
+            <p className={classes.totalPrice}>
+              ${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} 
+            </p>
           </div>
         </div>
       </div>
