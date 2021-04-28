@@ -332,6 +332,46 @@ OrderTotal:{
     marginLeft: 30,
    },
 },
+NoOrderYet:{
+  height:300,
+display:'flex',
+alignItems:'center',
+justifyContent:'center',
+'& h1': {
+  fontFamily: 'Poppins-SemiBold',
+  fontSize:22,
+  marginTop:70,
+},
+},
+
+loader:{
+  display:'flex',
+  alignItems:'center',
+  height:200,
+  justifyContent:'center',
+},
+Logout:{
+  marginTop: 32,
+textAlign: 'right',
+textTransform:'uppercase',
+margin: '10px 0',
+'& h2': {
+marginTop: 0,
+fontSize: 18,
+cursor: 'pointer',
+},
+},
+
+// NoOrderYetBtn:{
+
+//   '& button': {
+//     width: '50% !important',
+//      margin:'0 auto',
+//      display:'block',
+//      background:'red !important',
+//         },
+// },
+
 }))
 
 export default useStyles
