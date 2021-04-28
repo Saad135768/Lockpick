@@ -116,12 +116,11 @@ margin: '10px 0',
     },
   
 zIndex:'2000 !important',
-maxHeight: 500,
-overflowY:'auto',
+
     '& .MuiDialog-paperWidthSm': {
-      width:'800px',
+      width:'850px',
       borderRadius: '25px',
-      maxWidth:'800px',
+      maxWidth:'850px',
       padding: 0,
       '& button': {
         background: '#397399',
