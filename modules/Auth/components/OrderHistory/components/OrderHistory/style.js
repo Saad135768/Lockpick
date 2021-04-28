@@ -118,9 +118,9 @@ margin: '10px 0',
 zIndex:'2000 !important',
 
     '& .MuiDialog-paperWidthSm': {
-      width:'800px',
+      width:'850px',
       borderRadius: '25px',
-      maxWidth:'800px',
+      maxWidth:'850px',
       padding: 0,
       '& button': {
         background: '#397399',
@@ -335,6 +335,7 @@ OrderTotal:{
 OrderTablName:{
 height: 25,
 overflow: 'hidden',
+textTransform: 'uppercase',
 textOverflow: 'ellipsis',
 display: '-webkit-box',
 '-webkit-line-clamp': 1,

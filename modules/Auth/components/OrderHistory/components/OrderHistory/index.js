@@ -22,14 +22,14 @@ const OrderHistory = ({ data, ...props }) => {
         id="panel1d-header"
       >
         <div className={classes.OrderSummaryInfo}>
-          <Grid container spacing={2}>
-            <Grid item lg={5} md={5}>
+          <Grid container spacing={1}>
+            <Grid item lg={8} md={8}>
               <div className={classes.OrderNummber}>
                 <h4>Order No </h4>
                 <span className={classes.OrderText}>{propOr(0, ['orderId'], data)}</span>
               </div>
             </Grid>
-            <Grid item lg={7} md={7}>
+            <Grid item lg={4} md={4}>
               <div className={classes.OrderInvoice}>
                 <h4>
                   <span> view invoice </span> <MdKeyboardArrowRight />
