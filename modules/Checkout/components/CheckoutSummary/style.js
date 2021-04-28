@@ -1,79 +1,72 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   OrderSummaryHolder: {
-    
-
     '& .CartProductInfo': {
-      width:'100%',
+      width: '100%',
     },
-'& td.ItemName': {
-  display: 'flex',
-  justifyContent:'space-between',
-  fontFamily: 'Poppins-Regular',
-  fontSize: '15px',
-  '@media (max-width:767px)': {
-    paddingTop: 0,
-    paddingBottom: 10,
-  },
-},
-'& p.ItemPrice': {
-  marginTop: 0,
-},
+    '& td.ItemName': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      fontFamily: 'Poppins-Regular',
+      fontSize: '15px',
+      '@media (max-width:767px)': {
+        paddingTop: 0,
+        paddingBottom: 10,
+      },
+    },
+    '& p.ItemPrice': {
+      marginTop: 0,
+    },
 
-'& .ForCheckoutQuantity': {
-  display: 'block',
-  marginTop: 6,
-},
-'& .ForCheckoutMoreDetails': {
-  display: 'block',
-  marginTop: 6,
-  color:'#3680d6',
-  '&:hover': {
-    color: '#3191ff',
-},
-},
+    '& .ForCheckoutQuantity': {
+      display: 'block',
+      marginTop: 6,
+    },
+    '& .ForCheckoutMoreDetails': {
+      display: 'block',
+      marginTop: 6,
+      color: '#3680d6',
+      '&:hover': {
+        color: '#3191ff',
+      },
+    },
 
     '& td.imageTable ': {
       borderBottom: 0,
       '@media (max-width:767px)': {
         paddingTop: 10,
         paddingBottom: 10,
-
       },
-
-  },
-
-      '& td.imageTable img': {
-    width:'85px !important',
-    height: '85px !important',
-    objectFit: 'contain',
-    marginTop: 0,
-    marginRight:5,
-    '@media (min-width:900px) and (max-width:1300px)': {
-      width:'70px !important',
-      height: '70px !important',
     },
 
-},
+    '& td.imageTable img': {
+      width: '85px !important',
+      height: '85px !important',
+      objectFit: 'contain',
+      marginTop: 0,
+      marginRight: 5,
+      '@media (min-width:900px) and (max-width:1300px)': {
+        width: '70px !important',
+        height: '70px !important',
+      },
+    },
 
+    '& .ItemName , .TotalPrice': {
+      borderBottom: 0,
+      fontFamily: 'Poppins-Regular',
 
-'& .ItemName , .TotalPrice': {
-  borderBottom: 0,
-  fontFamily: 'Poppins-Regular',
-
-  fontSize: '16px',
-  color: '#fff',
-},
-'& .NumericInput , .CartSub , .RemoveItem , .total , .CartInputs , .ItemPrice , td_total' : {
+      fontSize: '16px',
+      color: '#fff',
+    },
+    '& .NumericInput , .CartSub , .RemoveItem , .total , .CartInputs , .ItemPrice , td_total': {
       display: 'none !important',
       borderBottom: 0,
-
-  },
+    },
 
     '& h4': {
       fontFamily: 'Poppins-Regular',
-      color:'#fba530',
+      color: '#fba530',
       marginTop: 20,
       '& svg': {
         width: 25,
@@ -85,7 +78,6 @@ const useStyles = makeStyles(() => ({
       },
     },
 
- 
     '& h3 ': {
       fontSize: 18,
     },
@@ -114,7 +106,6 @@ const useStyles = makeStyles(() => ({
       width: '100%',
       fontSize: 23,
       marginTop: 20,
-
     },
   },
 
@@ -125,51 +116,48 @@ const useStyles = makeStyles(() => ({
     '@media (min-width:800px) and (max-width:1300px)': {
       padding: 20,
     },
-    
+
     '& .ItemLink ': {
-   maxWidth:165,
-   '@media (min-width:900px) and (max-width:1000px)': {
-    maxWidth:137,
-  },
-   '@media (min-width:1000px) and (max-width:1280px)': {
-    maxWidth:150,
-  },
-  '@media (max-width:767px)': {
-    maxWidth:'100%',
-     width:'100%',
-     textAlign:'center',
-     
-  },
+      maxWidth: 165,
+      '@media (min-width:900px) and (max-width:1000px)': {
+        maxWidth: 137,
+      },
+      '@media (min-width:1000px) and (max-width:1280px)': {
+        maxWidth: 150,
+      },
+      '@media (max-width:767px)': {
+        maxWidth: '100%',
+        width: '100%',
+        textAlign: 'center',
+      },
     },
     '& .TotalPrice ': {
-      maxWidth:100,
+      maxWidth: 100,
       textAlign: 'right',
       '@media (max-width:767px)': {
-        maxWidth:'100%',
-         width:'100%',
-         paddingBottom:20,
-         paddingTop:0,
+        maxWidth: '100%',
+        width: '100%',
+        paddingBottom: 20,
+        paddingTop: 0,
 
-         textAlign:'center',
-         
+        textAlign: 'center',
       },
-       },
+    },
     '& .EditCart h4': {
-color:'#fba530',
-borderBottom:'1px solid #fba530',
+      color: '#fba530',
+      borderBottom: '1px solid #fba530',
 
-'&:hover': {
-  color:'#FF7700',
-  transition:'0.3s',
-},
+      '&:hover': {
+        color: '#FF7700',
+        transition: '0.3s',
+      },
     },
     '& .EditCart h3': {
-      color:'#fba530',
-          },
+      color: '#fba530',
+    },
 
     marginTop: 9,
     paddingBottom: 30,
-
   },
 
   OrderSummaryFlex: {
@@ -178,7 +166,7 @@ borderBottom:'1px solid #fba530',
     justifyContent: 'space-between',
     '& h4': {
       cursor: 'pointer',
-    }
+    },
   },
   OrderSummaryInformation: {
     textAlign: 'center',
@@ -193,59 +181,72 @@ borderBottom:'1px solid #fba530',
     fontFamily: 'Poppins-SemiBold',
     fontSize: 24,
     marginTop: '16px !important',
-    color:'#fba530',
+    color: '#fba530',
   },
   totalText: {
     '& h3': {
-      color:'#fba530',
-    fontFamily: 'Poppins-SemiBold',
-    fontSize: 24,
-    marginTop: 15,
-
+      color: '#fba530',
+      fontFamily: 'Poppins-SemiBold',
+      fontSize: 24,
+      marginTop: 15,
     },
   },
-  
-  promocode:{
-    borderTop:'1px solid #3780d5',
-    borderBottom:'1px solid #3780d5',
-    padding:'20px 0',
+
+  promocode: {
+    borderTop: '1px solid #3780d5',
+    borderBottom: '1px solid #3780d5',
+    padding: '20px 0',
     display: 'flex',
-    marginTop:10,
+    marginTop: 10,
 
-  '& input': {
-    background: 'transparent',
-    border: 0,
-    marginLeft: 10,
-    outline: 0,
-    fontSize:18,
-    color: '#fba530',
+    '& input': {
+      background: 'transparent',
+      border: 0,
+      marginLeft: 10,
+      outline: 0,
+      fontSize: 18,
+      color: '#fba530',
+    },
+    '& input::placeholder': {
+      color: '#fba530',
+      fontSize: 18,
+    },
+    '& input::-ms-input-placeholder': {
+      color: '#fba530',
+      fontSize: 18,
+    },
+    '& input::-webkit-input-placeholder': {
+      color: '#fba530',
+      fontSize: 18,
+    },
+    '& button': {
+      width: 142,
+      fontSize: 14,
+      marginTop: 0,
+      textTransform: 'capitalize',
+      padding: 10,
+      cursor: 'pointer',
+      // borderRadius: 10,
+      outline: 0,
+      border: 0,
+      background: '#FFA62F',
+      color: '#FFFFFF',
+      '&:hover':{
+        background: '#3680d6',
+        color: '#fff',
+      },
+    }
+  },
 
-  },
-  '& input::placeholder': {
-    color: '#fba530',
-    fontSize:18,
-  },
-  '& input::-ms-input-placeholder': {
-    color: '#fba530',
-    fontSize:18,
-
-  },
-  '& input::-webkit-input-placeholder': {
-    color: '#fba530',
-    fontSize:18,
-  },
-  },
-  
-  ContinueShopping:{
+  ContinueShopping: {
     textAlign: 'right',
     '& h4': {
-      fontSize:18,
+      fontSize: 18,
       '@media (max-width:767px)': {
-        marginTop:0,
+        marginTop: 0,
       },
     },
   },
+}))
 
-}));
-
-export default useStyles;
+export default useStyles

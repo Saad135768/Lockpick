@@ -81,27 +81,49 @@ export const GET_CURRENT_CUSTOMER = gql`
 export const GET_ORDER = gql`
  query getOrder($_id: ID!) {
    getOrder(_id:$_id) {
-    _id
+    status
+    customerName
+    shippingMethod
+    paymentMethod
+    shippingDate
     orderId
     onlineOrderPaymentId
-    status
     variations{
       quantity
       total
+      images
       variation{
+        
         product{
           _id
+          productCode
           name{
             en
           }
-          images
+          
         }
       }
     }
     totals{
       shipping
     }
-   }
+       shipping{
+      state
+      street
+      city
+      country
+      postalCode
+      state
+    }
+       billing{
+      state
+      street
+      city
+      country
+      postalCode
+      state
+    }
+  }
  }
 
 `
