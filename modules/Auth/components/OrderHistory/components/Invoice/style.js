@@ -80,9 +80,10 @@ margin:0,
 },
 InvoiceText:{
   textAlign: 'right',
-  fontSize: 30,
+  fontSize: '30px !important',
   fontFamily: 'Poppins-SemiBold',
   margin: 0,
+  marginBottom: 30,
   marginRight: 50,
 },
 
@@ -103,6 +104,7 @@ Center:{
 },
 
 RestTable:{
+  marginTop:30,
   '& h3': {
     margin:'0 0',
     fontFamily:'Poppins-SemiBold',

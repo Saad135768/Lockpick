@@ -127,7 +127,7 @@ const Invoice = () => {
 
 </Grid>
 <Grid item lg={6} md={6}>
-       <h3> Tax 0%</h3>
+       <h3> Tax 0%:</h3>
 
 </Grid>
 <Grid item lg={6} md={6}>
@@ -136,7 +136,7 @@ const Invoice = () => {
 
 </Grid>
 <Grid item lg={6} md={6}>
-<h3> Shipping Cost</h3>
+<h3> Shipping Cost:</h3>
 
 
 </Grid>
