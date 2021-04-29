@@ -47,7 +47,6 @@ console.log({ promoCodeReturn })
   const [paymentMethod, setPaymentMethod] = useState('cash')
   const [shippingMethod, setShippingMethod] = useState()
   
-console.log('promoCode state', promoCode)
   // Accordions state
   const [expandShippingAccordion, setExpandShippingAccordion] = useState(true)
   const [expandDeleiveryAccordion, setExpandDeleiveryAccordion] = useState(true)

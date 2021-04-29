@@ -1,17 +1,39 @@
-import React, { useState, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import useStyles from './style'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import { pathOr, propOr } from 'ramda'
+import Pdf from "react-to-pdf"
+
+const ref = React.createRef()
+const options = {
+  orientation: 'landscape',
+  unit: 'in',
+  format: [4,2]
+}
 const Invoice = ({ invoice, invoiceId, ...props }) => {
-  console.log(`props invoicee`, invoice)
+
+  const AddressChecker = address => {
+    if (address) return `${address}, `
+  }
+
+  const shippingCost = pathOr(0, ['totals', 'shipping'], invoice)
+  const subtotal = pathOr([], ['variations'], invoice).reduce((a,b) => {
+   return propOr(0, ['total'], b) + a
+  }, 0)
+  
   const classes = useStyles()
   return (
-    <Container>
+    <>
+    <Container >
       <Grid item md={11} xs={12}>
-        <div className={classes.Invoice}>
+    {/* <Pdf targetRef={ref} filename="lock-pick_Invoice.pdf">
+    {({ toPdf }) => <button onClick={toPdf}>Download as Pdf</button>}
+  </Pdf> */}
+        <div className={classes.Invoice} ref={ref}>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item sm={12}>
+          
               <h5 className={classes.InvoiceText}> INVOICE</h5>
             </Grid>
 
@@ -32,7 +54,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                 </h4>
               </div>
             </Grid>
-            <Grid item sm={6} lg={6} md={6}>
+            <Grid item sm={6}>
               <div className={classes.InvoiceInfoRight}>
                 <h4> order #{invoice?.orderId} </h4>
                 <h5>
@@ -51,10 +73,10 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                   
                   SHIPPING METHOD: <span>{invoice?.shippingMethod} </span>
                 </h5>
-                <h5>
+                {/* <h5>
                   
                   CARRIER : <span> </span>
-                </h5>
+                </h5> */}
                 {/* <h5>
                   
                   TRACKING Number : <span> </span>
@@ -65,29 +87,38 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
           <Grid container spacing={2}>
             <Grid item sm={6} lg={6} md={6}>
               <div className={classes.InvoiceBill}>
-                <h2>Bill to: </h2>
-                <h4> Customer </h4>
-                <h4> Address line 1 </h4>
-                <h4> Address line 2 </h4>
-                <h4> Address line 3 </h4>
-                <h4> phone </h4>
-                <h4> Company </h4>
+                <h2>Bill to: {invoice?.customerName}</h2>
+                {/* <h4> Customer </h4> */}
+                <h4> Address line 1: 
+                  {AddressChecker(invoice?.shipping?.street)}
+                  {AddressChecker(invoice?.shipping?.state)}
+                  {AddressChecker(invoice?.shipping?.city)}
+                  {AddressChecker(invoice?.shipping?.country)}
+                  {AddressChecker(invoice?.shipping?.postalCode)} </h4>
+                <h4> Address line 2: - </h4>
+                <h4> Address line 3: - </h4>
+                <h4> phone: {invoice?.customerPhone} </h4>
+                <h4> Company: - </h4>
               </div>
             </Grid>
-            <Grid item sm={6} lg={4} md={4}>
+            <Grid item sm={6} md={4}>
               <div className={classes.InvoiceBill}>
-                <h2>Ship to: </h2>
-                <h4> Customer </h4>
-                <h4> Address line 1 </h4>
-                <h4> Address line 2 </h4>
-                <h4> Address line 3 </h4>
-                <h4> phone </h4>
-                <h4> Company </h4>
+                <h2>Ship to: {invoice?.customerName}</h2>
+                {/* <h4> Customer </h4> */}
+                <h4> Address line 1:  {AddressChecker(invoice?.billing?.street)}
+                  {AddressChecker(invoice?.billing?.state)}
+                  {AddressChecker(invoice?.billing?.city)}
+                  {AddressChecker(invoice?.billing?.country)}
+                  {AddressChecker(invoice?.billing?.postalCode)}</h4>
+                <h4> Address line 2: - </h4>
+                <h4> Address line 3: - </h4>
+                <h4> phone: {invoice?.customerPhone}  </h4>
+                <h4> Company: - </h4>
               </div>
             </Grid>
           </Grid>
 
-          <Grid item sm={12} lg={12} md={12}>
+          <Grid item sm={12}>
             <table>
               
               <tr>
@@ -122,34 +153,34 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
             </table>
           </Grid>
           <Grid container spacing={2}>
-            <Grid item lg={7} md={7}></Grid>
+            <Grid item md={7}></Grid>
 
-            <Grid item lg={5} md={5}>
+            <Grid item md={5}>
               <div className={classes.RestTable}>
                 <Grid container spacing={2}>
-                  <Grid item lg={6} md={6}>
+                  <Grid item md={6}>
                     <h3> Subtotal</h3>
                   </Grid>
-                  <Grid item lg={6} md={6}>
-                    <h4> $00,000,00</h4>
+                  <Grid item md={6}>
+                    <h4> ${subtotal.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
                   </Grid>
-                  <Grid item lg={6} md={6}>
+                  <Grid item md={6}>
                     <h3> Taxes:</h3>
                   </Grid>
-                  <Grid item lg={6} md={6}>
-                    <h4></h4>
-                  </Grid>
-                  <Grid item lg={6} md={6}>
-                    <h3> Tax 0%:</h3>
-                  </Grid>
-                  <Grid item lg={6} md={6}>
+                  <Grid item md={6}>
                     <h4> $00,000,00</h4>
                   </Grid>
-                  <Grid item lg={6} md={6}>
+                  <Grid item md={6}>
+                    <h3> Tax:  0%</h3>
+                  </Grid>
+                  <Grid item md={6}>
+                    <h4> $00,000,00</h4>
+                  </Grid>
+                  <Grid item md={6}>
                     <h3> Shipping Cost:</h3>
                   </Grid>
-                  <Grid item lg={6} md={6}>
-                    <h4> $00,000,00</h4>
+                  <Grid item md={6}>
+                    <h4> ${shippingCost?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
                   </Grid>
                 </Grid>
               </div>
@@ -158,14 +189,16 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                 <hr />
                 <h5>
                   
-                  Total cost: <b> $00,000,00</b>
+                  Total cost: <b> ${(+subtotal + +shippingCost)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</b>
                 </h5>
               </div>
+              
             </Grid>
           </Grid>
         </div>
       </Grid>
     </Container>
+    </>
   )
 }
 

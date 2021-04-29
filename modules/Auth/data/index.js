@@ -83,6 +83,7 @@ export const GET_ORDER = gql`
    getOrder(_id:$_id) {
     status
     customerName
+    customerPhone
     shippingMethod
     paymentMethod
     shippingDate
@@ -97,6 +98,7 @@ export const GET_ORDER = gql`
         product{
           _id
           productCode
+          images
           name{
             en
           }
