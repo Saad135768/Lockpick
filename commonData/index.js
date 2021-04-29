@@ -161,3 +161,15 @@ export const EDIT_CUSTOMER = gql`
     }
   }
 `
+
+export const APPLY_PROMOCODE = gql`
+  mutation applyPromoCode($total: Float, $code: String) {
+    applyPromoCode(total: $total, code: $code) {
+      discount
+      promoCode {
+        valueType
+        value
+      }
+    }
+  }
+`

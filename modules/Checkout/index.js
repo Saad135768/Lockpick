@@ -12,9 +12,9 @@ import ShippingDetails from './components/ShippingDetails'
 import DeliveryMethod from './components/DeliveryDetails'
 import Cookies from 'js-cookie'
 import { AiOutlineCheck } from 'react-icons/ai'
-import { useQuery, useMutation } from '@apollo/react-hooks'
-import { GET_CURRENT_CUSTOMER } from './../Auth/data'
-import { CREATE_ORDER } from './data'
+import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks'
+import { GET_CURRENT_CUSTOMER } from '../Auth/data'
+import { CREATE_ORDER, GET_PROMOCODES } from './data'
 import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
 import Router from 'next/router'
@@ -24,6 +24,21 @@ const Checkout = (props) => {
 
   const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache' })
 
+  const [getPromoCodes, { loading: promoCodeLoading, data: promoCodeData }] = useLazyQuery(GET_PROMOCODES)
+
+  const [promoCode, setPromocode] = useState()
+  const [promoCodeReturn, setPromoCodeReturn] = useState()
+
+const GetPromocode = () => {
+   const res = getPromoCodes({ variables: { code: promoCode } })
+
+    if(res && promoCode){
+      setPromoCodeReturn(promoCodeData)
+      if(promoCodeReturn) return props.enqueueSnackbar('Promo code Applied', { variant: 'success' })
+      props.enqueueSnackbar('Invalid promo code', { variant: 'error' })
+    }
+}
+
   // Those are the states that toggle between components [shipping details, deleivery and payments methods]
   const [view, setView] = useState(true)
   const [view2, setView2] = useState()
@@ -32,7 +47,6 @@ const Checkout = (props) => {
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
   const [shippingMethod, setShippingMethod] = useState()
-  const [promoCode, setPromocode] = useState()
 
   // Accordions state
   const [expandShippingAccordion, setExpandShippingAccordion] = useState(true)
@@ -66,7 +80,7 @@ const Checkout = (props) => {
         billing: R.omit(['name', 'phone', 'address1'], checkoutValues),
         paymentMethod,
         shippingMethod,
-        // promoCode,
+        promoCode,
         shippingCost: 0
       }
       if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
@@ -219,7 +233,11 @@ const Checkout = (props) => {
                 </div>
               </Grid>
               <Grid item lg={5} md={5} sm={12} xs={12}>
-                <CheckoutSummary setPromocode={setPromocode} />
+                <CheckoutSummary 
+                setPromocode={setPromocode} 
+                GetPromocode={GetPromocode}
+                loading={promoCodeLoading}
+                />
               </Grid>
             </Grid>
           </Grid>

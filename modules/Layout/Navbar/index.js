@@ -17,8 +17,8 @@ import Auth from '../../Auth'
 const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
-  const { parsed } = router
-
+  const { parsed, pathname } = router
+  
   const cart = useStore(state => state.cart)
   const setOpenModal = useStore(state => state.setOpenModal)
 
@@ -37,7 +37,7 @@ const Navbar = () => {
   const token = Cookies.get('token')
 
   return (
-    <div className={classes.NavbarHolder}>
+      <div className={`${classes.NavbarHolder} ${pathname.includes('invoice')? classes.none : ''}`}>
       <div className={classes.NavbaTopImage} />
       <Container maxWidth="lg">
         <Grid container>

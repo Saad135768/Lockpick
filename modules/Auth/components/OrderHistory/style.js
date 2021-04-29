@@ -118,9 +118,9 @@ margin: '10px 0',
 zIndex:'2000 !important',
 
     '& .MuiDialog-paperWidthSm': {
-      width:'800px',
+      width:'850px',
       borderRadius: '25px',
-      maxWidth:'800px',
+      maxWidth:'850px',
       padding: 0,
       '& button': {
         background: '#397399',
@@ -259,6 +259,7 @@ padding:0,
 
 OrderTableTd: {
 width:'100%',
+paddingBottom:10,
 },
 
 OrderTableHolder:{
@@ -275,6 +276,7 @@ OrderTableHolder:{
    },
 },
 OrderTableLeft:{
+
   '& h5': {
     fontFamily: 'Poppins-Regular',
     color: '#519fd9',
@@ -303,10 +305,7 @@ OrderInvoice:{
   '& span': {
     position:'relative',
 bottom:8,
-  },
-},
-OrderTableRight:{
-
+  }
 },
 
 OrderItems:{
@@ -331,6 +330,41 @@ OrderTotal:{
    '& span': {
     marginLeft: 30,
    },
+},
+NoOrderYet:{
+  height:300,
+display:'flex',
+alignItems:'center',
+justifyContent:'center',
+'& h1': {
+  fontFamily: 'Poppins-SemiBold',
+  fontSize:22,
+  marginTop:70,
+},
+},
+
+loader:{
+  display:'flex',
+  alignItems:'center',
+  height:200,
+  justifyContent:'center',
+},
+Logout:{
+  marginTop: 32,
+textAlign: 'right',
+textTransform:'uppercase',
+margin: '10px 0',
+'& h2': {
+marginTop: 0,
+fontSize: 18,
+cursor: 'pointer',
+},
+},
+
+
+OrderHeight:{
+  height:500,
+  overflowY:'auto',
 },
 }))
 

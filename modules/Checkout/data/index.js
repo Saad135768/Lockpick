@@ -121,3 +121,16 @@ export const GET_ORDER = gql`
     }
   }
 `
+export const GET_PROMOCODES = gql`
+query getPromoCodes($code: String) {
+  getPromoCodes(code: $code) {
+    items {
+      name
+      code
+      value
+      active
+      valueType
+    }
+  }
+}
+`
