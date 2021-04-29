@@ -259,6 +259,7 @@ padding:0,
 
 OrderTableTd: {
 width:'100%',
+paddingBottom:10,
 },
 
 OrderTableHolder:{
@@ -275,6 +276,7 @@ OrderTableHolder:{
    },
 },
 OrderTableLeft:{
+
   '& h5': {
     fontFamily: 'Poppins-Regular',
     color: '#519fd9',
@@ -303,10 +305,7 @@ OrderInvoice:{
   '& span': {
     position:'relative',
 bottom:8,
-  },
-},
-OrderTableRight:{
-
+  }
 },
 
 OrderItems:{
@@ -362,16 +361,11 @@ cursor: 'pointer',
 },
 },
 
-// NoOrderYetBtn:{
 
-//   '& button': {
-//     width: '50% !important',
-//      margin:'0 auto',
-//      display:'block',
-//      background:'red !important',
-//         },
-// },
-
+OrderHeight:{
+  height:500,
+  overflowY:'auto',
+},
 }))
 
 export default useStyles

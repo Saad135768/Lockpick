@@ -26,7 +26,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
   return (
     <>
     <Container >
-      <Grid item md={11} xs={12}>
+      <Grid item xs={12}>
     {/* <Pdf targetRef={ref} filename="lock-pick_Invoice.pdf">
     {({ toPdf }) => <button onClick={toPdf}>Download as Pdf</button>}
   </Pdf> */}

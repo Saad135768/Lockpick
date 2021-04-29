@@ -8,7 +8,6 @@ background:'#fff',
 
 },
 padding:'80px 30px',
-margin:80,
 
   '& table': {
     borderCollapse: 'collapse',

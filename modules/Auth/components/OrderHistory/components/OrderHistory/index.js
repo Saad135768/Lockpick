@@ -93,19 +93,20 @@ const OrderHistory = ({ data, ...props }) => {
       </AccordionSummary>
       <AccordionDetails>
         <table>
-          {!loading ? (
-            pathOr([], ['getOrder', 'variations'], getOrderData).map(data => (
-              <Fragment key={data.variation?.product._id}>
-                <OrderHistoryData
-                  data={data}
-                  status={getOrderData?.getOrder?.status}
-                  shippingCost={getOrderData?.getOrder?.totals?.shipping}
-                />
-              </Fragment>
-            ))
-          ) : (
-            <Loader type="Oval" color="#fba631" height={100} width={100} />
-          )}
+        {!loading ? pathOr([], ['getOrder', 'variations'], getOrderData).map((data) => 
+        <Fragment key={data.variation?.product._id}> 
+          <OrderHistoryData 
+            data={data} 
+            status={getOrderData?.getOrder?.status}  
+            shippingCost={getOrderData?.getOrder?.totals?.shipping}
+            />
+        </Fragment>
+        ): <Loader
+              type="Oval"
+              color="#fba631"
+              height={50}
+              width={50}
+      />}
         </table>
       </AccordionDetails>
     </Accordion>

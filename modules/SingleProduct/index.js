@@ -15,6 +15,7 @@ import { withSnackbar } from "notistack"
 import { useMutation } from "@apollo/react-hooks"
 import useStore from "../../store"
 import Router from "next/router"
+import Head from "next/Head"
 
 const SingleProduct = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
@@ -86,7 +87,14 @@ const SingleProduct = (props) => {
 
   const classes = useStyles()
   return (
+    <>
+    <Head>
+      <title> Product | {name} </title>
+    </Head>
+
+    
     <div className={classes.AboutHolder}>
+      
       <Container>
         <Grid container justify="center">
           <Grid item md={10} xs={12}>
@@ -235,6 +243,7 @@ const SingleProduct = (props) => {
         </Grid>
       </Container>
     </div>
+    </>
   )
 }
 
