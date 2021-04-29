@@ -40,7 +40,7 @@ const CheckoutSummary = ({ setPromocode, loading, GetPromocode, ...props }) => {
         <div className={classes.promocode}>
           <div>
             <input placeholder="Enter a promo code" onChange={(e) => setPromocode(e.target.value)} />
-            <button onClick={() => GetPromocode()}>{ loading ? 
+            <button>{ loading ? 
             <Loader
             type="Oval"
             color="#fff"

@@ -18,7 +18,7 @@ const Navbar = () => {
   const classes = useStyles()
   const router = useRouter()
   const { parsed, pathname } = router
-console.log({ pathname })
+  
   const cart = useStore(state => state.cart)
   const setOpenModal = useStore(state => state.setOpenModal)
 

@@ -30,14 +30,15 @@ const Checkout = (props) => {
   const [promoCodeReturn, setPromoCodeReturn] = useState()
 
 const GetPromocode = () => {
-    getPromoCodes({ variables: { code: promoCode } })
-    if(promoCodeData){
+   const res = getPromoCodes({ variables: { code: promoCode } })
+
+    if(res && promoCode){
       setPromoCodeReturn(promoCodeData)
       if(promoCodeReturn) return props.enqueueSnackbar('Promo code Applied', { variant: 'success' })
       props.enqueueSnackbar('Invalid promo code', { variant: 'error' })
     }
 }
-console.log({ promoCodeReturn })
+
   // Those are the states that toggle between components [shipping details, deleivery and payments methods]
   const [view, setView] = useState(true)
   const [view2, setView2] = useState()
@@ -46,7 +47,7 @@ console.log({ promoCodeReturn })
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
   const [shippingMethod, setShippingMethod] = useState()
-  
+
   // Accordions state
   const [expandShippingAccordion, setExpandShippingAccordion] = useState(true)
   const [expandDeleiveryAccordion, setExpandDeleiveryAccordion] = useState(true)
