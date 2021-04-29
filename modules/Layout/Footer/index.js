@@ -3,14 +3,20 @@ import Container from '@material-ui/core/Container'
 import { FaFacebookF, FaTwitter } from 'react-icons/fa'
 import { AiOutlineInstagram, AiFillYoutube } from 'react-icons/ai'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import useStyles from './style'
 import ScrollToTop from 'react-scroll-up'
 
 const Footer = () => {
   const classes = useStyles()
+  const router = useRouter()
+  const { parsed, pathname } = router
+
   return (
-    <div>
-      <div className={classes.FooterScroll}>
+    
+       <div className={`${classes.footer} ${pathname.includes('invoice')? classes.none : ''}`}>
+
+      <div className={classes.FooterScroll} >
         <ScrollToTop showUnder={200} duration={900}>
           <span>
             <img src="../../static/images/backt2top.png" />

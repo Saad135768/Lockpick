@@ -246,24 +246,40 @@ const useStyles = makeStyles(() => ({
     width: '100%',
   },
 
-OrderTableHolder:{
-  width: '100%',
-  display: 'flex',
-  justifyContent: 'space-around',
-  marginTop: 0,
-  '& h4': {
-    margin: 0,
-    color: '#6e6e6e',
-    fontFamily: 'Poppins-SemiBold',
-    marginBottom: 2,
-    fontSize: 16,
-   },
-},
-OrderTableLeft:{
-  width:'100%',
-  marginBottom:10,
-  '& h5': {
-    fontFamily: 'Poppins-Regular',
+  OrderTableHolder: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-around',
+    marginTop: 0,
+    '& h4': {
+      margin: 0,
+      color: '#6e6e6e',
+      fontFamily: 'Poppins-SemiBold',
+      marginBottom: 2,
+      fontSize: 16,
+    },
+  },
+  OrderTableLeft: {
+    width:'100%',
+    marginBottom:10,
+    '& h5': {
+      fontFamily: 'Poppins-Regular',
+      color: '#519fd9',
+      fontSize: 16,
+      marginTop: 10,
+      marginBottom: 0,
+      textTransform: 'uppercase',
+      fontFamily: 'Poppins-SemiBold',
+    },
+    '& svg': {
+      top: 2,
+      position: 'relative',
+      marginRight: 10,
+    },
+  },
+  OrderInvoice: {
+    display: 'flex',
+    textAlign: 'right',
     color: '#519fd9',
     justifyContent: 'flex-end',
 

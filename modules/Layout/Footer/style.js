@@ -175,6 +175,9 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
   },
 
+  none: {
+    display: 'none',
+  },
 }))
 
 export default useStyles

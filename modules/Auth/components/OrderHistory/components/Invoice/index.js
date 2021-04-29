@@ -8,7 +8,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
   const classes = useStyles()
   return (
     <Container>
-      <Grid item md={11} xs={12}>
+      <Grid item md={12} xs={12}>
         <div className={classes.Invoice}>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item sm={12}>

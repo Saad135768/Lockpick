@@ -154,7 +154,11 @@ const useStyles = makeStyles(() => ({
       position: 'relative',
     }
   },
+
+ 
   NavbarHolder: {
+    
+
     borderBottom: '1px solid #0000001c',
     background: 'transparent',
     padding: 0,
@@ -219,6 +223,9 @@ const useStyles = makeStyles(() => ({
       width: "100%",
       margin: "7px auto",
     },
+  },
+  none: {
+    display: 'none',
   },
   carticon: {
     position: 'relative',

@@ -305,10 +305,7 @@ OrderInvoice:{
   '& span': {
     position:'relative',
 bottom:8,
-  },
-},
-OrderTableRight:{
-
+  }
 },
 
 OrderItems:{
@@ -364,15 +361,6 @@ cursor: 'pointer',
 },
 },
 
-// NoOrderYetBtn:{
-
-//   '& button': {
-//     width: '50% !important',
-//      margin:'0 auto',
-//      display:'block',
-//      background:'red !important',
-//         },
-// },
 
 OrderHeight:{
   height:500,

@@ -97,6 +97,7 @@ export const GET_ORDER = gql`
         product{
           _id
           productCode
+          images
           name{
             en
           }
