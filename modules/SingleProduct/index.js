@@ -23,46 +23,46 @@ const SingleProduct = (props) => {
 
   // Products values
   const name = pathOr(
-    "No name found",
-    ["product", "product", "name", "en"],
+    'No name found',
+    ['product', 'product', 'name', 'en'],
     props
   )
   let taxonomyName = pathOr(
-    "",
-    ["product", "product", "taxonomies", "0", "name", "en"],
+    '',
+    ['product', 'product', 'taxonomies', '0', 'name', 'en'],
     props
   )
   const productCode = pathOr(
-    "No name found",
-    ["product", "product", "productCode"],
+    'No name found',
+    ['product', 'product', 'productCode'],
     props
   )
   const description = pathOr(
-    "No description",
-    ["product", "product", "description", "en"],
+    'No description',
+    ['product', 'product', 'description', 'en'],
     props
   )
   const quantity = pathOr(
     1,
-    ["product", "variations", "0", "stock", "0", "amount"],
+    ['product', 'variations', '0', 'stock', '0', 'amount'],
     props
   )
   const mainPrice = pathOr(
     0,
-    ["product", "variations", "0", "price", "mainPrice"],
+    ['product', 'variations', '0', 'price', 'mainPrice'],
     props
   )
   const discountedPrice = pathOr(
     0,
-    ["product", "variations", "0", "price", "discountedPrice"],
+    ['product', 'variations', '0', 'price', 'discountedPrice'],
     props
   )
-  const variationsId = pathOr("", ["product", "variations", "0", "_id"], props)
+  const variationsId = pathOr('', ['product', 'variations', '0', '_id'], props)
   const imgs = []
-  pathOr([], ["product", "product", "images"], props).forEach((img) =>
+  pathOr([], ['product', 'product', 'images'], props).forEach((img) =>
     imgs.push({ original: img, thumbnail: img })
   )
-  if (taxonomyName.includes("bmw")) taxonomyName = "options"
+  if (taxonomyName.includes('bmw')) taxonomyName = 'options'
 
   const setCart = useStore((state) => state.setCart)
   // Add to cart mutation
@@ -71,17 +71,17 @@ const SingleProduct = (props) => {
       const res = await updateCartItem({
         variables: { variation: { variation, quantity } },
       })
-      props.enqueueSnackbar("Product has been added to cart successfully", {
-        variant: "success",
+      props.enqueueSnackbar('Product has been added to cart successfully', {
+        variant: 'success',
       })
       setCart(res.data.updateCartItem)
     } catch (error) {
       if (error.graphQLErrors) {
         props.enqueueSnackbar(error.graphQLErrors[0].message, {
-          variant: "error",
+          variant: 'error',
         })
       } else
-        props.enqueueSnackbar("something went wrong", { variant: "error" })
+        props.enqueueSnackbar('something went wrong', { variant: 'error' })
     }
   }
 
@@ -96,17 +96,17 @@ const SingleProduct = (props) => {
     <div className={classes.AboutHolder}>
       
       <Container>
-        <Grid container justify="center">
+        <Grid container justify='center'>
           <Grid item md={10} xs={12}>
             <Grid container spacing={8}>
               <div className={classes.SingleProductHead}>
                 <div>
                   <h2>
-                    <Breadcrumbs aria-label="breadcrumb">
-                      <Link href="/">
+                    <Breadcrumbs aria-label='breadcrumb'>
+                      <Link href='/'>
                         <a>Home</a>
                       </Link>
-                      <Link href="/products">
+                      <Link href='/products'>
                         <a>Products</a>
                       </Link>
                       <a>{taxonomyName?.toUpperCase()}</a>
@@ -115,7 +115,7 @@ const SingleProduct = (props) => {
                 </div>
                 <div>
                   <h4>
-                    <Link href="/products">
+                    <Link href='/products'>
                       <a>Continue Shopping</a>
                     </Link>
                     <MdKeyboardArrowRight />
@@ -136,7 +136,7 @@ const SingleProduct = (props) => {
                     infinite={false}
                     showPlayButton={false}
                     slideInterval={3000}
-                    thumbnailPosition={"left"}
+                    thumbnailPosition={'left'}
                     disableKeyDown={true}
                     items={imgs}
                   />
@@ -153,7 +153,7 @@ const SingleProduct = (props) => {
                     $
                     {(discountedPrice || mainPrice)
                       .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                   </h3>
                   <h5> VAT (Included or Excluded)</h5>
                   <h5> Shipping Description</h5>
@@ -179,7 +179,7 @@ const SingleProduct = (props) => {
                       <Button
                         onClick={async () => {
                           await AddToCart(variationsId, productsQuantity)
-                          Router.push("/checkout")
+                          Router.push('/checkout')
                         }}
                       >
 
