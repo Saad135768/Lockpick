@@ -15,7 +15,7 @@ import { withSnackbar } from "notistack"
 import { useMutation } from "@apollo/react-hooks"
 import useStore from "../../store"
 import Router from "next/router"
-import Head from "next/Head"
+import Head from "next/head"
 
 const SingleProduct = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
