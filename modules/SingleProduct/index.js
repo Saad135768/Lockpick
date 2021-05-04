@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
-import { Grid, Container, Breadcrumbs } from '@material-ui/core'
-import useStyles from './style'
-import ImageGallery from 'react-image-gallery'
-import { MdKeyboardArrowRight } from 'react-icons/md'
-import 'react-image-gallery/styles/css/image-gallery.css'
-import ReactHtmlParser from 'react-html-parser'
-import NumericInput from 'react-numeric-input'
-import Button from '../../common/Button'
-import QuickCart from '../../modules/Cart/components/QuickCart/'
-import Link from 'next/link'
-import { pathOr } from 'ramda'
-import { UPDATE_CART_ITEM } from '../../commonData'
-import { withSnackbar } from 'notistack'
-import { useMutation } from '@apollo/react-hooks'
-import useStore from '../../store'
-import Router from 'next/router'
-import Head from 'next/Head'
+import React, { useState } from "react"
+import { Grid, Container, Breadcrumbs } from "@material-ui/core"
+import useStyles from "./style"
+import ImageGallery from "react-image-gallery"
+import { MdKeyboardArrowRight } from "react-icons/md"
+import "react-image-gallery/styles/css/image-gallery.css"
+import ReactHtmlParser from "react-html-parser"
+import NumericInput from "react-numeric-input"
+import Button from "../../common/Button"
+import QuickCart from "../../modules/Cart/components/QuickCart/"
+import Link from "next/link"
+import { pathOr } from "ramda"
+import { UPDATE_CART_ITEM } from "../../commonData"
+import { withSnackbar } from "notistack"
+import { useMutation } from "@apollo/react-hooks"
+import useStore from "../../store"
+import Router from "next/router"
+import Head from "next/head"
 
 const SingleProduct = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
