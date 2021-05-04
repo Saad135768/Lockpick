@@ -101,8 +101,8 @@ color: #fba530;
 
 
 @media (min-width: 1440px) {
-  html,
-body {
+  div#__next
+  {
     width: 1280px;
     margin: 0 auto;
     padding-right: 0 !important;
