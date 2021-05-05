@@ -80,7 +80,7 @@ const GetPromocode = () => {
         billing: R.omit(['name', 'phone', 'address1'], checkoutValues),
         paymentMethod,
         shippingMethod,
-        promoCode,
+        // promoCode,
         shippingCost: 0
       }
       if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
