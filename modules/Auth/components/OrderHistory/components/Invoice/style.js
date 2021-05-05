@@ -2,36 +2,40 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   btn_print: {
-    width: 142,
-    fontSize: 14,
-    marginTop: 0,
-    textTransform: 'capitalize',
-    padding: 10,
+    width: 250,
+    fontSize: 20,
+    fontFamily: 'Poppins-SemiBold',
+    marginTop: 100,
+    color:'#2B313B',
+    textTransform: 'Uppercase',
+    padding: '10px 20px',
+    borderRadius:12,
     cursor: 'pointer',
     // borderRadius: 10,
+    '& svg': {
+      fontSize: 25,
+      position:'relative',
+    top:4,
+      marginRight:10,
+    },
     outline: 0,
     border: 0,
     background: '#FFA62F',
-    color: '#FFFFFF',
     '&:hover':{
       background: '#3680d6',
       color: '#fff',
     },
     position: 'absolute',
-    top: '16%',
-    left: '10.5%',
+   
     cursor: 'pointer',
-    '@media(min-width:1200px)': {
-      top: '10%',
-      left: '26%',
-    },
+  
   },
   Invoice: {
     background: '#fff',
     '& h4,h2,h5': {
       fontSize: 17,
     },
-    padding: '80px 30px',
+    padding: '160px 0px',
 
     '& table': {
       borderCollapse: 'collapse',
@@ -61,7 +65,7 @@ const useStyles = makeStyles(() => ({
   },
 
   productTitle: {
-    width: 300,
+    width: 450,
   },
   RestTable: {
     textAlign: 'right',
@@ -71,6 +75,14 @@ const useStyles = makeStyles(() => ({
     '& h2': {
       fontFamily: 'Poppins-SemiBold',
     },
+    '& h3': {
+      margin: 0,
+      fontSize: 17,
+      '& b': {
+        fontFamily: 'Poppins-SemiBold',
+      },
+    },
+   
     '& h4': {
       margin: 0,
     },
@@ -86,6 +98,12 @@ const useStyles = makeStyles(() => ({
       fontSize: 24,
       margin: 0,
     },
+    '& h3': {
+      margin: 0,
+      fontSize: 17,
+      textTransform: 'uppercase',
+
+    },
     '& h5': {
       margin: 0,
       textTransform: 'uppercase',
@@ -96,8 +114,8 @@ const useStyles = makeStyles(() => ({
     fontSize: '30px !important',
     fontFamily: 'Poppins-SemiBold',
     margin: 0,
-    marginBottom: 30,
-    marginRight: 50,
+    marginBottom: 0,
+    marginRight: 120,
   },
 
   InvoiceBill: {
@@ -106,10 +124,13 @@ const useStyles = makeStyles(() => ({
       fontSize: 24,
       margin: 0,
     },
+    '& h3': {
+      fontSize: 17,
+    },
     '& h4': {
       margin: '15px 0',
     },
-    margin: '50px 0',
+    margin: '90px 0',
   },
   Center: {
     textAlign: 'center !important',
@@ -129,6 +150,7 @@ const useStyles = makeStyles(() => ({
     '& h5': {
       margin: '30px 0',
       marginLeft: 40,
+      fontSize: 20,
     },
     '& b': {
       fontFamily: 'Poppins-SemiBold',
@@ -137,6 +159,25 @@ const useStyles = makeStyles(() => ({
     },
     '& hr': {
       margin: '30px 0',
+    },
+  },
+  InvoiceHolder:{
+    margin:'0 auto',
+
+  },
+  AddressWidth:{
+    maxWidth: 240,
+  },
+  GotoHomePage:{
+    '& button': {
+      fontSize: 20,
+      padding:10,
+    },
+    '& svg': {
+      fontSize: 25,
+      position:'relative',
+    top:4,
+      marginRight:10,
     },
   },
 }))

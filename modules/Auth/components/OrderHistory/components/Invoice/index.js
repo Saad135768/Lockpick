@@ -4,6 +4,10 @@ import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import { pathOr, propOr } from 'ramda'
 import ReactToPrint from 'react-to-print'
+import Button from '../../../../../../common/Button'
+import Link from 'next/link'
+import { BiPrinter } from "react-icons/bi";
+import { HiOutlineHome } from "react-icons/hi";
 
 const Invoice = ({ invoice, invoiceId, ...props }) => {
   const ref = useRef()
@@ -20,31 +24,49 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
   const classes = useStyles()
   return (
     <>
+            <Grid
+  container
+  direction="row"
+  justify="center"
+  spacing={2}
+  alignItems="center"
+>
+          <Grid item md={9} xs={12}> 
       <ReactToPrint
         trigger={() => (
-          <button className={classes.btn_print}>Print this out!</button>
+          <Button className={classes.btn_print}>  <BiPrinter/>Print this out!</Button>
         )}
         content={() => ref.current}
       />
-      <Container ref={ref}>
+      </Grid>
+      </Grid>
+      <div ref={ref}>
         <div className={classes.Invoice}>
           <h5 className={classes.InvoiceText}> INVOICE</h5>
           <Grid
-            container
-            spacing={8}
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
+  container
+  direction="row"
+  justify="center"
+  spacing={2}
+  alignItems="center"
+>
+          <Grid item md={9} xs={12}>
+          <div className={classes.InvoiceHolder}>
+          <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
 
             <Grid item sm={6}>
               <div className={classes.InvoiceInfoLeft}>
                 <h2> lock-pick.us</h2>
                 <h3>
 
-                  Address line 1:
-                     <span>
-                    LOCK PICK 3301 W.MACARTHUR BLVD. <br /> SANTA ANA, CA
+                  Address line 1: 
+                      <span>
+                     LOCK PICK 3301  <br /> W.MACARTHUR BLVD. <br/>SANTA ANA, CA
                       92704 - USA
                     </span>
                 </h3>
@@ -53,12 +75,12 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                   Address line 2: <span> - </span>
                 </h3>
                 <h3>
-                  WEBSITE:
+                  <b>  WEBSITE:</b>
                     <a href="https://lock-pick.us/">https://lock-pick.us/</a>
                 </h3>
                 <h3>
-                  E-MAIL:
-                    <a href="mailto:Info@Lock-Pick.US" target="_blank">
+                 <b> E-MAIL: </b>
+                  <a href="mailto:Info@Lock-Pick.US" target="_blank">
                     Info @Lock - Pick.US
                     </a>
                 </h3>
@@ -66,7 +88,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
             </Grid>
             <Grid item sm={6}>
               <div className={classes.InvoiceInfoRight}>
-                <h4> order #{invoice?.orderId} </h4>
+                <h4> Order #{invoice?.orderId} </h4>
                 <h3>
                   STATUS: <span>{invoice?.status} </span>
                 </h3>
@@ -99,15 +121,15 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
               </div>
             </Grid>
           </Grid>
-          <Grid container spacing={8}>
+          <Grid container>
             <Grid item sm={6} lg={6} md={6}>
               <div className={classes.InvoiceBill}>
-                <h2>Bill to: {invoice?.customerName}</h2>
+                <h2>Bill to:  {invoice?.customerName}</h2>
                 {/* <h3> Customer </h3> */}
-                <h3>
+                <h3 className={classes.AddressWidth}>
 
-                  Address line 1:
-                    {AddressChecker(invoice?.shipping?.street)}
+                  Address line 1 : 
+                     {AddressChecker(invoice?.shipping?.street)}
                   {AddressChecker(invoice?.shipping?.state)}
                   {AddressChecker(invoice?.shipping?.city)}
                   {AddressChecker(invoice?.shipping?.country)}
@@ -123,7 +145,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
               <div className={classes.InvoiceBill}>
                 <h2>Ship to: {invoice?.customerName}</h2>
                 {/* <h3> Customer </h3> */}
-                <h3>
+                <h3> 
 
                   Address line 1: {AddressChecker(invoice?.billing?.street)}
                   {AddressChecker(invoice?.billing?.state)}
@@ -193,35 +215,35 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                     <h3> Subtotal</h3>
                   </Grid>
                   <Grid item md={5}>
-                    <h3>
+                    <h4>
 
                       ${subtotal
                         .toFixed(2)
                         .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-                    </h3>
+                    </h4>
                   </Grid>
                   <Grid item md={7}>
                     <h3> Taxes:</h3>
                   </Grid>
                   <Grid item md={5}>
-                    <h3> $00,000,00</h3>
+                    <h4> $00,000,00</h4>
                   </Grid>
                   <Grid item md={7}>
                     <h3> Tax: 0%</h3>
                   </Grid>
                   <Grid item md={5}>
-                    <h3> $00,000,00</h3>
+                    <h4> $00,000,00</h4>
                   </Grid>
                   <Grid item md={7}>
                     <h3> Shipping Cost:</h3>
                   </Grid>
                   <Grid item md={5}>
-                    <h3>
+                    <h4>
 
                       ${shippingCost
                         ?.toFixed(2)
                         .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-                    </h3>
+                    </h4>
                   </Grid>
                 </Grid>
               </div>
@@ -238,9 +260,21 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                 </h5>
               </div>
             </Grid>
+            <div className={classes.GotoHomePage}>
+
+                <Link as={'/'} href="/">
+                  <a href="/">
+                    <Button> <HiOutlineHome/>Go to Home Page</Button>
+                  </a>
+                </Link>
+                </div>
+          </Grid>
+          </div>
+          </Grid>
           </Grid>
         </div>
-      </Container>
+     
+      </div>
     </>
   )
 }
