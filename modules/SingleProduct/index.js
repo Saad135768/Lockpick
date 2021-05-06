@@ -1,70 +1,67 @@
-import React, { useState } from "react"
-import { Grid, Container, Breadcrumbs } from "@material-ui/core"
-import useStyles from "./style"
-import ImageGallery from "react-image-gallery"
-import { MdKeyboardArrowRight } from "react-icons/md"
-import "react-image-gallery/styles/css/image-gallery.css"
-import ReactHtmlParser from "react-html-parser"
-import NumericInput from "react-numeric-input"
-import Button from "../../common/Button"
-import QuickCart from "../../modules/Cart/components/QuickCart/"
-import Link from "next/link"
-import { pathOr } from "ramda"
-import { UPDATE_CART_ITEM } from "../../commonData"
-import { withSnackbar } from "notistack"
-import { useMutation } from "@apollo/react-hooks"
-import useStore from "../../store"
-import Router from "next/router"
-import Head from "next/head"
+import React, { useState } from 'react'
+import { Grid, Container, Breadcrumbs } from '@material-ui/core'
+import useStyles from './style'
+import ImageGallery from 'react-image-gallery'
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import 'react-image-gallery/styles/css/image-gallery.css'
+import ReactHtmlParser from 'react-html-parser'
+import NumericInput from 'react-numeric-input'
+import Button from '../../common/Button'
+import QuickCart from '../../modules/Cart/components/QuickCart/'
+import Link from 'next/link'
+import { pathOr } from 'ramda'
+import { UPDATE_CART_ITEM } from '../../commonData'
+import { withSnackbar } from 'notistack'
+import { useMutation } from '@apollo/react-hooks'
+import useStore from '../../store'
+import Router from 'next/router'
+import Head from 'next/head'
 
 const SingleProduct = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
 
   // Products values
-  const name = pathOr(
-    'No name found',
-    ['product', 'product', 'name', 'en'],
-    props
-  )
-  let taxonomyName = pathOr(
-    '',
-    ['product', 'product', 'taxonomies', '0', 'name', 'en'],
-    props
-  )
-  const productCode = pathOr(
-    'No name found',
-    ['product', 'product', 'productCode'],
-    props
-  )
-  const description = pathOr(
-    'No description',
-    ['product', 'product', 'description', 'en'],
-    props
-  )
-  const quantity = pathOr(
-    1,
-    ['product', 'variations', '0', 'stock', '0', 'amount'],
-    props
-  )
-  const mainPrice = pathOr(
-    0,
-    ['product', 'variations', '0', 'price', 'mainPrice'],
-    props
-  )
-  const discountedPrice = pathOr(
-    0,
-    ['product', 'variations', '0', 'price', 'discountedPrice'],
-    props
-  )
+  const name = pathOr('No name found', ['product', 'product', 'name', 'en'] ,props)
+
+  let taxonomyName = pathOr('', ['product', 'product', 'taxonomies', '0', 'name', 'en'], props)
+
+  const productCode = pathOr('No name found', ['product', 'product', 'productCode'], props)
+
+  const description = pathOr('No description', ['product', 'product', 'description', 'en'], props)
+
+  const quantity = pathOr(1, ['product', 'variations', '0', 'stock', '0', 'amount'], props)
+
+  const mainPrice = pathOr(0, ['product', 'variations', '0', 'price', 'mainPrice'], props)
+
+  const discountedPrice = pathOr(0, ['product', 'variations', '0', 'price', 'discountedPrice'], props)
+
   const variationsId = pathOr('', ['product', 'variations', '0', '_id'], props)
+
+  const customAttributes = () => pathOr([], ['product', 'product', 'customAttributes'], props)
+
+  const productOverviewTitle = customAttributes().find((i) => i.key.toLowerCase().includes('product overview'))?.key
+  
+  const productOverviewDescription = customAttributes().find((i) => i.key.toLowerCase().includes('product overview'))?.value
+  
+  const whyLockpickTitle = customAttributes().find((i) => i.key.toLowerCase().includes('why lockpick'))?.key
+
+  const whyLockpickDescription = customAttributes().find((i) => i.key.toLowerCase().includes('why lockpick'))?.value
+  
+  const featuresTitle = customAttributes().find((i) => i.key.toLowerCase().includes('features'))?.key
+
+  const featuresDescription = customAttributes().find((i) => i.key.toLowerCase().includes('features'))?.value
+
   const imgs = []
+
   pathOr([], ['product', 'product', 'images'], props).forEach((img) =>
     imgs.push({ original: img, thumbnail: img })
   )
+
   if (taxonomyName.includes('bmw')) taxonomyName = 'options'
 
   const setCart = useStore((state) => state.setCart)
+
   // Add to cart mutation
   const AddToCart = async (variation, quantity) => {
     try {
@@ -191,50 +188,24 @@ const SingleProduct = (props) => {
               </Grid>
               <div className={classes.SingleProductOverviewHolder}>
                 <div className={classes.SingleProductOverview}>
-                  <h3> Product Overview</h3>
+                  <h3> {productOverviewTitle || 'Product overview'}</h3>
+
                   <hr />
 
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy <br />
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s,
-                  </p>
+                  <p>{productOverviewDescription ? ReactHtmlParser(productOverviewDescription) : ''}</p>
                 </div>
                 <div className={classes.SingleProductList}>
                   <div className={classes.SingleProductListContent}>
-                    <h3> Why lock pick ?</h3>
+                    <h3> {whyLockpickTitle}</h3>
 
-                    <ul>
-                      <li> Simple and easy software</li>
-                      <li> User Friendly </li>
-
-                      <li> safe and reliable </li>
-
-                      <li> User Friendly </li>
-                      <li> Lorem Ipsum </li>
-                      <li> Lorem Ipsum </li>
-                      <li> Lorem Ipsum </li>
-                    </ul>
+                 {whyLockpickDescription ? ReactHtmlParser(whyLockpickDescription) : 'No description found'}
                   </div>
                 </div>
 
                 <div className={classes.SingleProductList}>
                   <div className={classes.SingleProductListContent}>
-                    <h3> Features</h3>
-                    <ul>
-                      <li> Simple and easy software</li>
-                      <li> User Friendly </li>
-
-                      <li> safe and reliable </li>
-
-                      <li> User Friendly </li>
-                      <li> Lorem Ipsum </li>
-                      <li> Lorem Ipsum </li>
-                      <li> Lorem Ipsum </li>
-                    </ul>
+                    <h3> {featuresTitle} </h3>
+                    {featuresDescription ? ReactHtmlParser(featuresDescription) : 'No description found'}
                   </div>
                 </div>
               </div>
