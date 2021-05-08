@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -7,6 +7,9 @@ import Box from '@material-ui/core/Box'
 import useStyles from './style'
 import ReactPlayer from 'react-player/lazy'
 import { useRouter } from 'next/router'
+import { CMS } from '../../../Home/Header/data'
+import { useQuery } from '@apollo/react-hooks'
+import { pathOr } from 'ramda'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -43,8 +46,11 @@ function a11yProps(index) {
 }
 
 export default function VerticalTabs() {
-  const classes = useStyles()
+
+  const { data: cmsData } = useQuery(CMS)
+
   const [value, setValue] = React.useState(0)
+
   const router = useRouter()
   const { asPath } = router
 
@@ -57,6 +63,7 @@ export default function VerticalTabs() {
   const handleChange = (_, newValue) => {
     setValue(newValue)
   }
+  const classes = useStyles()
 
   return (
     <div className={classes.root}>
@@ -70,177 +77,24 @@ export default function VerticalTabs() {
         indicatorColor="primary"
         classes={{ indicator: classes.indicator }}
       >
-        <Tab label="Lock Pick Introduction" {...a11yProps(0)} />
-        <Tab label="Lock Pick Initial Setup" {...a11yProps(1)} />
-        <Tab label="DME READ WRITE ISN AND VIN 01" {...a11yProps(2)} />
-        <Tab label="VIN CHANGE" {...a11yProps(3)} />
-        <Tab label="PRE PROCESS PROGRAMMING" {...a11yProps(4)} />
-        <Tab label="DELETE KEY" {...a11yProps(5)} />
-        <Tab label="ALL KEY LOST" {...a11yProps(6)} />
-        <Tab label="ADD KEY" {...a11yProps(7)} />
-        <Tab label="EGS ISN CLEAR 02" {...a11yProps(8)} />
-        <Tab label="EGS ISN CLEAR 01" {...a11yProps(9)} />
-        <Tab label="N13 N20 N55 DME ISN" {...a11yProps(10)} />
-        <Tab label="DME READ WRITE ISN AND VIN 02" {...a11yProps(11)} />
-        <Tab label="FRM DATA RECOVERY" {...a11yProps(12)} />
+          {pathOr([], ['cms', 'secondarySlider'], cmsData).map(({ name, url }, index) => (
+          <Tab label={name} {...a11yProps(index)} key={url}/>
+            ))}
       </Tabs>
-      <TabPanel className={classes.width} value={value} index={0}>
-        Lock Pick Introduction
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=U0iAZ1InBS8"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={1}>
-        Lock Pick Initial Setup
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=ggPH46PjY4I"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={2}>
-        DME READ WRITE ISN AND VIN 01
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=wUgmluunkeA"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={3}>
-        VIN CHANGE
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=AuebMwtFFiU"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={4}>
-        PRE PROCESS PROGRAMMING
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=CA8XVuv4QPE"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={5}>
-        DELETE KEY
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=50xWZs7rGeQ"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={6}>
-        ALL KEY LOST
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=w-IwgWUx4yE"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={7}>
-        ADD KEY
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=VvdAn75J7jo"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={8}>
-        EGS ISN CLEAR 02
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=Blhc3SGOEw0"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-
-      <TabPanel className={classes.width} value={value} index={9}>
-        EGS ISN CLEAR 01
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=iPpiE9YtEaQ"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={10}>
-        N13 N20 N55 DME ISN
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=pU-lp6VbsvY"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={11}>
-        DME READ WRITE ISN AND VIN 02
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=2Ynl1GxsxUA"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
-      <TabPanel className={classes.width} value={value} index={12}>
-        FRM DATA RECOVERY
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=WV-XK0TozBw"
-          width="100%"
-          height="330px"
-          controls={true}
-          playing={false}
-          autoPlay={false}
-        />
-      </TabPanel>
+      {pathOr([], ['cms', 'secondarySlider'], cmsData).map(({ name, url }, index) => (
+          <TabPanel className={classes.width} key={url} value={value} index={index}>
+                {name}
+                <ReactPlayer
+                  className="react-player"
+                  url={url}
+                  width="100%"
+                  height="330px"
+                  controls={true}
+                  playing={false}
+                  autoPlay={false}
+                />
+          </TabPanel>
+      ))}
     </div>
   )
 }
