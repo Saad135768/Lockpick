@@ -132,6 +132,18 @@ const useStyles = makeStyles(() => ({
       width: '100%',
     },
   },
+  LoginNow:{
+    textAlign: 'right',
+    textTransform:'uppercase',
+    marginTop: '40px',
+    '& h3': {
+      marginBottom:0,
+      textTransform:'uppercase',
+      cursor: 'pointer',
+      fontFamily: 'Poppins-Regular',
+      fontSize: 20,
+    },
+  },
 }))
 
 export default useStyles
