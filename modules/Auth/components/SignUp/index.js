@@ -80,7 +80,9 @@ const CustomizedDialogs = (props) => {
               <div className={classes.register}>
                   <h2>* Required Inputs</h2>
               </div>
-
+              <div className={classes.LoginNow}>
+              <h3 onClick={() => setOpenModal(1)}> Sign in</h3>
+            </div>
             </div>
             <div className={classes.Right}>
                 
@@ -105,17 +107,36 @@ const CustomizedDialogs = (props) => {
               {errors.email && (
                 <p className={classes.errorMsg}>{errors.email.message}</p>
               )}
+               <input
+                  name="email"
+                    className={classes.LoginInput}
+                    placeholder="* Confirm Email"
+                    type="email"
+                    ref={register({ required: 'This field is required' })}
+              />
+              {errors.email && (
+                <p className={classes.errorMsg}>{errors.email.message}</p>
+              )}
                   <input
                   name="password"
                     className={classes.LoginInput}
-                    placeholder="* password"
+                    placeholder="* Password"
                     type="password"
                     ref={register({ required: 'This field is required' })}
               />
               {errors.password && (
                 <p className={classes.errorMsg}>{errors.password.message}</p>
               )}
-              
+               <input
+                  name="password"
+                    className={classes.LoginInput}
+                    placeholder="* Confirm password"
+                    type="password"
+                    ref={register({ required: 'This field is required' })}
+              />
+              {errors.password && (
+                <p className={classes.errorMsg}>{errors.password.message}</p>
+              )}
                   <input
                   name="phone"
                     className={classes.LoginInput}
@@ -178,6 +199,7 @@ const CustomizedDialogs = (props) => {
               {errors.postalCode && (
                 <p className={classes.errorMsg}>{errors.postalCode.message}</p>
               )}
+              
             </div>
           </div>
       </form>
