@@ -41,7 +41,7 @@ const Paypal = () => {
   spacing={2}
   alignItems="left"
 >
-          <Grid item md={6} xs={6}> 
+          <Grid item md={6} xs={12}> 
           <Grid
   container
   direction="row"
@@ -118,6 +118,7 @@ const Paypal = () => {
      
 </div>
 <div className={classes.PaymentMethod}>
+  
 
 <h3> Payment Method
 </h3>
@@ -155,6 +156,8 @@ const Paypal = () => {
 
         </AccordionDetails>
       </Accordion>
+      <h5> or</h5>
+
       <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
         <img src="../../static/images/checkout/visa2.png"/>
@@ -228,7 +231,7 @@ const Paypal = () => {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
-<div className={classes.PaymentMethod}>
+<div className={`${classes.PaymentMethod} PaymentMethod`}>
 
 <h3> Shipping Address
 
