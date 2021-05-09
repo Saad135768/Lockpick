@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
     '& h2': {
       fontSize: 40,
       marginTop:40,
-      marginLeft:140,
+      marginLeft:150,
       fontFamily:'Poppins-SemiBold',
       textTransform:'uppercase',
       color: '#31b87e',
