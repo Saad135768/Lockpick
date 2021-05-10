@@ -1,16 +1,16 @@
-import Paypal from '../../modules/Paypal'
+import CreditCard from '../../modules/CreditCard'
 import Head from 'next/head'
 import { GET_ORDER } from './../../modules/Auth/data'
 
-const PaypalPage = (props) => <>
+const CreditCardPage = (props) => <>
     
     <Head>
-        <title> Paypal </title>
+        <title> Credit Card </title>
     </Head>
-    <Paypal {...props} />
+    <CreditCard {...props} />
 </>
 
-PaypalPage.getInitialProps = async (ctx) => {
+CreditCardPage.getInitialProps = async (ctx) => {
     try{
     const variables = ctx.query.orderid ? { _id: ctx.query.orderid } : {}
     const Ord = await ctx.apolloClient.query({
@@ -29,4 +29,4 @@ PaypalPage.getInitialProps = async (ctx) => {
     }
     
     }
-export default PaypalPage
+export default CreditCardPage

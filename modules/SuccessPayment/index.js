@@ -1,12 +1,15 @@
 import { Container, Grid } from '@material-ui/core'
 import useStyles from './style'
 import Button from '../../common/Button'
+import { propOr } from 'ramda'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const SuccessPayment = () => {
   const router = useRouter().query
   const { orderId } = router
+  const _id = propOr('', ['_id'], router)
+
   const classes = useStyles()
 
   return (
@@ -39,9 +42,9 @@ const SuccessPayment = () => {
                   </Link>
                 </div>
                 <div className={classes.SuccessPaymentPrint}>
-                  <Link href="/">
+                  <Link href={`/invoice/${_id}`}>
                     <a>
-                      <Button> Print Receipt</Button>
+                      <Button> Invoice</Button>
                     </a>
                   </Link>
                 </div>
