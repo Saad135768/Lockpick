@@ -11,10 +11,10 @@ const useStyles = makeStyles(() => ({
     },
     width: '100%',
     background: '#fff',
-    padding: '40px 40px',
-    borderRadius: 20,
+    padding: '20px 40px',
+    borderRadius: 0,
 
-    margin: '100px 40px',
+    margin: '0px 00px',
     '& img': {},
     '& h6': {
       fontSize: 16,
@@ -45,6 +45,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   AboutHolder: {
+    margin:'100px 0',
     '& h5': {
       textAlign: 'center',
       fontSize: 19,
@@ -93,7 +94,8 @@ const useStyles = makeStyles(() => ({
       opacity: 0,
     },
     '& img': {
-      width: '100%',
+      width: '50%',
+      imageRendering: '-webkit-optimize-contrast',
     },
 
     '&  .MuiPaper-elevation1': {
@@ -123,12 +125,17 @@ const useStyles = makeStyles(() => ({
     fontSize: 15,
     color: '#2B313B',
     marginTop: 0,
-    width: '40%',
+    width: '100%',
   },
   PaymentMethod: {
     '& h3': {
       fontFamily: 'Poppins-SemiBold',
       fontSize: 20,
+      color: '#2B313B',
+    },
+    '& h1': {
+      fontFamily: 'Poppins-SemiBold',
+      fontSize: 22,
       color: '#2B313B',
     },
   },
@@ -139,7 +146,7 @@ const useStyles = makeStyles(() => ({
     border: '0.5px solid',
     borderRadius: 5,
     display: 'block',
-    height: '50px',
+    height: '40px',
     marginBottom :20,
     width: '100%',
     transition: '0.3s',
@@ -164,9 +171,45 @@ const useStyles = makeStyles(() => ({
   },
   errorMsg: {
     color: 'red',
-    fontWeight: '600',
+    fontWeight: '400',
     marginTop: 0,
-    marginLeft: 20,
+    marginBottom: 0,
+    marginLeft: 0,
+  },
+  PaymentSummary:{
+    background:'#4c515b',
+    height:'100%',
+    padding:30,
+    '& h4': {
+      color: '#fba530',
+      fontSize: 22,
+      marginTop: 5,
+      margin:0,
+      fontFamily: 'Poppins-SemiBold',
+    },
+  },
+
+  PaymentSummaryTable:{
+    marginTop:30,
+    display:'flex',
+    justifyContent: 'space-between',
+    '& img': {
+      width:'50px !important',
+      height: '50px !important',
+      objectFit: 'cover',
+      marginTop: 0,
+      marginRight:5,
+    },
+    '& p': {
+      color:'#fff',
+      margin: 0,
+
+    },
+  },
+  SecuirtyHolder:{
+display:'flex',
+justifyContent: 'space-around',
+
   },
 }))
 

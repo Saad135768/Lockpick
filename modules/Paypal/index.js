@@ -66,17 +66,41 @@ console.log({ props })
           container
           direction="row"
           justify="center"
-          spacing={2}
+          spacing={0}
           alignItems="left"
         >
-          <Grid item md={6} xs={12}>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              spacing={2}
-              alignItems="center"
-            >
+                    <Grid item md={4} xs={12}>
+
+<div className={classes.PaymentSummary}>
+<h4> Payment Summary</h4>
+
+<div className={classes.PaymentSummaryTable}>
+                  <img src={'../../static/images/products/6.png'}/>
+                    <div>
+                    <p className={classes.ProductName} > Product Name Here  </p>
+                    <p className={classes.Quantity} > Quantity :1 </p>
+
+                    </div>
+                    <p className={classes.ProductPrice}>  $14,385.00  </p>
+                  </div>
+                  <div className={classes.PaymentSummaryTable}>
+                  <img src={'../../static/images/products/6.png'}/>
+                    <div>
+                    <p className={classes.ProductName} > Product Name Here  </p>
+                    <p className={classes.Quantity} > Quantity :1 </p>
+
+                    </div>
+                    <p className={classes.ProductPrice}>  $14,385.00  </p>
+                  </div>
+                  <div className={classes.FormTotal}>
+                  <h2>
+                    Total: <b> {total}$</b>
+                  </h2>
+                </div>
+</div>
+</Grid>
+          <Grid item md={5} xs={12}>
+         
               <form onSubmit={handleSubmit(PayWithPayPal)}>
               <div className={classes.FormHolder}>
           
@@ -87,14 +111,12 @@ console.log({ props })
                 <div className={classes.FormContent}>
                
                       <img src="../../static/images/checkout/visa2.png" />
-                      <div className={classes.FormTotal}>
-                  <h2>
-                    Total: <b> {total}$</b>
-                  </h2>
-                </div>
+                   
                       <div className={classes.PaymentMethod}>
                         <h3> Credit Card</h3>
                       </div>
+                      <div className={classes.SecuirtyHolder}>
+
                       <div>
                         <div className={classes.FormTitle}>First Name</div>
                         <input
@@ -120,6 +142,8 @@ console.log({ props })
                         <p className={classes.errorMsg}>{errors.lastName.message}</p> 
                         )} 
                       </div>
+                      </div>
+
                       <div>
                         <div className={classes.FormTitle}>
                           Credit Card Number
@@ -134,6 +158,8 @@ console.log({ props })
                         <p className={classes.errorMsg}>{errors.cardNumber.message}</p> 
                         )} 
                       </div>
+                      <div className={classes.SecuirtyHolder}>
+
                       <div>
                         <div className={classes.FormTitle}>Security Code </div>
                         <input
@@ -164,12 +190,12 @@ console.log({ props })
                         <p className={classes.errorMsg}>{errors.expiryDate.message}</p> 
                         )} 
                       </div>
+                      </div>
                       <Button> Submit</Button>
                 </div>
               </div>
                 </form>
             </Grid>
-          </Grid>
         </Grid>
       </Container>
     </div>
