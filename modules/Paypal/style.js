@@ -125,7 +125,7 @@ const useStyles = makeStyles(() => ({
     fontSize: 15,
     color: '#2B313B',
     marginTop: 0,
-    width: '40%',
+    width: '100%',
   },
   PaymentMethod: {
     '& h3': {
@@ -146,7 +146,7 @@ const useStyles = makeStyles(() => ({
     border: '0.5px solid',
     borderRadius: 5,
     display: 'block',
-    height: '50px',
+    height: '40px',
     marginBottom :20,
     width: '100%',
     transition: '0.3s',
@@ -171,23 +171,46 @@ const useStyles = makeStyles(() => ({
   },
   errorMsg: {
     color: 'red',
-    fontWeight: '600',
+    fontWeight: '400',
     marginTop: 0,
-    marginLeft: 20,
+    marginBottom: 0,
+    marginLeft: 0,
   },
   PaymentSummary:{
     background:'#4c515b',
     height:'100%',
-    padding:20,
+    padding:30,
     '& h4': {
       color: '#fba530',
-      fontSize: 18,
+      fontSize: 22,
+      marginTop: 5,
       margin:0,
-      fontFamily: 'Poppins-Regular',
+      fontFamily: 'Poppins-SemiBold',
     },
   },
 
+  PaymentSummaryTable:{
+    marginTop:30,
+    display:'flex',
+    justifyContent: 'space-between',
+    '& img': {
+      width:'50px !important',
+      height: '50px !important',
+      objectFit: 'cover',
+      marginTop: 0,
+      marginRight:5,
+    },
+    '& p': {
+      color:'#fff',
+      margin: 0,
 
+    },
+  },
+  SecuirtyHolder:{
+display:'flex',
+justifyContent: 'space-around',
+
+  },
 }))
 
 export default useStyles
