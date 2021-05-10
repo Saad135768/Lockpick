@@ -98,7 +98,7 @@ const GetPromocode = () => {
       if (paymentMethod === 'cash') {
         props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
         setCart([])
-        Router.push({ pathname: `/order/${res.data.addOrder._id}` })
+        Router.push({ pathname: '/order', query: {orderId: res.data.addOrder.orderId, _id: res.data.addOrder._id, status: 'success' } })
       }
     }
     catch (error) {

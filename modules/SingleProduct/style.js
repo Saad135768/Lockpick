@@ -254,6 +254,28 @@ SingleProductHead:{
       },
     },
     SingleProductOverviewHolder:{
+      '&  ul': {
+        padding:0,
+        margin: 0,
+        listStyle: 'none',
+
+      },
+      '& li': {
+        color: '#fff',
+        fontSize: 25,
+        fontFamily: 'Poppins-Regular',
+
+        '&::before': {
+          content:'""',
+          background: '#fba62f',
+          display: 'inline-block',
+          width: '10px',
+          height:'10px',
+          marginLeft: '0',
+          borderRadius: 50,
+
+        },
+      },
       '& hr': {
         borderBottom: 0,
         borderTop: '1px solid #4672d3',

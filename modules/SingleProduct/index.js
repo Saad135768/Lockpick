@@ -81,7 +81,7 @@ const SingleProduct = (props) => {
         props.enqueueSnackbar('something went wrong', { variant: 'error' })
     }
   }
-
+  
   const classes = useStyles()
   return (
     <>
@@ -192,7 +192,7 @@ const SingleProduct = (props) => {
 
                   <hr />
 
-                  <p>{productOverviewDescription ? ReactHtmlParser(productOverviewDescription) : ''}</p>
+                  <div>{productOverviewDescription ? ReactHtmlParser(productOverviewDescription) : ''}</div>
                 </div>
                 <div className={classes.SingleProductList}>
                   <div className={classes.SingleProductListContent}>
