@@ -10,6 +10,7 @@ import Radio from '@material-ui/core/Radio'
 
 const PaymentMethod = ({
   setPaymentMethod,
+  paymentMethod,
   setExpandlastAccordion,
   setView3,
   ...props
@@ -17,20 +18,24 @@ const PaymentMethod = ({
   const classes = useStyles()
   return (
     <div>
-      <button className={classes.SaveBtn} onClick={() => setView3()}>
+      {/* <button className={classes.SaveBtn} onClick={() => setView3()}>
         Save
-      </button>
+      </button> */}
       <AccordionDetails>
         <div className={classes.DeliveryMethod}>
           <FormControl component="fieldset">
-            <RadioGroup aria-label="gender" name="gender1">
+            <RadioGroup 
+              aria-label="gender" 
+              name="gender1"
+              onChange={(e) => setPaymentMethod(e.target.value)}
+              defaultValue={paymentMethod}
+            >
               <Grid container spacing={2}>
                 <Grid item lg={6} md={6}>
                   <FormControlLabel
-                    value="visa"
+                    value="Credit/Debit Cards"
                     control={<Radio />}
                     label="Credit/Debit Cards"
-                    disabled
                   />
                 </Grid>
                 <Grid item lg={6} md={6}>
@@ -49,10 +54,9 @@ const PaymentMethod = ({
                 <hr />
                 <Grid item lg={6} md={6}>
                   <FormControlLabel
-                    value="paybal"
+                    value="paypal"
                     control={<Radio />}
-                    label="Paybal"
-                    disabled
+                    label="PayPal"
                   />
                 </Grid>
                 <Grid item lg={6} md={6}>
@@ -68,7 +72,6 @@ const PaymentMethod = ({
                     value="cash"
                     control={<Radio />}
                     label="cash"
-                    checked
                   />
                 </Grid>
               </Grid>

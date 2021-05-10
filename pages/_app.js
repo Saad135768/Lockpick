@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps, apollo }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
           rel="stylesheet"
         />
-
+        <script src="https://www.paypal.com/sdk/js?client-id=AeBROUhsBqkQZOvlZn9KpJcW96qMoVtEM0nnH2UWQN21rthnb0siBG4eZCz73RGSpmoRZ5_1noGVJvsl&currency=USD&intent=order&commit=false&vault=true"></script>
         <style>
           {`
             @font-face {

@@ -25,10 +25,10 @@ const DeliveryMethod = ({
   return (
     <div>
       <div className={classes.schoolinfoHolder}>
-        <button className={classes.EditBtn} onClick={() => setView2(true)}>
+        {/* <button className={classes.EditBtn} onClick={() => setView2(true)}>
           {' '}
           Save{' '}
-        </button>
+        </button> */}
         <AccordionDetails>
           <div className={classes.DeliveryMethod}>
             <FormControl component="fieldset">

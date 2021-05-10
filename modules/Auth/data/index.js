@@ -108,6 +108,7 @@ export const GET_ORDER = gql`
     }
     totals{
       shipping
+      total
     }
        shipping{
       state
