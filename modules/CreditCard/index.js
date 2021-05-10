@@ -1,18 +1,8 @@
 import React, { useState } from 'react'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import Accordion from '@material-ui/core/Accordion'
-import AccordionDetails from '@material-ui/core/AccordionDetails'
-import AccordionSummary from '@material-ui/core/AccordionSummary'
 import useStyles from './style'
 import Button from '../../common/Button'
-import TextField from '@material-ui/core/TextField'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import InputLabel from '@material-ui/core/InputLabel'
 import PayPal from '../Checkout/components/PayPal'
 import { useForm } from 'react-hook-form'
 import { useMutation } from '@apollo/react-hooks'
@@ -21,6 +11,8 @@ import { withSnackbar } from 'notistack'
 import { pathOr } from 'ramda'
 import Router from 'next/router'
 import useStore from '../../store'
+import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers"
+import DateFnsUtils from "@date-io/date-fns"
 
 const CreditCard = props => {
   const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' })
@@ -67,6 +59,7 @@ const CreditCard = props => {
   }
 
   const classes = useStyles()
+  const [selectedDate, handleDateChange] = useState(new Date())
 
   return (
     <div className={classes.AboutHolder}>
@@ -78,7 +71,7 @@ const CreditCard = props => {
           spacing={0}
           alignItems="left"
         >
-          <Grid item md={4} xs={12}>
+          <Grid item md={4} sm={4} xs={12}>
             <div className={classes.PaymentSummary}>
               <h4> Payment Summary</h4>
               
@@ -109,7 +102,7 @@ const CreditCard = props => {
                 </div>
             </div>
           </Grid>
-          <Grid item md={5} xs={12}>
+          <Grid item md={5} sm={5} xs={12}>
             <form onSubmit={handleSubmit(PayWithPayPal)}>
               <div className={classes.FormHolder}>
                 <div className={classes.PaymentMethod}>
@@ -122,7 +115,7 @@ const CreditCard = props => {
                     <h3> Credit Card</h3>
                   </div>
                   <div className={classes.SecuirtyHolder}>
-                    <div>
+                    <div className={classes.LeftHolder}>
                       <div className={classes.FormTitle}>First Name</div>
                       <input
                         name="firstName"
@@ -137,7 +130,8 @@ const CreditCard = props => {
                       )}
                     </div>
 
-                    <div>
+                    <div className={classes.RightHolder}>
+
                       <div className={classes.FormTitle}>Last Name</div>
                       <input
                         name="lastName"
@@ -168,7 +162,8 @@ const CreditCard = props => {
                     )}
                   </div>
                   <div className={classes.SecuirtyHolder}>
-                    <div>
+                    <div className={classes.LeftHolder}>
+
                       <div className={classes.FormTitle}>Security Code </div>
                       <input
                         name="cvv"
@@ -181,9 +176,24 @@ const CreditCard = props => {
                         <p className={classes.errorMsg}>{errors.cvv.message}</p>
                       )}
                     </div>
-                    <div>
+                    <div className={classes.RightHolder}>
+
                       <div className={classes.FormTitle}>Expiration Date</div>
-                      <input
+                      <div className={classes.DatePickerHolder}>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                          <DatePicker
+                            variant="inline"
+                            openTo="year"
+                            views={["year", "month"]}
+                            value={selectedDate}
+                            onChange={handleDateChange}
+                            format="MM/yyyy"
+                            minDate={new Date("2021-01-01")}
+                            maxDate={new Date("2030-01-01")}
+                          />
+                        </MuiPickersUtilsProvider>
+                      </div>
+                      {/* <input
                         name="expiryDate"
                         className={classes.LoginInput}
                         placeholder="MM/YYYY"
@@ -199,7 +209,7 @@ const CreditCard = props => {
                         <p className={classes.errorMsg}>
                           {errors.expiryDate.message}
                         </p>
-                      )}
+                      )} */}
                     </div>
                   </div>
                   <Button> Submit</Button>
