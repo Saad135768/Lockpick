@@ -2,16 +2,25 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   FormHolder: {
+    '& .MuiAccordion-root:before': {
+      borderBottom: 0,
+    },
+    '& .MuiPickersMonth-monthSelected': {
+      color: '#fba62f',
+    },
+   
     '& .MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-formControl.MuiInput-formControl': {
       padding: 8,
       borderRadius: 5,
-      marginTop: 4,
       paddingLeft: 13,
+      border: '0.5px solid #8f90928c',
+      marginTop: 0,
       border: '1px solid #c4c4c4',
+      height: 40,
     },
     width: '100%',
     background: '#fff',
-    padding: '20px 40px',
+    padding: '20px 30px',
     borderRadius: 0,
 
     margin: '0px 00px',
@@ -37,7 +46,7 @@ const useStyles = makeStyles(() => ({
     },
     '& button': {
       width: '50%',
-      margin: '30px auto',
+      margin: '10px auto',
       textAlign: 'center',
       display: 'block',
       fontSize: 22,
@@ -73,15 +82,20 @@ const useStyles = makeStyles(() => ({
     paddingBottom: 0,
   },
   FormTotal: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    color: '#fba530',
+    marginTop: 50,
     textAlign: 'right',
-    '& h3': {
-      marginTop: 6,
-      marginBottom: 0,
-      fontFamily: 'Poppins-Regular',
-      fontSize: 17,
+    '& h2': {
+      color: '#fba530',
+      fontSize: 24,
+      marginTop: 15,
+      fontFamily: 'Poppins-SemiBold',
     },
 
-    '& h3 b': {
+    '&  b': {
       marginBottom: 0,
       fontFamily: 'Poppins-SemiBold',
       fontSize: 17,
@@ -91,10 +105,11 @@ const useStyles = makeStyles(() => ({
 
   FormContent: {
     '& .MuiAccordion-root:before': {
-      opacity: 0,
+      borderBottom: 0,
     },
     '& img': {
       width: '50%',
+      marginTop: 15,
       imageRendering: '-webkit-optimize-contrast',
     },
 
@@ -124,7 +139,7 @@ const useStyles = makeStyles(() => ({
     fontFamily: 'Poppins-Regular',
     fontSize: 15,
     color: '#2B313B',
-    marginTop: 0,
+    marginBottom: 10,
     width: '100%',
   },
   PaymentMethod: {
@@ -143,18 +158,18 @@ const useStyles = makeStyles(() => ({
     marginBottom: '60px !important',
   },
   LoginInput: {
-    border: '0.5px solid',
+    border: '0.5px solid #8f90928c',
     borderRadius: 5,
     display: 'block',
     height: '40px',
-    marginBottom :20,
+    marginBottom :10,
     width: '100%',
     transition: '0.3s',
     fontSize: 16,
-    paddingLeft: '40px',
+    paddingLeft: '20px',
     fontFamily: 'Poppins-Light',
     position: 'relative',
-    marginTop: 20,
+    marginTop: 0,
     '&::placeholder ': {
       color: '#397399',
       fontFamily: 'Poppins-Light',
@@ -162,18 +177,21 @@ const useStyles = makeStyles(() => ({
     '&:focus': {
       transition: '0.3s',
       fontFamily: 'Poppins-Light',
+      border: '1px solid #3680d6',
+      outline:0,
+
     },
     '@media (max-width:767px)': {
-      width:'90%',
-      marginLeft: 10,
-      paddingLeft: 15,
+      width:'100%',
+  
       },
   },
   errorMsg: {
     color: 'red',
     fontWeight: '400',
     marginTop: 0,
-    marginBottom: 0,
+    marginBottom: 3,
+    fontSize:14,
     marginLeft: 0,
   },
   PaymentSummary:{
@@ -193,6 +211,8 @@ const useStyles = makeStyles(() => ({
     marginTop:30,
     display:'flex',
     justifyContent: 'space-between',
+    borderBottom: '1px solid #828282',
+    paddingBottom: 25,
     '& img': {
       width:'50px !important',
       height: '50px !important',
@@ -208,9 +228,37 @@ const useStyles = makeStyles(() => ({
   },
   SecuirtyHolder:{
 display:'flex',
-justifyContent: 'space-around',
+justifyContent: 'space-between',
 
   },
+  ProductName:{
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    '-webkit-line-clamp': 1,
+    '-webkit-box-orient': 'vertical',
+    maxWidth: 165,
+  },
+
+  DatePickerHolder:{
+    '&  input.MuiInputBase-input.MuiInput-input': {
+
+      '&::placeholder ': {
+        color: '#397399',
+        fontFamily: 'Poppins-Light',
+      },
+
+    },
+  
+  },
+  RightHolder:{
+    width:'50%',
+    marginLeft:15,
+  },
+LeftHolder:{
+  width:'50%',
+  
+},
 }))
 
 export default useStyles

@@ -19,11 +19,14 @@ import { useMutation } from '@apollo/react-hooks'
 import { PAY_WITH_PAYPAL } from '../Checkout/data'
 import { withSnackbar } from 'notistack'
 import { pathOr } from 'ramda'
+import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers"
+import DateFnsUtils from "@date-io/date-fns";
 
+import "react-datepicker/dist/react-datepicker.css"
 const Paypal = (props) => {
 console.log({ props })
   const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' })
-  
+
   const total = pathOr(0, ['order', 'getOrder', 'totals', 'total'], props)
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
   
@@ -55,6 +58,7 @@ console.log({ props })
 
  
   const classes = useStyles()
+  const [selectedDate, handleDateChange] = useState(new Date());
 
   return (
     <div className={classes.AboutHolder}>
@@ -90,9 +94,15 @@ console.log({ props })
                     <p className={classes.ProductPrice}>  $14,385.00  </p>
                   </div>
                   <div className={classes.FormTotal}>
-                  <h2>
-                    Total: <b> {total}$</b>
+                    <div>
+                    <h2>
+                    Total: 
                   </h2>
+                      </div>
+               
+                  <div>
+                  <b> {total}$</b>
+                  </div>
                 </div>
 </div>
 </Grid>
@@ -114,7 +124,8 @@ console.log({ props })
                       </div>
                       <div className={classes.SecuirtyHolder}>
 
-                      <div>
+                      <div className={classes.LeftHolder}>
+
                         <div className={classes.FormTitle}>First Name</div>
                         <input
                           name="firstName"
@@ -127,7 +138,8 @@ console.log({ props })
                         )} 
                       </div>
 
-                      <div>
+                      <div className={classes.RightHolder}>
+
                         <div className={classes.FormTitle}>Last Name</div>
                         <input
                           name="lastName"
@@ -157,7 +169,7 @@ console.log({ props })
                       </div>
                       <div className={classes.SecuirtyHolder}>
 
-                      <div>
+                      <div className={classes.LeftHolder}>
                         <div className={classes.FormTitle}>Security Code </div>
                         <input
                           name="cvv"
@@ -170,11 +182,30 @@ console.log({ props })
                         <p className={classes.errorMsg}>{errors.cvv.message}</p> 
                         )} 
                       </div>
-                      <div>
+                      <div className={classes.RightHolder}>
                         <div className={classes.FormTitle}>
                           Expiration Date
                         </div>
-                        <input
+                        <div className={classes.DatePickerHolder}>
+
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+
+
+                        <DatePicker
+        variant="inline"
+        openTo="year"
+        views={["year", "month"]}
+        value={selectedDate}
+        onChange={handleDateChange}
+        format="MM/yyyy"
+        minDate={new Date("2022-01-01")}
+        maxDate={new Date("2030-01-01")}
+
+      />
+                        </MuiPickersUtilsProvider>
+                        </div>
+
+                        {/* <input
                           name="expiryDate"
                           className={classes.LoginInput}
                           placeholder="MM/YYYY"
@@ -182,7 +213,7 @@ console.log({ props })
                             message: 'Invalid Expiration Date',
                             value: '^\d{2}\/\d{2}$',
                           } })}
-                        />
+                        /> */}
                         {errors.expiryDate && ( 
                         <p className={classes.errorMsg}>{errors.expiryDate.message}</p> 
                         )} 
