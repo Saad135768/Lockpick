@@ -23,7 +23,6 @@ import Router from 'next/router'
 import useStore from '../../store'
 
 const CreditCard = props => {
-  console.log({ props })
   const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' })
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
 
