@@ -63,17 +63,18 @@ console.log({ props })
           container
           direction="row"
           justify="center"
-          spacing={2}
+          spacing={0}
           alignItems="left"
         >
-          <Grid item md={6} xs={12}>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              spacing={2}
-              alignItems="center"
-            >
+                    <Grid item md={4} xs={12}>
+
+<div className={classes.PaymentSummary}>
+<h4> Payment Summary</h4>
+
+</div>
+</Grid>
+          <Grid item md={5} xs={12}>
+         
               <form onSubmit={handleSubmit(PayWithPayPal)}>
               <div className={classes.FormHolder}>
           
@@ -166,7 +167,6 @@ console.log({ props })
               </div>
                 </form>
             </Grid>
-          </Grid>
         </Grid>
       </Container>
     </div>

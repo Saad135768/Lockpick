@@ -11,10 +11,10 @@ const useStyles = makeStyles(() => ({
     },
     width: '100%',
     background: '#fff',
-    padding: '40px 40px',
-    borderRadius: 20,
+    padding: '20px 40px',
+    borderRadius: 0,
 
-    margin: '100px 40px',
+    margin: '0px 00px',
     '& img': {},
     '& h6': {
       fontSize: 16,
@@ -45,6 +45,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   AboutHolder: {
+    margin:'100px 0',
     '& h5': {
       textAlign: 'center',
       fontSize: 19,
@@ -93,7 +94,8 @@ const useStyles = makeStyles(() => ({
       opacity: 0,
     },
     '& img': {
-      width: '100%',
+      width: '50%',
+      imageRendering: '-webkit-optimize-contrast',
     },
 
     '&  .MuiPaper-elevation1': {
@@ -129,6 +131,11 @@ const useStyles = makeStyles(() => ({
     '& h3': {
       fontFamily: 'Poppins-SemiBold',
       fontSize: 20,
+      color: '#2B313B',
+    },
+    '& h1': {
+      fontFamily: 'Poppins-SemiBold',
+      fontSize: 22,
       color: '#2B313B',
     },
   },
@@ -168,6 +175,19 @@ const useStyles = makeStyles(() => ({
     marginTop: 0,
     marginLeft: 20,
   },
+  PaymentSummary:{
+    background:'#4c515b',
+    height:'100%',
+    padding:20,
+    '& h4': {
+      color: '#fba530',
+      fontSize: 18,
+      margin:0,
+      fontFamily: 'Poppins-Regular',
+    },
+  },
+
+
 }))
 
 export default useStyles
