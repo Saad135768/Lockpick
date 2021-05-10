@@ -97,6 +97,7 @@ console.log({ props })
                     <div>
                     <h2>
                     Total: 
+                    
                   </h2>
                       </div>
                
@@ -198,7 +199,7 @@ console.log({ props })
         value={selectedDate}
         onChange={handleDateChange}
         format="MM/yyyy"
-        minDate={new Date("2022-01-01")}
+        minDate={new Date("2021-01-01")}
         maxDate={new Date("2030-01-01")}
 
       />

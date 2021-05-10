@@ -12,7 +12,9 @@ const useStyles = makeStyles(() => ({
     '& .MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-formControl.MuiInput-formControl': {
       padding: 8,
       borderRadius: 5,
+      color: '#397399',
       paddingLeft: 13,
+      fontFamily: 'Poppins-Light',
       border: '0.5px solid #8f90928c',
       marginTop: 0,
       border: '1px solid #c4c4c4',
@@ -46,7 +48,7 @@ const useStyles = makeStyles(() => ({
     },
     '& button': {
       width: '50%',
-      margin: '10px auto',
+      margin: '15px auto',
       textAlign: 'center',
       display: 'block',
       fontSize: 22,
@@ -90,7 +92,7 @@ const useStyles = makeStyles(() => ({
     textAlign: 'right',
     '& h2': {
       color: '#fba530',
-      fontSize: 24,
+      fontSize: 22,
       marginTop: 15,
       fontFamily: 'Poppins-SemiBold',
     },
@@ -98,8 +100,8 @@ const useStyles = makeStyles(() => ({
     '&  b': {
       marginBottom: 0,
       fontFamily: 'Poppins-SemiBold',
-      fontSize: 17,
-      marginLeft: 20,
+      fontSize: 18,
+      marginLeft: 15,
     },
   },
 
@@ -145,7 +147,7 @@ const useStyles = makeStyles(() => ({
   PaymentMethod: {
     '& h3': {
       fontFamily: 'Poppins-SemiBold',
-      fontSize: 20,
+      fontSize: 18,
       color: '#2B313B',
     },
     '& h1': {
