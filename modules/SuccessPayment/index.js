@@ -1,64 +1,56 @@
-import { Container, Grid} from '@material-ui/core'
-
+import { Container, Grid } from '@material-ui/core'
 import useStyles from './style'
 import Button from '../../common/Button'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 const SuccessPayment = () => {
+  const router = useRouter().query
+  const { orderId } = router
   const classes = useStyles()
 
   return (
     <div className={classes.SuccessPayment}>
-            <Container>
+      <Container>
+        <Grid container justify="center">
+          <Grid item md={5} sm={9} xs={12}>
+            <div className={classes.SuccessPaymentHolder}>
+              <div className={classes.SuccessPaymentAlert}>
+                <div className={classes.SuccessPaymentWhite}></div>
+                <div className={classes.SuccessPaymentWhite}></div>
+                <div className={classes.SuccessPaymentGreen}></div>
+              </div>
 
-         <Grid container justify='center'>
-          <Grid item lg={5} md={5} sm={9} xs={12}>
-          <div className={classes.SuccessPaymentHolder}>
-          <div className={classes.SuccessPaymentAlert}>
-         <div className={classes.SuccessPaymentWhite}>
+              <h2> Success!</h2>
 
-         </div>
-         <div className={classes.SuccessPaymentWhite}>
-           
-           </div>
-           <div className={classes.SuccessPaymentGreen}>
-           
-           </div>
+              <p>
+                {' '}
+                We are delighted to inform you <br />
+                that we recived your payment. <br />
+                You will receive email shortly.
+              </p>
+              <p>Your order id is: {orderId}</p>
+              <div className={classes.SuccessPaymentButtons}>
+                <div className={classes.SuccessPaymentContinue}>
+                  <Link href="/products">
+                    <a>
+                      <Button> Continue Shopping</Button>
+                    </a>
+                  </Link>
+                </div>
+                <div className={classes.SuccessPaymentPrint}>
+                  <Link href="/">
+                    <a>
+                      <Button> Print Receipt</Button>
+                    </a>
+                  </Link>
+                </div>
+              </div>
             </div>
-
-          <h2> Success!</h2>
-
-          <p> We are delighted to inform you <br/>
-          that we recived your payment. <br/>
-          You will receive email shortly.
-          
-          </p>
-
-          <div className={classes.SuccessPaymentButtons}>
-          <div className={classes.SuccessPaymentContinue}>
-<Link as={'/products'} href="/products">
-  <a href="/products">
-    <Button> Continue Shopping</Button>
-  </a>
-</Link>
-</div>
-<div className={classes.SuccessPaymentPrint}>
-
-<Link as={'/'} href="/">
-  <a href="/">
-    <Button> Print Receipt</Button>
-  </a>
-</Link>
-</div>
-</div>
-
-         </div>
-    </Grid>
-
-    </Grid>
-    </Container>
-
+          </Grid>
+        </Grid>
+      </Container>
     </div>
-
   )
 }
 

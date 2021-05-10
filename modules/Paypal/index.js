@@ -19,6 +19,8 @@ import { useMutation } from '@apollo/react-hooks'
 import { PAY_WITH_PAYPAL } from '../Checkout/data'
 import { withSnackbar } from 'notistack'
 import { pathOr } from 'ramda'
+import Router from 'next/router'
+import useStore from '../../store'
 
 const Paypal = (props) => {
 console.log({ props })
@@ -27,11 +29,13 @@ console.log({ props })
   const total = pathOr(0, ['order', 'getOrder', 'totals', 'total'], props)
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
   
+  const setCart = useStore((state) => state.setCart)
+  
   const [payWithPaypal] = useMutation(PAY_WITH_PAYPAL)
 
   const PayWithPayPal = async ({ firstName, lastName, expiryDate, cvv, cardNumber, ...values }) => {
     try{
-      const res = await payWithPaypal({ variables: {
+       await payWithPaypal({ variables: {
         orderId,
         firstName,
         lastName,
@@ -41,8 +45,7 @@ console.log({ props })
       }})
       props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
       setCart([])
-      Router.push({ pathname: `/success` })
-      console.log({ res })
+      Router.push({ pathname: `/success`, query: `orderId=${orderId}` })
     }
     catch(error){
       if (error?.graphQLErrors) {
