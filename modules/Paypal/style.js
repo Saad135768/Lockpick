@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   FormHolder: {
+    boxShadow:'-4px 2px 12px 3px #00000038',
     '& .MuiAccordion-root:before': {
       borderBottom: 0,
     },
