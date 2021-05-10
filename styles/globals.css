@@ -129,3 +129,31 @@ color: #fba530;
   .MuiPaper-root{
   background-color: #2b333d;
   }
+  .MuiPickersToolbar-toolbar{
+    background-color: #fba530 !important;
+  }
+  .MuiPickersMonth-monthSelected{
+    color: #fba530 !important;
+
+  }
+  .MuiPickersMonth-root{
+    font-family: 'Poppins-Regular';
+
+  }
+  .MuiPickersToolbarText-toolbarTxt {
+    color: #fff;
+    font-family: 'Poppins-Regular';
+    font-weight: bold;
+}
+ 
+
+.MuiPickersYearSelection-container .MuiTypography-colorPrimary {
+  color: #fba530;
+  font-family: 'Poppins-SemiBold';
+}
+
+
+.MuiTypography-root.MuiPickersMonth-root.MuiTypography-subtitle1{
+  font-family: 'Poppins-Regular';
+
+}
