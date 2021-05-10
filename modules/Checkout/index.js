@@ -19,6 +19,7 @@ import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
 import Router from 'next/router'
 import useStore from '../../store'
+import PayPal from './components/PayPal'
 
 const Checkout = (props) => {
 
@@ -42,7 +43,7 @@ const GetPromocode = () => {
   // Those are the states that toggle between components [shipping details, deleivery and payments methods]
   const [view, setView] = useState(true)
   const [view2, setView2] = useState()
-  const [view3, setView3] = useState()
+  const [view3, setView3] = useState(true)
 
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
@@ -54,6 +55,7 @@ const GetPromocode = () => {
   const [expandPaymentAccordion, setExpandPaymentAccordion] = useState(true)
   const [expandlastAccordion, setExpandlastAccordion] = useState()
 
+  const [paypal, setPaypal] = useState(false)
   const setCart = useStore((state) => state.setCart)
 
   const email = R.pathOr('', ['getCurrentCustomer', 'email'], data)
@@ -78,13 +80,21 @@ const GetPromocode = () => {
       const orderFields = {
         shipping: R.omit(['name', 'phone', 'address1'], checkoutValues),
         billing: R.omit(['name', 'phone', 'address1'], checkoutValues),
-        paymentMethod,
+        paymentMethod: paymentMethod === 'cash' ? 'cash' : 'visa',
         shippingMethod,
         // promoCode,
         shippingCost: 0
       }
       if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
       const res = await createOrder({ variables: { ...orderFields } })
+      if (paymentMethod === 'Credit/Debit Cards') {
+        Router.push({ pathname: `/paypal/${res.data.addOrder._id}` })
+      }
+      // if (paymentMethod === 'paypal'){
+
+      //   Router.push({ pathname: '/paypal' ,query: `orderId=${res.data.addOrder.orderId}` })
+      //   setPaypal(true)
+      // }
       if (paymentMethod === 'cash') {
         props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
         setCart([])
@@ -196,6 +206,7 @@ const GetPromocode = () => {
                       </AccordionSummary>
                       {view3 ? <PaymentMethod
                         setPaymentMethod={setPaymentMethod}
+                        paymentMethod={paymentMethod}
                         setExpandlastAccordion={setExpandlastAccordion}
                         setView3={setView3}
                       /> : <EditPayment
@@ -215,8 +226,11 @@ const GetPromocode = () => {
                         </h5>
                       </AccordionSummary>
                       <AccordionDetails>
+                {/* { paypal && <PayPal /> } */}
+                   
                         <a>
-                          <Button onClick={CreateOrder}>{!loading ? 'Proceed to payment' : <Loader
+                          <Button onClick={CreateOrder}>
+                            {!loading ? 'Proceed to payment' : <Loader
                             type="Oval"
                             color="#fff"
                             height={30}
@@ -227,7 +241,6 @@ const GetPromocode = () => {
                     </Accordion>
                   </div>
                 </div>
-
                 <div className={classes.ReturnPolicy}>
                   <p> Return Policy </p>
                 </div>
@@ -238,6 +251,7 @@ const GetPromocode = () => {
                 GetPromocode={GetPromocode}
                 loading={promoCodeLoading}
                 />
+               
               </Grid>
             </Grid>
           </Grid>

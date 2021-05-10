@@ -1,14 +1,11 @@
+import React, { useState } from 'react'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
-import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Accordion from '@material-ui/core/Accordion'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import useStyles from './style'
-import Checkbox from '@material-ui/core/Checkbox'
-import FormGroup from '@material-ui/core/FormGroup'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Button from '../../common/Button'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -16,274 +13,164 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
+import PayPal from './../Checkout/components/PayPal'
+import { useForm } from 'react-hook-form'
+import { useMutation } from '@apollo/react-hooks'
+import { PAY_WITH_PAYPAL } from '../Checkout/data'
+import { withSnackbar } from 'notistack'
+import { pathOr } from 'ramda'
 
-const Paypal = () => {
-  const classes = useStyles()
+const Paypal = (props) => {
+console.log({ props })
+  const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' })
+  
+  const total = pathOr(0, ['order', 'getOrder', 'totals', 'total'], props)
+  const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
+  
+  const [payWithPaypal] = useMutation(PAY_WITH_PAYPAL)
 
-  const [expanded, setExpanded] = React.useState('panel1')
-
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false)
+  const PayWithPayPal = async ({ firstName, lastName, expiryDate, cvv, cardNumber, ...values }) => {
+    try{
+      const res = await payWithPaypal({ variables: {
+        orderId,
+        firstName,
+        lastName,
+        expiryDate,
+        cvv,
+        cardNumber,
+      }})
+      props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
+      setCart([])
+      Router.push({ pathname: `/success` })
+      console.log({ res })
+    }
+    catch(error){
+      if (error?.graphQLErrors) {
+        props.enqueueSnackbar(error.graphQLErrors[0].message, {
+          variant: 'error',
+        })
+      } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+    }
   }
 
-  const [age, setAge] = React.useState('');
+ 
+  const classes = useStyles()
 
-  const handleChange2 = (event) => {
-    setAge(event.target.value);
-  };
   return (
     <div className={classes.AboutHolder}>
       <Container>
-      <Grid
-  container
-  direction="row"
-  justify="center"
-  spacing={2}
-  alignItems="left"
->
-          <Grid item md={6} xs={12}> 
-          <Grid
-  container
-  direction="row"
-  justify="center"
-  spacing={2}
-  alignItems="center"
->
-        <div className={classes.FormHolder}>
-          <h2> Ordr Now</h2>
-          <h6> Would you like to buy one of our items? </h6>
-
-          <h4> My products</h4>
-          <FormControl component="fieldset">
-      <FormGroup aria-label="position" >
-     
-       
-       
-        <div className={classes.ProductItemHolder}>
-      <div className={classes.ProductItemCheckbox}>
-
-        <FormControlLabel
-          value="top"
-          control={<Checkbox color="primary" />}
-          label="Product Name 1"
-          labelPlacement="end"
-        />
-        </div>
-        <div className={classes.ProductItemPrice}>
-
-  <h3> 120$ </h3>
-  
-  </div>
-
-        </div>
-        <div className={classes.ProductItemHolder}>
-      <div className={classes.ProductItemCheckbox}>
-
-        <FormControlLabel
-          value="top"
-          control={<Checkbox color="primary" />}
-          label="Product Name 1"
-          labelPlacement="end"
-        />
-        </div>
-        <div className={classes.ProductItemPrice}>
-
-  <h3> 120$ </h3>
-  
-  </div>
-
-        </div>
-        <div className={classes.ProductItemHolder}>
-      <div className={classes.ProductItemCheckbox}>
-
-        <FormControlLabel
-          value="top"
-          control={<Checkbox color="primary" />}
-          label="Product Name 1"
-          labelPlacement="end"
-        />
-        </div>
-        <div className={classes.ProductItemPrice}>
-
-  <h3> 120$ </h3>
-  
-  </div>
-
-        </div>
-      </FormGroup>
-    </FormControl>
-           
-    <div className={classes.FormTotal}>
-      <h3> Total:  <b> 3000$</b></h3>
-     
-</div>
-<div className={classes.PaymentMethod}>
-  
-
-<h3> Payment Method
-</h3>
-</div>
-<div className={classes.FormContent}>
-      <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-         <img src="../../static/images/checkout/paypal2.png"/>
-        </AccordionSummary>
-        <AccordionDetails>
-          <div>
-          <div  className={classes.FormTitle}>First Name</div> 
-        <TextField id="outlined-basic" label="first Name" variant="outlined" />
-            </div>
-          
-        <div>
-
-
-        <div  className={classes.FormTitle}>Last Name</div> 
-
-        <TextField id="outlined-basic" label="last Name" variant="outlined" />
-
-        </div>
-        <div>
-
-
-<div  className={classes.FormTitle}>Email </div> 
-
-<TextField id="outlined-basic" label="email " variant="outlined" />
-
-</div>
-<Button> Submit</Button>
-
-
-
-        </AccordionDetails>
-      </Accordion>
-      <h5> or</h5>
-
-      <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-        <img src="../../static/images/checkout/visa2.png"/>
-        </AccordionSummary>
-        <AccordionDetails>
-        <div className={classes.PaymentMethod}>
-
-<h3> Credit Card
-</h3>
-</div>
-        <div>
-          <div  className={classes.FormTitle}>First Name</div> 
-        <TextField id="outlined-basic" label="first Name" variant="outlined" />
-            </div>
-          
-        <div>
-
-
-        <div  className={classes.FormTitle}>Last Name</div> 
-
-        <TextField id="outlined-basic" label="last Name" variant="outlined" />
-
-        </div>
-        <div>
-
-
-<div  className={classes.FormTitle}>Credit Card Number </div> 
-
-<TextField id="outlined-basic" label="card number " variant="outlined" />
-
-</div>
-<div>
-<div  className={classes.FormTitle}>Security Code   </div> 
-
-<TextField id="outlined-basic" label="cvv " variant="outlined" />
-
-</div>
-<FormControl className={classes.formControl}>
-  
-<div  className={classes.FormTitle}> Expiration Month   </div> 
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={age}
-          onChange={handleChange2}
-          label="Age"
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          spacing={2}
+          alignItems="left"
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl>
-  
-<div  className={classes.FormTitle}> Expiration Year   </div> 
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={age}
-          onChange={handleChange2}
-          label="Age"
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-<div className={`${classes.PaymentMethod} PaymentMethod`}>
+          <Grid item md={6} xs={12}>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              spacing={2}
+              alignItems="center"
+            >
+              <form onSubmit={handleSubmit(PayWithPayPal)}>
+              <div className={classes.FormHolder}>
+          
+               
+                <div className={classes.PaymentMethod}>
+                  <h1> Payment Method</h1>
+                </div>
+                <div className={classes.FormContent}>
+               
+                      <img src="../../static/images/checkout/visa2.png" />
+                      <div className={classes.FormTotal}>
+                  <h2>
+                    Total: <b> {total}$</b>
+                  </h2>
+                </div>
+                      <div className={classes.PaymentMethod}>
+                        <h3> Credit Card</h3>
+                      </div>
+                      <div>
+                        <div className={classes.FormTitle}>First Name</div>
+                        <input
+                          name="firstName"
+                          className={classes.LoginInput}
+                          placeholder="First Name"
+                          ref={register({ required: 'This field is required' })}
+                        />
+                        {errors.firstName && ( 
+                        <p className={classes.errorMsg}>{errors.firstName.message}</p> 
+                        )} 
+                      </div>
 
-<h3> Shipping Address
-
-</h3>
-</div>
-
-<div>
-<div  className={classes.FormTitle}>Street Address    </div> 
-
-<TextField id="outlined-basic" label="street  " variant="outlined" />
-
-</div>
-<div>
-<div  className={classes.FormTitle}>City   </div> 
-
-<TextField id="outlined-basic" label="city  " variant="outlined" />
-
-</div>
-<div className={classes.PaymentMethod}>
-
-<h3> Buyer info
-
-</h3>
-</div>
-<div>
-<div  className={classes.FormTitle}> Name    </div> 
-
-<TextField id="outlined-basic" label="name" variant="outlined" />
-
-</div>
-<div>
-<div  className={classes.FormTitle}>Buyer Email   </div> 
-
-<TextField id="outlined-basic" label="ex: myname@example.com  " variant="outlined" />
-
-</div>
-<Button> Submit</Button>
-
-        </AccordionDetails>
-      </Accordion>
-      
-    </div>
-          </div>
-    </Grid>
-
-    </Grid>
-    </Grid>
-
-    </Container>
-
+                      <div>
+                        <div className={classes.FormTitle}>Last Name</div>
+                        <input
+                          name="lastName"
+                          className={classes.LoginInput}
+                          placeholder="Last Name"
+                          ref={register({ required: 'This field is required' })}
+                        />
+                        {errors.lastName && ( 
+                        <p className={classes.errorMsg}>{errors.lastName.message}</p> 
+                        )} 
+                      </div>
+                      <div>
+                        <div className={classes.FormTitle}>
+                          Credit Card Number
+                        </div>
+                        <input
+                          name="cardNumber"
+                          className={classes.LoginInput}
+                          placeholder="Card Number"
+                          ref={register({ required: 'This field is required' })}
+                        />
+                        {errors.cardNumber && ( 
+                        <p className={classes.errorMsg}>{errors.cardNumber.message}</p> 
+                        )} 
+                      </div>
+                      <div>
+                        <div className={classes.FormTitle}>Security Code </div>
+                        <input
+                          name="cvv"
+                          className={classes.LoginInput}
+                          placeholder="cvv"
+                          type='password'
+                          ref={register({ required: 'This field is required' })}
+                        />
+                        {errors.cvv && ( 
+                        <p className={classes.errorMsg}>{errors.cvv.message}</p> 
+                        )} 
+                      </div>
+                      <div>
+                        <div className={classes.FormTitle}>
+                          Expiration Date
+                        </div>
+                        <input
+                          name="expiryDate"
+                          className={classes.LoginInput}
+                          placeholder="MM/YYYY"
+                          ref={register({ required: 'This field is required', pattern: {
+                            message: 'Invalid Expiration Date',
+                            value: '^\d{2}\/\d{2}$',
+                          } })}
+                        />
+                        {errors.expiryDate && ( 
+                        <p className={classes.errorMsg}>{errors.expiryDate.message}</p> 
+                        )} 
+                      </div>
+                      <Button> Submit</Button>
+                </div>
+              </div>
+                </form>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   )
 }
 
-export default Paypal
+export default withSnackbar(Paypal)

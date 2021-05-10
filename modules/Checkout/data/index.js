@@ -122,15 +122,56 @@ export const GET_ORDER = gql`
   }
 `
 export const GET_PROMOCODES = gql`
-query getPromoCodes($code: String) {
-  getPromoCodes(code: $code) {
-    items {
-      name
-      code
-      value
-      active
-      valueType
+  query getPromoCodes($code: String) {
+    getPromoCodes(code: $code) {
+      items {
+        name
+        code
+        value
+        active
+        valueType
+      }
     }
   }
-}
+`
+
+export const PAY_WITH_PAYPAL = gql`
+  mutation PaypalPayWithPaypal(
+    $orderId: ID!
+    $cardNumber: String!
+    $cvv: String!
+    $expiryDate: String!
+    $firstName: String!
+    $lastName: String!
+  ) {
+    PayWithPaypal(
+      orderId: $orderId
+      cardNumber: $cardNumber
+      cvv: $cvv
+      expiryDate: $expiryDate
+      firstName: $firstName
+      lastName: $lastName
+    ) {
+      order {
+        _id
+      }
+    }
+  }
+`
+
+export const GET_PAYPAL_TOKEN = gql`
+  mutation GetPayPalToken($orderId: ID!) {
+    GetPayPalToken(orderId: $orderId) {
+      token
+    }
+  }
+`
+export const PAYPAL = gql`
+  mutation PayPal($token: String!) {
+    Paypal(token: $token) {
+      order {
+        _id
+      }
+    }
+  }
 `

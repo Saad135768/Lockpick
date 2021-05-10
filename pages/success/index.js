@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import SuccessPayment from '../../../modules/SuccessPayment'
+import SuccessPayment from '../../modules/SuccessPayment'
 
 const SuccessPaymentPage = () => <>
     

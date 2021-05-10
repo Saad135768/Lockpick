@@ -9,6 +9,7 @@ import Cookies from 'js-cookie'
 import * as R from 'ramda'
 
 const GRAPHQL_URL = 'https://api.lockpick.qpix.io/'
+// const GRAPHQL_URL = 'http://localhost:4000'
 // const GRAPHQL_URL = 'https://api.yorklongman.qpix.io/'
 const cache = new InMemoryCache({
   addTypename: false,
