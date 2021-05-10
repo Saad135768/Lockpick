@@ -94,7 +94,10 @@ export const GET_ORDER = gql`
       total
       images
       variation{
-        
+        price {
+          mainPrice
+          discountedPrice
+        }
         product{
           _id
           productCode

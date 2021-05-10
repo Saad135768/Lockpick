@@ -25,11 +25,11 @@ import useStore from '../../store'
 const CreditCard = props => {
   console.log({ props })
   const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' })
-
-  const total = pathOr(0, ['order', 'getOrder', 'totals', 'total'], props)
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
 
   const setCart = useStore(state => state.setCart)
+  const variations = pathOr([], ['order', 'getOrder', 'variations'], props)
+  const totalPrice = pathOr(0, ['order', 'getOrder', 'totals', 'total'], props)
 
   const [payWithPaypal] = useMutation(PAY_WITH_PAYPAL)
 
@@ -56,7 +56,7 @@ const CreditCard = props => {
         variant: 'success',
       })
       setCart([])
-      Router.push({ pathname: `/order`, query:{ orderId, status: 'success', _id: res.data.PayWithPaypal.order._id }})
+      Router.push({ pathname: `/order`, query: { orderId, status: 'success', _id: res.data.PayWithPaypal.order._id } })
     } catch (error) {
       if (error?.graphQLErrors) {
         props.enqueueSnackbar(error.graphQLErrors[0].message, {
@@ -82,28 +82,32 @@ const CreditCard = props => {
           <Grid item md={4} xs={12}>
             <div className={classes.PaymentSummary}>
               <h4> Payment Summary</h4>
+              
 
-              <div className={classes.PaymentSummaryTable}>
-                <img src={'../../static/images/products/6.png'} />
-                <div>
-                  <p className={classes.ProductName}> Product Name Here </p>
-                  <p className={classes.Quantity}> Quantity :1 </p>
+                {variations.map((v) => {
+                  const productImg = pathOr('', ['variation', 'product', 'images', '0'], v)
+                  const productName = pathOr('', ['variation', 'product', 'name', 'en'], v)
+                  const mainPrice = pathOr(0, ['variation', 'price', 'mainPrice'], v)
+                  const discountedPrice = pathOr(0, ['variation', 'price', 'discountedPrice'], v)
+                  const quantity = pathOr('', ['quantity'], v)
+                  return (
+                    <>
+                    <div className={classes.PaymentSummaryTable}>
+                      <img src={productImg} />
+                      <div>
+                        <p className={classes.ProductName}> {productName} </p>
+                        <p className={classes.Quantity}> Quantity :{quantity} </p>
+                      </div>
+                      <p className={classes.ProductPrice}> ${(discountedPrice || mainPrice)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+                      </div>
+                    </>
+                  )
+                })}
+                <div className={classes.FormTotal}>
+                  <h2>
+                    Total: <b> ${totalPrice?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</b>
+                  </h2>
                 </div>
-                <p className={classes.ProductPrice}> $14,385.00 </p>
-              </div>
-              <div className={classes.PaymentSummaryTable}>
-                <img src={'../../static/images/products/6.png'} />
-                <div>
-                  <p className={classes.ProductName}> Product Name Here </p>
-                  <p className={classes.Quantity}> Quantity :1 </p>
-                </div>
-                <p className={classes.ProductPrice}> $14,385.00 </p>
-              </div>
-              <div className={classes.FormTotal}>
-                <h2>
-                  Total: <b> {total}$</b>
-                </h2>
-              </div>
             </div>
           </Grid>
           <Grid item md={5} xs={12}>
