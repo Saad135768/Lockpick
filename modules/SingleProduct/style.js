@@ -276,6 +276,19 @@ SingleProductHead:{
 
         },
       },
+      '& ol li': {
+        listStyle: 'unset',
+        '&::before': {
+          content:'""',
+          background: 'none',
+          display: 'inline-block',
+          width: '10px',
+          height:'10px',
+          marginLeft: '0',
+          borderRadius: 50,
+
+        },
+      },
       '& hr': {
         borderBottom: 0,
         borderTop: '1px solid #4672d3',

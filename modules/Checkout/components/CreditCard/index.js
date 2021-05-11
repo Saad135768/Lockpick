@@ -35,9 +35,10 @@ const CreditCard = props => {
     cardNumber,
     ...values
   }) => {
-    const month = +new Date(values.expiryDate).getMonth() + 1
-    const year = +new Date(values.expiryDate).getFullYear()
-    const expiryDate = `${month}/${year}`
+    const m = +new Date(values.expiryDate).getMonth() + 1
+    const year = new Date(values.expiryDate).getFullYear().toLocaleString().slice(-2)
+    const month = m.length == 1 ? `0${m}` : m
+    const expiryDate = `${month}${year}`
     
     try {  
       const res = await payWithPaypal({
