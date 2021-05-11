@@ -73,6 +73,15 @@ export const GET_CURRENT_CUSTOMER = gql`
         state
         address1
       }
+      cart{
+      variations{
+        variation{
+          product{
+            weight
+          }
+        }
+      }
+    }
     }
   }
 `
@@ -94,6 +103,7 @@ export const GET_ORDER = gql`
       total
       images
       variation{
+      _id
         price {
           mainPrice
           discountedPrice

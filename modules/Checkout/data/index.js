@@ -56,6 +56,7 @@ export const CREATE_ORDER = gql`
           _id
           product {
             _id
+            weight
             name {
               en
             }
@@ -174,4 +175,19 @@ export const PAYPAL = gql`
       }
     }
   }
+`
+export const FEDEX = gql`
+  mutation getFedExRate (
+    $items: [FedExItemsInput]
+    $customerName: String 
+    $customerAddress: OrderAddressInput
+    ){
+      getFedExRate(
+        items: $items 
+        customerName: $customerName
+        customerAddress: $customerAddress
+        ){
+          rate
+        }
+    }
 `

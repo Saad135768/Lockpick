@@ -167,6 +167,9 @@ const useStyles = makeStyles(() => ({
     '& h4': {
       cursor: 'pointer',
     },
+    '& p': {
+      display: 'inline-block',
+    },
   },
   OrderSummaryInformation: {
     textAlign: 'center',
@@ -237,7 +240,11 @@ const useStyles = makeStyles(() => ({
       },
     }
   },
-
+  originalPrice: {
+    display: 'inline-block',
+    textDecoration: 'line-through',
+    margin: '0 15px',
+  },
   ContinueShopping: {
     textAlign: 'right',
     '& h4': {

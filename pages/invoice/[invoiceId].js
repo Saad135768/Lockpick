@@ -5,7 +5,7 @@ import { GET_ORDER } from '../../modules/Auth/data'
 const InvoicePage = (props) => <>
     
     <Head>
-        <title>Invoice </title>
+        <title> Lockpick | Invoice </title>
     </Head>
     <Invoice {...props}/>
 </>

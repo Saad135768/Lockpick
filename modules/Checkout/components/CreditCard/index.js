@@ -2,37 +2,44 @@ import React, { useState } from 'react'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import useStyles from './style'
-import Button from '../../common/Button'
-import PayPal from '../Checkout/components/PayPal'
-import { useForm } from 'react-hook-form'
+import Button from '../../../../common/Button'
+import PayPal from '../PayPal'
+import { useForm, Controller } from 'react-hook-form'
 import { useMutation } from '@apollo/react-hooks'
-import { PAY_WITH_PAYPAL } from '../Checkout/data'
+import { PAY_WITH_PAYPAL } from '../../data'
 import { withSnackbar } from 'notistack'
-import { pathOr } from 'ramda'
+import { pathOr, propOr } from 'ramda'
 import Router from 'next/router'
-import useStore from '../../store'
+import useStore from '../../../../store'
 import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers"
 import DateFnsUtils from "@date-io/date-fns"
 
 const CreditCard = props => {
-  const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' })
-  const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
+  const { register, handleSubmit, errors, control } = useForm({ mode: 'onBlur' })
+  const [selectedDate, setSelectedDate] = useState(
+    new Date(`${new Date().getFullYear()}-08-18T21:11:54`)
+  )
 
   const setCart = useStore(state => state.setCart)
+  const total = useStore((state) => state.total)
+  
+  const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
   const variations = pathOr([], ['order', 'getOrder', 'variations'], props)
-  const totalPrice = pathOr(0, ['order', 'getOrder', 'totals', 'total'], props)
 
   const [payWithPaypal] = useMutation(PAY_WITH_PAYPAL)
 
   const PayWithPayPal = async ({
     firstName,
     lastName,
-    expiryDate,
     cvv,
     cardNumber,
     ...values
   }) => {
-    try {
+    const month = +new Date(values.expiryDate).getMonth() + 1
+    const year = +new Date(values.expiryDate).getFullYear()
+    const expiryDate = `${month}/${year}`
+    
+    try {  
       const res = await payWithPaypal({
         variables: {
           orderId,
@@ -58,8 +65,10 @@ const CreditCard = props => {
     }
   }
 
+  const handleDateChange = (date) => {
+    setSelectedDate(date)
+  }
   const classes = useStyles()
-  const [selectedDate, handleDateChange] = useState(new Date())
 
   return (
     <div className={classes.AboutHolder}>
@@ -84,11 +93,11 @@ const CreditCard = props => {
                   const quantity = pathOr('', ['quantity'], v)
                   return (
                     <>
-                    <div className={classes.PaymentSummaryTable}>
+                    <div className={classes.PaymentSummaryTable} key={v.variation._id}>
                       <img src={productImg} />
                       <div>
                         <p className={classes.ProductName}> {productName} </p>
-                        <p className={classes.Quantity}> Quantity :{quantity} </p>
+                        <p className={classes.Quantity}> Quantity: {quantity} </p>
                       </div>
                       <p className={classes.ProductPrice}> ${(discountedPrice || mainPrice)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
                       </div>
@@ -97,7 +106,7 @@ const CreditCard = props => {
                 })}
                 <div className={classes.FormTotal}>
                   <h2>
-                    Total: <b> ${totalPrice?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</b>
+                    Total: <b>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</b>
                   </h2>
                 </div>
             </div>
@@ -180,36 +189,32 @@ const CreditCard = props => {
 
                       <div className={classes.FormTitle}>Expiration Date</div>
                       <div className={classes.DatePickerHolder}>
-                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <MuiPickersUtilsProvider 
+                          onChange={(e) => cosnole.log(e)} 
+                          utils={DateFnsUtils}
+                        >
+                          <Controller
+                            control={control}
+                            name="expiryDate"
+                          as={
                           <DatePicker
                             variant="inline"
                             openTo="year"
                             views={["year", "month"]}
+                            format="MM/yyyy"
                             value={selectedDate}
                             onChange={handleDateChange}
-                            format="MM/yyyy"
-                            minDate={new Date("2021-01-01")}
-                            maxDate={new Date("2030-01-01")}
+                            minDate={new Date(`${new Date().getFullYear()}-01-01`)}
+                            maxDate={new Date(`${(+new Date().getFullYear() + 10)}-01-01`)}
+                          />}
                           />
                         </MuiPickersUtilsProvider>
-                      </div>
-                      {/* <input
-                        name="expiryDate"
-                        className={classes.LoginInput}
-                        placeholder="MM/YYYY"
-                        ref={register({
-                          required: 'This field is required',
-                          pattern: {
-                            message: 'Invalid Expiration Date',
-                            value: '^d{2}/d{2}$',
-                          },
-                        })}
-                      />
-                      {errors.expiryDate && (
+                        {errors.expiryDate && (
                         <p className={classes.errorMsg}>
                           {errors.expiryDate.message}
                         </p>
-                      )} */}
+                      )} 
+                      </div>
                     </div>
                   </div>
                   <Button> Submit</Button>

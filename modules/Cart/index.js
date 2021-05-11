@@ -36,22 +36,6 @@ const Cart = () => {
                   <hr />
                 <CartData />
                 <div className={classes.CartInputs}>
-               <div className={classes.promocode}>
-                 <div>
-                <AiOutlineTag/>
-                 </div>
-                 <div>
-                <input placeholder="Enter a promo code"/> 
-                 </div>
-                 </div>
-                 <div className={`${classes.promocode} note`}>
-                 <div>
-                <GrNotes/>
-                 </div>
-                 <div>
-                <input placeholder="Add a note"/> 
-                 </div>
-                 </div>
                </div>
               </Grid>
               <Grid item lg={4} md={4} sm={12} xs={12}>

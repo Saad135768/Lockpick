@@ -12,9 +12,9 @@ import ShippingDetails from './components/ShippingDetails'
 import DeliveryMethod from './components/DeliveryDetails'
 import Cookies from 'js-cookie'
 import { AiOutlineCheck } from 'react-icons/ai'
-import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_CURRENT_CUSTOMER } from '../Auth/data'
-import { CREATE_ORDER, GET_PROMOCODES } from './data'
+import { CREATE_ORDER, FEDEX } from './data'
 import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
 import Router from 'next/router'
@@ -24,21 +24,9 @@ import PayPal from './components/PayPal'
 const Checkout = (props) => {
 
   const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache' })
-
-  const [getPromoCodes, { loading: promoCodeLoading, data: promoCodeData }] = useLazyQuery(GET_PROMOCODES)
-
+  let shippingRate = 0
   const [promoCode, setPromocode] = useState()
-  const [promoCodeReturn, setPromoCodeReturn] = useState()
-
-const GetPromocode = () => {
-   const res = getPromoCodes({ variables: { code: promoCode } })
-
-    if(res && promoCode){
-      setPromoCodeReturn(promoCodeData)
-      if(promoCodeReturn) return props.enqueueSnackbar('Promo code Applied', { variant: 'success' })
-      props.enqueueSnackbar('Invalid promo code', { variant: 'error' })
-    }
-}
+  const [paypal, setPaypal] = useState(false)
 
   // Those are the states that toggle between components [shipping details, deleivery and payments methods]
   const [view, setView] = useState(true)
@@ -55,9 +43,9 @@ const GetPromocode = () => {
   const [expandPaymentAccordion, setExpandPaymentAccordion] = useState(true)
   const [expandlastAccordion, setExpandlastAccordion] = useState()
 
-  const [paypal, setPaypal] = useState(false)
   const setCart = useStore((state) => state.setCart)
 
+  const name = R.pathOr('', ['getCurrentCustomer', 'name'], data)
   const email = R.pathOr('', ['getCurrentCustomer', 'email'], data)
   const address = R.pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
   const checkIfHasAddress = Object.values(address).some((address) => !R.isNil(address))
@@ -65,12 +53,10 @@ const GetPromocode = () => {
   useEffect(() => {
     if (checkIfHasAddress) setView(false)
     if (data) {
-      const name = data?.getCurrentCustomer?.name
       const phone = data?.getCurrentCustomer?.phone
       setcheckoutValues({ name, phone, ...data?.getCurrentCustomer?.address[0] })
     }
   }, [data])
-
 
   // Create order mutation
   const [createOrder, { loading }] = useMutation(CREATE_ORDER)
@@ -82,8 +68,8 @@ const GetPromocode = () => {
         billing: R.omit(['name', 'phone', 'address1'], checkoutValues),
         paymentMethod: paymentMethod === 'cash' ? 'cash' : 'visa',
         shippingMethod,
-        // promoCode,
-        shippingCost: 0
+        promoCode,
+        shippingCost: shippingRate
       }
       if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
       const res = await createOrder({ variables: { ...orderFields } })
@@ -110,6 +96,21 @@ const GetPromocode = () => {
     }
   }
 
+   // FedEx mutation
+   const [getFedExRate] = useMutation(FEDEX)
+
+   const FedEx = async() => {
+    try{
+      const res = await getFedExRate({ variables: { items: [{ weight: 1.00 }], customerName: name, customerAddress: address  } })
+      shippingRate = res.data.getFedExRate.rate
+    } catch (error) {
+      if (error?.graphQLErrors) {
+        props.enqueueSnackbar(error.graphQLErrors[0].message, {
+          variant: 'error',
+        })
+      } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+    }
+   }
 
   const classes = useStyles()
 
@@ -247,11 +248,10 @@ const GetPromocode = () => {
               </Grid>
               <Grid item lg={5} md={5} sm={12} xs={12}>
                 <CheckoutSummary 
-                setPromocode={setPromocode} 
-                GetPromocode={GetPromocode}
-                loading={promoCodeLoading}
+                  setPromocode={setPromocode}
+                  promoCode={promoCode}
+                  shippingRate={shippingRate}
                 />
-               
               </Grid>
             </Grid>
           </Grid>

@@ -1,4 +1,4 @@
-import CreditCard from '../../modules/CreditCard'
+import CreditCard from '../../modules/Checkout/components/CreditCard'
 import Head from 'next/head'
 import { GET_ORDER } from './../../modules/Auth/data'
 

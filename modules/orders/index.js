@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import SuccessPayment from '../../modules/SuccessPayment'
-import FailedPayment from '../../modules/FailedPayment'
+import FailedPayment from './components/FailedPayment'
+import SuccessPayment from './components/SuccessPayment'
 
 const Order = () => {
     const query = useRouter().query
