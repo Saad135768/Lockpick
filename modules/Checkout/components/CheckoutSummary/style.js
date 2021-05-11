@@ -200,39 +200,42 @@ const useStyles = makeStyles(() => ({
     borderBottom: '1px solid #3780d5',
     padding: '20px 0',
     display: 'flex',
+    justifyContent: 'space-between',
+
     marginTop: 10,
 
     '& input': {
       background: 'transparent',
       border: 0,
-      marginLeft: 10,
+      marginLeft: 0,
       outline: 0,
-      fontSize: 18,
+      fontSize: 17,
       color: '#fba530',
     },
     '& input::placeholder': {
       color: '#fba530',
-      fontSize: 18,
+      fontSize: 17,
     },
     '& input::-ms-input-placeholder': {
       color: '#fba530',
-      fontSize: 18,
+      fontSize: 17,
     },
     '& input::-webkit-input-placeholder': {
       color: '#fba530',
-      fontSize: 18,
+      fontSize: 17,
     },
     '& button': {
-      width: 142,
-      fontSize: 14,
+      width: 160,
+      fontSize: 15,
       marginTop: 0,
       textTransform: 'capitalize',
-      padding: 10,
+      padding: '8px 6px',
       cursor: 'pointer',
-      // borderRadius: 10,
+      fontFamily: 'Poppins-Regular',
+      borderRadius: 13,
       outline: 0,
       border: 0,
-      background: '#FFA62F',
+      background: '#52c65e',
       color: '#FFFFFF',
       '&:hover':{
         background: '#3680d6',
@@ -253,6 +256,24 @@ const useStyles = makeStyles(() => ({
         marginTop: 0,
       },
     },
+  },
+
+  promoAdd:{
+background:'#52c65e !important',
+display: 'flex',
+justifyContent: 'space-around',
+padding: '7px 9px  !important',
+
+'& svg': {
+  width: 20,
+  height: 20,
+  background: '#fff',
+  color: '#52c65e',
+  borderRadius: 50,
+  marginRight: 0,
+  position: 'relative',
+  top: 1,
+},
   },
 }))
 

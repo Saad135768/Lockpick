@@ -67,6 +67,7 @@ const CustomizedDialogs = (props) => {
 
             </div>
             <div className={classes.Right}>
+            <div className={classes.RightContent}>
 
               <input
                 name="name"
@@ -174,7 +175,7 @@ const CustomizedDialogs = (props) => {
                <div className={classes.SaveBtn}>
                <Button type='submit'>Save </Button>
                </div>
-
+               </div>
             </div>
           </div>
         </form>

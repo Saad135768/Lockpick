@@ -154,6 +154,12 @@ padding: '8px 28px',
       },
     },
   },
+
+  RightContent:{
+    height:500,
+    overflowY:'auto',
+
+  },
 }))
 
 export default useStyles
