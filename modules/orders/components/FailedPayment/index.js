@@ -1,6 +1,6 @@
 import { Container, Grid } from '@material-ui/core'
 import useStyles from './style'
-import Button from '../../common/Button'
+import Button from '../../../../common/Button'
 import Link from 'next/link'
 
 const FailedPayment = () => {

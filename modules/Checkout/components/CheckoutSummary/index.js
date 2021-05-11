@@ -1,25 +1,60 @@
-import React from "react"
-import useStyles from "./style"
-import Link from "next/link"
-import useStore from "../../../../store"
-import { MdKeyboardArrowRight } from "react-icons/md"
-import CartData from "../../../Cart/components/CartData"
+import React, { useState, useEffect } from 'react'
+import useStyles from './style'
+import Link from 'next/link'
+import useStore from '../../../../store'
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import { AiOutlineCheck } from 'react-icons/ai'
+import CartData from '../../../Cart/components/CartData'
 import Router from 'next/router'
-import Button from './../../../../common/SecondaryButton/index';
+import { useMutation } from '@apollo/react-hooks'
+import { withSnackbar } from 'notistack'
+import { pathOr } from 'ramda'
+import Button from '../../../../common/SecondaryButton'
 import Loader from 'react-loader-spinner'
+import { APPLY_PROMOCODE } from '../../../../commonData'
 
-const CheckoutSummary = ({ setPromocode, loading, GetPromocode, ...props }) => {
+const CheckoutSummary = ({ setPromocode, promoCode, shippingRate, ...props }) => {
   const total = useStore((state) => state.total)
+  const setTotal = useStore((state) => state.setTotal)
   const cart = useStore((state) => state.cart)
   const cartLength = cart?.variations?.length || 0
 
+  const [originalPrice, setOriginalPrice] = useState()
+  const [isPromoApplied, setIsPromoApplied] = useState()
+  const [applyPromoCode] = useMutation(APPLY_PROMOCODE)
+
+useEffect(() => {
+  !isPromoApplied && setOriginalPrice(total)
+}, [total])
+
+  const ApplyPromocode = async () => {
+    try{
+      if(!isPromoApplied) {
+      const res = await applyPromoCode({ variables: { total, code: promoCode } })
+      const discount = +pathOr(0, ['data', 'applyPromoCode', 'discount'], res)
+      setIsPromoApplied(true)
+      setTotal(total - discount)
+      props.enqueueSnackbar('Promo code applied successfully', { variant: 'success' })
+      } 
+      return null
+    }
+    catch(error) {
+      if (error?.graphQLErrors) {
+        props.enqueueSnackbar(error.graphQLErrors[0].message, {
+          variant: 'error',
+        })
+      } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+    }
+    }
+
+ 
   const classes = useStyles()
 
   return (
     <div className={classes.OrderSummaryHolder}>
       <div className={classes.ContinueShopping}>
         <h4>
-          <Link href="/products">
+          <Link href='/products'>
             <a>Continue Shopping</a>
           </Link>
           <MdKeyboardArrowRight />
@@ -39,15 +74,10 @@ const CheckoutSummary = ({ setPromocode, loading, GetPromocode, ...props }) => {
       
         <div className={classes.promocode}>
           <div>
-            <input placeholder="Enter a promo code" onChange={(e) => setPromocode(e.target.value)} />
-            <button>{ loading ? 
-            <Loader
-            type="Oval"
-            color="#fff"
-            height={30}
-            width={30}
-          />
-            : 'Apply promo code'}</button>
+            <input placeholder='Enter a promo code' disabled={isPromoApplied} onChange={(e) => setPromocode(e.target.value)} />
+            <button onClick={ApplyPromocode}>
+              {isPromoApplied ? <AiOutlineCheck/ > : 'Apply promo code'}
+            </button>
           </div>
         </div>
 
@@ -56,7 +86,10 @@ const CheckoutSummary = ({ setPromocode, loading, GetPromocode, ...props }) => {
             <h3> Subtotal</h3>
           </div>
           <div>
-            <p>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+            {isPromoApplied && 
+            <p className={classes.originalPrice}>${(+originalPrice + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+            }
+            <p>${(+total + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -64,7 +97,7 @@ const CheckoutSummary = ({ setPromocode, loading, GetPromocode, ...props }) => {
             <h3> Shipping</h3>
           </div>
           <div>
-            <p> FREE</p>
+            <p> ${shippingRate?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
 
@@ -81,9 +114,10 @@ const CheckoutSummary = ({ setPromocode, loading, GetPromocode, ...props }) => {
             <h3> Total</h3>
           </div>
           <div>
-            <p className={classes.totalPrice}>
-              ${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} 
-            </p>
+          {isPromoApplied && 
+            <p className={classes.originalPrice}>${(+originalPrice + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+            }
+            <p>${(+total + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
       </div>
@@ -91,4 +125,4 @@ const CheckoutSummary = ({ setPromocode, loading, GetPromocode, ...props }) => {
   )
 }
 
-export default CheckoutSummary
+export default withSnackbar(CheckoutSummary)

@@ -29,6 +29,7 @@ export const GET_CART = gql`
             }
             _id
             product {
+              weight
               name {
                 en
               }
@@ -102,6 +103,7 @@ mutation updateCartItem($variation: CartVariationInput!) {
         }
         _id
         product {
+          weight
           name {
             en
           }
