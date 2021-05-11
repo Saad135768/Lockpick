@@ -17,6 +17,7 @@ export const GET_CART = gql`
       }
       cart {
         variations {
+          quantity
           variation {
             stock {
               branch {
@@ -36,6 +37,10 @@ export const GET_CART = gql`
               images
               _id
               productCode
+            customAttributes {
+              key
+              value
+            }
             }
             mainAttributes {
               name {
@@ -174,4 +179,26 @@ export const APPLY_PROMOCODE = gql`
       }
     }
   }
+`
+
+export const FEDEX = gql`
+  mutation getFedExRate (
+    $items: [FedExItemsInput]
+    $customerName: String 
+    $customerAddress: OrderAddressInput
+    # $height: Float
+    # $length: Float
+    # $width: Float
+    ){
+      getFedExRate(
+        items: $items 
+        customerName: $customerName
+        customerAddress: $customerAddress
+        # width: $width
+        # length: $length
+        # height: $height
+        ){
+          rate
+        }
+    }
 `

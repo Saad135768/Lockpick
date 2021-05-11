@@ -15,6 +15,7 @@ const DeliveryMethod = ({
   shippingMethod,
   setExpandPaymentAccordion,
   setExpandlastAccordion,
+  shippingRate,
   ...props
 }) => {
   const classes = useStyles()
@@ -44,13 +45,14 @@ const DeliveryMethod = ({
                       value="normal"
                       control={<Radio />}
                       label="Expedited Ground Shipping"
+                      // checked
                     />
                     <p> Est. Delivery Time 2-4 business days</p>
                   </Grid>
                   <Grid item lg={3} md={3}>
-                    <h3> $ 0,00000 </h3>
+                    <h3> ${shippingRate.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </h3>
                   </Grid>
-                  <hr />
+                  {/* <hr />
                   <Grid item lg={9} md={9}>
                     <FormControlLabel
                       value="fastShipping"
@@ -59,8 +61,8 @@ const DeliveryMethod = ({
                     />
                   </Grid>
                   <Grid item lg={3} md={3}>
-                    <h3> $ 0,00000 </h3>
-                  </Grid>
+                    <h3> $ 0,00000 </h3> 
+                  </Grid> */}
                 </Grid>
               </RadioGroup>
             </FormControl>

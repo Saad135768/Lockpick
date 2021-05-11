@@ -7,12 +7,14 @@ import { useForm } from 'react-hook-form'
 import { withSnackbar } from 'notistack'
 import { useMutation } from '@apollo/react-hooks'
 import { EDIT_CUSTOMER } from './../../../../commonData'
+import { states, countries } from '../../../../constants'
 
 const ShippingDetails = ({
   setView,
   setcheckoutValues,
   checkoutValues,
   setExpandDeleiveryAccordion,
+  FedEx,
   ...props
 }) => {
   const { handleSubmit, errors, register } = useForm({ mode: 'onBlur' })
@@ -24,6 +26,7 @@ const ShippingDetails = ({
     try {
       await editCustomer({ variables: { name, phone, address: { ...values } } })
       setcheckoutValues({ name, phone, ...values })
+      await FedEx()
       props.enqueueSnackbar('Your data has been updated', { variant: 'success' })
       setView()
       setExpandDeleiveryAccordion(true)
@@ -83,20 +86,40 @@ const ShippingDetails = ({
             <Grid container spacing={3}>
               <Grid item lg={6} md={6} sm={6} xs={12}>
                 <span> *Country</span>
-                <input
+                <select 
+                  className={`${classes.CheckoutInput} select`}
                   ref={register({ required: 'This field is required' })}
-                  name="country"
-                  className={classes.CheckoutInput}
-                  placeholder="Country"
-                  type="text"
+                  name='country'
                   defaultValue={checkoutValues?.country}
-                />
+                >
+                <option value="" selected={!!!checkoutValues?.country} disabled hidden>
+                  *Country
+                </option>
+                  {countries.map((state) => <option value={state.code}>{state.name}</option>)}
+                </select>
                 {errors.country && (
                   <p className={classes.errorMsg}>{errors.country.message}</p>
                 )}
               </Grid>
               <Grid item lg={6} md={6} sm={6} xs={12}>
-                <span> *City</span>
+              <span> *State</span>
+                <select 
+                  className={`${classes.CheckoutInput} select`}
+                  ref={register({ required: 'This field is required' })}
+                  name='state'
+                  defaultValue={checkoutValues?.state}
+                >
+                <option value="" selected={!!!checkoutValues?.state} disabled hidden>
+                  *State
+                </option>
+                  {states.map((state) => <option value={state.code}>{state.name}</option>)}
+                </select>
+                {errors.state && (
+                  <p className={classes.errorMsg}>{errors.state.message}</p>
+                )}
+              </Grid>
+              <Grid item lg={6} md={6} sm={6} xs={12}>
+              <span> *City</span>
                 <input
                   ref={register({ required: 'This field is required' })}
                   name="city"
@@ -107,20 +130,6 @@ const ShippingDetails = ({
                 />
                 {errors.city && (
                   <p className={classes.errorMsg}>{errors.city.message}</p>
-                )}
-              </Grid>
-              <Grid item lg={6} md={6} sm={6} xs={12}>
-                <span> *State</span>
-                <input
-                  ref={register({ required: 'This field is required' })}
-                  name="state"
-                  className={classes.CheckoutInput}
-                  placeholder="State"
-                  type="text"
-                  defaultValue={checkoutValues?.state}
-                />
-                {errors.state && (
-                  <p className={classes.errorMsg}>{errors.state.message}</p>
                 )}
               </Grid>
               <Grid item lg={6} md={6} sm={6} xs={12}>

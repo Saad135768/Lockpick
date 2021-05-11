@@ -170,8 +170,16 @@ color:'#fff',
       color: '#fff !important',
       border:'1px solid #fba62f',
     },
+    '& option': {
+      color: 'black',
+    }
+  },
+
+  '.select': {
+    cursor: 'pointer',
   },
   DeliveryMethod:{
+    width: '100%',
     '& fieldset.MuiFormControl-root ': {
       color: '#fff',
       width: '100%',

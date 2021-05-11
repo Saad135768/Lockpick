@@ -9,13 +9,12 @@ import Router from 'next/router'
 import { useMutation } from '@apollo/react-hooks'
 import { withSnackbar } from 'notistack'
 import { pathOr } from 'ramda'
-import Button from '../../../../common/SecondaryButton'
-import Loader from 'react-loader-spinner'
 import { APPLY_PROMOCODE } from '../../../../commonData'
 
-const CheckoutSummary = ({ setPromocode, promoCode, shippingRate, ...props }) => {
+const CheckoutSummary = ({ setPromocode, promoCode, ...props }) => {
   const total = useStore((state) => state.total)
   const setTotal = useStore((state) => state.setTotal)
+  const shippingRate = useStore((state) => state.shippingRate)
   const cart = useStore((state) => state.cart)
   const cartLength = cart?.variations?.length || 0
 
@@ -23,9 +22,9 @@ const CheckoutSummary = ({ setPromocode, promoCode, shippingRate, ...props }) =>
   const [isPromoApplied, setIsPromoApplied] = useState()
   const [applyPromoCode] = useMutation(APPLY_PROMOCODE)
 
-useEffect(() => {
-  !isPromoApplied && setOriginalPrice(total)
-}, [total])
+  useEffect(() => {
+    !isPromoApplied && setOriginalPrice(total)
+  }, [total])
 
   const ApplyPromocode = async () => {
     try{

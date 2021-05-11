@@ -9,6 +9,7 @@ import { withSnackbar } from 'notistack'
 import { REGISTER_MUTATION } from '../../data'
 import { FaUserPlus } from 'react-icons/fa'
 import useStore from '../../../../store'
+import { states, countries } from '../../../../constants'
 
 const CustomizedDialogs = props => {
   const openModal = useStore(state => state.openModal)
@@ -162,17 +163,32 @@ const CustomizedDialogs = props => {
               {errors.phone && (
                 <p className={classes.errorMsg}>{errors.phone.message}</p>
               )}
-              <input
-                name="country"
-                className={classes.LoginInput}
-                placeholder="* Country"
-                type="text"
-                ref={register({ required: 'This field is required' })}
-              />
+             <select 
+                  className={classes.LoginInput}
+                  ref={register({ required: 'This field is required' })}
+                  name='country'
+                >
+                <option value="" selected disabled hidden>
+                  *Country
+                </option>
+                  {countries.map((state) => <option value={state.code}>{state.name}</option>)}
+                </select>
               {errors.country && (
                 <p className={classes.errorMsg}>{errors.country.message}</p>
               )}
-
+              <select 
+                  className={classes.LoginInput}
+                  ref={register({ required: 'This field is required' })}
+                  name='state'
+                >
+                <option value="" selected disabled hidden>
+                  *State
+                </option>
+                  {states.map((state) => <option value={state.code}>{state.name}</option>)}
+                </select>
+              {errors.state && (
+                <p className={classes.errorMsg}>{errors.state.message}</p>
+              )}
               <input
                 name="city"
                 className={classes.LoginInput}
@@ -184,16 +200,7 @@ const CustomizedDialogs = props => {
                 <p className={classes.errorMsg}>{errors.city.message}</p>
               )}
 
-              <input
-                name="state"
-                className={classes.LoginInput}
-                placeholder="* State"
-                type="text"
-                ref={register({ required: 'This field is required' })}
-              />
-              {errors.state && (
-                <p className={classes.errorMsg}>{errors.state.message}</p>
-              )}
+           
               <input
                 name="street"
                 className={classes.LoginInput}

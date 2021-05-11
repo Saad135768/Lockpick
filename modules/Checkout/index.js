@@ -13,18 +13,17 @@ import DeliveryMethod from './components/DeliveryDetails'
 import Cookies from 'js-cookie'
 import { AiOutlineCheck } from 'react-icons/ai'
 import { useQuery, useMutation } from '@apollo/react-hooks'
-import { GET_CURRENT_CUSTOMER } from '../Auth/data'
-import { CREATE_ORDER, FEDEX } from './data'
+import { CREATE_ORDER } from './data'
 import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
 import Router from 'next/router'
 import useStore from '../../store'
 import PayPal from './components/PayPal'
+import { GET_CART, FEDEX } from '../../commonData'
 
 const Checkout = (props) => {
 
-  const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache' })
-  let shippingRate = 0
+  const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
   const [promoCode, setPromocode] = useState()
   const [paypal, setPaypal] = useState(false)
 
@@ -35,7 +34,9 @@ const Checkout = (props) => {
 
   const [checkoutValues, setcheckoutValues] = useState()
   const [paymentMethod, setPaymentMethod] = useState('cash')
-  const [shippingMethod, setShippingMethod] = useState()
+  const [shippingMethod, setShippingMethod] = useState('normal')
+
+  const [orderId, setOrderId] = useState()
 
   // Accordions state
   const [expandShippingAccordion, setExpandShippingAccordion] = useState(true)
@@ -44,6 +45,8 @@ const Checkout = (props) => {
   const [expandlastAccordion, setExpandlastAccordion] = useState()
 
   const setCart = useStore((state) => state.setCart)
+  const setShippingRate = useStore((state) => state.setShippingRate)
+  const shippingRate = useStore((state) => state.shippingRate)
 
   const name = R.pathOr('', ['getCurrentCustomer', 'name'], data)
   const email = R.pathOr('', ['getCurrentCustomer', 'email'], data)
@@ -69,18 +72,19 @@ const Checkout = (props) => {
         paymentMethod: paymentMethod === 'cash' ? 'cash' : 'visa',
         shippingMethod,
         promoCode,
-        shippingCost: shippingRate
+        shippingCost: shippingRate,
       }
       if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
       const res = await createOrder({ variables: { ...orderFields } })
       if (paymentMethod === 'Credit/Debit Cards') {
         Router.push({ pathname: `/paypal/${res.data.addOrder._id}` })
       }
-      // if (paymentMethod === 'paypal'){
+      if (paymentMethod === 'paypal'){
 
-      //   Router.push({ pathname: '/paypal' ,query: `orderId=${res.data.addOrder.orderId}` })
-      //   setPaypal(true)
-      // }
+        // Router.push({ pathname: '/checkout', query: `orderId=${res.data.addOrder.orderId}` })
+        setOrderId(res.data.addOrder.orderId)
+        setPaypal(true)
+      }
       if (paymentMethod === 'cash') {
         props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
         setCart([])
@@ -99,10 +103,11 @@ const Checkout = (props) => {
    // FedEx mutation
    const [getFedExRate] = useMutation(FEDEX)
 
-   const FedEx = async() => {
-    try{
-      const res = await getFedExRate({ variables: { items: [{ weight: 1.00 }], customerName: name, customerAddress: address  } })
-      shippingRate = res.data.getFedExRate.rate
+   const FedEx = async () => {
+     const items = R.pathOr([], ['getCurrentCustomer', 'cart', 'variations'], data).map((v) => ({ quantity: v.quantity, weight: Number(v.variation.product.weight.toFixed(2))}))
+     try{
+      const res = await getFedExRate({ variables: { items, customerName: name, customerAddress: R.omit(['name', 'phone', 'address1'], checkoutValues) } })
+      setShippingRate(res.data.getFedExRate.rate)
     } catch (error) {
       if (error?.graphQLErrors) {
         props.enqueueSnackbar(error.graphQLErrors[0].message, {
@@ -162,6 +167,7 @@ const Checkout = (props) => {
                             setView={setView}
                             setcheckoutValues={setcheckoutValues}
                             setExpandDeleiveryAccordion={setExpandDeleiveryAccordion}
+                            FedEx={FedEx}
                           />
                         ) : (
                           <EditShipping
@@ -181,9 +187,11 @@ const Checkout = (props) => {
                         </h5>
                       </AccordionSummary>
                       {
-                        view2 ? (<EditDelivery
+                        view2 ? (
+                        <EditDelivery
                           shippingMethod={shippingMethod}
                           setView2={setView2}
+                          shippingRate={shippingRate}
                         />) : (
                           <DeliveryMethod
                             shippingMethod={shippingMethod}
@@ -191,6 +199,7 @@ const Checkout = (props) => {
                             setView2={setView2}
                             setExpandPaymentAccordion={setExpandPaymentAccordion}
                             setExpandlastAccordion={setExpandlastAccordion}
+                            shippingRate={shippingRate}
                           />
                         )
                       }
@@ -227,7 +236,7 @@ const Checkout = (props) => {
                         </h5>
                       </AccordionSummary>
                       <AccordionDetails>
-                {/* { paypal && <PayPal /> } */}
+                { paypal && <PayPal orderId={orderId} /> }
                    
                         <a>
                           <Button onClick={CreateOrder}>
@@ -250,7 +259,6 @@ const Checkout = (props) => {
                 <CheckoutSummary 
                   setPromocode={setPromocode}
                   promoCode={promoCode}
-                  shippingRate={shippingRate}
                 />
               </Grid>
             </Grid>

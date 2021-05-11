@@ -3,6 +3,8 @@ import create from 'zustand'
     const useStore = create(set => ({
         total: 0,
         setTotal: (total) =>  set((state) => ({ ...state, total })),
+        shippingRate: 0,
+        setShippingRate: (shippingRate) =>  set((state) => ({ ...state, shippingRate })),
         cart: [],
         setCart: (cart) => set((state) => ({ ...state, cart })),
         openModal: 0,

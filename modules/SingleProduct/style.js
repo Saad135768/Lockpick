@@ -62,6 +62,7 @@ fontFmily: 'Poppins-Regular',
 
   },
   AboutHolder: {
+    fontWeight: 'inherit !important',
     margin:'100px 0',
     '& img': {
      

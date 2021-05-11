@@ -8,7 +8,7 @@ import { pathOr } from 'ramda'
 
 const OrderSummary = (props) => {
   const total = useStore((state) => state.total)
-
+  const shippingRate = useStore((state) => state.shippingRate)
   const cart = useStore((state) => state.cart)
   const classes = useStyles()
 
@@ -22,7 +22,7 @@ const OrderSummary = (props) => {
             <h3> Subtotal</h3>
           </div>
           <div>
-            <h4>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
+            <h4>${(total + shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h4>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>
@@ -30,12 +30,12 @@ const OrderSummary = (props) => {
             <h3> Shipping</h3>
           </div>
           <div>
-            <p> FREE</p>
+            <p> ${shippingRate?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
-        <div className={classes.OrderSummaryInformation}>
+        {/* <div className={classes.OrderSummaryInformation}>
           <p> USA ( destination information )</p>
-        </div>
+        </div> */}
         <div className={classes.OrderSummaryFlex}>
           <div>
             <h3> Sales Tax</h3>
@@ -51,7 +51,7 @@ const OrderSummary = (props) => {
           <h3>Total</h3>
         </div>
         <div>
-          <p className={classes.total}>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
+          <p className={classes.total}>${(total + shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} </p>
         </div>
       </div>
         <a>

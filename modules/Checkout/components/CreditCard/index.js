@@ -37,7 +37,7 @@ const CreditCard = props => {
   }) => {
     const m = +new Date(values.expiryDate).getMonth() + 1
     const year = new Date(values.expiryDate).getFullYear().toLocaleString().slice(-2)
-    const month = m.length == 1 ? `0${m}` : m
+    const month = m.toLocaleString().length == 1 ? `0${m}` : m
     const expiryDate = `${month}${year}`
     
     try {  

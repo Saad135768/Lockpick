@@ -3,8 +3,8 @@ import useStyles from './style'
 import { IoIosClose } from 'react-icons/io'
 import NumericInput from 'react-numeric-input'
 import { useQuery, useMutation } from '@apollo/react-hooks'
-import { GET_CART, UPDATE_CART_ITEM } from './../../../../commonData'
-import { pathOr } from 'ramda'
+import { GET_CART, UPDATE_CART_ITEM, FEDEX } from './../../../../commonData'
+import { pathOr, omit } from 'ramda'
 import { withSnackbar } from 'notistack'
 import Button from '../../../../common/Button'
 import Router, { useRouter } from 'next/router'
@@ -14,18 +14,41 @@ const CartData = (props) => {
   const { pathname } = useRouter()
 
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
+  const [getFedExRate] = useMutation(FEDEX)
   const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
 
   const total = useStore((state) => state.total)
   const setTotal = useStore((state) => state.setTotal)
-
+  const setShippingRate = useStore((state) => state.setShippingRate)
+  const shippingRate = useStore((state) => state.shippingRate)
   const cart = useStore((state) => state.cart)
   const setCart = useStore((state) => state.setCart)
+
+  const name = pathOr('', ['getCurrentCustomer', 'name'], data)
+  const address = pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
+
+  const FedEx = async () => {
+    const items = pathOr([], ['getCurrentCustomer', 'cart', 'variations'], data).map((v) => ({ quantity: v.quantity, weight: Number(v.variation.product.weight.toFixed(2))}))
+    try{
+    const res = await getFedExRate({ variables: { items, customerName: name, customerAddress: omit(['name', 'phone', 'address1'], address) } })
+    setShippingRate(res.data.getFedExRate.rate)
+  } catch (error) {
+    if (error?.graphQLErrors) {
+      props.enqueueSnackbar(error.graphQLErrors[0].message, {
+        variant: 'error',
+      })
+    } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+  }
+  }
+
+  useEffect(() => {
+    if (data && !shippingRate) FedEx()
+  }, [data])
+
 
   useEffect(() => {
     if (data) setCart(pathOr([], ['getCurrentCustomer', 'cart'], data))
   }, [data])
-
 
   useEffect(() => {
     const finalPrice = cart?.variations?.reduce((a, b) => {

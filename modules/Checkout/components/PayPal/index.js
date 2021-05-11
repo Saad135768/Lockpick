@@ -3,9 +3,9 @@ import { GET_PAYPAL_TOKEN, PAYPAL } from '../../data'
 import { useMutation } from '@apollo/react-hooks'
 import { useRouter } from 'next/router'
 
-const PayPal = (props) => {
+const PayPal = ({ orderId, ...props }) => {
     const query = useRouter().query
-    const { orderId } = query
+    // const { orderId } = query
     const [isPayPalRendered, setIsPayPalRendered] = useState()
     const [token, setToken] = useState()
     const [getPayPalToken] = useMutation(GET_PAYPAL_TOKEN)
@@ -13,7 +13,7 @@ const PayPal = (props) => {
     console.log('paypal rendered')
     const GetPayPalToken = async () => {
         try{
-           const res = await getPayPalToken({ variables: { orderId } })
+           const res = await getPayPalToken({ variables: { orderId, redirectUrl: 'http://localhost:3000/order', redirectUrlCancel: 'http://localhost:3000' } })
            const paypalToken = res.data.GetPayPalToken.token
            setToken(paypalToken)
            return paypalToken

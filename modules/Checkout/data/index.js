@@ -161,8 +161,8 @@ export const PAY_WITH_PAYPAL = gql`
 `
 
 export const GET_PAYPAL_TOKEN = gql`
-  mutation GetPayPalToken($orderId: ID!) {
-    GetPayPalToken(orderId: $orderId) {
+  mutation GetPayPalToken($orderId: ID! $redirectUrl: String! $redirectUrlCancel: String!) {
+    GetPayPalToken(orderId: $orderId redirectUrl: $redirectUrl redirectUrlCancel: $redirectUrlCancel) {
       token
     }
   }
@@ -175,19 +175,4 @@ export const PAYPAL = gql`
       }
     }
   }
-`
-export const FEDEX = gql`
-  mutation getFedExRate (
-    $items: [FedExItemsInput]
-    $customerName: String 
-    $customerAddress: OrderAddressInput
-    ){
-      getFedExRate(
-        items: $items 
-        customerName: $customerName
-        customerAddress: $customerAddress
-        ){
-          rate
-        }
-    }
 `
