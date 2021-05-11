@@ -191,7 +191,6 @@ const Checkout = (props) => {
                         <EditDelivery
                           shippingMethod={shippingMethod}
                           setView2={setView2}
-                          shippingRate={shippingRate}
                         />) : (
                           <DeliveryMethod
                             shippingMethod={shippingMethod}
@@ -199,7 +198,6 @@ const Checkout = (props) => {
                             setView2={setView2}
                             setExpandPaymentAccordion={setExpandPaymentAccordion}
                             setExpandlastAccordion={setExpandlastAccordion}
-                            shippingRate={shippingRate}
                           />
                         )
                       }

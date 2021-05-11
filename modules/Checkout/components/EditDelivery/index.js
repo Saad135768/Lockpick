@@ -1,13 +1,14 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import useStyles from '../../../Checkout/style'
+import useStore from '../../../../store'
 
 const EditDelivery = ({ setView2, shippingMethod }) => {
 
   const editdelivery = () => {
     setView2(false)
   }
-
+  const shippingRate = useStore((state) => state.shippingRate)
   const classes = useStyles()
 
   return (

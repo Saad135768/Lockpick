@@ -8,6 +8,7 @@ import FormControl from '@material-ui/core/FormControl'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import Radio from '@material-ui/core/Radio'
 import { withSnackbar } from 'notistack'
+import useStore from '../../../../store'
 
 const DeliveryMethod = ({
   setView2,
@@ -15,9 +16,9 @@ const DeliveryMethod = ({
   shippingMethod,
   setExpandPaymentAccordion,
   setExpandlastAccordion,
-  shippingRate,
   ...props
 }) => {
+  const shippingRate = useStore((state) => state.shippingRate)
   const classes = useStyles()
   const handleChange = event => {
     setShippingMethod(event.target.value)
