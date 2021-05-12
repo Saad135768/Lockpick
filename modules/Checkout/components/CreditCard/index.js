@@ -22,7 +22,8 @@ const CreditCard = props => {
 
   const setCart = useStore(state => state.setCart)
   const total = useStore((state) => state.total)
-  
+  const shippingRate = useStore((state) => state.shippingRate)
+
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
   const variations = pathOr([], ['order', 'getOrder', 'variations'], props)
 
@@ -107,7 +108,7 @@ const CreditCard = props => {
                 })}
                 <div className={classes.FormTotal}>
                   <h2>
-                    Total: <b>${total?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</b>
+                    Total: <b>${(total + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</b>
                   </h2>
                 </div>
             </div>

@@ -72,7 +72,7 @@ const Checkout = (props) => {
         paymentMethod: paymentMethod === 'cash' ? 'cash' : 'visa',
         shippingMethod,
         promoCode,
-        shippingCost: shippingRate,
+        shippingCost: +shippingRate.toFixed(2),
       }
       if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
       const res = await createOrder({ variables: { ...orderFields } })

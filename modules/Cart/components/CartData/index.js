@@ -27,6 +27,8 @@ const CartData = (props) => {
   const name = pathOr('', ['getCurrentCustomer', 'name'], data)
   const address = pathOr({}, ['getCurrentCustomer', 'address', '0'], data)
 
+  const cartLength = !!pathOr(0, ['variations', 'length'], cart)
+
   const FedEx = async () => {
     const items = pathOr([], ['getCurrentCustomer', 'cart', 'variations'], data).map((v) => ({ quantity: v.quantity, weight: Number(v.variation.product.weight.toFixed(2))}))
     try{
@@ -40,10 +42,12 @@ const CartData = (props) => {
     } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
   }
   }
-
+console.log({ cart })
   useEffect(() => {
-    if (data && !shippingRate) FedEx()
-  }, [data])
+    // this is to call the fedex mutation as soon as the cart page loads 
+    if (data && !shippingRate && cartLength) return FedEx()
+    if (!cartLength) setShippingRate(0)
+  }, [data, cart])
 
 
   useEffect(() => {
@@ -61,8 +65,6 @@ const CartData = (props) => {
     setTotal(finalPrice)
 
   }, [cart])
-
-  const cartLength = !!(cart?.variations?.length)
 
   // Add to cart mutation
   const AddToCart = async (variation, quantity, message) => {

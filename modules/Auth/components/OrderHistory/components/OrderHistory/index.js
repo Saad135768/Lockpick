@@ -22,6 +22,8 @@ const OrderHistory = ({ data, ...props }) => {
     variables: { _id },
   })
   const date = pathOr(0, ['shippingDate'], getOrderData)
+  const total = pathOr(0, ['totals', 'total'], data)
+  const shippingCost = pathOr(0, ['totals', 'shipping'], data)
   const setOpenModal = useStore((state) => state.setOpenModal)
   const classes = useStyles()
   return (
@@ -81,7 +83,7 @@ const OrderHistory = ({ data, ...props }) => {
                   <span>
                     {' '}
                     $
-                    {pathOr(0, ['totals', 'total'], data)
+                    {(total + +shippingCost)
                       .toFixed(2)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
                   </span>

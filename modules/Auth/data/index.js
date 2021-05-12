@@ -158,6 +158,7 @@ query getOrders($status: String) {
       shippingDate
       totals{
         total
+        shipping
       }
       
     }
