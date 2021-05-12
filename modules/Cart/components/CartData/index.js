@@ -97,7 +97,7 @@ console.log({ cart })
           const img = pathOr('', ['variation', 'product', 'images', '0'], variation)
           return (
             <Fragment key={variationsId}>
-              <tr key={variationsId}>
+              <tr>
                 <td className={`${classes.imageTable} imageTable`}>
                   <img src={img} onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>

@@ -171,7 +171,7 @@ const CustomizedDialogs = props => {
                 <option value="" selected disabled hidden>
                   *Country
                 </option>
-                  {countries.map((state) => <option value={state.code}>{state.name}</option>)}
+                  {countries.map((state) => <option value={state.code} key={state.code}>{state.name}</option>)}
                 </select>
               {errors.country && (
                 <p className={classes.errorMsg}>{errors.country.message}</p>
@@ -184,7 +184,7 @@ const CustomizedDialogs = props => {
                 <option value="" selected disabled hidden>
                   *State
                 </option>
-                  {states.map((state) => <option value={state.code}>{state.name}</option>)}
+                  {states.map((state) => <option value={state.code} key={state.code}>{state.name}</option>)}
                 </select>
               {errors.state && (
                 <p className={classes.errorMsg}>{errors.state.message}</p>

@@ -297,6 +297,13 @@ SingleProductHead:{
         borderTop: '1px solid #4672d3',
 
       },
+      '& a': {
+        textDecoration: 'underline',
+        color: 'blue !important',
+      },
+      '& strong': {
+        fontWeight: 'bold',
+      },
     },
 }))
 

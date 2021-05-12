@@ -18,14 +18,12 @@ import * as R from 'ramda'
 import { withSnackbar } from 'notistack'
 import Router from 'next/router'
 import useStore from '../../store'
-import PayPal from './components/PayPal'
 import { GET_CART, FEDEX } from '../../commonData'
 
 const Checkout = (props) => {
 
   const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
   const [promoCode, setPromocode] = useState()
-  const [paypal, setPaypal] = useState(false)
 
   // Those are the states that toggle between components [shipping details, deleivery and payments methods]
   const [view, setView] = useState(true)
@@ -81,9 +79,10 @@ const Checkout = (props) => {
       }
       if (paymentMethod === 'paypal'){
 
-        // Router.push({ pathname: '/checkout', query: `orderId=${res.data.addOrder.orderId}` })
+        Router.push({ pathname: `/paypal/${res.data.addOrder._id}`, query: {
+          // orderId: res.data.addOrder.orderId,
+           isPaypal: 'true'} })
         setOrderId(res.data.addOrder.orderId)
-        setPaypal(true)
       }
       if (paymentMethod === 'cash') {
         props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
@@ -234,7 +233,6 @@ const Checkout = (props) => {
                         </h5>
                       </AccordionSummary>
                       <AccordionDetails>
-                { paypal && <PayPal orderId={orderId} /> }
                    
                         <a>
                           <Button onClick={CreateOrder}>

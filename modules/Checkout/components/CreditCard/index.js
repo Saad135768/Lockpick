@@ -3,13 +3,14 @@ import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import useStyles from './style'
 import Button from '../../../../common/Button'
+import Loader from 'react-loader-spinner'
 import PayPal from '../PayPal'
 import { useForm, Controller } from 'react-hook-form'
 import { useMutation } from '@apollo/react-hooks'
 import { PAY_WITH_PAYPAL } from '../../data'
 import { withSnackbar } from 'notistack'
 import { pathOr, propOr } from 'ramda'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import useStore from '../../../../store'
 import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers"
 import DateFnsUtils from "@date-io/date-fns"
@@ -19,7 +20,8 @@ const CreditCard = props => {
   const [selectedDate, setSelectedDate] = useState(
     new Date(`${new Date().getFullYear()}-08-18T21:11:54`)
   )
-
+  const isPaypal = pathOr('', ['query', 'isPaypal'], useRouter())
+  
   const setCart = useStore(state => state.setCart)
   const total = useStore((state) => state.total)
   const shippingRate = useStore((state) => state.shippingRate)
@@ -27,7 +29,7 @@ const CreditCard = props => {
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
   const variations = pathOr([], ['order', 'getOrder', 'variations'], props)
 
-  const [payWithPaypal] = useMutation(PAY_WITH_PAYPAL)
+  const [payWithPaypal, { loading }] = useMutation(PAY_WITH_PAYPAL)
 
   const PayWithPayPal = async ({
     firstName,
@@ -70,6 +72,7 @@ const CreditCard = props => {
   const handleDateChange = (date) => {
     setSelectedDate(date)
   }
+  const checkIfPaypal = (paypal, notPaypal) => (isPaypal === 'true' ? paypal : notPaypal)
   const classes = useStyles()
 
   return (
@@ -119,6 +122,7 @@ const CreditCard = props => {
                 <div className={classes.PaymentMethod}>
                   <h1> Payment Method</h1>
                 </div>
+                {checkIfPaypal(<PayPal />,
                 <div className={classes.FormContent}>
                   <img src="../../static/images/checkout/visa2.png" />
 
@@ -219,8 +223,13 @@ const CreditCard = props => {
                       </div>
                     </div>
                   </div>
-                  <Button> Submit</Button>
-                </div>
+                  <Button>{loading ? <Loader
+                            type="Oval"
+                            color="#fff"
+                            height={30}
+                            width={30}
+                          /> : 'Submit' }</Button>
+                </div>)}
               </div>
             </form>
           </Grid>

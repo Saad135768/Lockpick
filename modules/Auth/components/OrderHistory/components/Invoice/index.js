@@ -17,8 +17,8 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
   }
 
   const date = propOr(0, ['shippingDate'], invoice)
-  const shippingCost = pathOr(0, ['totals', 'shipping'], invoice)
-  // const shippingRate = useStore((state) => state.shippingRate)
+  // const shippingCost = pathOr(0, ['totals', 'shipping'], invoice)
+  const shippingRate = useStore((state) => state.shippingRate)
   const subtotal = pathOr([], ['variations'], invoice).reduce((a, b) => {
     return propOr(0, ['total'], b) + a
   }, 0)
@@ -242,7 +242,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                         <Grid item md={5}>
                           <h4>
 
-                            ${shippingCost
+                            ${shippingRate
                               ?.toFixed(2)
                               .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                           </h4>
@@ -255,7 +255,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                       <h5>
                         Total cost:
                     <b>
-                          ${(+subtotal + +shippingCost)
+                          ${(+subtotal + +shippingRate)
                             ?.toFixed(2)
                             .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                         </b>
