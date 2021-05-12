@@ -10,32 +10,33 @@ import { useForm } from 'react-hook-form'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_CURRENT_CUSTOMER } from '../../data'
 import { EDIT_CUSTOMER } from './../../../../commonData/'
-
+import { states, countries } from '../../../../constants'
 
 const CustomizedDialogs = (props) => {
   const { register, handleSubmit, errors, formState } = useForm({ mode: 'onBlur' })
   const { isDirty } = formState
-  const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache'})
+  const { data } = useQuery(GET_CURRENT_CUSTOMER, { fetchPolicy: 'no-cache' })
   const openModal = useStore((state) => state.openModal)
   const setOpenModal = useStore((state) => state.setOpenModal)
 
   const [editCustomer] = useMutation(EDIT_CUSTOMER)
 
   const EditCustomer = async ({ name, phone, ...values }) => {
-    try{
-      if(isDirty) {
-        await editCustomer({ variables: { name, phone, address: {...values} }})
+    try {
+      if (isDirty) {
+        await editCustomer({ variables: { name, phone, address: { ...values } } })
         props.enqueueSnackbar('Your data has been updated', { variant: 'success' })
         setOpenModal()
       }
     } catch (error) {
-    if (error?.graphQLErrors) {
-      props.enqueueSnackbar(error.graphQLErrors[0].message, {
-        variant: 'error',
-      })
-    } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+      if (error?.graphQLErrors) {
+        props.enqueueSnackbar(error.graphQLErrors[0].message, {
+          variant: 'error',
+        })
+      } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
+    }
   }
-  }
+
   const classes = useStyles()
   return (
     <div>
@@ -53,7 +54,7 @@ const CustomizedDialogs = (props) => {
                 src="../../static/images/white-logo.png"
               />
               <DialogTitle id="form-dialog-title">
-                <h3> Hello { data?.getCurrentCustomer?.name } </h3>
+                <h3> Hello {data?.getCurrentCustomer?.name} </h3>
               </DialogTitle>
               <Button className="NotActive" type='button' onClick={() => setOpenModal(5)}> Order History</Button>
               <Button onClick={() => setOpenModal(4)}>Account Information</Button>
@@ -74,11 +75,11 @@ const CustomizedDialogs = (props) => {
                 placeholder="* Full Name"
                 type="text"
                 defaultValue={data?.getCurrentCustomer?.name}
-               ref={register({ required: 'This field is required' })}
+                ref={register({ required: 'This field is required' })}
               />
-              {errors.name && ( 
-               <p className={classes.errorMsg}>{errors.name.message}</p> 
-              )} 
+              {errors.name && (
+                <p className={classes.errorMsg}>{errors.name.message}</p>
+              )}
 
               <input
                 name="email"
@@ -87,21 +88,11 @@ const CustomizedDialogs = (props) => {
                 type="email"
                 disabled
                 defaultValue={data?.getCurrentCustomer?.email}
-               ref={register({ required: 'This field is required' })}
-              />
-              {errors.email && ( 
-               <p className={classes.errorMsg}>{errors.email.message}</p> 
-              )} 
-              {/* <input
-                name="password"
-                className={classes.LoginInput}
-                placeholder="* password"
-                type="password"
                 ref={register({ required: 'This field is required' })}
-              /> 
-              {errors.password && ( 
-               <p className={classes.errorMsg}>{errors.password.message}</p> 
-              )}  */}
+              />
+              {errors.email && (
+                <p className={classes.errorMsg}>{errors.email.message}</p>
+              )}
 
               <input
                 name="phone"
@@ -109,22 +100,25 @@ const CustomizedDialogs = (props) => {
                 placeholder="* Phone"
                 type="tel"
                 defaultValue={data?.getCurrentCustomer?.phone}
-               ref={register({ required: 'This field is required' })}
+                ref={register({ required: 'This field is required' })}
               />
-              {errors.phone && ( 
-               <p className={classes.errorMsg}>{errors.phone.message}</p> 
-              )} 
-              <input
-                name="country"
+              {errors.phone && (
+                <p className={classes.errorMsg}>{errors.phone.message}</p>
+              )}
+              <select
                 className={classes.LoginInput}
-                placeholder="* Country"
-                type="text"
+                ref={register({ required: 'This field is required' })}
+                name='country'
                 defaultValue={data?.getCurrentCustomer?.address[0]?.country}
-               ref={register({ required: 'This field is required' })}
-              />
-              {errors.country && ( 
-                 <p className={classes.errorMsg}>{errors.country.message}</p> 
-              )} 
+              >
+                {/* <option value="" selected disabled hidden>
+                  *Country
+                </option> */}
+                {countries.map((state) => <option value={state.code}>{state.name}</option>)}
+              </select>
+              {errors.country && (
+                <p className={classes.errorMsg}>{errors.country.message}</p>
+              )}
 
               <input
                 name="city"
@@ -137,18 +131,21 @@ const CustomizedDialogs = (props) => {
               {errors.city && (
                 <p className={classes.errorMsg}>{errors.city.message}</p>
               )}
-
-              <input
-                name="state"
+              <select
                 className={classes.LoginInput}
-                placeholder="* State"
-                type="text"
-                defaultValue={data?.getCurrentCustomer?.address[0].state}
                 ref={register({ required: 'This field is required' })}
-              />
+                name='state'
+                defaultValue={data?.getCurrentCustomer?.address[0]?.state}
+              >
+                {/* <option value="" selected disabled hidden>
+                  *State
+                </option> */}
+                {states.map((state) => <option value={state.code}>{state.name}</option>)}
+              </select>
               {errors.state && (
                 <p className={classes.errorMsg}>{errors.state.message}</p>
               )}
+
               <input
                 name="street"
                 className={classes.LoginInput}
@@ -171,9 +168,9 @@ const CustomizedDialogs = (props) => {
               {errors.postalCode && (
                 <p className={classes.errorMsg}>{errors.postalCode.message}</p>
               )}
-               <div className={classes.SaveBtn}>
-               <Button type='submit'>Save </Button>
-               </div>
+              <div className={classes.SaveBtn}>
+                <Button type='submit'>Save </Button>
+              </div>
 
             </div>
           </div>
