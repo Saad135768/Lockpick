@@ -72,12 +72,10 @@ const CheckoutSummary = ({ setPromocode, promoCode, ...props }) => {
          <CartData />
       
         <div className={classes.promocode}>
-          <div>
             <input placeholder='Enter a promo code' disabled={isPromoApplied} onChange={(e) => setPromocode(e.target.value)} />
-            <button onClick={ApplyPromocode}>
-              {isPromoApplied ? <AiOutlineCheck/ > : 'Apply promo code'}
-            </button>
-          </div>
+            <div onClick={ApplyPromocode}>
+              {isPromoApplied ? <button className={classes.promoAdd}> <AiOutlineCheck/> Promo Added</button> : <button> Apply promo code</button>}
+            </div>
         </div>
 
         <div className={classes.OrderSummaryFlex}>

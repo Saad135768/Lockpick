@@ -68,6 +68,7 @@ const CustomizedDialogs = (props) => {
 
             </div>
             <div className={classes.Right}>
+            <div className={classes.RightContent}>
 
               <input
                 name="name"
@@ -168,10 +169,10 @@ const CustomizedDialogs = (props) => {
               {errors.postalCode && (
                 <p className={classes.errorMsg}>{errors.postalCode.message}</p>
               )}
-              <div className={classes.SaveBtn}>
-                <Button type='submit'>Save </Button>
-              </div>
-
+               <div className={classes.SaveBtn}>
+               <Button type='submit'>Save </Button>
+               </div>
+               </div>
             </div>
           </div>
         </form>

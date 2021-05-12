@@ -219,7 +219,7 @@ SingleProductHead:{
       },
       '& li': {
         color: '#fff',
-        fontSize: 25,
+        fontSize: 23,
         fontFamily: 'Poppins-Regular',
 
         '&::before': {
@@ -229,6 +229,7 @@ SingleProductHead:{
           width: '10px',
           height:'10px',
           marginLeft: '0',
+          marginRight: 5,
           borderRadius: 50,
 
         },
@@ -263,7 +264,7 @@ SingleProductHead:{
       },
       '& li': {
         color: '#fff',
-        fontSize: 25,
+        fontSize: 23,
         fontFamily: 'Poppins-Regular',
 
         '&::before': {
@@ -272,6 +273,7 @@ SingleProductHead:{
           display: 'inline-block',
           width: '10px',
           height:'10px',
+          marginRight:10,
           marginLeft: '0',
           borderRadius: 50,
 
