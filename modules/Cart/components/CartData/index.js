@@ -29,8 +29,8 @@ const CartData = (props) => {
 
   const cartLength = !!pathOr(0, ['variations', 'length'], cart)
 
-  const FedEx = async () => {
-    const items = pathOr([], ['getCurrentCustomer', 'cart', 'variations'], data).map((v) => ({ quantity: v.quantity, weight: Number(v.variation.product.weight.toFixed(2))}))
+  const FedEx = async (data) => {
+    const items = pathOr([], ['variations'], data).map((v) => ({ quantity: v.quantity, weight: Number(v.variation.product.weight.toFixed(2))}))
     try{
     const res = await getFedExRate({ variables: { items, customerName: name, customerAddress: omit(['name', 'phone', 'address1'], address) } })
     setShippingRate(res.data.getFedExRate.rate)
@@ -42,10 +42,10 @@ const CartData = (props) => {
     } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
   }
   }
-console.log({ cart })
+  
   useEffect(() => {
     // this is to call the fedex mutation as soon as the cart page loads 
-    if (data && !shippingRate && cartLength) return FedEx()
+    if (data && !shippingRate && cartLength) return FedEx(data.getCurrentCustomer.cart)
     if (!cartLength) setShippingRate(0)
   }, [data, cart])
 
@@ -72,6 +72,7 @@ console.log({ cart })
       const res = await updateCartItem({ variables: { variation: { variation, quantity } } })
       props.enqueueSnackbar(message, { variant: 'success' })
       setCart(res.data.updateCartItem)
+      FedEx(res.data.updateCartItem)
     }
     catch (error) {
       if (error.graphQLErrors) {
