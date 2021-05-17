@@ -32,7 +32,7 @@ const MobileMenu = () => {
   const { parsed, pathname } = router
 
   return (
-    <div className={`${classes.MobileMenuHolder} ${pathname.includes('invoice' || 'success')? classes.none : ''}`}>
+    <div className={`${classes.MobileMenuHolder} ${pathname.includes('invoice' || 'order')? classes.none : ''}`}>
 
       <Container maxWidth='lg'>
         <div className={classes.MobileMenuContent}>

@@ -11,7 +11,6 @@ const SuccessPayment = () => {
   const _id = propOr('', ['_id'], router)
 
   const classes = useStyles()
-
   return (
     <div className={classes.SuccessPayment}>
       <Container>

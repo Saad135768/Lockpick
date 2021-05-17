@@ -105,8 +105,6 @@ color: #fba530;
   {
     width: 1280px;
     margin: 0 auto;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
     max-width: 1280px;
     box-shadow: 0 9px 0px 0px #00000069, 0 -9px 0px 0px white, 12px 0 15px -4px rgb(0 0 0 / 20%), -12px 0 15px -4px rgb(0 0 0 / 20%);
   }
