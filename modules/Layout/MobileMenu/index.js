@@ -29,9 +29,11 @@ const MobileMenu = () => {
   const token = Cookies.get('token')
 
   const classes = useStyles()
-  
+  const { parsed, pathname } = router
+
   return (
-    <div className={classes.MobileMenuHolder}>
+    <div className={`${classes.MobileMenuHolder} ${pathname.includes('invoice' || 'success')? classes.none : ''}`}>
+
       <Container maxWidth='lg'>
         <div className={classes.MobileMenuContent}>
           <div className={classes.Logo}>

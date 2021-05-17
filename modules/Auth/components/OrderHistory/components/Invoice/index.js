@@ -26,6 +26,8 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
   const classes = useStyles()
   return (
     <>
+            <div className={classes.InvoiceMain}>
+
       <Grid
         container
         direction="row"
@@ -275,7 +277,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
             </Grid>
           </Grid>
         </div>
-
+        </div>
       </div>
     </>
   )

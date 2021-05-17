@@ -449,6 +449,10 @@ const useStyles = makeStyles(() => ({
 
     
   },
+
+  none: {
+    display: 'none',
+  },
 }))
 
 export default useStyles
