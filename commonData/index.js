@@ -108,6 +108,10 @@ mutation updateCartItem($variation: CartVariationInput!) {
         }
         _id
         product {
+          customAttributes{
+            key
+            value
+          }
           weight
           name {
             en
@@ -186,17 +190,11 @@ export const FEDEX = gql`
     $items: [FedExItemsInput]
     $customerName: String 
     $customerAddress: OrderAddressInput
-    # $height: Float
-    # $length: Float
-    # $width: Float
     ){
       getFedExRate(
         items: $items 
         customerName: $customerName
         customerAddress: $customerAddress
-        # width: $width
-        # length: $length
-        # height: $height
         ){
           rate
         }

@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import useStyles from './style'
 import { IoIosClose } from 'react-icons/io'
 import NumericInput from 'react-numeric-input'
@@ -12,15 +12,16 @@ import useStore from '../../../../store'
 
 const CartData = (props) => {
   const { pathname } = useRouter()
-
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
   const [getFedExRate] = useMutation(FEDEX)
   const { data } = useQuery(GET_CART, { fetchPolicy: 'no-cache' })
 
+  const [changedFlag, setChangedFlag] = useState()
+
   const total = useStore((state) => state.total)
   const setTotal = useStore((state) => state.setTotal)
   const setShippingRate = useStore((state) => state.setShippingRate)
-  const shippingRate = useStore((state) => state.shippingRate)
+
   const cart = useStore((state) => state.cart)
   const setCart = useStore((state) => state.setCart)
 
@@ -30,7 +31,14 @@ const CartData = (props) => {
   const cartLength = !!pathOr(0, ['variations', 'length'], cart)
 
   const FedEx = async (data) => {
-    const items = pathOr([], ['variations'], data).map((v) => ({ quantity: v.quantity, weight: Number(v.variation.product.weight.toFixed(2))}))
+    const items = pathOr([], ['variations'], data).map((v) => {
+      const quantity = v.quantity
+      const weight = +v.variation.product.weight.toFixed(2)
+      const length = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'length').value
+      const width = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'width').value
+      const height = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'height').value
+     return { weight, quantity, length, width, height }
+    })
     try{
     const res = await getFedExRate({ variables: { items, customerName: name, customerAddress: omit(['name', 'phone', 'address1'], address) } })
     setShippingRate(res.data.getFedExRate.rate)
@@ -45,7 +53,7 @@ const CartData = (props) => {
   
   useEffect(() => {
     // this is to call the fedex mutation as soon as the cart page loads 
-    if (data && !shippingRate && cartLength) return FedEx(data.getCurrentCustomer.cart)
+    if (data && !changedFlag && cartLength) return FedEx(data.getCurrentCustomer.cart)
     if (!cartLength) setShippingRate(0)
   }, [data, cart])
 
@@ -70,9 +78,10 @@ const CartData = (props) => {
   const AddToCart = async (variation, quantity, message) => {
     try {
       const res = await updateCartItem({ variables: { variation: { variation, quantity } } })
+      if (res.data.updateCartItem.variations.length) FedEx(res.data.updateCartItem)
+      setChangedFlag(true)
       props.enqueueSnackbar(message, { variant: 'success' })
       setCart(res.data.updateCartItem)
-      FedEx(res.data.updateCartItem)
     }
     catch (error) {
       if (error.graphQLErrors) {

@@ -103,7 +103,15 @@ const Checkout = (props) => {
    const [getFedExRate] = useMutation(FEDEX)
 
    const FedEx = async () => {
-     const items = R.pathOr([], ['getCurrentCustomer', 'cart', 'variations'], data).map((v) => ({ quantity: v.quantity, weight: Number(v.variation.product.weight.toFixed(2))}))
+    const items = pathOr([], ['getCurrentCustomer', 'cart', 'variations'], data).map((v) => {
+      const quantity = v.quantity
+      const weight = +v.variation.product.weight.toFixed(2)
+      const length = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'length').value
+      const width = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'width').value
+      const height = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'height').value
+     return { weight, quantity, length, width, height }
+
+    })
      try{
       const res = await getFedExRate({ variables: { items, customerName: name, customerAddress: R.omit(['name', 'phone', 'address1'], checkoutValues) } })
       setShippingRate(res.data.getFedExRate.rate)
