@@ -1,11 +1,21 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
+  InvoiceMain:{
+    '@media (max-width:1024px)': {
+      '& .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-9': {
+        paddingLeft: 0,
+      },
+    },
+  },
   btn_print: {
     width: 250,
     fontSize: 20,
     fontFamily: 'Poppins-SemiBold',
     marginTop: 100,
+    '@media (max-width:1024px)': {
+      marginTop: 10,
+    },
     color:'#2B313B',
     textTransform: 'Uppercase',
     padding: '10px 20px',
@@ -37,6 +47,18 @@ const useStyles = makeStyles(() => ({
     },
     padding: '160px 0px',
 
+    '@media (max-width:1024px)': {
+      padding: '80px 30px',
+      overflow: 'hidden !important',
+      '& .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-9': {
+        padding: 0,
+
+      },
+      '& .MuiGrid-justify-xs-center': {
+        justifyContent: 'left',
+        padding: 0,
+      },
+    },
     '& table': {
       borderCollapse: 'collapse',
       width: '100%',
@@ -46,6 +68,10 @@ const useStyles = makeStyles(() => ({
       textAlign: 'left',
       padding: 8,
       fontFamily: 'Poppins-SemiBold',
+      '@media (max-width:1024px)': {
+        paddingLeft: 0,
+
+      },
     },
     '& tr th': {
       backgroundColor: '#eee',
@@ -131,6 +157,10 @@ const useStyles = makeStyles(() => ({
       margin: '15px 0',
     },
     margin: '90px 0',
+
+    '@media (max-width:1024px)': {
+      margin: '20px 0',
+    },
   },
   Center: {
     textAlign: 'center !important',
@@ -138,6 +168,9 @@ const useStyles = makeStyles(() => ({
 
   RestTable: {
     marginTop: 30,
+    '@media (max-width:1024px)': {
+      marginTop: 0,
+    },
     '& h3': {
       margin: '0 0',
       fontFamily: 'Poppins-SemiBold',
@@ -172,6 +205,10 @@ const useStyles = makeStyles(() => ({
     '& button': {
       fontSize: 20,
       padding:10,
+      '@media (max-width:1024px)': {
+width:'100%',
+
+      },
     },
     '& svg': {
       fontSize: 25,

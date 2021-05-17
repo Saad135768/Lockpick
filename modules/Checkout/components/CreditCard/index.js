@@ -85,7 +85,7 @@ const CreditCard = props => {
           spacing={0}
           alignItems="left"
         >
-          <Grid item md={4} sm={4} xs={12}>
+          <Grid item md={4} sm={5} xs={12}>
             <div className={classes.PaymentSummary}>
               <h4> Payment Summary</h4>
               

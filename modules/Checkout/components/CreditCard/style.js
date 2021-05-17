@@ -2,6 +2,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
   FormHolder: {
+    minHeight:300,
+    height:650,
+    overflow: 'auto',
     boxShadow:'-4px 2px 12px 3px #00000038',
     '& .MuiAccordion-root:before': {
       borderBottom: 0,
@@ -199,8 +202,10 @@ const useStyles = makeStyles(() => ({
   },
   PaymentSummary:{
     background:'#4c515b',
-    height:'100%',
+    minHeight:300,
+    height:650,
     padding:30,
+    overflow: 'auto',
     '& h4': {
       color: '#fba530',
       fontSize: 22,

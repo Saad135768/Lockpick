@@ -6,6 +6,7 @@ const Order = () => <>
         <title> Lockpick | Order  </title>
     </Head>
     <Orders />
+    
 </>
 
 export default Order

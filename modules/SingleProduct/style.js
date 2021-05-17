@@ -68,7 +68,7 @@ fontFmily: 'Poppins-Regular',
      
     },
     '@media (max-width: 767px)': {
-    
+      margin:'70px 0',
       '& .MuiGrid-spacing-xs-8': {
   width:'100%',
       },
@@ -76,7 +76,9 @@ fontFmily: 'Poppins-Regular',
 },
 
 SingleProductHead:{
-
+  '@media (max-width: 1024px)': {
+    paddingLeft:40,
+   },
   '& h2': {
     fontSize: 16,
   },
@@ -88,14 +90,21 @@ SingleProductHead:{
   marginBottom: 30,
   color:'#fff',
   justifyContent:'space-between',
-  '@media (max-width: 767px)': {
+  '@media (max-width: 768px)': {
     display: 'block',
-    marginLeft: 32,
+    marginLeft: 0,
   },
   '& h4': {
     fontFamily: 'Poppins-Regular',
     color:'#fba530',
     marginTop: 5,
+    '@media (max-width: 1024px)': {
+      paddingRight:40,
+     },
+     '@media (max-width:768px)': {
+      paddingRight:0,
+     },
+
     '& svg': {
       width: 25,
       marginLeft: 5,
@@ -195,7 +204,9 @@ SingleProductHead:{
 
     SingleProductListContent:{
       marginLeft:50,
-
+      '@media (max-width:768px)': {
+        marginLeft:0,
+      },
     },
     SingleProductList:{
       borderTop: '1px solid #4672d3',
@@ -256,6 +267,13 @@ SingleProductHead:{
       },
     },
     SingleProductOverviewHolder:{
+      '@media (max-width: 1024px)': {
+       paddingLeft:40,
+      },
+      '@media (max-width:768px)': {
+        paddingLeft:0,
+       },
+
       '&  ul': {
         padding:0,
         margin: 0,
@@ -299,7 +317,7 @@ SingleProductHead:{
       },
       '& a': {
         textDecoration: 'underline',
-        color: 'blue !important',
+        color: '#2775e5 !important',
       },
       '& strong': {
         fontWeight: 'bold',

@@ -37,7 +37,7 @@ const Navbar = () => {
   const token = Cookies.get('token')
 
   return (
-      <div className={`${classes.NavbarHolder} ${pathname.includes('invoice' || 'success') ? classes.none : ''}`}>
+      <div className={`${classes.NavbarHolder} ${pathname.includes('invoice' || 'order') ? classes.none : ''}`}>
       <div className={classes.NavbaTopImage} />
       <Container maxWidth="lg">
         <Grid container>

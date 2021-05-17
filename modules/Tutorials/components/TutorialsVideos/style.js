@@ -84,29 +84,52 @@ const useStyles = makeStyles(() => ({
   },
   search: {
     display: 'flex',
+    marginTop: 20,
+
+    '& button': {
+      marginBottom: 20,
+      boxShadow:'unset',
+    },
     '& .searchButton': {
       color: '#fff',
-    border: '1px solid #346EB3',
+    border: '1px solid #3780d5',
     cursor: 'pointer',
     height: 48,
     fontSize: 20,
-    background: '#346EB3',
+    background: '#3780d5',
     textAlign: 'center',
     fontFamily: 'Poppins-Light',
     borderRadius: '0 12px 12px 0',
+    marginBottom:'20px !important',
+    '@media (max-width:767px)': {
+      width: 'unset',
+    },
     },
     '& .searchTerm': {
       color: '#fff',
       border: 0,
       height: 48,
+      paddingLeft:'20px !important',
       outline: 'none',
       padding: 5,
       fontSize: 15,
       background: '#4b5059',
       fontFamily: 'Poppins-Light',
       borderRight: 'none',
-      paddingLeft: 30,
+      width: 280,
+      '@media (max-width:768px)': {
+        width: 200,
+      },
+      '@media (max-width:767px)': {
+        width: '100%',
+      },
+      paddingLeft: 20,
       borderRadius: '12px 0 0 12px',
+      '&::placeholder ': {
+        color: '#fff',
+        fontFamily: 'Poppins-Light',
+        background:' transparent',
+      },
     }
   }
 }))
