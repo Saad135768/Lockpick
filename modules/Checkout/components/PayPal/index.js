@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GET_PAYPAL_TOKEN, PAYPAL } from '../../data'
 import { useMutation } from '@apollo/react-hooks'
 import Router from 'next/router'
 
 const PayPal = ({ orderId, ...props }) => {
+    const [isPaypalRendered, setIsPaypalRendered] = useState()
     const [getPayPalToken] = useMutation(GET_PAYPAL_TOKEN)
     const [payPal] = useMutation(PAYPAL)
 
+    const time = setTimeout(() => {
+        setIsPaypalRendered(true)
+    }, 1000)
+
     const GetPayPalToken = async () => {
+        clearTimeout(time)
         try{
            await getPayPalToken({ variables: { orderId, redirectUrl: `${window.origin}/order`, redirectUrlCancel: window.origin } })
         
@@ -15,6 +21,7 @@ const PayPal = ({ orderId, ...props }) => {
             console.log('error getPayPalToken ',error)
         }
     }
+  
     const PayWithPayPal = async (token) => {
         try{
            const res = await payPal({ variables: { token } })
@@ -45,7 +52,7 @@ const PayPal = ({ orderId, ...props }) => {
           }
       }).render('#paypal-button-container')
     
-      }, [orderId])
+      }, [isPaypalRendered])
 
     return ( <div id="paypal-button-container"></div> )
 }
