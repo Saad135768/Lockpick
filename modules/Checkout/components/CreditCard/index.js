@@ -28,7 +28,6 @@ const CreditCard = props => {
 
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
   const variations = pathOr([], ['order', 'getOrder', 'variations'], props)
-
   const [payWithPaypal, { loading }] = useMutation(PAY_WITH_PAYPAL)
 
   const PayWithPayPal = async ({
@@ -73,6 +72,7 @@ const CreditCard = props => {
     setSelectedDate(date)
   }
   const checkIfPaypal = (paypal, notPaypal) => (isPaypal === 'true' ? paypal : notPaypal)
+
   const classes = useStyles()
 
   return (
@@ -122,7 +122,8 @@ const CreditCard = props => {
                 <div className={classes.PaymentMethod}>
                   <h1> Payment Method</h1>
                 </div>
-                {checkIfPaypal(<PayPal />,
+                {checkIfPaypal(
+                <PayPal orderId={orderId} />,
                 <div className={classes.FormContent}>
                   <img src="../../static/images/checkout/visa2.png" />
 

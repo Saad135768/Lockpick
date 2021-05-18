@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps, apollo }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap"
           rel="stylesheet"
         />
-        <script src="https://www.paypal.com/sdk/js?client-id=Aems1z9k1CwusrQHpPA_nynUlpd-W-9S_TdICUBdgQfDstAoFJPI96LUY6977kWps29-tDHrUjuQP5uu&currency=USD&intent=order&commit=false&vault=true"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=Aems1z9k1CwusrQHpPA_nynUlpd-W-9S_TdICUBdgQfDstAoFJPI96LUY6977kWps29-tDHrUjuQP5uu&currency=USD&intent=capture&commit=false&vault=true"></script>
         <style>
           {`
             @font-face {

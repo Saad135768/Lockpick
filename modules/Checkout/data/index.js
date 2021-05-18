@@ -169,7 +169,7 @@ export const GET_PAYPAL_TOKEN = gql`
 `
 export const PAYPAL = gql`
   mutation PayPal($token: String!) {
-    Paypal(token: $token) {
+    PayPal(token: $token) {
       order {
         _id
       }

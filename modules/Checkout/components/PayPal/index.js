@@ -1,28 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { GET_PAYPAL_TOKEN, PAYPAL } from '../../data'
 import { useMutation } from '@apollo/react-hooks'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 
 const PayPal = ({ orderId, ...props }) => {
-    const query = useRouter().query
-    // const { orderId } = query
-    const [isPayPalRendered, setIsPayPalRendered] = useState()
-    const [token, setToken] = useState()
     const [getPayPalToken] = useMutation(GET_PAYPAL_TOKEN)
     const [payPal] = useMutation(PAYPAL)
-    console.log('paypal rendered')
+
     const GetPayPalToken = async () => {
         try{
-           const res = await getPayPalToken({ variables: { orderId, redirectUrl: 'http://localhost:3000/order', redirectUrlCancel: 'http://localhost:3000' } })
-           const paypalToken = res.data.GetPayPalToken.token
-           setToken(paypalToken)
-           return paypalToken
+           await getPayPalToken({ variables: { orderId, redirectUrl: `${window.origin}/order`, redirectUrlCancel: window.origin } })
+        
         }catch(error){
-            console.log('error getPayPalToken',error)
+            console.log('error getPayPalToken ',error)
         }
     }
-
-    const PayPal = async () => {
+    const PayWithPayPal = async (token) => {
         try{
            const res = await payPal({ variables: { token } })
            console.log({ res })
@@ -32,35 +25,29 @@ const PayPal = ({ orderId, ...props }) => {
     }
 
     useEffect(() => {
-        setIsPayPalRendered(true)
-        
-        if (isPayPalRendered) {
-            console.log('innnn')
         paypal.Buttons({
           createOrder: async function() {
               return await GetPayPalToken()
           },
-          onApprove: function(data) {
+          onApprove: async function({ orderID, ...data  }, actions) {
               console.log('data on Approve', data)
-                PayPal()
+              console.log('actions', actions)
+              await PayWithPayPal(orderID)
+              Router.push({ pathname: '/orders', query: { status: 'success' } })
             },
-          onCancel: function(data, actions) {
-              console.log('user cancelled-', data)
+            onCancel: function(data, actions) {
+                console.log('user cancelled-' , data)
+                Router.push({ pathname: '/orders', query: { status: 'failed' } })
+
           },
           onError: function(data, actions) {
               console.log('error occured-s', data)
           }
       }).render('#paypal-button-container')
-    }
-      }, [isPayPalRendered])
+    
+      }, [orderId])
 
-    //   useEffect(() => {
-    //       console.log('seconde useEffect')
-    //     setIsPayPalRendered(true)
-    //   }, [])
-    return (
-         isPayPalRendered ?  <div id="paypal-button-container"></div> : <div></div>
-        )
+    return ( <div id="paypal-button-container"></div> )
 }
 
 export default PayPal
