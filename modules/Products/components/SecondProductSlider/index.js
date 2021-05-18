@@ -76,7 +76,7 @@ const SecondProductSlider = ({ taxonomyName, ...props }) => {
               />
             </div>
             <div className={classes.first} onClick={() => Router.push(`/product/${product._id}`)}>
-              <img src={imgs[0]} />
+            <img src={`https://res.cloudinary.com/qpixio/image/fetch/c_fill,g_north,h_800,w_660/${imgs[0]}`} alt='images of the extra laptops offered with the basic kit' />
             </div>
           </div>
             )})}

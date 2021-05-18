@@ -1,8 +1,8 @@
+import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import Slider from 'react-slick'
 import ScrollAnimation from 'react-animate-on-scroll'
-import React from 'react'
 import Router from 'next/router'
 import { useQuery } from '@apollo/react-hooks'
 import { CMS } from './data'
@@ -98,8 +98,6 @@ const Header = () => {
                       </ScrollAnimation>
                     </div>
                   </div>
-                  <div></div>
-                  <div></div>
                 </div>
               </div>
             </Grid>

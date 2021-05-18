@@ -55,7 +55,7 @@ const SingleProduct = (props) => {
   const imgs = []
 
   pathOr([], ['product', 'product', 'images'], props).forEach((img) =>
-    imgs.push({ original: img, thumbnail: img })
+    imgs.push({ original: `https://res.cloudinary.com/qpixio/image/fetch/c_fill,g_north,h_800,w_660/${img}`, thumbnail: `https://res.cloudinary.com/qpixio/image/fetch/c_fill,g_north,h_800,w_660/${img}` })
   )
 
   if (taxonomyName.includes('bmw')) taxonomyName = 'options'
