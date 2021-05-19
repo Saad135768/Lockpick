@@ -27,7 +27,9 @@ const CreditCard = props => {
   const shippingRate = useStore((state) => state.shippingRate)
 
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
+  const _id = pathOr('', ['orderId'], props)
   const variations = pathOr([], ['order', 'getOrder', 'variations'], props)
+  
   const [payWithPaypal, { loading }] = useMutation(PAY_WITH_PAYPAL)
 
   const PayWithPayPal = async ({
@@ -123,7 +125,7 @@ const CreditCard = props => {
                   <h1> Payment Method</h1>
                 </div>
                 {checkIfPaypal(
-                <PayPal orderId={orderId} />,
+                <PayPal orderId={orderId} _id={_id} />,
                 <div className={classes.FormContent}>
                   <img src="../../static/images/checkout/visa2.png" />
 

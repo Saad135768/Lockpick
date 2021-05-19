@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { GET_PAYPAL_TOKEN, PAYPAL } from '../../data'
 import { useMutation } from '@apollo/react-hooks'
 import Router from 'next/router'
+import useStore from '../../../../store'
 
-const PayPal = ({ orderId, ...props }) => {
+const PayPal = ({ orderId, _id, ...props }) => {
     const [isPaypalRendered, setIsPaypalRendered] = useState()
     const [getPayPalToken] = useMutation(GET_PAYPAL_TOKEN)
     const [payPal] = useMutation(PAYPAL)
+
+    const setCart = useStore(state => state.setCart)
 
     const time = setTimeout(() => {
         setIsPaypalRendered(true)
@@ -25,7 +28,6 @@ const PayPal = ({ orderId, ...props }) => {
     const PayWithPayPal = async (token) => {
         try{
            const res = await payPal({ variables: { token } })
-           console.log({ res })
         }catch(error){
             console.log('paypal error ', error)
         }
@@ -37,14 +39,13 @@ const PayPal = ({ orderId, ...props }) => {
               return await GetPayPalToken()
           },
           onApprove: async function({ orderID, ...data  }, actions) {
-              console.log('data on Approve', data)
-              console.log('actions', actions)
               await PayWithPayPal(orderID)
-              Router.push({ pathname: '/order', query: { orderId, status: 'success' } })
+              setCart([])
+              Router.push({ pathname: '/order', query: { orderId, status: 'success', _id } })
             },
             onCancel: function(data, actions) {
                 console.log('user cancelled-' , data)
-                Router.push({ pathname: '/order', query: { status: 'failed' } })
+                Router.push({ pathname: '/order', query: { status: 'failed', _id } })
 
           },
           onError: function(data, actions) {

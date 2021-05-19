@@ -10,7 +10,7 @@ import ScrollToTop from 'react-scroll-up'
 const Footer = () => {
   const classes = useStyles()
   const router = useRouter()
-  const { parsed, pathname } = router
+  const { pathname } = router
 
   return (
     
