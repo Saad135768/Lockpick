@@ -15,8 +15,8 @@ const PayPal = ({ orderId, ...props }) => {
     const GetPayPalToken = async () => {
         clearTimeout(time)
         try{
-           await getPayPalToken({ variables: { orderId, redirectUrl: `${window.origin}/order`, redirectUrlCancel: window.origin } })
-        
+            const res = await getPayPalToken({ variables: { orderId, redirectUrl: `${window.origin}/order`, redirectUrlCancel: window.origin } })
+            return res.data.GetPayPalToken.token
         }catch(error){
             console.log('error getPayPalToken ',error)
         }
@@ -40,11 +40,11 @@ const PayPal = ({ orderId, ...props }) => {
               console.log('data on Approve', data)
               console.log('actions', actions)
               await PayWithPayPal(orderID)
-              Router.push({ pathname: '/orders', query: { status: 'success' } })
+              Router.push({ pathname: '/order', query: { orderId, status: 'success' } })
             },
             onCancel: function(data, actions) {
                 console.log('user cancelled-' , data)
-                Router.push({ pathname: '/orders', query: { status: 'failed' } })
+                Router.push({ pathname: '/order', query: { status: 'failed' } })
 
           },
           onError: function(data, actions) {

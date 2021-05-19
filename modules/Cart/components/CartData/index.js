@@ -33,10 +33,10 @@ const CartData = (props) => {
   const FedEx = async (data) => {
     const items = pathOr([], ['variations'], data).map((v) => {
       const quantity = v.quantity
-      const weight = +v.variation.product.weight.toFixed(2)
-      const length = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'length').value
-      const width = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'width').value
-      const height = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'height').value
+      const weight = +v.variation.product.weight?.toFixed(2)
+      const length = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'length')?.value
+      const width = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'width')?.value
+      const height = +pathOr([], ['variation', 'product', 'customAttributes'], v).find((v) => v.key === 'height')?.value
      return { weight, quantity, length, width, height }
     })
     try{

@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     
-       <div className={`${classes.footer} ${pathname.includes('invoice' || 'orderid')? classes.none : ''}`}>
+       <div className={`${classes.footer} ${pathname.includes('invoice' || 'order') ? classes.none : ''}`}>
 
       <div className={classes.FooterScroll} >
         <ScrollToTop showUnder={200} duration={900}>
