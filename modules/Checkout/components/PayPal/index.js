@@ -3,6 +3,7 @@ import { GET_PAYPAL_TOKEN, PAYPAL } from '../../data'
 import { useMutation } from '@apollo/react-hooks'
 import Router from 'next/router'
 import useStore from '../../../../store'
+import { withSnackbar } from 'notistack'
 
 const PayPal = ({ orderId, _id, ...props }) => {
     const [isPaypalRendered, setIsPaypalRendered] = useState()
@@ -40,6 +41,7 @@ const PayPal = ({ orderId, _id, ...props }) => {
           },
           onApprove: async function({ orderID, ...data  }, actions) {
               await PayWithPayPal(orderID)
+              props.enqueueSnackbar('Your order has been created successfully', { variant: 'success' })
               setCart([])
               Router.push({ pathname: '/order', query: { orderId, status: 'success', _id } })
             },
@@ -58,4 +60,4 @@ const PayPal = ({ orderId, _id, ...props }) => {
     return ( <div id="paypal-button-container"></div> )
 }
 
-export default PayPal
+export default withSnackbar(PayPal)

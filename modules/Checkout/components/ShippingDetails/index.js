@@ -26,7 +26,7 @@ const ShippingDetails = ({
     try {
       await editCustomer({ variables: { name, phone, address: { ...values } } })
       setcheckoutValues({ name, phone, ...values })
-      await FedEx()
+      FedEx()
       props.enqueueSnackbar('Your data has been updated', { variant: 'success' })
       setView()
       setExpandDeleiveryAccordion(true)
