@@ -86,7 +86,7 @@ const CheckoutSummary = ({ setPromocode, promoCode, ...props }) => {
             {isPromoApplied && 
             <p className={classes.originalPrice}>${(+originalPrice + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
             }
-            <p>${(+total + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+            <p>${(+total)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
           </div>
         </div>
         <div className={classes.OrderSummaryFlex}>

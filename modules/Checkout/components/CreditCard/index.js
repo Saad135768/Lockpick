@@ -6,26 +6,27 @@ import Button from '../../../../common/Button'
 import Loader from 'react-loader-spinner'
 import PayPal from '../PayPal'
 import { useForm, Controller } from 'react-hook-form'
-import { useMutation } from '@apollo/react-hooks'
+import { useMutation, useQuery } from '@apollo/react-hooks'
 import { PAY_WITH_PAYPAL } from '../../data'
 import { withSnackbar } from 'notistack'
-import { pathOr, propOr } from 'ramda'
+import { pathOr } from 'ramda'
 import Router, { useRouter } from 'next/router'
 import useStore from '../../../../store'
 import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers"
 import DateFnsUtils from "@date-io/date-fns"
+import { GET_CART } from '../../../../commonData'
 
 const CreditCard = props => {
+  const setCart = useStore(state => state.setCart)
+  useQuery(GET_CART, { onCompleted: (result) => { setCart(result.getCurrentCustomer.cart)}, fetchPolicy: 'no-cache'})
   const { register, handleSubmit, errors, control } = useForm({ mode: 'onBlur' })
   const [selectedDate, setSelectedDate] = useState(
     new Date(`${new Date().getFullYear()}-08-18T21:11:54`)
   )
   const isPaypal = pathOr('', ['query', 'isPaypal'], useRouter())
   
-  const setCart = useStore(state => state.setCart)
-  const total = useStore((state) => state.total)
-  const shippingRate = useStore((state) => state.shippingRate)
-
+  const shippingRate = pathOr('', ['order', 'getOrder', 'totals', 'shipping'], props)
+  const subTotal = pathOr('', ['order', 'getOrder', 'totals', 'subtotal'], props)
   const orderId = pathOr('', ['order', 'getOrder', 'orderId'], props)
   const _id = pathOr('', ['orderId'], props)
   const variations = pathOr([], ['order', 'getOrder', 'variations'], props)
@@ -113,7 +114,7 @@ const CreditCard = props => {
                 })}
                 <div className={classes.FormTotal}>
                   <h2>
-                    Total: <b>${(total + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</b>
+                    Total: <b>${(subTotal + +shippingRate)?.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</b>
                   </h2>
                 </div>
             </div>

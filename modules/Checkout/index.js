@@ -80,8 +80,8 @@ const Checkout = (props) => {
       if (paymentMethod === 'paypal'){
 
         Router.push({ pathname: `/paypal/${res.data.addOrder._id}`, query: {
-          // orderId: res.data.addOrder.orderId,
-           isPaypal: 'true'} })
+           isPaypal: 'true'
+          } })
         setOrderId(res.data.addOrder.orderId)
       }
       if (paymentMethod === 'cash') {

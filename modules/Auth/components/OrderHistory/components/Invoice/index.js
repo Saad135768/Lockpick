@@ -1,14 +1,12 @@
 import React, { Fragment, useRef } from 'react'
 import useStyles from './style'
 import Grid from '@material-ui/core/Grid'
-import Container from '@material-ui/core/Container'
 import { pathOr, propOr } from 'ramda'
 import ReactToPrint from 'react-to-print'
 import Button from '../../../../../../common/Button'
 import Link from 'next/link'
-import { BiPrinter } from "react-icons/bi";
-import { HiOutlineHome } from "react-icons/hi";
-import useStore from '../../../../../../store'
+import { BiPrinter } from "react-icons/bi"
+import { HiOutlineHome } from "react-icons/hi"
 
 const Invoice = ({ invoice, invoiceId, ...props }) => {
   const ref = useRef()
@@ -17,8 +15,8 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
   }
 
   const date = propOr(0, ['shippingDate'], invoice)
-  // const shippingCost = pathOr(0, ['totals', 'shipping'], invoice)
-  const shippingRate = useStore((state) => state.shippingRate)
+  const shippingRate = pathOr(0, ['totals', 'shipping'], invoice)
+
   const subtotal = pathOr([], ['variations'], invoice).reduce((a, b) => {
     return propOr(0, ['total'], b) + a
   }, 0)

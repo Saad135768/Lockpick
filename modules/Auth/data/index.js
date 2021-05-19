@@ -121,6 +121,7 @@ export const GET_ORDER = gql`
     }
     totals{
       shipping
+      subtotal
       total
     }
        shipping{
