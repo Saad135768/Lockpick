@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useStyles from './style'
-import Button from '../../../../common/Button'
 import ReactHtmlParser from 'react-html-parser'
 import NumericInput from 'react-numeric-input'
 import { useMutation } from '@apollo/react-hooks'
@@ -25,6 +24,12 @@ const ProductSliderData = ({
 }) => {
   const setCart = useStore((state) => state.setCart)
 
+  useEffect(() => {
+    const input = document.querySelector('.react-numeric-input input')
+    input?.setAttribute('disabled', '')
+      console.log({input})
+  }, [])
+
   const [productsQuantity, setProductsQuantity] = useState(1)
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
   const AddToCart = async (variation, quantity) => {
@@ -41,6 +46,7 @@ const ProductSliderData = ({
       } else props.enqueueSnackbar('something went wrong', { variant: 'error' })
     }
   }
+  
   const classes = useStyles()
   return (
     <div className={classes.ProductSliderDataHolder}>

@@ -23,8 +23,9 @@ const OrderHistory = ({ data, ...props }) => {
   })
   const date = pathOr(0, ['shippingDate'], getOrderData)
   const total = pathOr(0, ['totals', 'total'], data)
-  const shippingCost = pathOr(0, ['totals', 'shipping'], data)
+
   const setOpenModal = useStore((state) => state.setOpenModal)
+  
   const classes = useStyles()
   return (
     <Accordion square onChange={() => set_id(data?._id)}>
@@ -83,7 +84,7 @@ const OrderHistory = ({ data, ...props }) => {
                   <span>
                     {' '}
                     $
-                    {(total + +shippingCost)
+                    {(total)
                       .toFixed(2)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
                   </span>

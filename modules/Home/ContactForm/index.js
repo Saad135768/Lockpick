@@ -6,14 +6,13 @@ import { withSnackbar } from 'notistack'
 import { FiMapPin } from 'react-icons/fi'
 import { MdMailOutline } from 'react-icons/md'
 import { HiOutlinePhone } from 'react-icons/hi'
-import Input from '../../../common/Input'
 import ScrollAnimation from 'react-animate-on-scroll'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useMutation } from '@apollo/react-hooks'
 import { ADD_CONTACT_FORM } from './data'
 
 const ContactForm = (props) => {
-  const { handleSubmit, errors, register, control, reset } = useForm()
+  const { handleSubmit, errors, register, reset } = useForm()
   const [addContactForm] = useMutation(ADD_CONTACT_FORM)
   const addForm = async ({ name, email, message }) => {
     try{
@@ -86,18 +85,21 @@ const ContactForm = (props) => {
               <div className={classes.ContactFormRight}>
                 <div className={classes.overlay} />
                 <h3> SEND US A MESSAGE : </h3>
-                <Controller
-                control={control}
-                name='name'
-                as={<Input placeholder="Full Name" type="text" />} 
+
+                <input 
+                    name='name' 
+                    className={classes.input} 
+                    placeholder="Full Name" 
+                    ref={register({ required: 'This field is required'})} 
                 />
                  {errors.name && (
                   <p className={classes.errorMsg}>{errors.name.message}</p>
                 )}
-                 <Controller
-                control={control}
-                name='email'
-                as={<Input placeholder="Your Email" type="text" />} 
+                <input 
+                  name='email' 
+                  className={classes.input} 
+                  placeholder="Your Email" 
+                  ref={register({ required: 'This field is required'})} 
                 />
                 {errors.email && (
                   <p className={classes.errorMsg}>{errors.email.message}</p>

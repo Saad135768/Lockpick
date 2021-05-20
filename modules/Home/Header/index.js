@@ -66,11 +66,11 @@ const Header = () => {
                 </ScrollAnimation>
 
                 <Slider {...settings2}>
-                  {pathOr([], ['cms', 'slider'], cms).map(({ name, url, imageURL }) => (
+                  {pathOr([], ['cms', 'slider'], cms).map(({ name, url, imageURL }, index) => (
                     <div className={classes.slideritem} key={imageURL}>
                     <div className={classes.one}>
                       <img
-                        src={imageURL}
+                        src={`https://image.devteam9260.workers.dev/?width=${index == 0 ? '1000': '700'}&image=${imageURL}`}
                         alt={name}
                         onClick={() => Router.push(url)}
                         className={classes.img}

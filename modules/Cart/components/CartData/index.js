@@ -63,6 +63,12 @@ const CartData = (props) => {
   }, [data])
 
   useEffect(() => {
+  const input = document.querySelector('.react-numeric-input input')
+  input?.setAttribute('disabled', '')
+    console.log({input})
+}, [])
+
+  useEffect(() => {
     const finalPrice = cart?.variations?.reduce((a, b) => {
       const discountedPrice = pathOr(1, ['variation', 'price', 'discountedPrice'], b)
       const mainPrice = pathOr(1, ['variation', 'price', 'mainPrice'], b)
