@@ -102,7 +102,8 @@ const CreditCard = props => {
                   return (
                     <>
                     <div className={classes.PaymentSummaryTable} key={v.variation._id}>
-                      <img src={productImg} />
+                      <img src={`https://image.devteam9260.workers.dev/?width=660&image=${productImg}`} />
+                      
                       <div>
                         <p className={classes.ProductName}> {productName} </p>
                         <p className={classes.Quantity}> Quantity: {quantity} </p>
