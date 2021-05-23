@@ -73,6 +73,7 @@ const Checkout = (props) => {
         shippingCost: +shippingRate.toFixed(2),
       }
       if (!shippingMethod || !paymentMethod) return props.enqueueSnackbar('please be sure to fill in all required fields', { variant: 'warning' })
+      if (!shippingRate) return props.enqueueSnackbar('Shipping rate must be provided', { variant: 'warning' })
       const res = await createOrder({ variables: { ...orderFields } })
       if (paymentMethod === 'Credit/Debit Cards') {
         Router.push({ pathname: `/paypal/${res.data.addOrder._id}` })

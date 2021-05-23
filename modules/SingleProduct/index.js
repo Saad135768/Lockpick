@@ -24,7 +24,6 @@ const SingleProduct = (props) => {
   useEffect(() => {
     const input = document.querySelector('.react-numeric-input input')
     input?.setAttribute('disabled', '')
-      console.log({input})
   }, [])
 
   // Products values

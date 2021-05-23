@@ -19,7 +19,6 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
   const total = pathOr(0, ['totals', 'total'], invoice)
   const subtotal = pathOr(0, ['totals', 'subtotal'], invoice)
   const discount = pathOr(0, ['totals', 'discount', 'amount'], invoice)
-console.log({ invoice })
 
   const classes = useStyles()
   return (
@@ -215,7 +214,7 @@ console.log({ invoice })
                         <Grid item md={5}>
                           <h4>
 
-                            ${(+subtotal - +discount)
+                            ${subtotal
                               .toFixed(2)
                               .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                           </h4>
