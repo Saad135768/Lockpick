@@ -70,7 +70,7 @@ const Header = () => {
                     <div className={classes.slideritem} key={imageURL}>
                     <div className={classes.one}>
                       <img
-                        src={imageURL}
+                        src={`https://image.devteam9260.workers.dev/?width=900&image=${imageURL}`}
                         alt={name}
                         onClick={() => Router.push(url)}
                         className={classes.img}
