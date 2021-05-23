@@ -58,18 +58,18 @@ const Footer = () => {
 
                 <ul className={classes.FooterSocial}>
                   <li>
-                    <a href="#">
+                    <a href="https://www.facebook.com/Lock-Pick-103123508639309">
                       <FaFacebookF />
                     </a>
                   </li>
 
                   <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/lockpickus/?utm_medium=copy_link">
                       <AiOutlineInstagram />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="https://twitter.com/LockPickUS1">
                       <FaTwitter />
                     </a>
                   </li>
