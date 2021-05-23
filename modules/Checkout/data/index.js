@@ -50,6 +50,7 @@ export const CREATE_ORDER = gql`
     ) {
       _id
       orderId
+      createdAt
       status
       variations {
         variation {

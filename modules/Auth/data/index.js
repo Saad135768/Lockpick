@@ -98,6 +98,7 @@ export const GET_ORDER = gql`
     shippingDate
     orderId
     onlineOrderPaymentId
+    createdAt
     variations{
       quantity
       total
@@ -123,6 +124,9 @@ export const GET_ORDER = gql`
       shipping
       subtotal
       total
+      discount {
+        amount
+      }
     }
        shipping{
       state
@@ -153,6 +157,7 @@ query getOrders($status: String) {
       _id
       orderId
       status
+      createdAt
       variations{
       quantity
       }
