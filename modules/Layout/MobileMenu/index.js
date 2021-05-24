@@ -7,7 +7,6 @@ import useStyles from './style'
 import { RiShoppingCartFill } from 'react-icons/ri'
 import { FaUser } from 'react-icons/fa'
 import Accordion from '@material-ui/core/Accordion'
-import AccordionDetails from '@material-ui/core/AccordionDetails'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import useStore from '../../../store'
@@ -50,7 +49,7 @@ const MobileMenu = () => {
       </Container>
 
       <Menu1
-        customCrossIcon={<img src='../../static/images/cancel.svg' />}
+        customCrossIcon={<img src='../../static/images/cancel.svg' alt='cancel icon'/>}
         isOpen={isOpen}
         onStateChange={e => { setIsOpen(e.isOpen) }}
       >
