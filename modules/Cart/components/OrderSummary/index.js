@@ -59,7 +59,7 @@ const OrderSummary = (props) => {
             if(pathOr(false, ['variations', 'length',], cart)) Router.push('/checkout')
           }} disabled={!(pathOr(false, ['variations', '0',], cart))}> CheckOut</Button>
         </a>
-      <img src="https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/payment.jpeg" />
+      <img src="https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/payment.jpeg" alt='image of payments methods' />
     </div>
   )
 }

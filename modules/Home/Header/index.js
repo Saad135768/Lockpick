@@ -13,7 +13,7 @@ import { pathOr } from 'ramda'
 function SampleNextArrow({ className, style, onClick }) {
   return (
     <div className={className} onClick={onClick}>
-      <img src="https://image.devteam9260.workers.dev/?width=70&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/60ec88e8-7634-4f51-94bf-793577e656d7.svg" />
+      <img src="https://image.devteam9260.workers.dev/?width=70&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/60ec88e8-7634-4f51-94bf-793577e656d7.svg" alt='left arrow'/>
     </div>
   )
 }
@@ -21,7 +21,7 @@ function SampleNextArrow({ className, style, onClick }) {
 function SamplePrevArrow({ className, style, onClick }) {
   return (
     <div className={className} onClick={onClick}>
-      <img src="https://image.devteam9260.workers.dev/?width=70&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/038603e9-8acf-4292-9f7f-7a7294e1be7f.svg" />
+      <img src="https://image.devteam9260.workers.dev/?width=70&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/038603e9-8acf-4292-9f7f-7a7294e1be7f.svg"  alt='right arrow'/>
     </div>
   )
 }
