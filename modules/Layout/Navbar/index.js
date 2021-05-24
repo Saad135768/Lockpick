@@ -46,7 +46,7 @@ const Navbar = () => {
               <Link as={'/'} href="/">
                 <a href="/">
                   <img
-                    src="../../static/images/homepage/logo.svg"
+                    src="https://image.devteam9260.workers.dev/?width1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/logo.svg"
                     alt="logo-pick-lock"
                   />
                 </a>

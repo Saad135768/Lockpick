@@ -114,7 +114,7 @@ const CartData = (props) => {
             <Fragment key={variationsId}>
               <tr>
                 <td className={`${classes.imageTable} imageTable`}>
-                  <img src={`https://image.devteam9260.workers.dev/?width=200&image=${img}`} onClick={() => Router.push(`/product/${productsId}`)} />
+                  <img src={`https://image.devteam9260.workers.dev/?width=200&image=${img}`} alt="product's image" onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>
                 <td className={`${classes.ItemName} ItemName`}>
                   <div className={`${classes.CartProductInfo} CartProductInfo`} >

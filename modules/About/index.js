@@ -12,7 +12,8 @@ const About = () => {
         <div className={classes.FormHolder}>
           <div className={classes.AboutMainImge}>
             <img
-              src="../../static/images/about/about.gif"
+              src="https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/about.gif"
+              alt='animated image of a mobile product'
               style={{
                 filter: 'drop-shadow(0.35rem 3.35rem 0.9rem rgba(0, 0, 0, 0.3)',
               }}
