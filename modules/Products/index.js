@@ -31,7 +31,7 @@ const Products = () => {
               </div>
                 <div className={classes.ProductsMainImge}>
                   <img
-                    src="../../static/images/products/header.png"
+                    src="https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/header.png"
                     style={{
                       filter:
                         'drop-shadow(0.35rem 3.35rem 0.9rem rgba(0, 0, 0, 0.3)',

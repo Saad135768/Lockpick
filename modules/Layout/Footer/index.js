@@ -19,7 +19,7 @@ const Footer = () => {
       <div className={classes.FooterScroll} >
         <ScrollToTop showUnder={200} duration={900}>
           <span>
-            <img src="../../static/images/backt2top.png" />
+            <img src="https://image.devteam9260.workers.dev/?width=70&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/backt2top.png" />
           </span>
         </ScrollToTop>
       </div>
@@ -34,7 +34,7 @@ const Footer = () => {
                   <a href="/">
                     <img
                       alt="logo-footer"
-                      src="../../static/images/footer-logo.svg"
+                      src="https://image.devteam9260.workers.dev/?width=1200&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/6ed83267-70cd-4305-8c98-2083d891570b.png"
                     />
                   </a>
                 </li>
@@ -48,7 +48,7 @@ const Footer = () => {
               <div className={classes.CenterLogo}>
                 <img
                   alt="m2k-logo"
-                  src="../../static/images/homepage/m2klogo.png"
+                  src="https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/m2klogo.png"
                 />
               </div>
             </Grid>

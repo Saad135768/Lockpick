@@ -100,7 +100,7 @@ const ModalsContent = () => {
         >
             <div className={classes.ImageBg}>
 
-          <img className={`${classes.ImageItem} ImageItem1`} src={"../../../../static/images/homepage/key.svg"} />
+          <img className={`${classes.ImageItem} ImageItem1`} src={"https://image.devteam9260.workers.dev/?width=1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/key.svg"} />
           </div>
           <h3>
             Program New
@@ -114,7 +114,7 @@ const ModalsContent = () => {
         >
                     <div  className={classes.ImageBg}>
 
-           <img className={`${classes.ImageItem} ImageItem2`} src={"../../../../static/images/homepage/rest.svg"} />
+           <img className={`${classes.ImageItem} ImageItem2`} src={"https://image.devteam9260.workers.dev/?width=1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/rest.svg"} />
           </div>
           <h3>
             Reset Transmission
@@ -129,7 +129,7 @@ const ModalsContent = () => {
         >
           <div  className={classes.ImageBg}>
 
-          <img className={`${classes.ImageItem} ImageItem3`}src={"../../../../static/images/homepage/clone.svg"} />
+          <img className={`${classes.ImageItem} ImageItem3`}src={"https://image.devteam9260.workers.dev/?width=1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/clone.svg"} />
           </div>
 
           <h3>

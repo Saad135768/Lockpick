@@ -87,7 +87,7 @@ const CustomizedDialogs = props => {
             <div className={classes.Left}>
               <img
                 alt="logo-footer"
-                src="../../static/images/register-logo.png"
+                src="https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/register-logo.png"
               />
 
               <Button>REGISTER</Button>

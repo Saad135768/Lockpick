@@ -41,10 +41,10 @@ const PaymentMethod = ({
                 <Grid item lg={6} md={6}>
                   <div className={classes.PaymentWays}>
                     <div>
-                      <img src="../../static/images/checkout/master.png" />
+                      <img src="https://image.devteam9260.workers.dev/?width=200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/master.png" />
                     </div>
                     <div>
-                      <img src="../../static/images/checkout/visa.png" />
+                      <img src="https://image.devteam9260.workers.dev/?width=200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/visa.png" />
                     </div>
                     <div>
                       <h4> and More </h4>
@@ -62,7 +62,7 @@ const PaymentMethod = ({
                 <Grid item lg={6} md={6}>
                   <div className={classes.SecondPayment}>
                     <div>
-                      <img src="../../static/images/checkout/paypal-logo.png" />
+                      <img src="https://image.devteam9260.workers.dev/?width=170&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/paypal-logo.png" />
                     </div>
                   </div>
                 </Grid>
@@ -78,7 +78,7 @@ const PaymentMethod = ({
             </RadioGroup>
           </FormControl>
           <div className={classes.SecondPaymentNote}>
-            <img src="../../static/images/checkout/note.png" />
+            <img src="https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/note.png" />
           </div>
           <div className={classes.ContinueBtn}>
               <Button

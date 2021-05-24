@@ -13,7 +13,7 @@ import { pathOr } from 'ramda'
 function SampleNextArrow({ className, style, onClick }) {
   return (
     <div className={className} onClick={onClick}>
-      <img src="../../static/images/right-arrow.svg" />
+      <img src="https://image.devteam9260.workers.dev/?width=70&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/60ec88e8-7634-4f51-94bf-793577e656d7.svg" />
     </div>
   )
 }
@@ -21,7 +21,7 @@ function SampleNextArrow({ className, style, onClick }) {
 function SamplePrevArrow({ className, style, onClick }) {
   return (
     <div className={className} onClick={onClick}>
-      <img src="../../static/images/left-arrow2.svg" />
+      <img src="https://image.devteam9260.workers.dev/?width=70&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/038603e9-8acf-4292-9f7f-7a7294e1be7f.svg" />
     </div>
   )
 }
@@ -82,7 +82,7 @@ const Header = () => {
 
                 <div className={classes.three}>
                   <img
-                    src="../../static/images/homepage/glow.png"
+                    src="https://image.devteam9260.workers.dev/?width=1200&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/e0a47501-3b89-44b1-9d43-3a0c718658a3.png"
                     alt="lockpick-header-image"
                   />
                 </div>

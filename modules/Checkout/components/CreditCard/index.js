@@ -129,7 +129,7 @@ const CreditCard = props => {
                 {checkIfPaypal(
                 <PayPal orderId={orderId} _id={_id} />,
                 <div className={classes.FormContent}>
-                  <img src="../../static/images/checkout/visa2.png" />
+                  <img src="https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/visa2.png" />
 
                   <div className={classes.PaymentMethod}>
                     <h3> Credit Card</h3>

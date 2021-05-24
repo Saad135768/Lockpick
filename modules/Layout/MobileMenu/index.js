@@ -39,7 +39,7 @@ const MobileMenu = () => {
           <div className={classes.Logo}>
             <Link href='/'>
               <a>
-                <img src='../../static/images/logo.png' alt='Lockpick logo' />
+                <img src='https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/logo.png' alt='Lockpick logo' />
               </a>
             </Link>
           </div>
