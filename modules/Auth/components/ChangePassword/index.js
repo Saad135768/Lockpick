@@ -53,7 +53,7 @@ const ChangePassword = async ({ oldPass, password }) => {
             <div className={classes.Left}>
               <img
                 alt="logo-footer"
-                src="https://image.devteam9260.workers.dev/?width=1200&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/white-logo.png"
+                src="https://image.devteam9260.workers.dev/?width1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/white-logo.png"
               />
               <DialogTitle id="form-dialog-title">
                 <h3> Hello { data?.getCurrentCustomer?.name} </h3>
