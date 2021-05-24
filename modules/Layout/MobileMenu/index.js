@@ -29,7 +29,7 @@ const MobileMenu = () => {
   const token = Cookies.get('token')
 
   const classes = useStyles()
-  const { parsed, pathname } = router
+  const { pathname } = router
 
   return (
     <div className={`${classes.MobileMenuHolder} ${pathname.includes('invoice' || 'order')? classes.none : ''}`}>
