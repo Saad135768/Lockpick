@@ -14,12 +14,11 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
     if (address) return `${address}, `
   }
 
-  const date = propOr(0, ['shippingDate'], invoice)
+  const date = +propOr(0, ['createdAt'], invoice)
   const shippingRate = pathOr(0, ['totals', 'shipping'], invoice)
-
-  const subtotal = pathOr([], ['variations'], invoice).reduce((a, b) => {
-    return propOr(0, ['total'], b) + a
-  }, 0)
+  const total = pathOr(0, ['totals', 'total'], invoice)
+  const subtotal = pathOr(0, ['totals', 'subtotal'], invoice)
+  const discount = pathOr(0, ['totals', 'discount', 'amount'], invoice)
 
   const classes = useStyles()
   return (
@@ -95,14 +94,10 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                         STATUS: <span>{invoice?.status} </span>
                       </h3>
                       <h3>
-                        Date:
+                        Date:     
                     <span>
                           {!!date
-                            ? new Date(+date).toLocaleString('en-us', {
-                              day: 'numeric',
-                              month: 'numeric',
-                              year: 'numeric',
-                            })
+                            ? new Date(date).toLocaleString()
                             : '-'}
                         </span>
                       </h3>
@@ -255,7 +250,7 @@ const Invoice = ({ invoice, invoiceId, ...props }) => {
                       <h5>
                         Total cost:
                     <b>
-                          ${(+subtotal + +shippingRate)
+                          ${(+total + +shippingRate)
                             ?.toFixed(2)
                             .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
                         </b>

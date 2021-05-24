@@ -66,7 +66,7 @@ const Header = () => {
                 </ScrollAnimation>
 
                 <Slider {...settings2}>
-                  {pathOr([], ['cms', 'slider'], cms).map(({ name, url, imageURL }) => (
+                  {pathOr([], ['cms', 'slider'], cms).map(({ name, url, imageURL }, index) => (
                     <div className={classes.slideritem} key={imageURL}>
                     <div className={classes.one}>
                       <img

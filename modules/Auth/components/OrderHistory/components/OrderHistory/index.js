@@ -21,10 +21,11 @@ const OrderHistory = ({ data, ...props }) => {
   const { data: getOrderData, loading } = useQuery(GET_ORDER, {
     variables: { _id },
   })
-  const date = pathOr(0, ['shippingDate'], getOrderData)
+  const date = +pathOr(0, ['createdAt'], data)
   const total = pathOr(0, ['totals', 'total'], data)
-  const shippingCost = pathOr(0, ['totals', 'shipping'], data)
+
   const setOpenModal = useStore((state) => state.setOpenModal)
+  
   const classes = useStyles()
   return (
     <Accordion square onChange={() => set_id(data?._id)}>
@@ -59,8 +60,8 @@ const OrderHistory = ({ data, ...props }) => {
             <Grid item lg={12} md={12} sm={12} xs={12}>
               {!!date && (
                 <h4 className={classes.OrdePlaced}>
-                  Placed on{' '}
-                  {new Date(+date).toLocaleString('en-us', {
+                  Placed on: 
+                  {new Date(date).toLocaleString('en-us', {
                     day: 'numeric',
                     month: 'numeric',
                     year: 'numeric',
@@ -83,7 +84,7 @@ const OrderHistory = ({ data, ...props }) => {
                   <span>
                     {' '}
                     $
-                    {(total + +shippingCost)
+                    {(total)
                       .toFixed(2)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}{' '}
                   </span>

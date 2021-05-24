@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Grid, Container, Breadcrumbs } from '@material-ui/core'
 import useStyles from './style'
 import ImageGallery from 'react-image-gallery'
@@ -20,6 +20,11 @@ import Head from 'next/head'
 const SingleProduct = (props) => {
   const [productsQuantity, setProductsQuantity] = useState(1)
   const [updateCartItem] = useMutation(UPDATE_CART_ITEM)
+
+  useEffect(() => {
+    const input = document.querySelector('.react-numeric-input input')
+    input?.setAttribute('disabled', '')
+  }, [])
 
   // Products values
   const name = pathOr('No name found', ['product', 'product', 'name', 'en'] ,props)

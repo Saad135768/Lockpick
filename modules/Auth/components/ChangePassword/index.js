@@ -86,7 +86,10 @@ const ChangePassword = async ({ oldPass, password }) => {
                 className={classes.LoginInput}
                 placeholder=" New Password"
                 type="password"
-                ref={register({ required: 'This field is required' })}
+                ref={register({ required: 'This field is required',   minLength: {
+                  value: 6,
+                  message: 'Password must be atleast 6 characters',
+                }, })}
               />
 {errors.password && (
                 <p className={classes.errorMsg}>{errors.password.message}</p>

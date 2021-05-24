@@ -80,8 +80,8 @@ const ShippingDetails = ({
               type="text"
               defaultValue={checkoutValues?.street}
             />
-            {errors.address && (
-              <p className={classes.errorMsg}>{errors.address.message}</p>
+            {errors.street && (
+              <p className={classes.errorMsg}>{errors.street.message}</p>
             )}
             <Grid container spacing={3}>
               <Grid item lg={6} md={6} sm={6} xs={12}>
@@ -144,8 +144,8 @@ const ShippingDetails = ({
                     checkoutValues?.postalCode
                   }
                 />
-                {errors.zipCode && (
-                  <p className={classes.errorMsg}>{errors.zipCode.message}</p>
+                {errors.postalCode && (
+                  <p className={classes.errorMsg}>{errors.postalCode.message}</p>
                 )}
               </Grid>
             </Grid>
