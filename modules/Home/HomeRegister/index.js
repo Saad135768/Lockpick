@@ -6,7 +6,6 @@ import ScrollAnimation from 'react-animate-on-scroll'
 import useStore from '../../../store'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_CART } from '../../../commonData'
-import Image from 'next/image'
 
 const HomeRegister = () => {
   
@@ -22,7 +21,7 @@ const HomeRegister = () => {
         <div className={classes.HomeRegisterBg}>
           <Parallax x={[-10, 9]}>
             <div className={classes.HomeRegisterImage}>
-              <Image height={640} width={750} src="/static/images/homepage/register2.png" />
+              <img alt='image of lockpicks full package' src="https://image.devteam9260.workers.dev/?width=750&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/register2.png" />
             </div>
           </Parallax>
           <div className={classes.HomeRegisterContent}>

@@ -109,7 +109,7 @@ const CartData = (props) => {
             <Fragment key={variationsId}>
               <tr>
                 <td className={`${classes.imageTable} imageTable`}>
-                  <img src={`https://res.cloudinary.com/qpixio/image/fetch/c_fill,g_north,h_250,w_200/${img}`} onClick={() => Router.push(`/product/${productsId}`)} />
+                  <img src={`https://image.devteam9260.workers.dev/?width=200&image=${img}`} alt="product's image" onClick={() => Router.push(`/product/${productsId}`)} />
                 </td>
                 <td className={`${classes.ItemName} ItemName`}>
                   <div className={`${classes.CartProductInfo} CartProductInfo`} >

@@ -103,7 +103,7 @@ overlay: {
     transition: 'background 0.3s, border-radius 0.3s, opacity 0.3s',
     backgroundPosition: 'center right',
     backgroundSize: '67% auto',
-    background: "url('../../static/images/homepage/contactbg.png')",
+    background: "url('https://image.devteam9260.workers.dev/?width1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/contactbg.png')",
   },
 
 ContactFormContent: {

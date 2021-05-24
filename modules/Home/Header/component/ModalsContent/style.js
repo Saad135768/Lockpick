@@ -251,18 +251,18 @@ background:'#151b1f',
     width: '80%',
     display: 'block',
     textAlign: 'center',
-    margin: '0 auto',
+    margin: 'auto',
     transition: 'all 0.4s ease-in-out 0s',
     marginRight: 20,
     maxWidth: '100%',
       },
       '& .ImageItem2 ': {
         width: '60%',
-        margin: '0 auto',
+        margin: 'auto',
           },
           '& .ImageItem3': {
             width: '75%',
-            margin: '0 auto',
+            margin: 'auto',
               },
   }
  

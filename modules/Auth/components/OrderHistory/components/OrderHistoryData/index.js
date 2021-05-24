@@ -15,7 +15,7 @@ const OrderHistoryData = ({ data, status, shippingCost }) => {
     <>
       <tr>
         <td className={classes.imageTable}>
-          <img src={image} alt='product image'/>
+          <img src={`https://image.devteam9260.workers.dev/?width=660&image=${image}`} alt='product image'/>
         </td>
 
         <td className={classes.OrderTableTd}>

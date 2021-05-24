@@ -66,7 +66,7 @@ useEffect(() => {
             <Slider {...settings}>
               {images.map((img) => (
                  <div key={img} onClick={() => Router.push(`/product/${id[0]}`)}>
-                 <img src={`https://res.cloudinary.com/qpixio/image/fetch/c_fill,g_north,h_800,w_660/${img}`} alt='Three images of the basic kit product' />
+                 <img src={`https://image.devteam9260.workers.dev/?width=660&image=${img}`} alt='Three images of the basic kit product' />
                </div>
               ))}
             </Slider>

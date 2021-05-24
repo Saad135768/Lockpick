@@ -7,7 +7,6 @@ import useStyles from './style'
 import { RiShoppingCartFill } from 'react-icons/ri'
 import { FaUser } from 'react-icons/fa'
 import Accordion from '@material-ui/core/Accordion'
-import AccordionDetails from '@material-ui/core/AccordionDetails'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import useStore from '../../../store'
@@ -29,7 +28,7 @@ const MobileMenu = () => {
   const token = Cookies.get('token')
 
   const classes = useStyles()
-  const { parsed, pathname } = router
+  const { pathname } = router
 
   return (
     <div className={`${classes.MobileMenuHolder} ${pathname.includes('invoice' || 'order')? classes.none : ''}`}>
@@ -39,7 +38,7 @@ const MobileMenu = () => {
           <div className={classes.Logo}>
             <Link href='/'>
               <a>
-                <img src='../../static/images/logo.png' alt='Lockpick logo' />
+                <img src='https://image.devteam9260.workers.dev/?width1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/logo.png' alt='Lockpick logo' />
               </a>
             </Link>
           </div>
@@ -50,7 +49,7 @@ const MobileMenu = () => {
       </Container>
 
       <Menu1
-        customCrossIcon={<img src='../../static/images/cancel.svg' />}
+        customCrossIcon={<img src='../../static/images/cancel.svg' alt='cancel icon'/>}
         isOpen={isOpen}
         onStateChange={e => { setIsOpen(e.isOpen) }}
       >

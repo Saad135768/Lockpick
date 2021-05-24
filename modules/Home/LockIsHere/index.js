@@ -14,7 +14,7 @@ const LockIsHere = () => {
       <Container>
         <div>
           <Parallax Y={[0, 10]}>
-            <img src="../../static/images/homepage/lookishere.png" />
+            <img src="https://image.devteam9260.workers.dev/?width=600&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/lookishere.png" />
             </Parallax>
           <p>
             The leading name in automotive scan tools, M2K, is proud to
