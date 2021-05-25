@@ -86,7 +86,7 @@ const CustomizedDialogs = (props) => {
               })}
             />
             {errors.password && (<p className={classes.errorMsg}>{errors.password.message}</p>)}
-            <p className={classes.forgotPass} onClick={() => setOpenModal(6)}>Forgot password</p>
+            <p className={classes.forgotPass} onClick={() => setOpenModal(6)}>Forgot password ?</p>
             <Button> LOG IN </Button>
             <div className={classes.register}>
               <h2 onClick={() => setOpenModal(2)}>Register</h2>

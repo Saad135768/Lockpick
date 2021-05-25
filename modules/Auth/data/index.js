@@ -38,8 +38,8 @@ export const LOGIN_MUTATION = gql`
   }
 `
 export const FORGOT_PASSWORD = gql`
-  mutation forgotPassword($username: String!, $verificationStrategy: String) {
-    forgotPassword(username: $username, verificationStrategy: $verificationStrategy)
+  mutation forgotPassword($username: String! $accountType: String $verificationStrategy: String) {
+    forgotPassword(username: $username, verificationStrategy: $verificationStrategy, accountType: $accountType)
   }
 `
 export const VERIFY_PIN = gql`

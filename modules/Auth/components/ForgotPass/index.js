@@ -26,6 +26,7 @@ const CustomizedDialogs = ({ setUsername ,...props }) => {
        await forgotPassword({
         variables: {
           username,
+          accountType: 'customer',
           verificationStrategy: 'email',
         },
       })
