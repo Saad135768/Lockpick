@@ -78,7 +78,7 @@ const PaymentMethod = ({
             </RadioGroup>
           </FormControl>
           <div className={classes.SecondPaymentNote}>
-            <img src="https://image.devteam9260.workers.dev/?width1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/note.png" alt='image of a note' />
+            <img src="https://image.devteam9260.workers.dev/?width=1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/note.png" alt='image of a note' />
           </div>
           <div className={classes.ContinueBtn}>
               <Button
