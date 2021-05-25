@@ -34,7 +34,7 @@ const Footer = () => {
                   <a href="/">
                     <img
                       alt="logo-footer"
-                      src="https://image.devteam9260.workers.dev/?width1000&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/6ed83267-70cd-4305-8c98-2083d891570b.png"
+                      src="https://image.devteam9260.workers.dev/?width=1000&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/6ed83267-70cd-4305-8c98-2083d891570b.png"
                     />
                   </a>
                 </li>
@@ -48,7 +48,7 @@ const Footer = () => {
               <div className={classes.CenterLogo}>
                 <img
                   alt="m2k-logo"
-                  src="https://image.devteam9260.workers.dev/?width1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/m2klogo.png"
+                  src="https://image.devteam9260.workers.dev/?width=1000&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/m2klogo.png"
                 />
               </div>
             </Grid>

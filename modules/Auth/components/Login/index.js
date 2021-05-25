@@ -8,7 +8,7 @@ import { DialogTitle } from '@material-ui/core'
 import { useForm } from 'react-hook-form'
 import { withSnackbar } from 'notistack'
 import { LOGIN_MUTATION } from '../../data'
-import useStore from './../../../../store';
+import useStore from '../../../../store'
 
 const CustomizedDialogs = (props) => {
   const { register, handleSubmit, errors } = useForm({
@@ -48,20 +48,20 @@ const CustomizedDialogs = (props) => {
     <div>
       <Dialog
         className={classes.root}
-        aria-labelledby="customized-dialog-title"
+        aria-labelledby='customized-dialog-title'
         open={openModal}
         onClose={() => setOpenModal()}
       >
         <form onSubmit={handleSubmit(customerLogin)}>
           <div>
-            <img alt="logo-footer" src="../../static/images/login-logo.png" />
-            <DialogTitle id="form-dialog-title">
+            <img alt='logo' src='https://image.devteam9260.workers.dev/?width=300&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/a3e86233-735b-4504-ace9-6d8a409e74c0.png' />
+            <DialogTitle id='form-dialog-title'>
               <h3> Welcome Back </h3>
             </DialogTitle>
             <input
               name='username'
               className={classes.LoginInput}
-              placeholder="Email"
+              placeholder='Email'
               type='email'
               ref={register({
                 required: 'This field is required',
@@ -74,8 +74,8 @@ const CustomizedDialogs = (props) => {
             {errors.username && (<p className={classes.errorMsg}>{errors.username.message}</p>)}
             <input
               name='password'
-              className={classes.LoginInput}
-              placeholder="Password"
+              className={`${classes.LoginInput} pass`}
+              placeholder='Password'
               type='Password'
               ref={register({
                 required: 'This field is required',
@@ -86,6 +86,7 @@ const CustomizedDialogs = (props) => {
               })}
             />
             {errors.password && (<p className={classes.errorMsg}>{errors.password.message}</p>)}
+            <p className={classes.forgotPass} onClick={() => setOpenModal(6)}>Forgot password</p>
             <Button> LOG IN </Button>
             <div className={classes.register}>
               <h2 onClick={() => setOpenModal(2)}>Register</h2>

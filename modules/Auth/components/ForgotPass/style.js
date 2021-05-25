@@ -41,14 +41,10 @@ const useStyles = makeStyles(() => ({
     },
   },
   '.pass':{
-    marginBottom: '0 !important'
+    marginBottom: 0
   },
   forgotPass: {
     cursor: 'pointer',
-    marginTop: '-10px',
-    '&:hover': {
-     textDecoration: 'underline'
-    },
   },
   closeButton: {
     position: 'absolute',
