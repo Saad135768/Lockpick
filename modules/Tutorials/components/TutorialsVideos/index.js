@@ -54,7 +54,6 @@ export default function VerticalTabs() {
 
   const router = useRouter()
   const { asPath } = router
-
   const items = pathOr([], ['cms', 'secondarySlider'], cmsData)
 
   useEffect(() => {
@@ -116,7 +115,7 @@ export default function VerticalTabs() {
         >
           {items.map(
             ({ name, url }, index) => (
-              <Tab label={name} {...a11yProps(index)} key={url} />
+              <Tab className={ name.toLowerCase().includes(searchTerm || 'xxxxxxx') ? classes.selected : ''} label={name} {...a11yProps(index)} key={url} />
             ),
           )}
         </Tabs>

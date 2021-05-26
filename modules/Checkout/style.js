@@ -1,55 +1,52 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
-  CheckoutHolder:{
-    
-
+  CheckoutHolder: {
     '& .MuiAccordionDetails-root , .MuiAccordionDetails-root': {
-    padding:0,
+      padding: 0,
     },
     '& .MuiAccordionSummary-root': {
-      padding:'0',
+      padding: '0',
     },
-      
-  '& .ButtonHolder button': {
-    width: '100%',
-    marginTop: 30,
-  },
-  '& .MuiAccordionDetails-root': {
-    paddingTop: 0,
-    paddingBottom: 0,
-  },
+
+    '& .ButtonHolder button': {
+      width: '100%',
+      marginTop: 30,
+    },
+    '& .MuiAccordionDetails-root': {
+      paddingTop: 0,
+      paddingBottom: 0,
+    },
     '& .EditDelivery h6 , .EditDelivery p': {
-color:'#8d8d8e',
-margin:0,
-fontSize:18,
+      color: '#8d8d8e',
+      margin: 0,
+      fontSize: 18,
     },
     '& .EditDelivery .MuiGrid-spacing-xs-2 > .MuiGrid-item': {
-paddingBottom:0,
+      paddingBottom: 0,
     },
-    
-    marginTop:100,
-    marginBottom:140,
+
+    marginTop: 100,
+    marginBottom: 140,
     '@media (max-width:768px)': {
-      marginTop:30,
-      marginBottom:50,
+      marginTop: 30,
+      marginBottom: 50,
       '& .MuiGrid-spacing-xs-8': {
         flexDirection: 'column-reverse',
-        width:'100%',
+        width: '100%',
         margin: 0,
       },
     },
     '@media (max-width:767px)': {
-      marginTop:30,
-      marginBottom:40,
+      marginTop: 30,
+      marginBottom: 40,
       '& .MuiGrid-spacing-xs-8': {
         flexDirection: 'column-reverse',
-        width:'100%',
+        width: '100%',
         margin: 0,
       },
       '& .MuiGrid-spacing-xs-8 > .MuiGrid-item': {
         padding: 10,
-
       },
     },
     '& hr': {
@@ -58,17 +55,17 @@ paddingBottom:0,
       border: 0,
       margin: 0,
     },
-      },
-      CheckoutLogged:{
-        display:'flex',
-        justifyContent:'space-between',
+  },
+  CheckoutLogged: {
+    display: 'flex',
+    justifyContent: 'space-between',
     background: '#4c505a',
     color: '#fff',
     marginBottom: 0,
     padding: '0 20px',
     marginTop: 10,
     '@media (max-width:767px)': {
-      display:'block',
+      display: 'block',
       padding: '10px 20px',
     },
     '& h4': {
@@ -77,62 +74,57 @@ paddingBottom:0,
       margin: '15px 0',
       cursor: 'pointer',
       '&:hover': {
-        color:'#fba530',
+        color: '#fba530',
       },
     },
     '& h3': {
       margin: '15px 0',
     },
-      },
-
-      CheckoutTitle:{
-'& h2': {
-  color: '#fba530',
-  fontFamily: 'Poppins-SemiBold',
-  fontSize: '40px',
-  textTransform: 'uppercase',
-  margin: 8,
-},
-
   },
 
+  CheckoutTitle: {
+    '& h2': {
+      color: '#fba530',
+      fontFamily: 'Poppins-SemiBold',
+      fontSize: '40px',
+      textTransform: 'uppercase',
+      margin: 8,
+    },
+  },
 
-
-
-  CartInputs:{
+  CartInputs: {
     marginTop: 40,
-    
+
     '& .note': {
       marginTop: 10,
       '& svg': {
         marginTop: 2,
         fontSize: 18,
       },
-  
     },
   },
-  ShippingDetails:{
+  ShippingDetails: {
     borderBottom: '1px solid #3780d5',
-   paddingBottom: 0,
+    paddingBottom: 0,
     '& button': {
-      textTransform:'uppercase',
+      textTransform: 'uppercase',
       marginTop: 0,
-      transition: '0.1s', 
-fontSize: 18,
-padding:'15px 0',
-borderRadius:'0',
-color:'#fff',
+      transition: '0.1s',
+      fontSize: 18,
+      padding: '15px 0',
+      borderRadius: '0',
+      color: '#fff',
     },
     '& h5': {
       fontSize: 22,
       color: '#fba530',
-      fontFamily:'Poppins-SemiBold',
+      fontFamily: 'Poppins-SemiBold',
       margin: '30px 0',
       marginBottom: 28,
-    '& em': {
-      fontStyle: 'normal',
-      marginRight: 10,
-    },
+      '& em': {
+        fontStyle: 'normal',
+        marginRight: 10,
+      },
     },
     '& span': {
       fontSize: 18,
@@ -145,12 +137,12 @@ color:'#fff',
     border: '2px solid #474c56',
     borderRadius: '1px',
     display: 'block',
-    color:'#fff',
+    color: '#fff',
     height: '50px',
-    background:'transparent',
-    marginBottom :30,
+    background: 'transparent',
+    marginBottom: 30,
     width: '100%',
-    marginTop:10,
+    marginTop: 10,
 
     transition: '0.3s',
     fontSize: 16,
@@ -162,75 +154,73 @@ color:'#fff',
     '&::placeholder ': {
       color: '#fff !important',
       fontFamily: 'Poppins-Light',
-      background:' transparent',
+      background: ' transparent',
     },
     '&:focus': {
       transition: '0.3s',
       fontFamily: 'Poppins-Light',
       color: '#fff !important',
-      border:'1px solid #fba62f',
+      border: '1px solid #fba62f',
     },
     '& option': {
       color: 'black',
-    }
+    },
   },
 
   '.select': {
     cursor: 'pointer',
   },
-  DeliveryMethod:{
+  DeliveryMethod: {
     width: '100%',
     '& fieldset.MuiFormControl-root ': {
       color: '#fff',
       width: '100%',
-      padding:'25px 7px',
-      border:'1px solid #474c56',
+      padding: '25px 7px',
+      border: '1px solid #474c56',
     },
-    '& label.MuiFormControlLabel-root' :{
-
-      marginLeft:18,
+    '& label.MuiFormControlLabel-root': {
+      marginLeft: 18,
     },
     '&  span.MuiTypography-root ': {
       color: '#fff',
       marginLeft: 10,
-  },
-  '&  .MuiRadio-colorSecondary.Mui-checked  span': {
-    color: '#3780d5 !important',
-  },
-  '& p ': {
-    color: '#fff',
-    marginLeft: 10,
-    color: '#8d8d8e',
-    marginLeft: 70,
-    marginTop: 0,
-    fontSize: 18,
-    fontFamily: 'Poppins-Regular',
-},
+    },
+    '&  .MuiRadio-colorSecondary.Mui-checked  span': {
+      color: '#3780d5 !important',
+    },
+    '& p ': {
+      color: '#fff',
+      marginLeft: 10,
+      color: '#8d8d8e',
+      marginLeft: 70,
+      marginTop: 0,
+      fontSize: 18,
+      fontFamily: 'Poppins-Regular',
+    },
 
-'& h3 ': {
-  marginTop: 10,
-  fontFamily: 'Poppins-Regular',
-  fontSize: 18,
-  marginBottom: 0,
-  '@media (max-width:767px)': {
-    marginLeft: 70,
-    marginTop: 0,
-    position:'relative',
-    bottom:13,
-
+    '& h3 ': {
+      marginTop: 10,
+      fontFamily: 'Poppins-Regular',
+      fontSize: 18,
+      marginBottom: 0,
+      '@media (max-width:767px)': {
+        marginLeft: 70,
+        marginTop: 0,
+        position: 'relative',
+        bottom: 13,
+      },
+    },
+    '& hr ': {
+      width: '100%',
+      marginBottom: 15,
+      background: '#474c56',
+    },
   },
-},
-  '& hr ': {
-    width: '100%',
-    marginBottom: 15,
-    background:'#474c56',
-},
-  },
 
-  PaymentWays:{
-    display:'flex',
-    justifyContent:'space-around',
-alignItems:'center',
+  PaymentWays: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     '& img ': {
       width: 65,
       position: 'relative',
@@ -238,117 +228,113 @@ alignItems:'center',
       objectFit: 'cover',
       margin: 0,
       margin: '0 4px',
+    },
+    '& h4 ': {
+      fontFamily: 'Poppins-Regular',
+      position: 'relative',
+      bottom: 7,
+    },
   },
-  '& h4 ': {
-    fontFamily: 'Poppins-Regular',
-    position: 'relative',
-    bottom: 7,
-   
-},
-
-  },
-  SecondPayment:{
+  SecondPayment: {
     '& img ': {
-      marginLeft:30,
-  },
+      marginLeft: 30,
+    },
   },
 
   SecondPaymentNote: {
     marginTop: 30,
 
-  '& img ': {
-    width:'100%',
-},
-},
-
-root:{
-
-'& .MuiAccordionDetails-root a': {
-  width: '100%',
-  marginBottom: 20,
-  marginTop: 0,
-
-},
-  '& .MuiAccordionSummary-content.Mui-expanded ': {
-      marginBottom:0,
+    '& img ': {
+      width: '100%',
+    },
   },
-  '& .MuiAccordion-root:before ': {
-    background:'#3780d5',
-    opacity: 1,
 
+  root: {
+    '& .MuiAccordionDetails-root a': {
+      width: '100%',
+      marginBottom: 20,
+      marginTop: 0,
+    },
+    '& .MuiAccordionSummary-content.Mui-expanded ': {
+      marginBottom: 0,
+    },
+    '& .MuiAccordion-root:before ': {
+      background: '#3780d5',
+      opacity: 1,
+    },
+    '& .MuiPaper-root ': {
+      backgroundColor: 'transparent',
+      boxShadow: 'none !important',
+    },
   },
-  '& .MuiPaper-root ': {
-    backgroundColor: 'transparent',
-    boxShadow: 'none !important',
-},
 
-},
-
-ReturnPolicy:{
-  '& p': {
-    fontSize:16,
-    color:'#fff',
-    marginTop: 40,
-    fontFamily: 'Poppins-Regular',
+  ReturnPolicy: {
+    '& p': {
+      fontSize: 16,
+      color: '#fff',
+      marginTop: 40,
+      fontFamily: 'Poppins-Regular',
+    },
   },
-},
-EditBtn :{
-  background:'transparent',
-  border:0,
-  textAlign: 'right',
+  EditBtn: {
+    background: 'transparent',
+    border: 0,
+    textAlign: 'right',
     margin: 0,
     padding: 0,
     textDecoration: 'underline',
     position: 'absolute',
     top: 40,
-    right:0,
+    right: 0,
     marginTop: 0,
-     cursor:'pointer',
-  '&:focus': {
-    background:'transparent',
-    border:0,
-    color:'#fba530',
-    outline:0,
+    cursor: 'pointer',
+    '&:focus': {
+      background: 'transparent',
+      border: 0,
+      color: '#fba530',
+      outline: 0,
+    },
   },
-},
 
-SaveBtn :{
-  textTransform: 'uppercase',
-  background:'transparent',
-  border:0,
-  textAlign: 'right',
+  SaveBtn: {
+    textTransform: 'uppercase',
+    background: 'transparent',
+    border: 0,
+    textAlign: 'right',
     margin: 0,
     marginTop: 0,
     padding: 0,
     textDecoration: 'underline',
     position: 'absolute',
-    cursor:'pointer',
-    right:0,
+    cursor: 'pointer',
+    right: 0,
     top: 40,
-  '&:focus': {
-    background:'transparent',
-    border:0,
-    color:'#fba530',
-    outline:0,
+    '&:focus': {
+      background: 'transparent',
+      border: 0,
+      color: '#fba530',
+      outline: 0,
+    },
   },
-},
 
-SHippingEdit:{
-  width:'100%',
-'& h6': {
-  color:'#8d8d8e',
-margin:0,
-fontSize:18,
-},
-
-},
-errorMsg: {
-  color: 'red',
-  fontWeight: 'bold',
-},
-ContinueBtn:{
-width:'100%',
-}
+  SHippingEdit: {
+    width: '100%',
+    '& h6': {
+      color: '#8d8d8e',
+      margin: 0,
+      fontSize: 18,
+    },
+  },
+  errorMsg: {
+    color: 'red',
+    fontWeight: 'bold',
+  },
+  ContinueBtn: {
+    width: '100%',
+  },
+  paypalImgDisplayedNode: {
+    display: 'none',
+  }
 }))
 
 export default useStyles

@@ -1,6 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
+  selected: {
+    '& .MuiTab-wrapper':{
+    background: 'black',
+    },
+  },
   root: {
     flexGrow: 1,
     backgroundColor: '#2d4562',
@@ -88,28 +93,28 @@ const useStyles = makeStyles(() => ({
 
     '& button': {
       marginBottom: 20,
-      boxShadow:'unset',
+      boxShadow: 'unset',
     },
     '& .searchButton': {
       color: '#fff',
-    border: '1px solid #3780d5',
-    cursor: 'pointer',
-    height: 48,
-    fontSize: 20,
-    background: '#3780d5',
-    textAlign: 'center',
-    fontFamily: 'Poppins-Light',
-    borderRadius: '0 12px 12px 0',
-    marginBottom:'20px !important',
-    '@media (max-width:767px)': {
-      width: 'unset',
-    },
+      border: '1px solid #3780d5',
+      cursor: 'pointer',
+      height: 48,
+      fontSize: 20,
+      background: '#3780d5',
+      textAlign: 'center',
+      fontFamily: 'Poppins-Light',
+      borderRadius: '0 12px 12px 0',
+      marginBottom: '20px !important',
+      '@media (max-width:767px)': {
+        width: 'unset',
+      },
     },
     '& .searchTerm': {
       color: '#fff',
       border: 0,
       height: 48,
-      paddingLeft:'20px !important',
+      paddingLeft: '20px !important',
       outline: 'none',
       padding: 5,
       fontSize: 15,
@@ -128,10 +133,10 @@ const useStyles = makeStyles(() => ({
       '&::placeholder ': {
         color: '#fff',
         fontFamily: 'Poppins-Light',
-        background:' transparent',
+        background: ' transparent',
       },
-    }
-  }
+    },
+  },
 }))
 
 export default useStyles
