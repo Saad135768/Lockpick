@@ -29,6 +29,7 @@ const SecondProductSlider = ({ taxonomyName, ...props }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    fade: true,
     responsive: [
       {
         breakpoint: 1024,
