@@ -46,6 +46,7 @@ const useStyles = makeStyles(() => ({
   forgotPass: {
     cursor: 'pointer',
     marginTop: '-10px',
+    textAlign: 'center',
     '&:hover': {
      textDecoration: 'underline'
     },
