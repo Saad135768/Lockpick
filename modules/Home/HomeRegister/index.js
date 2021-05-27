@@ -21,7 +21,12 @@ const HomeRegister = () => {
         <div className={classes.HomeRegisterBg}>
           <Parallax x={[-10, 9]}>
             <div className={classes.HomeRegisterImage}>
-              <img alt='image of lockpicks full package' src="https://image.devteam9260.workers.dev/?width=750&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/register2.png" />
+              <img 
+              width={750}
+              height={590}
+              alt='image of lockpicks full package' 
+              src="https://image.devteam9260.workers.dev/?width=750&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/register2.png" 
+              />
             </div>
           </Parallax>
           <div className={classes.HomeRegisterContent}>

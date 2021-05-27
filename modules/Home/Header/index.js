@@ -82,6 +82,8 @@ const Header = () => {
 
                 <div className={classes.three}>
                   <img
+                  width={1000}
+                  height={331}
                     src="https://image.devteam9260.workers.dev/?width=1000&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/e0a47501-3b89-44b1-9d43-3a0c718658a3.png"
                     alt="lockpick-header-image"
                   />

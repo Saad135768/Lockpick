@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   ContactFormHolder: {
+    height: 691,
     backgroundSize: '50%',
     overflow: 'hidden',
     backgroundRepeat: 'no-repeat',

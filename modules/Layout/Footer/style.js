@@ -89,6 +89,7 @@ const useStyles = makeStyles(() => ({
       '@media (max-width: 767px)': {
         marginTop: 35,
         width: '50%',
+        height: 'auto',
       },
     },
   },

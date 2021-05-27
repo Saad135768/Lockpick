@@ -19,7 +19,10 @@ const Footer = () => {
       <div className={classes.FooterScroll} >
         <ScrollToTop showUnder={200} duration={900}>
           <span>
-            <img src="https://image.devteam9260.workers.dev/?width=70&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/backt2top.png" />
+            <img
+            alt={'up-arrow'}
+            src="https://image.devteam9260.workers.dev/?width=70&image=https://m2k-static.s3-eu-west-1.amazonaws.com/lock-pick/backt2top.png" 
+            />
           </span>
         </ScrollToTop>
       </div>
@@ -33,8 +36,10 @@ const Footer = () => {
                 <li className={classes.FooterLogo}>
                   <a href="/">
                     <img
+                    width={300}
+                    height={80}
                       alt="logo-footer"
-                      src="https://image.devteam9260.workers.dev/?width=1000&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/6ed83267-70cd-4305-8c98-2083d891570b.png"
+                      src="https://image.devteam9260.workers.dev/?width=400&image=https://hbs-static.s3.eu-west-1.amazonaws.com/product/5fc5fa160412b572360a4771/6ed83267-70cd-4305-8c98-2083d891570b.png"
                     />
                   </a>
                 </li>

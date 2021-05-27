@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
   },
   '& img': {
     width: '100%',
-  
+  height: 590,
     '@media (max-width:1024px)': {
       marginTop:40,
     },
@@ -40,6 +40,7 @@ const useStyles = makeStyles(() => ({
     },
     '@media (max-width:767px)': {
       width: '80%',
+      height: 'auto',
     },
     },
 

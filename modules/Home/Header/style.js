@@ -12,6 +12,10 @@ const useStyles = makeStyles(() => ({
 
     ' & .slick-list': {
       overflow: 'visible',
+      height: 430,
+    },
+    '& .slick-slider': {
+      height: 430,
     },
 
     padding: '15px 0',
@@ -36,7 +40,7 @@ const useStyles = makeStyles(() => ({
       display: 'block',
       '@media (max-width:768px)': {
         width: '100%',
-
+        height: 'auto',
 
       },
     },
@@ -156,6 +160,11 @@ const useStyles = makeStyles(() => ({
   },
 
   HeaderCircles:{
+    height: 550,
+    '@media (max-width:768px)': {
+      height: 'auto',
+      
+    },
     '& h2': {
       fontFamily: 'Poppins-SemiBold',
       fontSize:90,
